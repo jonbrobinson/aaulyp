@@ -1,0 +1,27 @@
+.navbar-brand.navbar-logo-bigger {
+  padding: 0 0 60px 10px;
+}
+.navbar-brand.navbar-logo-bigger > img {
+  position: relative;
+  top: -5px;
+  width: 225px;
+}
+
+.main-features {
+  color: #CD5C5C;
+  background-color: #c33d3d;
+}
+
+.feature-heading {
+  color: #CD5C5C;
+}
+
+.main-features div[class^="col-"]:after {
+  content: '';
+  border-right: 1px dashed #CD5C5C;
+  position: absolute;
+  height: 80px;
+  top: 50%;
+  right: 0;
+  margin-top: -40px;
+}

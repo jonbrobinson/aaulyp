@@ -12,9 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
+Route::get('/aaulyp', function () {
+    return view('pages.aaulyp');
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
