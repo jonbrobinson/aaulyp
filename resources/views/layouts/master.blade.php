@@ -10,7 +10,6 @@
         <!-- CSS -->
         <link href="{{ asset("assets/css/bootstrap.css")}}" rel="stylesheet" type="text/css">
         <link href="{{ asset("assets/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css">
-{{--        <link href="{{ asset("assets/css/main_custom.css") }}" rel="stylesheet" type="text/css">--}}
         <link href="{{ asset("assets/css/main.css") }}" rel="stylesheet" type="text/css">
         <link href="{{ asset("assets/css/my-custom-styles.css") }}" rel="stylesheet" type="text/css">
         <link href="{{ asset("assets/css/skins/indianred.css") }}" rel="stylesheet" type="text/css">
@@ -24,11 +23,8 @@
         <!-- GOOGLE FONTS -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,400italic,700,400,300' rel='stylesheet' type='text/css'>
-        <!-- FAVICONS -->
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset("assets/ico/repute114x114.png") }}">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset("assets/ico/repute72x72.png") }}">
-        <link rel="apple-touch-icon-precomposed" href="{{ asset("assets/ico/repute57x57.png") }}">
-        <link rel="shortcut icon" href="{{ asset("assets/ico/favicon.png") }}">
+
+        @include('partials/favicon')
     </head>
 
     <body>
