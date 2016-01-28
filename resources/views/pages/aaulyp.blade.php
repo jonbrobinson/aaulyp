@@ -20,19 +20,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    @include('partials.aboutSideBar')
+                    <ul id="sidebar-nav" class="sidebar-nav margin-bottom-30px">
+                        <li class="list-group-item current"><a href="/aaulyp">Austin Area Urban League</a></li>
+                        <li class="list-group-item "><a href="ui-numbers-charts.html">Austin Area Urban League Young Professionals</a></li>
+                        <li class="list-group-item "><a href="ui-testimonials.html">National Urban League</a></li>
+                        <li class="list-group-item "><a href="ui-maps.html">National Urban League Young Professionals</a></li>
+                    </ul>
                 </div>
                 <div class="col-md-9">
                     <section>
-                        <p>Completely monetize cooperative alignments vis-a-vis empowered leadership skills. Assertively empower maintainable intellectual capital with extensive total linkage. Enthusiastically synthesize bleeding-edge intellectual capital after market-driven initiatives. Enthusiastically enhance turnkey architectures before backward-compatible deliverables. Collaboratively drive virtual solutions vis-a-vis multimedia based data. Dynamically transition emerging leadership skills after long-term high-impact human capital. Competently reintermediate 24/365 quality vectors rather than sticky bandwidth. Authoritatively.</p>
-                        <p>Professionally facilitate orthogonal leadership whereas customer directed testing procedures. Credibly incubate ubiquitous human capital without efficient expertise. Intrinsicly optimize ubiquitous web-readiness through standards compliant metrics. Intrinsicly drive ethical technologies whereas installed base interfaces. Credibly expedite backward-compatible e-markets before viral opportunities.</p>
+                        <p>The Austin Area Urban League incorporated on August 12, 1977, stands proudly as it takes its place among the 96 affiliates of the National Urban League. Although 36 years have passed since its creation, the Austin Area Urban League continues to hold fast to our original mission; one which guides our outreach, programming, partnerships and advocacy. We envision a community in which all citizens are free from barriers to education, economic and social success.</p>
+                        <p>Over the years, significant steps have been made in removing the early prejudices and barriers, thus allowing many of our constituents to learn to grow, and to thrive in the Austin community. As we move forward with our programs, we have been able to adapt to the ever-changing Austin environment – one that has grown from being merely the state capital to that of a thriving technological hub that incorporates the community, government, and the business sectors.</p>
                         <br>
                         <h2 class="section-heading">OUR MISSION</h2>
-                        <p class="lead"><span class="dropcap dropcap-big">P</span>hosfluorescently predominate stand-alone strategic theme areas with resource maximizing resources. Professionally transform end-to-end catalysts for change via impactful e-services.</p>
+                        <p class="lead"><span class="dropcap dropcap-big">P</span>rovide tools to African-Americans and under-served populations to build a foundation for social and economic equality.</p>
                         <br>
                         <h2 class="section-heading">OUR VISION</h2>
-                        <p class="lead"><span class="dropcap dropcap-big">D</span>istinctively predominate front-end total linkage via user. Professionally synthesize sustainable growth strategies before bricks-and-clicks functionalities. Holisticly synthesize unique intellectual capital whereas ubiquitous users.</p>
-                        <p>Proactively incubate integrated collaboration and idea-sharing for global e-tailers. Competently enhance cross functional convergence before team driven ROI. Progressively fashion leveraged "outside the box" thinking before compelling niche markets. Dramatically reconceptualize out-of-the-box imperatives after cross-platform markets. Monotonectally underwhelm scalable outsourcing after an expanded array of initiatives. Compellingly drive viral infrastructures via.</p>
+                        <p class="lead"><span class="dropcap dropcap-big">A</span> community where all individuals and families are empowered to be self-sufficient.</p>
                     </section>
                 </div>
             </div>
