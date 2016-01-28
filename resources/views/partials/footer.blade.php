@@ -5,8 +5,8 @@
             <div class="col-md-4">
                 <!-- COLUMN 1 -->
                 <h3 class="sr-only">ABOUT US</h3>
-                <img src="assets/img/logo/repute-logo-light.png" class="logo" alt="Repute">
-                <p>Proactively aggregate B2B initiatives before extensive channels. Monotonectally extend interactive methods of empowerment through excellent applications. Rapidiously synergize visionary products with sticky technology.</p>
+                <img src="{{ asset("assets/img/aaulyp/logos/UL-white_225x62.png") }}" class="logo" alt="Repute">
+                <p>The Austin Area Urban League Young Professionals (AAULYP) is a National Urban League volunteer auxiliary that targets young professionals ages 21-40 to empower their communities and change lives through the Urban League Movement.</p>
                 <br>
                 <address class="margin-bottom-30px">
                     <ul class="list-unstyled">

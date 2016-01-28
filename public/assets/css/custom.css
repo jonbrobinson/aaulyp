@@ -25,3 +25,16 @@
   right: 0;
   margin-top: -40px;
 }
+
+.testimonial-with-bg {
+  padding: 120px 0;
+  background-image: url('../img/aaulyp/aaulyp_parallax.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+footer .logo {
+  width: 225px;
+  margin-bottom: 15px;
+}
