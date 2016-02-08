@@ -10,7 +10,7 @@
             <ol class="breadcrumb">
                 <li><a href="/">Home</a></li>
                 <li><a href="/aaulyp">About</a></li>
-                <li class="active">AAUL</li>
+                <li class="active">Our History</li>
             </ol>
         </div>
     </div>
@@ -21,15 +21,13 @@
             <div class="row">
                 <div class="col-md-3">
                     <ul id="sidebar-nav" class="sidebar-nav margin-bottom-30px">
-                        <li class="list-group-item current"><a href="/aaulyp">Austin Area Urban League</a></li>
-                        <li class="list-group-item "><a href="ui-numbers-charts.html">Austin Area Urban League Young Professionals</a></li>
-                        <li class="list-group-item "><a href="ui-testimonials.html">National Urban League</a></li>
-                        <li class="list-group-item "><a href="ui-maps.html">National Urban League Young Professionals</a></li>
+                        <li class="list-group-item current"><a href="/aaulyp">Our History</a></li>
+                        <li class="list-group-item "><a href="/aaul">Austin Area Urban League</a></li>
                     </ul>
                 </div>
                 <div class="col-md-9">
                     <section>
-                        <p>The Austin Area Urban League incorporated on August 12, 1977, stands proudly as it takes its place among the 96 affiliates of the National Urban League. Although 36 years have passed since its creation, the Austin Area Urban League continues to hold fast to our original mission; one which guides our outreach, programming, partnerships and advocacy. We envision a community in which all citizens are free from barriers to education, economic and social success.</p>
+                        <p>Austin Area Urban League Young Professionals [AAULYP's or YP's] are committed to helping make Austin a better city through diversity and urban culture. The purpose and mission of the Urban League and the Young Professionals in particular is to provide young people with resources that encourage networking and interaction with social, cultural, educational and political institutions and to help cultivate innovative ideas and dynamic dialogue in Austin amongst “Young Professionals”.</p>
                         <p>Over the years, significant steps have been made in removing the early prejudices and barriers, thus allowing many of our constituents to learn to grow, and to thrive in the Austin community. As we move forward with our programs, we have been able to adapt to the ever-changing Austin environment – one that has grown from being merely the state capital to that of a thriving technological hub that incorporates the community, government, and the business sectors.</p>
                         <br>
                         <h2 class="section-heading">OUR MISSION</h2>
