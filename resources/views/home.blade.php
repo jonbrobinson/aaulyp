@@ -8,7 +8,7 @@
         <div id="carousel-hero" class="slick-carousel">
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="assets/img/sliders/slider3-h500.png" alt="Slider Image">
+                    <img src="assets/img/aaulyp/yp_collage_bw_bg.jpg" alt="Slider Image">
                     <div class="carousel-caption">
                         <h2 class="hero-heading">CLEAN &amp; ELEGANT DESIGN</h2>
                         <p class="lead">Giving valuable reputation and credibility to your business</p>
@@ -56,10 +56,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h2 class="section-heading">KNOW BETTER</h2>
-                    <p class="lead">Synergistically procrastinate one-to-one results for accurate platforms. Assertively whiteboard corporate users whereas dynamic initiatives.</p>
-                    <p>Energistically architect leading-edge users and inexpensive internal or "organic" sources. Distinctively evolve e-business resources after progressive intellectual capital. Objectively architect maintainable technologies via strategic convergence. Continually optimize stand-alone expertise with e-business e-services. Continually conceptualize client-centered opportunities and.</p>
-                    <p>Dynamically customize backward-compatible processes via front-end models. Distinctively evisculate an expanded array of scenarios after virtual information. Professionally predominate technically sound resources through impactful mindshare. Efficiently drive viral interfaces without inexpensive value. Credibly.</p>
+                    <h2 class="section-heading">HOW CAN WE HELP</h2>
+                    <p class="lead">Our purpose is to empower young profressionals in their communities, and change lives through volunteer activities and civic engagement.</p>
+                    <p>Austin Area Urban League Young Professionals are committed to community engagement, improving minority businesses through innovative programming, and dynamic dialogue and professional development.</p>
+                    <p>Our activities are characterized by excellence in community service, fund-raising, and dedication to the development of its diverse members to empower communities and change lives through consistent involvement in the community in partnership with the Urban League.</p>
                 </div>
                 <div class="col-md-6">
                     <img src="assets/img/intro-img.png" class="img-responsive" alt="Image Intro">
@@ -74,30 +74,30 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="boxed-content left-aligned left-boxed-icon">
-                        <i class="fa fa-flag"></i>
-                        <h2 class="boxed-content-title">GOAL ORIENTED</h2>
-                        <p>Holisticly harness just in time technologies via corporate scenarios. Intrinsicly predominate ubiquitous outsourcing through an expanded array of functionalities.</p>
+                        <i class="fa fa-group"></i>
+                        <h2 class="boxed-content-title">LEADERSHIP EMPOWERMENT</h2>
+                        <p>We encourage our members to become leaders within Austin and surrounding cities by building skills </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="boxed-content left-aligned left-boxed-icon">
+                        <i class="fa fa-graduation-cap"></i>
+                        <h2 class="boxed-content-title">EDUCATION AND YOUTH EMPOWERMENT</h2>
+                        <p>We are committed to mentoring and educating youth to help grow their opportunitties for future accomplishments</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="boxed-content left-aligned left-boxed-icon">
                         <i class="fa fa-globe"></i>
-                        <h2 class="boxed-content-title">GLOBAL SERVICE</h2>
-                        <p>Holisticly harness just in time technologies via corporate scenarios. Intrinsicly predominate ubiquitous outsourcing through an expanded array of functionalities.</p>
+                        <h2 class="boxed-content-title">ECONOMIC EMPOWERMENT</h2>
+                        <p>Our network connects young professionals from across the nation to vast communities within Austin professions and companies.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="boxed-content left-aligned left-boxed-icon">
-                        <i class="fa fa-cog"></i>
-                        <h2 class="boxed-content-title">DYNAMIC CHANGE</h2>
-                        <p>Holisticly harness just in time technologies via corporate scenarios. Intrinsicly predominate ubiquitous outsourcing through an expanded array of functionalities.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="boxed-content left-aligned left-boxed-icon">
-                        <i class="fa fa-users"></i>
-                        <h2 class="boxed-content-title">PROFESSIONAL SUPPORT</h2>
-                        <p>Holisticly harness just in time technologies via corporate scenarios. Intrinsicly predominate ubiquitous outsourcing through an expanded array of functionalities.</p>
+                        <i class="fa fa-gavel"></i>
+                        <h2 class="boxed-content-title">CIVIC ENGAGEMENT</h2>
+                        <p>Our members are educated, dedicated, and committed to helping the comminity get involed in their polication and social movements.</p>
                     </div>
                 </div>
             </div>
@@ -158,7 +158,7 @@
                                 <a href="#" class="btn">read more</a>
                             </div>
                             <div class="media-wrapper">
-                                <img src="assets/img/portfolio/800x500/work5.png" alt="Item Thumbnail" />
+                                <img src="assets/img/aaulyp/yp_weekend_group.png" alt="Item Thumbnail" />
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
                                 <a href="#" class="btn">read more</a>
                             </div>
                             <div class="media-wrapper">
-                                <img src="assets/img/portfolio/800x500/work6.png" alt="Item Thumbnail" />
+                                <img src="{{ asset("assets/img/aaulyp/yp_food_drive800x500.png") }}" alt="Item Thumbnail" />
                             </div>
                         </div>
                     </div>
@@ -184,7 +184,7 @@
                                 <a href="#" class="btn">read more</a>
                             </div>
                             <div class="media-wrapper">
-                                <img src="assets/img/portfolio/800x500/work7.png" alt="Item Thumbnail" />
+                                <img src="assets/img/aaulyp/yp_award800x500.png" alt="Item Thumbnail" />
                             </div>
                         </div>
                     </div>
