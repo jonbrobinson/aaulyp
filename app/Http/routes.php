@@ -18,6 +18,18 @@ Route::get('/', function () {
 Route::get('/aaulyp', function () {
     return view('pages.aaulyp');
 });
+
+Route::get('/aaul', function () {
+    return view('pages.aaul');
+});
+
+Route::get('/board', function () {
+    return view('pages.board');
+});
+
+Route::get('/team/join', function () {
+    return view('pages.join');
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
