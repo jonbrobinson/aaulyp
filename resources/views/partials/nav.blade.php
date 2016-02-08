@@ -22,27 +22,11 @@
         <!-- MAIN NAVIGATION -->
         <div id="main-nav" class="navbar-collapse collapse navbar-mega-menu">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">HOME <i class="fa fa-angle-down"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li class="active"><a href="index.html">Home v1</a></li>
-                        <li><a href="index-v1_dark-header.html">Home v1 Dark Header</a></li>
-                        <li><a href="index-v1_light-footer.html">Home v1 Light Footer</a></li>
-                        <li><a href="index-v2.html">Home v2</a></li>
-                        <li><a href="index-v2_dark-header.html">Home v2 Dark Header</a></li>
-                        <li><a href="index-v3.html">Home v3</a></li>
-                        <li><a href="index-v4_fullscreen.html">Home v4 Fullscreen <span class="label label-danger label-main-nav">NEW</span></a></li>
-                        <li><a href="index-v5_fullscreen_slider.html">Home v5 Fullscreen Slider <span class="label label-danger label-main-nav">NEW</span></a></li>
-                        <li><a href="one-page/index.html">One Page</a></li>
-                    </ul>
-                </li>
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">ABOUT <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="/aaulyp">AAUL</a></li>
-                        <li><a href="feature-hero-unit.html">AAULYP</a></li>
-                        <li><a href="feature-page-header.html">NUL</a></li>
-                        <li><a href="feature-footer.html">NULYP</a></li>
+                        <li><a href="/aaulyp">Our History</a></li>
+                        <li><a href="/aaul">Austin Area Urban League</a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">
@@ -63,30 +47,15 @@
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">TEAM <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="portfolio-4-columns.html">AAUL President</a></li>
-                        <li><a href="portfolio-3-columns.html">YP President</a></li>
-                        <li><a href="portfolio-2-columns.html">Committies</a></li>
-                        <li><a href="portfolio-single.html">Join Us</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown ">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">VOLUNTEER <i class="fa fa-angle-down"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="shop/index.html">Front Page</a></li>
-                        <li><a href="shop/single-product-page.html">Single Product Page</a></li>
-                        <li><a href="shop/product-filter-grid.html">Search Result with Filter</a></li>
-                        <li><a href="shop/checkout.html">Checkout with Validation</a></li>
-                        <li><a href="shop/shop-login.html">Login</a></li>
-                        <li><a href="shop/shop-register.html">Register</a></li>
+                        <li><a href="{{ url('/board') }}">Our Team</a></li>
+                        <li><a href="{{ url('/team/join') }}">Join Us</a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">CONTACT</a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="blog-medium-thumbnail.html">Blog Medium Thumbnail</a></li>
-                        <li><a href="blog-full-thumbnail.html">Blog Full Thumbnail</a></li>
-                        <li><a href="blog-single.html">Blog Single</a></li>
-                        <li><a href="blog-single-full.html">Blog Single Full</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
                     </ul>
                 </li>
             </ul>
