@@ -9,7 +9,9 @@
 
 .main-features {
   color: #CD5C5C;
-  background-color: #c33d3d;
+  /*background-color: #c33d3d;*/
+  background-color: #c42d1f;
+
 }
 
 .feature-heading {
@@ -37,4 +39,8 @@
 footer .logo {
   width: 225px;
   margin-bottom: 15px;
+}
+
+.favicon-list-custom {
+  color: #c42d1f;
 }
