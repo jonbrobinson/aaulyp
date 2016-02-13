@@ -6,10 +6,10 @@
     <!-- BREADCRUMBS -->
     <div class="page-header">
         <div class="container">
-            <h1 class="page-title pull-left">Membership</h1>
+            <h1 class="page-title pull-left">Frequently Asked Questions</h1>
             <ol class="breadcrumb">
-                <li><a href="{{ url('/board') }}">Team</a></li>
-                <li class="active">Join Us</li>
+                <li><a href="{{ url('/board') }}">Contact</a></li>
+                <li class="active">FAQ</li>
             </ol>
         </div>
     </div>
@@ -17,31 +17,93 @@
     <!-- PAGE CONTENT -->
     <div class="page-content">
         <div class="container">
-            <section>
-                <div class="col-md-6 row">
-                    <h2 class="section-heading">Join Now</h2>
-                    <div class="col-md-11 row">
-                        <p>Joining the YP is easy. Please purchase a member from our Eventbrite.</p>
-                        <p><a href="http://www.eventbrite.com/e/aaulyp-membership-tickets-5422224018?aff=es2" class="active">http://www.eventbrite.com/e/aaulyp-membership-tickets-5422224018?aff=es2</a></p>
-                        <p>From there, we encourage you to get involved by coming to our General Body Meetings (GBM), and volunteering at some of our service opportunities. Our committee chairs (Membership, Fundraising, Community Outreach, etc) are also looking for people to help plan and organize some of the events we host.</p>
+            <!-- TOP FAQs -->
+            <h2>Top 5 Questions</h2>
+            <div class="panel-group panel-group-faq top-faq">
+                <div class="panel panel-minimal">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#top-faq1" class="collapsed"><span class="number pull-left">1</span> How can I get involved?</a>
+                        </h4>
+                    </div>
+                    <div id="top-faq1" class="panel-collapse collapse" style="height: 0px;">
+                        <div class="panel-body">
+                            <p>Getting involved is easy.  And we coud use your help. Right now we are planning general Body meetings, Community Service Days and Fundraising events. To get involved please email our
+                                <a href='mailto:membership.aaulyp@gmail.com'>membership chair</a> to see where your talents would be served</p>
+                            <div class="faq-footer">
+                                <span class="text-muted">43 people found this useful - <a href="#">Me too!</a></span>
+                                <span class="share"><a href="#">Permalink</a> | <a href="#">Share</a></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 row">
-                    <h2 class="section-heading">Membership Benefits</h2>
-                    <div class="col-md-12 row">
-                        <h5><span class="favicon-list-custom"><i class="fa fa-check-circle"></i></span> Austin Area Urban League Young Professionals Shirt</h5>
-                        <h5><span class="favicon-list-custom"><i class="fa fa-check-circle"></i></span> Invitations and discounts to YP events and YP partner organization events</h5>
-                        <h5><span class="favicon-list-custom"><i class="fa fa-check-circle"></i></span> Invitations and discounts to Austin Urban League events</h5>
-                        <h5><span class="favicon-list-custom"><i class="fa fa-check-circle"></i></span> Member Only Events</h5>
-                        <h5><span class="favicon-list-custom"><i class="fa fa-check-circle"></i></span> Member Only Discounts</h5>
-                        <h5><span class="favicon-list-custom"><i class="fa fa-check-circle"></i></span> Partnering with us to impact our generation, empower communities and change lives </h5>
+                <div class="panel panel-minimal">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#top-faq2" class="collapsed"><span class="number pull-left">2</span> Are AAULYP events for members only?</a>
+                        </h4>
+                    </div>
+                    <div id="top-faq2" class="panel-collapse collapse" style="height: 0px;">
+                        <div class="panel-body">
+                            <p>No. However, membership does have its benefits. Our members do get special offers and discounts to certain events, but we want to make sure you see the great things we do in the community. Please check out our events page to find the next where we can meet you or
+                                <a class="share" href="/team/join">JOIN NOW</a> on our membership page to receive our announcements</p>
+                        </div>
                     </div>
                 </div>
-            </section>
-
-            <div class="clearfix"></div>
+                <div class="panel panel-minimal">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#top-faq3" class="collapsed"><span class="number pull-left">3</span> Can I promote event/job/</a>
+                        </h4>
+                    </div>
+                    <div id="top-faq3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>Monotonectally underwhelm timely e-services vis-a-vis backward-compatible relationships. Energistically promote clicks-and-mortar value through interdependent vortals. Rapidiously strategize multimedia based communities for future-proof solutions. Assertively syndicate global e-services</p>
+                            <p>via enabled paradigms. Completely productivate tactical models for installed base catalysts for change. Quickly leverage other's turnkey partnerships for exceptional data. Appropriately envisioneer performance based leadership skills with client-centered materials. Globally reinvent goal-oriented niches for.</p>
+                            <div class="faq-footer">
+                                <span class="text-muted">8 people found this useful - <a href="#">Me too!</a></span>
+                                <span class="share"><a href="#">Permalink</a> | <a href="#">Share</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-minimal">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#top-faq4" class="collapsed"><span class="number pull-left">4</span> Quickly disseminate corporate niches?</a>
+                        </h4>
+                    </div>
+                    <div id="top-faq4" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>Quickly disseminate corporate niches vis-a-vis corporate human capital. Globally negotiate diverse alignments after intuitive expertise. Quickly extend equity invested e-tailers with resource-leveling innovation. Distinctively utilize intuitive leadership whereas functionalized experiences. Globally integrate extensible niches through progressive potentialities. Professionally morph.</p>
+                            <div class="faq-footer">
+                                <span class="text-muted">87 people found this useful - <a href="#">Me too!</a></span>
+                                <span class="share"><a href="#">Permalink</a> | <a href="#">Share</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-minimal">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#top-faq5" class="collapsed"><span class="number pull-left">5</span> Globally visualize professional bandwidth?</a>
+                        </h4>
+                    </div>
+                    <div id="top-faq5" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>Globally visualize professional bandwidth via fully researched relationships. Compellingly aggregate prospective resources and equity invested core competencies. Collaboratively synthesize e-business imperatives.</p>
+                            <div class="faq-footer">
+                                <span class="text-muted">56 people found this useful - <a href="#">Me too!</a></span>
+                                <span class="share"><a href="#">Permalink</a> | <a href="#">Share</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END TOP FAQs -->
         </div>
     </div>
+    <!-- END PAGE CONTENT -->
     @include('partials.footer')
 </div>
 <!-- END WRAPPER -->

@@ -30,6 +30,10 @@ Route::get('/board', function () {
 Route::get('/team/join', function () {
     return view('pages.join');
 });
+
+Route::get('/contact/faq', function () {
+    return view('pages.faq');
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
