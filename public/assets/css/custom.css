@@ -8,19 +8,19 @@
 }
 
 .main-features {
-  color: #CD5C5C;
+  color: #DD4F5D;
   /*background-color: #c33d3d;*/
-  background-color: #c42d1f;
+  background-color: #a5101e;
 
 }
 
 .feature-heading {
-  color: #CD5C5C;
+  color: #DD4F5D;
 }
 
 .main-features div[class^="col-"]:after {
   content: '';
-  border-right: 1px dashed #CD5C5C;
+  border-right: 1px dashed #DD4F5D;
   position: absolute;
   height: 80px;
   top: 50%;
@@ -42,5 +42,5 @@ footer .logo {
 }
 
 .favicon-list-custom {
-  color: #c42d1f;
+  color: #a5101e;
 }

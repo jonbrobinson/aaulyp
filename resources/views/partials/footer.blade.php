@@ -24,20 +24,18 @@
                 <div class="row margin-bottom-30px">
                     <div class="col-xs-6">
                         <ul class="list-unstyled footer-nav">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Community</a></li>
-                            <li><a href="#">Career</a></li>
-                            <li><a href="#">Blog</a></li>
+                            <li><a href="/aaulyp">About Us</a></li>
+                            <li><a href="/aaul">Austin Area Urban League</a></li>
+                            <li><a href="/team/join">Join Us</a></li>
+                            <li><a href="/events">Events</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-6">
                         <ul class="list-unstyled footer-nav">
-                            <li><a href="#">Press Kit</a></li>
+                            <li><a href="">Our Team</a></li>
                             <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Terms</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="/recaps">Blog</a></li>
+                            <li><a href="/contact">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -48,22 +46,24 @@
                 <div class="newsletter">
                     <h3 class="footer-heading">NEWSLETTER</h3>
                     <p>Get the latest update from us by subscribing to our newsletter.</p>
-                    <form class="newsletter-form" method="POST">
-                        <div class="input-group input-group-lg">
-                            <input type="email" class="form-control" name="email" placeholder="youremail@domain.com">
-									<span class="input-group-btn"><button class="btn btn-primary" type="button"><i class="fa fa-spinner fa-spin"></i><span>SUBSCRIBE</span></button>
-									</span>
+                    <form action="//aaul.us4.list-manage.com/subscribe/post?u=9827856e38f0a93a49703d780&amp;id=17d8d9f32d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll" class="input-group input-group-lg">
+                            <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="youremail@domain.com" style="background-color: #414143; border: hidden"required>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <input type="hidden" name="b_9827856e38f0a93a49703d780_17d8d9f32d" tabindex="-1" value="">
+                            <span class="input-group-btn"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-primary"></span>
                         </div>
-                        <div class="alert"></div>
                     </form>
                 </div>
+
+                <!--End mc_embed_signup-->
                 <div class="social-connect">
                     <h3 class="footer-heading">GET CONNECTED</h3>
                     <ul class="list-inline social-icons">
                         <li><a href="http://www.fabebook.com/aaulyp" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="http://www.twitter.com/aaulyp" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="googleplus-bg"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#" class="rss-bg"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="http://www.google.com/" class="googleplus-bg"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="http://www.instagram.com/aaulyp" class="rss-bg"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>
                 <!-- END COLUMN 3 -->

@@ -7,28 +7,28 @@
     <section class="hero-unit-slider no-margin">
         <div id="carousel-hero" class="slick-carousel">
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="assets/img/aaulyp/yp_collage_bw_bg.jpg" alt="Slider Image">
+                <div class="item">
+                    <img class="img-responsive" src="{{ asset("assets/img/aaulyp/slider_1920x500/slider1-h500-new.png") }}" alt="Slider Image">
                     <div class="carousel-caption">
-                        <h2 class="hero-heading">CLEAN &amp; ELEGANT DESIGN</h2>
-                        <p class="lead">Giving valuable reputation and credibility to your business</p>
-                        <a href="#" class="btn btn-lg hero-button">LEARN MORE</a>
+                        <h2 class="hero-heading">SUPPORT YOUR COMMUNITY</h2>
+                        <p class="lead">We are looking for more young professionals</p>
+                        <a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="assets/img/sliders/slider2-h500.png" alt="Slider Image">
+                    <img class="img-responsive" src="{{ asset("assets/img/aaulyp/slider_1920x500/slider2-h500-new.png") }}" alt="Slider Image">
                     <div class="carousel-caption">
-                        <h2 class="hero-heading">ULTRA RESPONSIVE</h2>
-                        <p class="lead">Leave it to the theme, it knows how to deal with screen sizes</p>
-                        <a href="#about" class="btn btn-lg hero-button">LEARN MORE</a>
+                        <h2 class="hero-heading">JOIN THE MOVEMENT</h2>
+                        <p class="lead">We are looking for more young professionals</p>
+                        <a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="assets/img/sliders/slider1-h500.png" alt="Slider Image">
+                    <img class="img-responsive" src="{{ asset("assets/img/aaulyp/slider_1920x500/slider3-h500-new.png") }}" alt="Slider Image">
                     <div class="carousel-caption">
-                        <h2 class="hero-heading">EASY TO CUSTOMIZE</h2>
-                        <p class="lead">Readable code, well documented and FREE support</p>
-                        <a href="#about" class="btn btn-lg hero-button">LEARN MORE</a>
+                        <h2 class="hero-heading">BUILD RELATIONSHIPS</h2>
+                        <p class="lead">We are looking for more young professionals</p>
+                        <a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>
                     </div>
                 </div>
             </div>
@@ -40,13 +40,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-6"><i class="fa fa-cubes "></i>
-                    <h3 class="feature-heading">STRONG STRUCTURE</h3></div>
+                    <h3 class="feature-heading">LEADERSHIP FOUNDATION</h3></div>
                 <div class="col-md-3 col-sm-6"><i class="fa fa-globe "></i>
-                    <h3 class="feature-heading">GLOBAL SERVICES</h3></div>
+                    <h3 class="feature-heading">PASSIONATE SERVICE</h3></div>
                 <div class="col-md-3 col-sm-6"><i class="fa fa-refresh "></i>
                     <h3 class="feature-heading">DYNAMIC CHANGE</h3></div>
                 <div class="col-md-3 col-sm-6"><i class="fa fa-rocket "></i>
-                    <h3 class="feature-heading">EXPONENTIAL GROWTH</h3></div>
+                    <h3 class="feature-heading">CAREER DEVELOPMENT</h3></div>
             </div>
         </div>
     </div>
@@ -57,12 +57,12 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2 class="section-heading">HOW CAN WE HELP</h2>
-                    <p class="lead">Our purpose is to empower young profressionals in their communities, and change lives through volunteer activities and civic engagement.</p>
+                    <p class="lead">Austin Area Urban League Young Professionals, or AAULYP, is a service organization that provides young professionals with resources and activities to help cultivate progressive ideas in Austin.</p>
                     <p>Austin Area Urban League Young Professionals are committed to community engagement, improving minority businesses through innovative programming, and dynamic dialogue and professional development.</p>
                     <p>Our activities are characterized by excellence in community service, fund-raising, and dedication to the development of its diverse members to empower communities and change lives through consistent involvement in the community in partnership with the Urban League.</p>
                 </div>
                 <div class="col-md-6">
-                    <img src="assets/img/intro-img.png" class="img-responsive" alt="Image Intro">
+                    <img src="{{ asset("/assets/img/aaulyp/800x550/800x550.jpg") }}" class="img-responsive" alt="Image Intro">
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
                 <div class="col-md-6">
                     <div class="boxed-content left-aligned left-boxed-icon">
                         <i class="fa fa-group"></i>
-                        <h2 class="boxed-content-title">LEADERSHIP EMPOWERMENT</h2>
+                        <h2 class="boxed-content-title">LEADERSHIP EXPERIENCE</h2>
                         <p>We encourage our members to become leaders within Austin and surrounding cities by building skills </p>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                 <div class="col-md-6">
                     <div class="boxed-content left-aligned left-boxed-icon">
                         <i class="fa fa-globe"></i>
-                        <h2 class="boxed-content-title">ECONOMIC EMPOWERMENT</h2>
+                        <h2 class="boxed-content-title">ECONOMIC DEVELOPMENT</h2>
                         <p>Our network connects young professionals from across the nation to vast communities within Austin professions and companies.</p>
                     </div>
                 </div>
@@ -144,8 +144,8 @@
     <!-- RECENT WORKS -->
     <section class="recent-works">
         <div class="container">
-            <h2 class="section-heading pull-left">RECENT WORKS</h2>
-            <a href="#" class="btn btn-primary pull-right">See all works</a>
+            <h2 class="section-heading pull-left">OUR WORKS</h2>
+            <a href="/team/join" class="btn btn-primary pull-right">Join AAULYP</a>
             <div class="clearfix"></div>
             <div class="portfolio-static">
                 <div class="row">
@@ -153,8 +153,8 @@
                         <div class="portfolio-item">
                             <div class="overlay"></div>
                             <div class="info">
-                                <h4 class="title">Raining</h4>
-                                <p class="brief-description">Photography</p>
+                                <h4 class="title">Network In Service</h4>
+                                <p class="brief-description">Build Connections around and outside of Austin</p>
                                 <a href="#" class="btn">read more</a>
                             </div>
                             <div class="media-wrapper">
@@ -166,8 +166,8 @@
                         <div class="portfolio-item">
                             <div class="overlay"></div>
                             <div class="info">
-                                <h4 class="title">Perfect Edge</h4>
-                                <p class="brief-description">Product Design</p>
+                                <h4 class="title">Volunteer Oppurtunities</h4>
+                                <p class="brief-description">Make an in impact across the Greater Austin community</p>
                                 <a href="#" class="btn">read more</a>
                             </div>
                             <div class="media-wrapper">
@@ -179,8 +179,8 @@
                         <div class="portfolio-item">
                             <div class="overlay"></div>
                             <div class="info">
-                                <h4 class="title">Sunny Day</h4>
-                                <p class="brief-description">Photography</p>
+                                <h4 class="title">Career Advancement</h4>
+                                <p class="brief-description">Celebrate in Making a difference</p>
                                 <a href="#" class="btn">read more</a>
                             </div>
                             <div class="media-wrapper">
@@ -192,144 +192,6 @@
             </div>
         </div>
     </section>
-    <!-- END RECENT WORKS -->
-    {{--<!-- LATEST NEWS -->--}}
-    {{--<section>--}}
-        {{--<div class="container">--}}
-            {{--<h2 class="section-heading">LATEST NEWS</h2>--}}
-            {{--<div class="row">--}}
-                {{--<div class="col-md-4">--}}
-                    {{--<div class="news-item news-featured">--}}
-                        {{--<a href="#"><img src="assets/img/news/featured-news.png" class="img-responsive" alt="News Thumbnail"></a>--}}
-                        {{--<h3 class="news-title"><a href="#">In Demand: Collaboration Skill</a></h3>--}}
-                        {{--<p>Proactively engage orthogonal growth strategies without resource-leveling testing procedures. Seamlessly predominate interoperable growth strategies.</p>--}}
-                        {{--<div class="news-meta">--}}
-                            {{--<span class="news-datetime">23-02-2015</span>--}}
-                            {{--<span class="news-comment-count pull-right"><a href="#">65 Comments</a></span>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-md-8">--}}
-                    {{--<div class="row">--}}
-                        {{--<div class="col-md-6 col-sm-6">--}}
-                            {{--<div class="news-item margin-bottom-30px clearfix">--}}
-                                {{--<a href="#"><img src="assets/img/news/news1.png" class="img-responsive pull-left" alt="News Thumbnail"></a>--}}
-                                {{--<div class="right">--}}
-                                    {{--<h3 class="news-title"><a href="#">Growth Strategies We Must Know</a></h3>--}}
-                                    {{--<p>Proactively engage orthogonal growth strategies without resource-leveling testing procedures.</p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-6 col-sm-6">--}}
-                            {{--<div class="news-item margin-bottom-30px clearfix">--}}
-                                {{--<a href="#"><img src="assets/img/news/news2.png" class="img-responsive pull-left" alt="News Thumbnail"></a>--}}
-                                {{--<div class="right">--}}
-                                    {{--<h3 class="news-title"><a href="#">Alternative E-commerce</a></h3>--}}
-                                    {{--<p>Proactively engage orthogonal growth strategies without resource-leveling testing procedures.</p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-6 col-sm-6">--}}
-                            {{--<div class="news-item margin-bottom-30px clearfix">--}}
-                                {{--<a href="#"><img src="assets/img/news/news3.png" class="img-responsive pull-left" alt="News Thumbnail"></a>--}}
-                                {{--<div class="right">--}}
-                                    {{--<h3 class="news-title"><a href="#">Products Research Methodology &amp; Principles </a></h3>--}}
-                                    {{--<p>Proactively engage orthogonal growth strategies without resource-leveling testing procedures.</p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-6 col-sm-6">--}}
-                            {{--<div class="news-item margin-bottom-30px clearfix">--}}
-                                {{--<a href="#"><img src="assets/img/news/news4.png" class="img-responsive pull-left" alt="News Thumbnail"></a>--}}
-                                {{--<div class="right">--}}
-                                    {{--<h3 class="news-title"><a href="#">Understanding Globally Scale Quality Network</a></h3>--}}
-                                    {{--<p>Proactively engage orthogonal growth strategies without resource-leveling testing procedures.</p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-6 col-sm-6">--}}
-                            {{--<div class="news-item margin-bottom-30px clearfix">--}}
-                                {{--<a href="#"><img src="assets/img/news/news5.png" class="img-responsive pull-left" alt="News Thumbnail"></a>--}}
-                                {{--<div class="right">--}}
-                                    {{--<h3 class="news-title"><a href="#">Professional Leverage</a></h3>--}}
-                                    {{--<p>Proactively engage orthogonal growth strategies without resource-leveling testing procedures.</p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-6 col-sm-6">--}}
-                            {{--<div class="see-all-news">--}}
-                                {{--<a href="#">See all news <i class="fa fa-long-arrow-right"></i></a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</section>--}}
-    {{--<!-- END LATEST NEWS -->--}}
-    {{--<!-- NUMBERS -->--}}
-    {{--<section class="full-width-section no-margin">--}}
-        {{--<div class="container">--}}
-            {{--<div class="row">--}}
-                {{--<div class="col-sm-3 col-xs-6">--}}
-                    {{--<div class="number-info horizontal text-white-color">--}}
-                        {{--<i class="fa fa-plug pull-left"></i>--}}
-                        {{--<p>5200 <span>SUBSCRIBERS</span></p>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-sm-3 col-xs-6">--}}
-                    {{--<div class="number-info horizontal text-white-color">--}}
-                        {{--<i class="fa fa-cubes pull-left"></i>--}}
-                        {{--<p>273 <span>PROJECTS</span></p>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-sm-3 col-xs-6">--}}
-                    {{--<div class="number-info horizontal text-white-color">--}}
-                        {{--<i class="fa fa-thumbs-up pull-left"></i>--}}
-                        {{--<p>640K <span>APPRECIATIONS</span></p>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-sm-3 col-xs-6">--}}
-                    {{--<div class="number-info horizontal text-white-color">--}}
-                        {{--<i class="fa fa-users pull-left"></i>--}}
-                        {{--<p>132 <span>CLIENTS</span></p>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</section>--}}
-    {{--<!-- END NUMBERS -->--}}
-    {{--<!-- TESTIMONIAL -->--}}
-    {{--<section id="testimoial-parallax" class="testimonial-with-bg parallax">--}}
-        {{--<div class="container">--}}
-            {{--<div class="testimonial slick-carousel">--}}
-                {{--<div class="testimonial-container">--}}
-                    {{--<div class="testimonial-body">--}}
-                        {{--<p>Credibly extend parallel relationships after clicks-and-mortar content. Credibly pontificate team building alignments rather than diverse quality vectors.</p>--}}
-                        {{--<div class="testimonial-author">--}}
-                            {{--<img src="assets/img/user2.png" alt="Author" class="pull-left">--}}
-                            {{--<span><span class="author-name">Antonius</span> <em>CEO of TheCompany</em></span>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="testimonial-body">--}}
-                        {{--<p>Credibly pontificate team building alignments rather than diverse quality vectors. Monotonectally benchmark business communities for distinctive mindshare.</p>--}}
-                        {{--<div class="testimonial-author">--}}
-                            {{--<img src="assets/img/user1.png" alt="Author" class="pull-left">--}}
-                            {{--<span><span class="author-name">Michael</span> <em>General Manager of DreamCorp</em></span>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="testimonial-body">--}}
-                        {{--<p>Appropriately morph low-risk high-yield process improvements through progressive partnerships. Uniquely brand enabled. Globally network timely imperatives without plug-and-play schemas.</p>--}}
-                        {{--<div class="testimonial-author">--}}
-                            {{--<img src="assets/img/user5.png" alt="Author" class="pull-left">--}}
-                            {{--<span><span class="author-name">Palmer</span> <em>Freelance Web Developer</em></span>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</section>--}}
-    {{--<!-- END TESTIMONIAL -->--}}
     <!-- OUR CLIENTS -->
     <section class="clients">
         <div class="container">
@@ -361,7 +223,7 @@
                 <h2 class="section-heading">GET IN TOUCH</h2>
             </div>
             <div class="pull-right">
-                <span>Call us at (1800) 765 - 4321 or</span>&nbsp;&nbsp;<a href="#" class="btn btn-lg btn-primary">CONTACT US</a>
+                <span>Call us at (512) 278 - 7176 or</span>&nbsp;&nbsp;<a href="#" class="btn btn-lg btn-primary">CONTACT US</a>
             </div>
         </div>
     </section>

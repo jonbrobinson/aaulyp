@@ -1,19 +1,19 @@
 /* Skin: Indian Red */
 a {
-  color: #c42d1f;
+  color: #a5101e;
 }
 a:hover, a:focus {
   color: #c33d3d;
 }
 
 .btn-primary {
-  background-color: #c42d1f;
-  border-color: #c95050;
+  background-color: #a5101e;
+  border-color: #84000D;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active,
 .btn-primary .open > .dropdown-toggle.btn-primary {
-  background-color: #c95050;
-  border-color: #c33d3d;
+  background-color: #a5101e;
+  border-color: #84000D;
 }
 
 .navbar-toggle {
@@ -62,14 +62,14 @@ a:hover, a:focus {
 }
 
 .boxed-content > i {
-  color: #c42d1f;
+  color: #a5101e;
 }
 .boxed-content.left-boxed-icon i {
-  background: #c42d1f;
+  background: #a5101e;
 }
 
 .section-heading:after {
-  color: #c42d1f;
+  color: #a5101e;
 }
 
 .full-width-section {
@@ -94,7 +94,7 @@ a:hover, a:focus {
 }
 
 .category-list li a:hover, .category-list li a:focus {
-  color: #c42d1f;
+  color: #a5101e;
 }
 
 .panel-group-faq.top-faq .panel-heading .number {
@@ -102,25 +102,25 @@ a:hover, a:focus {
 }
 
 .team-member .team-name {
-  background-color: #c42d1f;
+  background-color: #a5101e;
 }
 
 .portfolio-item .overlay {
-  background-color: rgba(196,45,31, 0.7);
+  background-color: rgba(165,16,30,0.7);
 }
 .portfolio-item .btn {
   background-color: #d16868;
   border: 1px solid #c74848;
 }
 .portfolio-item .btn:hover, .portfolio-item .btn:focus {
-  background-color: #c42d1f;
+  background-color: #a5101e;
 }
 
 .portfolio-item-filters li a:hover, .portfolio-item-filters li a:focus {
-  color: #c42d1f;
+  color: #a5101e;
 }
 .portfolio-item-filters li a.active {
-  background-color: #c42d1f;
+  background-color: #a5101e;
 }
 
 /* tabs */
@@ -189,27 +189,27 @@ a:hover, a:focus {
 }
 
 ul.sidebar-nav li a:hover {
-  color: #c42d1f;
+  color: #a5101e;
 }
 ul.sidebar-nav li a.current a {
-  color: #c42d1f;
+  color: #a5101e;
 }
 ul.sidebar-nav li.current a {
-  color: #c42d1f;
+  color: #a5101e;
 }
 ul.sidebar-nav li.has-submenu.active > a,
 ul.sidebar-nav li.has-submenu.active li.active > a {
-  color: #c42d1f;
+  color: #a5101e;
 }
 
 .breadcrumb > li.active {
-  color: #c42d1f;
+  color: #a5101e;
 }
 .breadcrumb a:hover, .breadcrumb a:focus {
-  color: #c42d1f;
+  color: #a5101e;
 }
 .breadcrumb.link-accent a {
-  color: #c42d1f;
+  color: #a5101e;
 }
 .breadcrumb.link-accent a:hover, .breadcrumb.link-accent a:focus {
   color: #c33d3d;
@@ -242,11 +242,11 @@ ul.sidebar-nav li.has-submenu.active li.active > a {
 
 /* date picker */
 .datepicker td.active:active, .datepicker td.active.active {
-  background-color: #c42d1f;
+  background-color: #a5101e;
   border-color: #bc3a3a;
 }
 .datepicker td.active:hover:active, .datepicker td.active:hover.active {
-  background-color: #c42d1f;
+  background-color: #a5101e;
   border-color: #bc3a3a;
 }
 .datepicker table tr td.active:hover, .datepicker table tr td.active:hover:hover, .datepicker table tr td.active.disabled:hover, .datepicker table tr td.active.disabled:hover:hover, .datepicker table tr td.active:active, .datepicker table tr td.active:hover:active, .datepicker table tr td.active.disabled:active, .datepicker table tr td.active.disabled:hover:active, .datepicker table tr td.active.active, .datepicker table tr td.active:hover.active, .datepicker table tr td.active.disabled.active, .datepicker table tr td.active.disabled:hover.active, .datepicker table tr td.active.disabled, .datepicker table tr td.active:hover.disabled, .datepicker table tr td.active.disabled.disabled, .datepicker table tr td.active.disabled:hover.disabled,
@@ -257,7 +257,7 @@ ul.sidebar-nav li.has-submenu.active li.active > a {
 
 /* date range picker */
 .daterangepicker td.active, .daterangepicker td.active:hover {
-  background-color: #c42d1f;
+  background-color: #a5101e;
   border-color: #bc3a3a;
 }
 .daterangepicker td.in-range {
@@ -265,11 +265,11 @@ ul.sidebar-nav li.has-submenu.active li.active > a {
 }
 
 .dropcap {
-  background-color: #c42d1f;
+  background-color: #a5101e;
 }
 
 .testimonial-fancy i {
-  color: #c42d1f;
+  color: #a5101e;
 }
 
 /* ----------------------------------------------------- */

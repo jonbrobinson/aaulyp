@@ -29,17 +29,27 @@
                 <div class="col-md-6 row">
                     <h2 class="section-heading">Membership Benefits</h2>
                     <div class="col-md-12 row">
-                        <h5><span><i class="fa fa-check-circle"></i></span> Austin Area Urban League Young Professionals Shirt</h5>
-                        <h5><span><i class="fa fa-check-circle"></i></span> Invitations and discounts to YP events and YP partner organization events</h5>
-                        <h5><span><i class="fa fa-check-circle"></i></span> Invitations and discounts to Austin Urban League events</h5>
-                        <h5><span><i class="fa fa-check-circle"></i></span> Member Only Events</h5>
-                        <h5><span><i class="fa fa-check-circle"></i></span> Member Only Discounts</h5>
-                        <h5><span><i class="fa fa-check-circle"></i></span> Partnering with us to impact our generation, empower communities and change lives </h5>
+                        <h5><span class="favicon-list-custom"><i class="fa fa-check-circle"></i></span> Austin Area Urban League Young Professionals Shirt</h5>
+                        <h5><span class="favicon-list-custom"><i class="fa fa-check-circle"></i></span> Invitations and discounts to YP events and YP partner organization events</h5>
+                        <h5><span class="favicon-list-custom"><i class="fa fa-check-circle"></i></span> Invitations and discounts to Austin Urban League events</h5>
+                        <h5><span class="favicon-list-custom"><i class="fa fa-check-circle"></i></span> Member Only Events</h5>
+                        <h5><span class="favicon-list-custom"><i class="fa fa-check-circle"></i></span> Member Only Discounts</h5>
+                        <h5><span class="favicon-list-custom"><i class="fa fa-check-circle"></i></span> Partnering with us to impact our generation, empower communities and change lives </h5>
                     </div>
                 </div>
             </section>
 
             <div class="clearfix"></div>
+
+            <div class="col-md-6 row">
+                @include('partials.mailchimp')
+            </div>
+            <div class="col-md-6 row">
+                <br>
+                <br>
+                <br>
+                <img class="img-responsive" src="{{ asset('assets/img/aaulyp/join_week_networking_group.png') }}" alt="">
+            </div>
         </div>
     </div>
     @include('partials.footer')

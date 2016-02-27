@@ -34,6 +34,12 @@ Route::get('/team/join', function () {
 Route::get('/contact/faq', function () {
     return view('pages.faq');
 });
+
+Route::get('/contact', function () {
+    return view('pages.contact');
+});
+
+Route::resource('events', 'EventsController');
 /*
 |--------------------------------------------------------------------------
 | Application Routes

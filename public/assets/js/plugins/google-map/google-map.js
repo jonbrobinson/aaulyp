@@ -113,7 +113,7 @@
 		});
 			
 		var mapOptions = {
-			zoom: 15,
+			zoom: 14,
 			scrollwheel: false,
 			panControl: false,
 			scaleControl: false,
@@ -141,7 +141,7 @@
 
 	function codeAddress(theMap) {
 	
-		var address = "Google New York, 76 Ninth Ave, New York, NY, USA";
+		var address = "8011A Cameron Rd, Austin, TX 78754";
 		geocoder.geocode( { 'address': address}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
 				theMap.setCenter(results[0].geometry.location);
