@@ -17,56 +17,57 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <p>Competently extend highly efficient initiatives whereas collaborative alignments. Collaboratively seize impactful opportunities and focused bandwidth. Continually expedite adaptive manufactured products and customer directed intellectual capital. Completely restore intermandated mindshare after multimedia based ideas. Credibly initiate distinctive metrics.</p>
-                <p>Authoritatively embrace performance based information before highly efficient solutions. Globally disintermediate ubiquitous "outside the box" thinking without client-based schemas. Credibly parallel task dynamic technologies and cross-platform total linkage. Authoritatively unleash emerging growth strategies whereas future-proof resources. Distinctively transition 24/7 partnerships without effective testing procedures. Distinctively underwhelm proactive intellectual capital rather than best-of-breed total linkage. Uniquely whiteboard distinctive methods of empowerment after.</p>
+                <p>Austin Area Urban League Young Professionals is an organization that cares for the community. Please feel free to send us a comment or question if you need more information. Our goal is to build a greater Austin through service and education. We are allways searching for oppotunities to collaborate with different organizations or promote oppotuniotees to help build personal skills and career oppotunities.</p>
                 <br>
-                <!-- CONCTACT FORM -->
-                <div class="contact-form-wrapper">
-                    <form id="contact-form" method="post" class="form-horizontal margin-bottom-30px" role="form" novalidate>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="contact-name" class="control-label sr-only">Name</label>
-                                    <input type="text" class="form-control" id="contact-name" name="name" placeholder="Name*" required>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="contact-email" class="control-label sr-only">Email</label>
-                                    <input type="email" class="form-control" id="contact-email" name="email" placeholder="Email*" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-subject" class="control-label sr-only">Subject</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="contact-subject" name="subject" placeholder="Subject">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-message" class="control-label sr-only">Message</label>
-                            <div class="col-sm-12">
-                                <textarea class="form-control" id="contact-message" name="message" rows="5" cols="30" placeholder="Message*" required></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <button id="submit-button" type="submit" class="btn btn-primary"><i class="fa loading-icon"></i> <span>Submit Message</span></button>
-                            </div>
-                        </div>
-                        <input type="hidden" name="msg-submitted" id="msg-submitted" value="true">
-                    </form>
-                </div>
-                <!-- END CONCTACT FORM -->
+                {{--<!-- CONCTACT FORM -->--}}
+                {{--<div class="contact-form-wrapper">--}}
+                    {{--<form id="contact-form" method="post" class="form-horizontal margin-bottom-30px" role="form" novalidate>--}}
+                        {{--<div class="row">--}}
+                            {{--<div class="col-sm-6">--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="contact-name" class="control-label sr-only">Name</label>--}}
+                                    {{--<input type="text" class="form-control" id="contact-name" name="name" placeholder="Name*" required>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-sm-6">--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="contact-email" class="control-label sr-only">Email</label>--}}
+                                    {{--<input type="email" class="form-control" id="contact-email" name="email" placeholder="Email*" required>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="form-group">--}}
+                            {{--<label for="contact-subject" class="control-label sr-only">Subject</label>--}}
+                            {{--<div class="col-sm-12">--}}
+                                {{--<input type="text" class="form-control" id="contact-subject" name="subject" placeholder="Subject">--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="form-group">--}}
+                            {{--<label for="contact-message" class="control-label sr-only">Message</label>--}}
+                            {{--<div class="col-sm-12">--}}
+                                {{--<textarea class="form-control" id="contact-message" name="message" rows="5" cols="30" placeholder="Message*" required></textarea>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="form-group">--}}
+                            {{--<div class="col-sm-12">--}}
+                                {{--<button id="submit-button" type="submit" class="btn btn-primary"><i class="fa loading-icon"></i> <span>Submit Message</span></button>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<input type="hidden" name="msg-submitted" id="msg-submitted" value="true">--}}
+                    {{--</form>--}}
+                {{--</div>--}}
+                {{--<!-- END CONCTACT FORM -->--}}
+
+                <iframe src="https://docs.google.com/forms/d/1kk6OyhJqney0SPM6CRgvTwHAU3uHwgIDa_13PntkAMc/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
             </div>
             <div class="col-md-3">
                 <!-- RIGHT SIDEBAR CONTENT -->
                 <div class="widget">
                     <h3 class="widget-title">CONTACT INFO</h3>
                     <ul class="contact-info fa-ul">
-                        <li><i class="fa fa-li fa-building-o"></i> 76 Ninth Ave, New York, USA</li>
-                        <li><i class="fa fa-li fa-phone"></i> +621 234 4567</li>
-                        <li><i class="fa fa-li fa-envelope-o"></i> <a href="mailto:hello@yourcompany.com">hello@yourcompany.com</a></li>
+                        <li><i class="fa fa-li fa-building-o"></i>8011A Cameron Rd, Austin, TX 78754</li>
+                        <li><i class="fa fa-li fa-phone"></i> (512) 278 - 7176</li>
+                        <li><i class="fa fa-li fa-envelope-o"></i> <a href="mailto:pr.aaulyp@gmail.com">pr.aaulyp@gmail.com</a></li>
                     </ul>
                 </div>
                 <div class="widget">
