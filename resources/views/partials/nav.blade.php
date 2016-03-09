@@ -32,8 +32,8 @@
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">NEWS <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="page-services.html">Events</a></li>
-                        <li><a href="page-pricing-tables.html">Recaps</a></li>
+                        <li><a href="/events">Events</a></li>
+                        <li><a href="/newsletters">Newsletters</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
