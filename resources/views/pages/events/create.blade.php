@@ -21,56 +21,23 @@
     <!-- END BREADCRUMBS -->
     <div class="container">
         <div class="col-md-10 col-md-offset-1">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" enctype="multipart/form-data" method="POST" action="/events" >
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="event-name" class="control-label sr-only">Name</label>
-                            <input type="text" class="form-control" id="event-name" placeholder="Name">
+                            <label for="event-name" class="control-label sr-only">Event Name</label>
+                            <input type="text" class="form-control" id="event-name" placeholder="Event Name">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <div class="input-group" id="date-picker-demo">
-                                <span class="input-group-addon"><i class="fa fa-calendar" ></i></span>
-                                <input type="text" id="datepicker" class="form-control" placeholder="When Ex: 1/1/16">
+                                <input type="text" id="daterangepicker" class="form-control" placeholder="Event Date">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="event-start_time" class="control-label sr-only">Subject</label>
-                    <div class="col-sm-4">
-                        <select name="event-start_time" class="form-control">
-                            @foreach($calendar['hours'] as $hour)
-                                <option value="{{ $hour }}">{{ $hour }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="col-sm-2">
-                        <select name="event-start_time_ampm" class="form-control">
-                            <option value="am">am</option>
-                            <option value="pm">pm</option>
-                        </select>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <select name="event-start_time" class="form-control">
-                            @foreach($calendar['hours'] as $hour)
-                                <option value="{{ $hour }}">{{ $hour }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="col-sm-2">
-                        <select name="event-start_time_ampm" class="form-control">
-                            <option value="am">am</option>
-                            <option value="pm">pm</option>
-                        </select>
-                    </div>
-                </div>
-
                 <div class="form-group">
                     <label for="event-address" class="control-label sr-only">Address</label>
                     <div class="col-sm-6">
@@ -97,6 +64,24 @@
                     <label for="event-description" class="control-label sr-only">Message</label>
                     <div class="col-sm-12">
                         <textarea class="form-control" id="event-description" name="contact-message" rows="5" cols="30" placeholder="Descripe some of the event"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="event-social-facebook" class="control-label sr-only">Message</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="event-social-facebook" name="contact-message" rows="5" cols="30" placeholder="Facebook">
+                    </div>
+                    <label for="event-social-twitter" class="control-label sr-only">Message</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="event-social-twitter" name="contact-message" rows="5" cols="30" placeholder="Twitter">
+                    </div>
+                    <label for="event-social-instagram" class="control-label sr-only">Message</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="event-social-instagram" name="contact-message" rows="5" cols="30" placeholder="Instagram">
+                    </div>
+                    <label for="event-social-instagram" class="control-label sr-only">Message</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="event-social-instagram" name="contact-message" rows="5" cols="30" placeholder="Website">
                     </div>
                 </div>
                 <div class="form-group">
