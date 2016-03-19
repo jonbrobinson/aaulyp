@@ -78,7 +78,8 @@
                         <div class="tab-content">
                             <div id="content-popular" class="tab-pane fade in active" role="tabpanel">
                                 <ul class="list-unstyled blogposts popular">
-                                    @if(count($post) > 0 )
+                                    {{--<? $post = array(); ?>--}}
+                                    {{--@if(count($post) > 0)--}}
                                     <li>
                                         <h4 class="post-title"><a href="#">Monotonectally Underwhelm Sustainable Outsourcing</a></h4>
                                         <span class="text-muted">Nov 4, 2014 | by John Doe</span>
@@ -99,11 +100,12 @@
                                         <h4 class="post-title"><a href="#">Credibly Disintermediate Client-centered Applications</a></h4>
                                         <span class="text-muted">Nov 9, 2014 | by Barbara</span>
                                     </li>
-                                    @else
+                                    {{--@else--}}
                                     <li>
                                         <h4 class="post-title"><a href="#">More Posts Coing son</a></h4>
                                         <span class="text-muted">Nov 4, 2014 | by John Doe</span>
                                     </li>
+                                    {{--@endif--}}
                                 </ul>
                             </div>
                             <div id="content-recents" class="tab-pane fade" role="tabpanel">
