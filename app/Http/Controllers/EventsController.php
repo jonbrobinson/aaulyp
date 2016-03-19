@@ -39,4 +39,24 @@ class EventsController extends Controller
 
         return view('pages.events.create',$data );
     }
+
+    /**
+     * Store newly created resource in storage
+     *
+     */
+    public function store(Request $request)
+    {
+        $locations = new Locations();
+        $calendar = new Calendar();
+
+
+        $states = $locations->getStates();
+        $calendarArrays = $calendar->getCalendarArrays();
+        $data  = [
+            "states" => $states,
+            "calendar" => $calendarArrays
+        ];
+
+        return view('pages.events.create',$data );
+    }
 }
