@@ -36,3 +36,11 @@ $factory->define(App\Event::class, function (Faker\Generator $faker) {
 //        'instagram' => $faker->name,
     ];
 });
+
+$factory->define(App\Event_Photo::class, function (Faker\Generator $faker) {
+    return [
+        'event_id'   => $faker->numberBetween(1,10),
+        'photo_path' => $faker->imageUrl(),
+        'event_main' => $faker->numberBetween(1,2)
+    ];
+});
