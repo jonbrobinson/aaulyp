@@ -24,6 +24,7 @@ class CreateEventsTable extends Migration
             $table->string('zip',10);
             $table->string('date_start');
             $table->string('date_end');
+            $table->string('website');
 //            $table->string('twitter');
 //            $table->string('facebook');
 //            $table->string('eb_url');

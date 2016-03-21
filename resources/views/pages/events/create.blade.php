@@ -86,7 +86,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-primary">Create Event</button>
+                        <button type="submit" class="btn btn-primary">Publish</button>
                     </div>
                 </div>
             </form>
