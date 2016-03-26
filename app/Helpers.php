@@ -1,13 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Jonbrobinson
- * Date: 3/22/16
- * Time: 9:13 PM
- */
 
-
-public function flash($message)
+function flash($title = null, $message = null)
 {
-    session()->flash('flash_message', $message);
+    $flash = app('App\Http\flash');
+
+    if (func_num_args() == 0) {
+        return $flash;
+    }
+
+    return $flash->info($title, $message);
 }
