@@ -27,7 +27,11 @@
     <div class="col-sm-2">
         <select name="event-state" class="form-control">
             @foreach($states as $code => $state)
-                <option value="{{ $code }}">{{ $state }}</option>
+                @if($code == 'TX')
+                    <option value="{{ $code }}" selected="{{ $state }}">{{ $state }}</option>
+                @else
+                    <option value="{{ $code }}">{{ $state }}</option>
+                @endif
             @endforeach
         </select>
     </div>
