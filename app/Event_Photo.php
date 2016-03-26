@@ -8,7 +8,7 @@ class Event_Photo extends Model
 {
     protected $table = 'event_photos';
 
-    protected $fallible = ['photo_path', 'event_main'];
+    protected $fillable = ['photo_path', 'event_main'];
 
     /**
      * An Event is composed of many photos

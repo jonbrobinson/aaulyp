@@ -74,7 +74,39 @@ class EventsController extends Controller
     {
         $event = Event::locatedAt($zip, $title);
 
-        return view('events.show', compact('$event'));
+        return view('pages.events.show', compact('event'));
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return string
+     */
+    public function addPhoto(Request $request)
+    {
+        $this->validate($request, [
+                'photo' => 'required|mimes:jpg,jpeg,png,bmp'
+            ]
+        );
+        $imgBase = "img/events";
+        $file = $request->file('photo');
+
+        $event = Event::findEventByUri($request->path());
+
+        $eventDate = date('Y-m-d', $event->date_start);
+        $slug = str_slug($event->name);
+        $eventDir = "{$eventDate}_{$slug}";
+        $fileName = $eventDate . "_" . $slug .  "_" . $file->getClientOriginalName();
+        $filePath = "$imgBase/$eventDir/$fileName";
+
+        $file->move($imgBase . '/' . $eventDir . "/", $fileName);
+
+        $event->photos()->create([
+            "photo_path" => $filePath,
+            "event_main" => 0
+        ]);
+
+        return "Image located at ". $filePath;
     }
 
     protected function eventSetUp()

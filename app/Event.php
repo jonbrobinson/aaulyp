@@ -49,4 +49,24 @@ class Event extends Model
 
         return $query->where(compact('zip','name'))->first();
     }
+
+    /**
+     * Scope queary to those located at a given address
+     *
+     * @param Builder $query
+     * @param string $uri
+     *
+     * @return mixed
+     */
+    public function scopeFindEventByUri($query, $uri)
+    {
+        $sections = explode('/',$uri);
+
+        $event = $query->where([
+            ['zip', $sections[0]],
+            ['name', str_replace('-',' ', $sections[1])]
+        ])->first();
+
+        return $event;
+    }
 }
