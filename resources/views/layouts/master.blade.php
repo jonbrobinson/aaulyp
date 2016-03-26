@@ -15,6 +15,7 @@
         <link href="{{ asset("assets/css/my-custom-styles.css") }}" rel="stylesheet" type="text/css">
         <link href="{{ asset("assets/css/skins/indianred_custom.css") }}" rel="stylesheet" type="text/css">
         <link href="{{ asset("assets/css/custom.css") }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset("css/libs.css") }}" rel="stylesheet" type="text/css">
 
 
         <!-- IE 9 Fallback-->
@@ -30,6 +31,7 @@
     </head>
 
     <body>
+
         <div class="wrapper">
             @include('partials.nav')
         </div>
@@ -46,6 +48,8 @@
         <script src="{{ asset("assets/js/plugins/stellar/jquery.stellar.min.js") }}"></script>
         <script src="{{ asset("assets/js/plugins/jquery-easypiechart/jquery.easypiechart.min.js") }}"></script>
         <script src="{{ asset("assets/js/repute-scripts.js") }}"></script>
+        <script src="{{ asset("js/libs.js") }}"></script>
+        @include('partials.flash')
     </body>
 
 </html>
