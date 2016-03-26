@@ -20,7 +20,7 @@
 {{--    <script src="{{ asset('assets/js/dropzone/dropzone.js') }}"></script>--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>
     <script>
-        Dropzone.options.addPhotoFom = {
+        Dropzone.options.addPhotoForm = {
             paramName: "photo",
             maxFilesize: 5,
             acceptedFiles: '.jpg, .jpeg, .png, .bmp'

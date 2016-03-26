@@ -35,19 +35,26 @@ class Event extends Model
     }
 
     /**
-     * Scope queary to those located at a given address
+     * Find event based on $zip and $name
      *
-     * @param Builder $query
      * @param string $zip
-     * @param string $title
+     * @param string $name
      *
      * @return mixed
      */
-    public function scopeLocatedAt($query, $zip, $name)
+    public static function locatedAt( $zip, $name)
     {
         $name = str_replace('-', ' ', $name);
 
-        return $query->where(compact('zip','name'))->first();
+        return static::where(compact('zip','name'))->first();
+    }
+
+    /**
+     * @param Event_Photo $photo
+     */
+    public function addPhoto(Event_Photo $photo)
+    {
+        return $this->photos()->save($photo);
     }
 
     /**

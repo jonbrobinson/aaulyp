@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Aaulyp\Tools\DateHelper;
 use App\Aaulyp\Tools\Locations;
 use App\Event;
+use App\Event_Photo;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\EventRequest;
@@ -15,6 +16,12 @@ class EventsController extends Controller
     protected $states;
     protected $calendarArrays;
     protected $dateHelper;
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of all events
@@ -82,31 +89,19 @@ class EventsController extends Controller
      *
      * @return string
      */
-    public function addPhoto(Request $request)
+    public function addPhoto($zip, $name, Request $request)
     {
         $this->validate($request, [
                 'photo' => 'required|mimes:jpg,jpeg,png,bmp'
-            ]
-        );
-        $imgBase = "img/events";
-        $file = $request->file('photo');
-
-        $event = Event::findEventByUri($request->path());
-
-        $eventDate = date('Y-m-d', $event->date_start);
-        $slug = str_slug($event->name);
-        $eventDir = "{$eventDate}_{$slug}";
-        $fileName = $eventDate . "_" . $slug .  "_" . $file->getClientOriginalName();
-        $filePath = "$imgBase/$eventDir/$fileName";
-
-        $file->move($imgBase . '/' . $eventDir . "/", $fileName);
-
-        $event->photos()->create([
-            "photo_path" => $filePath,
-            "event_main" => 0
         ]);
 
-        return "Image located at ". $filePath;
+        $event = Event::locatedAt($zip, $name);
+
+        $photo = Event_Photo::fromForm($event->name, $event->date_start, $request->file('photo'));
+
+        $event->addPhoto($photo);
+
+        return "Image located at ". $photo->photo_path;
     }
 
     protected function eventSetUp()
