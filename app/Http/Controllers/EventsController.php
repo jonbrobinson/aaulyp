@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Aaulyp\Tools\Calendar;
 use App\Aaulyp\Tools\DateHelper;
 use App\Aaulyp\Tools\Locations;
 use App\Event;
@@ -32,7 +31,9 @@ class EventsController extends Controller
      */
     public function create()
     {
-        $data  = $data  = $this->getEventFormData();
+//        flash()->success("Success", "This is an overlay");
+
+        $data = $this->getEventFormData();
 
         return view('pages.events.create',$data );
     }
@@ -46,23 +47,34 @@ class EventsController extends Controller
     {
         $this->eventSetUp();
 
-        // validate the form
-        // persist the flyer
-        //redirect to the landing page
-        $event = new Event();
-        $event->name = $request->input('event-name');
-        $event->description = $request->input('event-description');
-        $event->street = $request->input('event-street');
-        $event->city = $request->input('event-city');
-        $event->state = $request->input('event-state');
-        $event->zip = $request->input('event-zip');
-        $event->date_start = $this->dateHelper->getStartTimeFromRange($request->input('daterangepicker'));
-        $event->date_end = $this->dateHelper->getEndTimeFromRange($request->input('daterangepicker'));
+        Event::create([
+                "name" => $request->input('event-name'),
+                "description" => $request->input('event-description'),
+                "street" => $request->input('event-street'),
+                "city" => $request->input('event-city'),
+                "state" => $request->input('event-state'),
+                "zip" => $request->input('event-zip'),
+                "date_start" => $this->dateHelper->getStartTimeFromRange($request->input('daterangepicker')),
+                "date_end" => $this->dateHelper->getEndTimeFromRange($request->input('daterangepicker'))
+            ]
+        );
 
-        $event->save();
-
+        flash()->overlay("Success", "Your event has been added");
 
         return redirect()->back();
+    }
+
+    /**
+     * @param string $zip
+     * @param string $title
+     *
+     * @return mixed
+     */
+    public function show($zip, $title)
+    {
+        $event = Event::locatedAt($zip, $title);
+
+        return view('events.show', compact('$event'));
     }
 
     protected function eventSetUp()

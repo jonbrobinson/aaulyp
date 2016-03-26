@@ -39,6 +39,7 @@ Route::get('/contact', function () {
     return view('pages.contact');
 });
 
+Route::get('{zip}/{street}', 'EventsController@show');
 Route::resource('events', 'EventsController');
 /*
 |--------------------------------------------------------------------------

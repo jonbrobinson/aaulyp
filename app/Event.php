@@ -33,4 +33,20 @@ class Event extends Model
     {
         return $this->hasMany('App\Event_Photo');
     }
+
+    /**
+     * Scope queary to those located at a given address
+     *
+     * @param Builder $query
+     * @param string $zip
+     * @param string $title
+     *
+     * @return mixed
+     */
+    public function scopeLocatedAt($query, $zip, $name)
+    {
+        $name = str_replace('-', ' ', $name);
+
+        return $query->where(compact('zip','name'))->first();
+    }
 }
