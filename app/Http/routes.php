@@ -10,9 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 Route::get('/aaulyp', function () {
@@ -39,9 +38,6 @@ Route::get('/contact', function () {
     return view('pages.contact');
 });
 
-Route::resource('events', 'EventsController');
-Route::get('{zip}/{name}', 'EventsController@show');
-Route::post('{zip}/{name}/photos', 'EventsController@addPhoto');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -53,6 +49,12 @@ Route::post('{zip}/{name}/photos', 'EventsController@addPhoto');
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+
+    Route::resource('events', 'EventsController');
+    Route::get('{zip}/{name}', 'EventsController@show');
+    Route::post('{zip}/{name}/photos', 'EventsController@addPhoto');
 });
