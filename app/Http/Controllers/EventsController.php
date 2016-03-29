@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\EventRequest;
 use App\Http\Controllers\Controller;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class EventsController extends Controller
 {
@@ -95,13 +96,27 @@ class EventsController extends Controller
                 'photo' => 'required|mimes:jpg,jpeg,png,bmp'
         ]);
 
+        $file = $request->file('photo');
+
         $event = Event::locatedAt($zip, $name);
 
-        $photo = Event_Photo::fromForm($event->name, $event->date_start, $request->file('photo'));
+        $photo = $this->storePhotoFromEventName($file, $event);
 
         $event->addPhoto($photo);
 
-        return "Image located at ". $photo->photo_path;
+        return "Image located at ". $photo->path;
+    }
+
+    /**
+     * @param UploadedFile $file
+     * @param Event|null   $event
+     *
+     * @return static
+     */
+    protected function storePhotoFromEventName(UploadedFile $file, Event $event)
+    {
+        return  Event_Photo::fromForm($file->getClientOriginalName(), $event->date_start, $event->name)
+            ->store($file);
     }
 
     protected function eventSetUp()

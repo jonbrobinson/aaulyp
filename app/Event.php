@@ -46,7 +46,7 @@ class Event extends Model
     {
         $name = str_replace('-', ' ', $name);
 
-        return static::where(compact('zip','name'))->first();
+        return static::where(compact('zip','name'))->firstOrFail();
     }
 
     /**
