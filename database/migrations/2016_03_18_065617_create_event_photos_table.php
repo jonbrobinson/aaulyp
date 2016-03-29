@@ -20,7 +20,9 @@ class CreateEventPhotosTable extends Migration
                 ->on('events')
                 ->onDelete('cascade');
 
-            $table->string('photo_path');
+            $table->string('path');
+            $table->string('thumbnail_path');
+            $table->string('name');
             $table->string('event_main');
             $table->timestamps();
         });
