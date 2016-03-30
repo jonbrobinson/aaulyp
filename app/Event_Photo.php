@@ -14,9 +14,6 @@ class Event_Photo extends Model
     protected $fillable = ['path', 'thumbnail_paith', 'name', 'event_main'];
     protected $baseDir = "img/events";
     protected $photoDir;
-//    protected $name;
-//    protected $path;
-//    protected $thumbnail_path;
 
 
     /**
