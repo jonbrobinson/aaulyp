@@ -3,10 +3,18 @@
     <div class="container">
         <!-- TOPBAR -->
         <div class="topbar">
+                @if($signedIn)
+                    <p class="top-nav">Hi {{ $user->name }} | </p>
+                @endif
             <ul class="list-inline top-nav">
                 <li>Empowering Communitites | Changing Lives</li>
                 <li><a href="http://twitter.com/aaulyp"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="https://www.facebook.com/AAULYP"><i class="fa fa-facebook"></i></a></li>
+                @if($signedIn)
+                    <li><a href="/logout"><i class="fa fa-sign-out"></i></a></li>
+                @else
+                    <li><a href="/login"><i class="fa fa-user"></i></a></li>
+                @endif
             </ul>
         </div>
         <!-- END TOPBAR -->
