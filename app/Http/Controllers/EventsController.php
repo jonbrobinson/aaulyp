@@ -22,6 +22,8 @@ class EventsController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['show','index']]);
+
+        parent::__construct();
     }
 
     /**
