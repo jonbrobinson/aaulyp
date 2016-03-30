@@ -10,33 +10,19 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@home');
 
-Route::get('/aaulyp', function () {
-    return view('pages.aaulyp');
-});
+Route::get('/aaulyp', 'PagesController@aaulyp');
 
-Route::get('/aaul', function () {
-    return view('pages.aaul');
-});
+Route::get('/aaul', 'PagesController@aaul');
 
-Route::get('/board', function () {
-    return view('pages.board');
-});
+Route::get('/board', 'PagesController@board');
 
-Route::get('/team/join', function () {
-    return view('pages.join');
-});
+Route::get('/team/join', 'PagesController@join');
 
-Route::get('/contact/faq', function () {
-    return view('pages.faq');
-});
+Route::get('/contact/faq', 'PagesController@faq');
 
-Route::get('/contact', function () {
-    return view('pages.contact');
-});
+Route::get('/contact', 'PagesController@contact');
 
 /*
 |--------------------------------------------------------------------------
