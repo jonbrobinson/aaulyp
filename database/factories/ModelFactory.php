@@ -24,10 +24,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Event::class, function (Faker\Generator $faker) {
     $date = mt_rand(strtotime('-1 year'), strtotime('+3 months'));
+    $name = strtolower($faker->words($faker->numberBetween(1,4), true));
+    $description = $faker->paragraphs(4, true);
     return [
         'user_id'     => mt_rand(1,4),
-        'name'        => strtolower($faker->words($faker->numberBetween(1,4), true)),
-        'description' => $faker->paragraphs(2, true),
+        'name'        => $name,
+        'slug'        => str_slug($name),
+        'description' => $description,
+        'description_plain' => $description,
         'street'      => $faker->streetAddress,
         'city'        => $faker->city,
         'state'       => $faker->stateAbbr,

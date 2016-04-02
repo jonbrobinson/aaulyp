@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Aaulyp\Tools\DateHelper;
-use App\Aaulyp\Tools\Locations;
 use App\Event;
 use App\Event_Photo;
-use Illuminate\Http\Request;
-
+use App\Aaulyp\Tools\Locations;
+use App\Aaulyp\Tools\DateHelper;
 use App\Http\Requests\EventRequest;
-use App\Http\Controllers\Controller;
+use App\Http\Requests\ChangeEventRequest;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class EventsController extends Controller
@@ -32,7 +30,9 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return view('pages.events.index');
+        $events = Event::all();
+
+        return view('pages.events.index', compact('events'));
     }
 
     /**
@@ -55,9 +55,14 @@ class EventsController extends Controller
     {
         $this->eventSetUp();
 
+        $name = $request->input('event-name');
+        $description = $request->input('event-description');
+
         Event::create([
-                "name" => $request->input('event-name'),
-                "description" => $request->input('event-description'),
+                "name" => $name,
+                "slug" => str_slug($name),
+                "description" => $description,
+                "description_plain" =>strip_tags($description, ['<br>']),
                 "street" => $request->input('event-street'),
                 "city" => $request->input('event-city'),
                 "state" => $request->input('event-state'),
@@ -86,32 +91,19 @@ class EventsController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param string             $zip
+     * @param string             $name
+     * @param ChangeEventRequest $request
      *
-     * @return string
+     * @return mixed
      */
-    public function addPhoto($zip, $name, Request $request)
+    public function addPhoto($zip, $name, ChangeEventRequest $request)
     {
-        $this->validate($request, [
-                'photo' => 'required|mimes:jpg,jpeg,png,bmp'
-        ]);
-
         $event = Event::locatedAt($zip, $name);
-
-        if($event->user_id !== \Auth::id()) {
-            if ($request->ajax()) {
-                return response(['message' => "Not Happenin"], 403);
-            }
-
-            return redirect('/');
-        }
 
         $photo = $this->storePhotoFromEventName($request->file('photo'), $event);
 
         $event->addPhoto($photo);
-
-        return redirect()->action('EventsController@show', ['zip' => $zip, 'name' => $name]);
-//        return "Image located at ". $photo->path;
     }
 
     /**
