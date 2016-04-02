@@ -20,7 +20,9 @@ class CreateEventsTable extends Migration
                 ->on('users')
                 ->onDelete('cascade');
             $table->string('name');
+            $table->string('slug');
             $table->text('description');
+            $table->text('description_plain');
             $table->string('street');
             $table->string('city', 40);
             $table->string('state', 40);
