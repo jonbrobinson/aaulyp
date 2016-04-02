@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('top_javascript')
-    <link href="{{ asset("assets/css/dropzone.css") }}" rel="stylesheet" type="text/css">
+{{--    <link href="{{ asset("assets/css/dropzone.css") }}" rel="stylesheet" type="text/css">--}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css" rel="stylesheet" type="text/css">
 @stop
 @section('content')
@@ -16,7 +16,7 @@
 
         </div>
 
-        {{--<div class="col-md-8">--}}
+        <div class="col-md-8">
             @foreach($event->photos as $photo)
                 <img src="{{ asset("$photo->thumbnail_path") }}" alt="">
             @endforeach
@@ -33,8 +33,8 @@
 @stop
 
 @section('javascript')
-    <script src="{{ asset('assets/js/dropzone/dropzone.js') }}"></script>
-    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>--}}
+{{--    <script src="{{ asset('assets/js/dropzone/dropzone.js') }}"></script>--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>
     <script>
         Dropzone.options.addPhotoForm = {
             paramName: "photo",

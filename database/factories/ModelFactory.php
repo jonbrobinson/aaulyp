@@ -11,6 +11,8 @@
 |
 */
 
+use Intervention\Image\Facades\Image;
+
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
@@ -22,8 +24,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Event::class, function (Faker\Generator $faker) {
     return [
-        'user_id'     => $faker->numberBetween(1,3),
-        'name'        => $faker->text(30),
+        'user_id'     => factory('App\User')->create()->id,
+        'name'        => strtolower($faker->words($faker->numberBetween(1,4), true)),
         'description' => $faker->paragraphs(2, true),
         'street'      => $faker->streetAddress,
         'city'        => $faker->city,
@@ -39,11 +41,16 @@ $factory->define(App\Event::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Event_Photo::class, function (Faker\Generator $faker) {
+    $path = $faker->image(public_path('img/faker'));
+    $name = class_basename($path);
+    $thumbnail = Image::make($path)
+        ->fit(200)
+        ->save(dirname($path) . "/tn-{$name}");
     return [
-        'event_id'       => $faker->numberBetween(1,10),
-        'name'           => $faker->image('/tmp', 640, 480, 'cats'),
-        'path'           => $faker->imageUrl(),
-        'thumbnail_path' => $faker->imageUrl(200,200),
+        'event_id'       => factory('App\Event')->create()->id,
+        'name'           => $name,
+        'path'           => str_replace(public_path() .'/', "", $path),
+        'thumbnail_path' => str_replace(public_path() .'/', "",$thumbnail->dirname . "/" . $thumbnail->basename),
         'event_main'     => 0
     ];
 });

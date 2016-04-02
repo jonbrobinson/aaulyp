@@ -35,7 +35,7 @@ class PagesController extends Controller
      */
     public function aaul()
     {
-        return view('pages.aaulyp');
+        return view('pages.aaul');
     }
 
     /**

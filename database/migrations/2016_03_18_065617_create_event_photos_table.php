@@ -19,7 +19,6 @@ class CreateEventPhotosTable extends Migration
                 ->references('id')
                 ->on('events')
                 ->onDelete('cascade');
-
             $table->string('path');
             $table->string('thumbnail_path');
             $table->string('name');

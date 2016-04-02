@@ -21,7 +21,7 @@ class EventsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['show','index']]);
+        $this->middleware('auth', ['except' => ['show','index','addPhoto']]);
 
         parent::__construct();
     }
@@ -41,8 +41,6 @@ class EventsController extends Controller
      */
     public function create()
     {
-//        flash()->success("Success", "This is an overlay");
-
         $data = $this->getEventFormData();
 
         return view('pages.events.create',$data );
@@ -98,15 +96,22 @@ class EventsController extends Controller
                 'photo' => 'required|mimes:jpg,jpeg,png,bmp'
         ]);
 
-        $file = $request->file('photo');
-
         $event = Event::locatedAt($zip, $name);
 
-        $photo = $this->storePhotoFromEventName($file, $event);
+        if($event->user_id !== \Auth::id()) {
+            if ($request->ajax()) {
+                return response(['message' => "Not Happenin"], 403);
+            }
+
+            return redirect('/');
+        }
+
+        $photo = $this->storePhotoFromEventName($request->file('photo'), $event);
 
         $event->addPhoto($photo);
 
-        return "Image located at ". $photo->path;
+        return redirect()->action('EventsController@show', ['zip' => $zip, 'name' => $name]);
+//        return "Image located at ". $photo->path;
     }
 
     /**
