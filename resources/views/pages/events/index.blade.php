@@ -19,47 +19,54 @@
             <div class="col-md-9">
                 <!-- BLOG ENTRIES -->
                 <div class="blog medium-thumbnail margin-bottom-30px">
-                    <!-- blog post -->
-                    <article class="entry-post">
-                        <header class="entry-header">
-                            <h2 class="entry-title">
-                                <a href="blog-single.html">Objectively Disseminate Customer Directed E-commerce</a>
-                            </h2>
-                            <div class="meta-line clearfix">
-                                <div class="meta-author-category pull-left">
-                                    <span class="post-author">by <a href="#">John Doe</a></span>
-                                    <span class="post-category">In: <a href="#">Business</a>, <a href="#">Creative</a>, <a href="#">Media</a></span>
-                                </div>
-                                <div class="meta-tag-comment pull-right">
-                                    <span class="post-tags"><i class="fa fa-twitter"></i> <a href="#">story</a>, <a href="#">inspiration</a>, <a href="#">creative</a></span>
-                                    <span class="post-comment"><i class="fa fa-comments"></i> <a href="#">3 Comments</a></span>
-                                </div>
-                            </div>
-                        </header>
-                        <div class="entry-content clearfix">
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <figure class="featured-image">
-                                        <a href="blog-single.html">
-                                            <div class="post-date-info clearfix"><span class="post-month">DEC</span><span class="post-date">11</span><span class="post-year">2014</span></div>
-                                            <img src="assets/img/blog/buildings-med.jpg" class="img-responsive" alt="featured-image" />
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div class="col-sm-7">
-                                    <div class="excerpt">
-                                        <p><h4>Date &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: </h4></p>
-                                        <p><h4>Location: </h4></p>
-                                        <p class="read-more">
-                                            <a href="#" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                        </p>
+                    @if(count($events) == 0)
+                        <h1>We are planning some great opportunites. Please check back later to see some of the great events </h1>
+                    @else
+                        <!-- blog post -->
+                        @foreach($events as $event)
+                            <article class="entry-post">
+                                <header class="entry-header">
+                                    <h2 class="entry-title">
+                                        <a href="{{ action('EventsController@show', ['zip' => $event->zip, 'name' => str_slug($event->name)]) }}">{{ $event->name }}</a>
+                                    </h2>
+                                    <div class="meta-line clearfix">
+                                        <div class="meta-author-category pull-left">
+                                            <span class="post-author">by <a href="#">John Doe</a></span>
+                                            <span class="post-category">In: <a href="#">Business</a>, <a href="#">Creative</a>, <a href="#">Media</a></span>
+                                        </div>
+                                        <div class="meta-tag-comment pull-right">
+                                            <span class="post-tags"><i class="fa fa-twitter"></i> <a href="#">story</a>, <a href="#">inspiration</a>, <a href="#">creative</a></span>
+                                            <span class="post-comment"><i class="fa fa-comments"></i> <a href="#">3 Comments</a></span>
+                                        </div>
+                                    </div>
+                                </header>
+                                <div class="entry-content clearfix">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <figure class="featured-image">
+                                                <a href="blog-single.html">
+                                                    <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', $event->date_start)) }}</span><span class="post-date">{{ date('j', $event->date_start) }}</span><span class="post-year">{{ date('Y', $event->date_start) }}</span></div>
+                                                    <img src="assets/img/blog/buildings-med.jpg" class="img-responsive" alt="featured-image" />
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="excerpt">
+                                                <p>{{ str_limit($event->description, 500) }}</p>
+                                                <p>{{ date("D, d M Y g:iA", $event->date_start) }} - {{ date("D, d M Y g:iA", $event->date_end) }}</p>
+                                                <p><h4>Location: </h4></p>
+                                                <p class="read-more">
+                                                    <a href="{{ action('EventsController@show', ['zip' => $event->zip, 'name' => str_slug($event->name)]) }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- end blog post -->
-                    <hr />
+                            </article>
+                            <!-- end blog post -->
+                            <hr />
+                        @endforeach
+                    @endif
                 </div>
                 <!-- END BLOG ENTRIES -->
             </div>
