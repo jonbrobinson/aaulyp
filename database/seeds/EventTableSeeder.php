@@ -11,9 +11,10 @@ class EventTableSeeder extends Seeder
      */
     public function run()
     {
-
-        factory(App\Event::class, 10)->create()->each(function($u) {
-            $u->photos()->save(factory(App\Event_Photo::class)->make());
-        });
+        for ($i = 1; $i <= 5 ; $i++) {
+            factory(App\Event::class)->create([
+                'user_id' => rand(1, 4)
+            ]);
+        }
     }
 }

@@ -23,16 +23,17 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Event::class, function (Faker\Generator $faker) {
+    $date = mt_rand(strtotime('-1 year'), strtotime('+3 months'));
     return [
-        'user_id'     => factory('App\User')->create()->id,
+        'user_id'     => mt_rand(1,4),
         'name'        => strtolower($faker->words($faker->numberBetween(1,4), true)),
         'description' => $faker->paragraphs(2, true),
         'street'      => $faker->streetAddress,
         'city'        => $faker->city,
         'state'       => $faker->stateAbbr,
         'zip'         => $faker->postcode,
-        'date_start'  => $faker->unixTime(),
-        'date_end'    => $faker->unixTime('+4 hours'),
+        'date_start'  => $date,
+        'date_end'    => strtotime(date('F d Y', $date) . ' +' . mt_rand(4,30) . ' hours'),
         'website'     => $faker->domainName,
 //        'twitter' => $faker->name,
 //        'facebook' => $faker->name,
@@ -47,7 +48,7 @@ $factory->define(App\Event_Photo::class, function (Faker\Generator $faker) {
         ->fit(200)
         ->save(dirname($path) . "/tn-{$name}");
     return [
-        'event_id'       => factory('App\Event')->create()->id,
+        'event_id'       => mt_rand(1,5),
         'name'           => $name,
         'path'           => str_replace(public_path() .'/', "", $path),
         'thumbnail_path' => str_replace(public_path() .'/', "",$thumbnail->dirname . "/" . $thumbnail->basename),
