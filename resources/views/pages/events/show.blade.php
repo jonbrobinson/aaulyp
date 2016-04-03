@@ -2,6 +2,7 @@
 @section('top_javascript')
 {{--    <link href="{{ asset("assets/css/dropzone.css") }}" rel="stylesheet" type="text/css">--}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/lightbox.css') }}" rel="stylesheet" type="text/css">
 @stop
 @section('content')
     <div class="row">
@@ -19,8 +20,8 @@
         <div class="col-sm-6 col-md-8 gallery">
             <div class="row">
                 @foreach($event->photos as $photo)
-                    <div class="col-md-3 gallery_image">
-                        <img src="{{ asset("$photo->thumbnail_path") }}" alt="" class="img-responsive">
+                    <div class="col-xs-4 col-md-3 gallery_image">
+                        <a href="{{ asset("$photo->path") }}" data-lightbox="event-show"><img src="{{ asset("$photo->thumbnail_path") }}" alt="" class="img-responsive"></a>
                     </div>
                     @endforeach
             </div>
@@ -44,6 +45,13 @@
 
 @section('javascript')
 {{--    <script src="{{ asset('assets/js/dropzone/dropzone.js') }}"></script>--}}
+    <script src="{{ asset('assets/js/plugins/lightbox/lightbox.js') }}"></script>
+    <script>
+        lightbox.option({
+            'fitImagesInViewport': true,
+            'wrapAround': true
+        })
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>
     <script>
         Dropzone.options.addPhotoForm = {
