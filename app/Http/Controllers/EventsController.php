@@ -7,8 +7,7 @@ use App\Event_Photo;
 use App\Aaulyp\Tools\Locations;
 use App\Aaulyp\Tools\DateHelper;
 use App\Http\Requests\EventRequest;
-use App\Http\Requests\ChangeEventRequest;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Http\Requests\AddPhotoRequest;
 
 class EventsController extends Controller
 {
@@ -93,30 +92,30 @@ class EventsController extends Controller
     /**
      * @param string             $zip
      * @param string             $name
-     * @param ChangeEventRequest $request
+     * @param AddPhotoRequest $request
      *
      * @return mixed
      */
-    public function addPhoto($zip, $name, ChangeEventRequest $request)
+    public function addPhoto($zip, $name, AddPhotoRequest $request)
     {
         $event = Event::locatedAt($zip, $name);
 
-        $photo = $this->storePhotoFromEventName($request->file('photo'), $event);
+        $photo = Event_Photo::fromFileWithEvent($request->file('photo'), $event)->upload();
 
         $event->addPhoto($photo);
     }
 
-    /**
-     * @param UploadedFile $file
-     * @param Event|null   $event
-     *
-     * @return static
-     */
-    protected function storePhotoFromEventName(UploadedFile $file, Event $event)
-    {
-        return  Event_Photo::fromForm($file->getClientOriginalName(), $event->date_start, $event->name)
-            ->store($file);
-    }
+//    /**
+//     * @param UploadedFile $file
+//     * @param Event|null   $event
+//     *
+//     * @return static
+//     */
+//    protected function storePhotoFromEvent(UploadedFile $file, Event $event)
+//    {
+//        return  Event_Photo::fromForm($file->getClientOriginalName(), $event->date_start, $event->name)
+//            ->store($file);
+//    }
 
     protected function eventSetUp()
     {

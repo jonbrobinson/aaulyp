@@ -5,7 +5,7 @@
 @stop
 @section('content')
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-sm-6 col-md-4">
             <h1>{{ $event->name }}</h1>
 
             <h2> {!! $event->street !!}</h2>
@@ -16,19 +16,29 @@
 
         </div>
 
-        <div class="col-md-8">
-            @foreach($event->photos as $photo)
-                <img src="{{ asset("$photo->thumbnail_path") }}" alt="">
-            @endforeach
+        <div class="col-sm-6 col-md-8 gallery">
+            <div class="row">
+                @foreach($event->photos as $photo)
+                    <div class="col-md-3 gallery_image">
+                        <img src="{{ asset("$photo->thumbnail_path") }}" alt="" class="img-responsive">
+                    </div>
+                    @endforeach
+            </div>
+            @if ($user && $user->owns($event))
+            <hr>
+            <div>
+                <h2 class="section-heading">ADD PHOTOS</h2>
+                <form id="addPhotoForm"
+                      action="{{ action('EventsController@addPhoto', [$event->zip, $event->slug]) }}"
+                      method="post"
+                      class="dropzone"
+                >
+                    {{ csrf_field() }}
+                </form>
+            </div>
+            @endif
         </div>
     </div>
-
-
-    <form id="addPhotoForm" action="/{{ $event->zip }}/{{ str_slug($event->name) }}/photos" method="post" class="dropzone">
-        {{ csrf_field() }}
-
-    </form>
-
     @include('partials.footer')
 @stop
 

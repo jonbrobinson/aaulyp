@@ -9,11 +9,14 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Event_Photo extends Model
 {
+    protected $file;
+    protected $event;
+    protected $eventInfo;
     protected $filepath;
-    protected $table = 'event_photos';
-    protected $fillable = ['path', 'thumbnail_paith', 'name', 'event_main'];
-    protected $baseDir = "img/events";
     protected $photoDir;
+    protected $table = 'event_photos';
+    protected $baseDir =  "img/events";
+    protected $fillable = ['path', 'thumbnail_path', 'name', 'event_main'];
 
 
     /**
@@ -26,29 +29,37 @@ class Event_Photo extends Model
         return $this->belongsTo('App\Event');
     }
 
-    /**
-     * @param $name
-     * @param $startDate
-     * @param $eventName
-     *
-     * @return static
-     */
-    public static function fromForm( $name, $startDate, $eventName)
+//    protected static function boot()
+//    {
+//        static::creating(function ($photo) {
+//            return $photo->upload();
+//        });
+//    }
+
+    public static function fromFileWithEvent(UploadedFile $file, Event $event)
     {
         $photo = new static;
 
-        $eventData = $photo->buildEventArray($eventName, $startDate);
+        $photo->file = $file;
+        $photo->event = $event;
+        $photo->eventInfo = $photo->buildEventArray($photo->event->name, $photo->event->date_start);
 
-        $photo->photoDir = $photo->baseDir. "/" . $eventData['directory'] . "/";
-        $photo->saveAs($name, $eventData['date'], $eventData['slug']);
-        $photo->event_main = 0;
-
-        return $photo;
+        return $photo->fill([
+            'name'           => $photo->fileName(),
+            'path'           => $photo->filePath(),
+            'thumbnail_path' => $photo->thumbnailPath(),
+            'event_main'     => 0
+        ]);
     }
 
-    public function store(UploadedFile $file)
+    /**
+     * @param UploadedFile $file
+     *
+     * @return $this
+     */
+    public function Upload()
     {
-        $file->move($this->photoDir, $this->name);
+        $this->file->move($this->photoDir, $this->fileName());
 
         $this->makeThumbnail();
 
@@ -56,21 +67,50 @@ class Event_Photo extends Model
     }
 
     /**
-     * @param string $name
-     * @param string $date
-     * @param string $slug
      *
-     * @return $this
+     * @return string
      */
-    protected function saveAs($name, $date, $slug)
+    protected function fileName()
     {
-        $this->name = sprintf("%s_%s_%s", $date, $slug, $name);
+        $name = $this->eventInfo['date'] .  "_" . $this->eventInfo['slug'] . "_" . $this->file->getClientOriginalName();
 
-        $this->path = sprintf("%s/%s", $this->photoDir, $this->name);
+        return $name;
+    }
 
-        $this->thumbnail_path = sprintf("%s/tn-%s", $this->photoDir, $this->name);
+    /**
+     * @return string
+     */
+    protected function filePath()
+    {
+        $this->photoDir = $this->buildPhotoDir($this->eventInfo['directory']);
 
-        return $this;
+        return $this->photoDir . "/" . $this->fileName();
+    }
+
+    /**
+     * Create the thumbnail
+     *
+     * @return string
+     */
+    protected function thumbnailPath()
+    {
+        $this->photoDir = $this->buildPhotoDir($this->eventInfo['directory']);;
+
+        return $this->photoDir . "/tn-" . $this->fileName();
+    }
+
+    /**
+     * @param string|null $dir
+     *
+     * @return string
+     */
+    protected function buildPhotoDir($dir = null)
+    {
+        if ($dir) {
+            return $this->baseDir. "/" . $dir;
+        }
+
+        return $this->baseDir;
     }
 
     /**
@@ -89,11 +129,14 @@ class Event_Photo extends Model
         return $event;
     }
 
+    /**
+     * Use intervention to create thumbnail based on the
+     */
     protected function makeThumbnail()
     {
-        Image::make($this->path)
+        Image::make($this->filePath())
             ->fit(200)
-            ->save($this->thumbnail_path);
+            ->save($this->thumbnailPath());
     }
 
 }
