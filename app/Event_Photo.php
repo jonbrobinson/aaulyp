@@ -53,8 +53,6 @@ class Event_Photo extends Model
     }
 
     /**
-     * @param UploadedFile $file
-     *
      * @return $this
      */
     public function Upload()

@@ -52,28 +52,13 @@ class EventsController extends Controller
      */
     public function store(EventRequest $request)
     {
-        $this->eventSetUp();
-
-        $name = $request->input('event-name');
-        $description = $request->input('event-description');
-
-        Event::create([
-                "name" => $name,
-                "slug" => str_slug($name),
-                "description" => $description,
-                "description_plain" =>strip_tags($description, ['<br>']),
-                "street" => $request->input('event-street'),
-                "city" => $request->input('event-city'),
-                "state" => $request->input('event-state'),
-                "zip" => $request->input('event-zip'),
-                "date_start" => $this->dateHelper->getStartTimeFromRange($request->input('daterangepicker')),
-                "date_end" => $this->dateHelper->getEndTimeFromRange($request->input('daterangepicker'))
-            ]
+        $event = $this->user->publish(
+            new Event($request->all())
         );
 
         flash()->overlay("Success", "Your event has been added");
 
-        return redirect()->back();
+        return redirect(events_path($event));
     }
 
     /**
