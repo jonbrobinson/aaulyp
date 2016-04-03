@@ -74,6 +74,14 @@
                 <!-- SIDEBAR -->
                 <!-- tabbed content -->
                 <div class="widget">
+                    <div class="pull-right">
+                        @if ($signedIn)
+                            <a href="/events/create" class="btn btn-primary">CREATE EVENT</a>
+                        @else
+                            <a href="/login" class="btn btn-primary">CREATE EVENT</a>
+                        @endif
+                    </div>
+                    <div class="clearfix"></div>
                     <div class="tabpanel">
                         <!-- nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
@@ -138,6 +146,8 @@
                                         <span class="text-muted">Nov 23, 2014 | by George</span>
                                     </li>
                                 </ul>
+                            </div>
+                            <div id="content-recents-comments" class="tab-pane fade in active" role="tabpanel">
                             </div>
                         </div>
                         <!-- end tab panes -->

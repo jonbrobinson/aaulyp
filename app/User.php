@@ -28,4 +28,22 @@ class User extends Authenticatable
     {
         return $relations->user_id == $this->id;
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function events()
+    {
+        return $this->hasMany('App\Event');
+    }
+
+    /**
+     * @param Event $event
+     *
+     * @return Event
+     */
+    public function publish(Event $event)
+    {
+        return $this->events()->save($event);
+    }
 }
