@@ -5,39 +5,43 @@
     <link href="{{ asset('assets/css/lightbox.css') }}" rel="stylesheet" type="text/css">
 @stop
 @section('content')
-    <div class="row">
-        <div class="col-sm-6 col-md-4">
-            <h1>{{ $event->name }}</h1>
-
-            <h2> {!! $event->street !!}</h2>
-
-            <hr>
-
-            <div>{!! $event->description !!}</div>
-
-        </div>
-
-        <div class="col-sm-6 col-md-8 gallery">
+    <div class="page-content">
+        <div class="container">
             <div class="row">
-                @foreach($event->photos as $photo)
-                    <div class="col-xs-4 col-md-3 gallery_image">
-                        <a href="{{ asset("$photo->path") }}" data-lightbox="event-show"><img src="{{ asset("$photo->thumbnail_path") }}" alt="" class="img-responsive"></a>
+                <div class="col-sm-6 col-md-4">
+                    <h1>{{ $event->name }}</h1>
+
+                    <h2> {!! $event->street !!}</h2>
+
+                    <hr>
+
+                    <div>{!! $event->description !!}</div>
+
+                </div>
+
+                <div class="col-sm-6 col-md-8 gallery">
+                    <div class="row">
+                        @foreach($event->photos as $photo)
+                            <div class="col-xs-4 col-md-3 gallery_image">
+                                <a href="{{ asset("$photo->path") }}" data-lightbox="event-show"><img src="{{ asset("$photo->thumbnail_path") }}" alt="" class="img-responsive"></a>
+                            </div>
+                        @endforeach
                     </div>
-                    @endforeach
+                    @if ($user && $user->owns($event))
+                        <hr>
+                        <div>
+                            <h2 class="section-heading">ADD PHOTOS</h2>
+                            <form id="addPhotoForm"
+                                  action="{{ action('EventsController@addPhoto', [$event->zip, $event->slug]) }}"
+                                  method="post"
+                                  class="dropzone"
+                            >
+                                {{ csrf_field() }}
+                            </form>
+                        </div>
+                    @endif
+                </div>
             </div>
-            @if ($user && $user->owns($event))
-            <hr>
-            <div>
-                <h2 class="section-heading">ADD PHOTOS</h2>
-                <form id="addPhotoForm"
-                      action="{{ action('EventsController@addPhoto', [$event->zip, $event->slug]) }}"
-                      method="post"
-                      class="dropzone"
-                >
-                    {{ csrf_field() }}
-                </form>
-            </div>
-            @endif
         </div>
     </div>
     @include('partials.footer')
