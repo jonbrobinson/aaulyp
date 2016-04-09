@@ -76,6 +76,15 @@
 <!--        <link href="{{ asset("css/libs.css") }}" rel="stylesheet" type="text/css">-->
 
 
+        <!-- Bootstrap For Coming Soon Page -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
         <!-- IE 9 Fallback-->
         <!--[if IE 9]>
         <!--<link href="assets/css/ie.css" rel="stylesheet">-->
@@ -84,13 +93,31 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,400italic,700,400,300' rel='stylesheet' type='text/css'>
 
-            </head>
+        <style>
+            .aaulyp-red {color: #a5101e}
+        </style>
+
+    </head>
 
     <body>
 
     <div class="wrapper">
-        <h1>Coming Soon. </h1>
-        <h2>Follow us on <a href="http://www.facebook.com/aaulyp">Facebook</a> until we are ready. #YPEmpowered</h2>
+        <div class="container">
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <img src="UL-black.png" alt="Austin Area Urban League YOung Professionals" class="img-responsive center-block" >
+                <h1 class="text-center">Coming Soon.</h1>
+                <h2 class="text-center">Follow us on
+                    <a href="http://www.facebook.com/aaulyp" class="aaulyp-red"><i class="fa fa-facebook aaulyp-red"></i></a>
+                    <a href="http://www.twitter.com/aaulyp" class="aaulyp-red"><i class="fa fa-twitter aaulyp-red"></i></a>
+                    <a href="http://www.instagram.com/aaulyp" class="aaulyp-red"><i class="fa fa-instagram aaulyp-red"></i></a>
+                    @AAULYP.  #YPEmpowered
+                </h2>
+                <h2 class="text-center">Email: <a href="mailto: pr.aaulyp@gmail.com" class="aaulyp-red">pr.aaulyp@gmail.com</a></h2>
+            </div>
+        </div>
 
     </div>
 
