@@ -115,7 +115,7 @@
                     <a href="http://www.instagram.com/aaulyp" class="aaulyp-red"><i class="fa fa-instagram aaulyp-red"></i></a>
                     @AAULYP.  #YPEmpowered
                 </h2>
-                <h2 class="text-center">Email: <a href="mailto: pr.aaulyp@gmail.com" class="aaulyp-red">pr.aaulyp@gmail.com</a></h2>
+                <h2 class="text-center">Email: <a href="mailto:pr.aaulyp@gmail.com" class="aaulyp-red">pr.aaulyp@gmail.com</a></h2>
             </div>
         </div>
 
