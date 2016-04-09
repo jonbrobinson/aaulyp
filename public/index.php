@@ -42,7 +42,7 @@
 <!--//|---------------------------------------------------------------------------->
 <!--//| Run The Application-->
 <!--//|---------------------------------------------------------------------------->
-<!--//|-->
+<!--//|
 <!--//| Once we have the application, we can handle the incoming request-->
 <!--//| through the kernel, and send the associated response back to-->
 <!--//| the client's browser allowing them to enjoy the creative-->
@@ -89,7 +89,8 @@
     <body>
 
     <div class="wrapper">
-        <h1>You're in the right place we are just working on few changes.</h1>
+        <h1>Coming Soon. </h1>
+        <h2>Follow us on <a href="http://www.facebook.com/aaulyp">Facebook</a> until we are ready. #YPEmpowered</h2>
 
     </div>
 
