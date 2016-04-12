@@ -48,3 +48,7 @@ footer .logo {
 .gallery_image {
   margin-bottom: 1em;
 }
+
+#map {
+  height: 450px;
+}

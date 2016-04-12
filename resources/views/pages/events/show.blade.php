@@ -18,7 +18,9 @@
                     <div>{!! $event->description !!}</div>
 
                 </div>
-
+                <div class="col-md-8" id="map"></div>
+            </div>
+            <div class="row">
                 <div class="col-sm-6 col-md-8 gallery">
                     <div class="row">
                         @foreach($event->photos as $photo)
@@ -63,5 +65,18 @@
             maxFilesize: 5,
             acceptedFiles: '.jpg, .jpeg, .png, .bmp'
         }
+    </script>
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBjraWiz5BuIM0LnJl-AP5p8PF9fBbQQY&callback=initMap"
+            async defer>
+
     </script>
 @stop
