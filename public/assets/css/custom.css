@@ -50,5 +50,7 @@ footer .logo {
 }
 
 #map {
-  height: 450px;
+  width: 75%;
+  height: 300px;
+  margin-top: 30px;
 }
