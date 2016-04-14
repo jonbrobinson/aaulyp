@@ -8,19 +8,21 @@
     <div class="page-content">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-md-9">
+                <div class="col-sm-6 col-md-8 col-md-offset-2">
                     <h2>{{ $event->name }}</h2>
-
-                    <h4 id="map-address">{!! $event->street !!}, {!! $event->city !!}, {!! $event->state !!} {!! $event->zip !!}</h4>
-
                     <hr>
-
                     <div>{!! $event->description !!}</div>
+
+                    <h4>Where</h4>
+                    <p id="map-address">{!! $event->street !!}, {!! $event->city !!}, {!! $event->state !!} {!! $event->zip !!}</p>
+
+                    <h4>When</h4>
+                    <p>{{ date("l, F t, Y", $event->date_start) }} - {{ date("l, F t, Y", $event->date_end) }}</p>
 
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-md-9 gallery">
+                <div class="col-sm-6 col-md-8 col-md-offset-2 gallery">
                     <div class="row">
                         @foreach($event->photos as $photo)
                             <div class="col-xs-4 col-md-2 gallery_image">
@@ -45,7 +47,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-9" id="map"></div>
+                <div class="col-md-8 col-md-offset-2" id="map"></div>
             </div>
         </div>
     </div>
@@ -195,7 +197,6 @@
         function codeAddress(theMap) {
 
             var address = document.getElementById('map-address').innerText;
-            console.log(address);
             geocoder.geocode( { 'address': address}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     theMap.setCenter(results[0].geometry.location);
@@ -207,7 +208,12 @@
                     });
 
                 } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
+                    var map = document.getElementById('map');
+
+                    map.id = "";
+                    console.log(map);
+
+//                    alert('Geocode was not successful for the following reason: ' + status);
                 }
             });
         }
