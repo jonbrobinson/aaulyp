@@ -19,46 +19,46 @@
             <div class="col-md-9">
                 <p>Austin Area Urban League Young Professionals is an organization that cares for the community. Please feel free to send us a comment or question if you need more information. Our goal is to build a greater Austin through service and education. We are allways searching for oppotunities to collaborate with different organizations or promote oppotuniotees to help build personal skills and career oppotunities.</p>
                 <br>
-                {{--<!-- CONCTACT FORM -->--}}
-                {{--<div class="contact-form-wrapper">--}}
-                    {{--<form id="contact-form" method="post" class="form-horizontal margin-bottom-30px" role="form" novalidate>--}}
-                        {{--<div class="row">--}}
-                            {{--<div class="col-sm-6">--}}
-                                {{--<div class="form-group">--}}
-                                    {{--<label for="contact-name" class="control-label sr-only">Name</label>--}}
-                                    {{--<input type="text" class="form-control" id="contact-name" name="name" placeholder="Name*" required>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-sm-6">--}}
-                                {{--<div class="form-group">--}}
-                                    {{--<label for="contact-email" class="control-label sr-only">Email</label>--}}
-                                    {{--<input type="email" class="form-control" id="contact-email" name="email" placeholder="Email*" required>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="form-group">--}}
-                            {{--<label for="contact-subject" class="control-label sr-only">Subject</label>--}}
-                            {{--<div class="col-sm-12">--}}
-                                {{--<input type="text" class="form-control" id="contact-subject" name="subject" placeholder="Subject">--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="form-group">--}}
-                            {{--<label for="contact-message" class="control-label sr-only">Message</label>--}}
-                            {{--<div class="col-sm-12">--}}
-                                {{--<textarea class="form-control" id="contact-message" name="message" rows="5" cols="30" placeholder="Message*" required></textarea>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="form-group">--}}
-                            {{--<div class="col-sm-12">--}}
-                                {{--<button id="submit-button" type="submit" class="btn btn-primary"><i class="fa loading-icon"></i> <span>Submit Message</span></button>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<input type="hidden" name="msg-submitted" id="msg-submitted" value="true">--}}
-                    {{--</form>--}}
-                {{--</div>--}}
-                {{--<!-- END CONCTACT FORM -->--}}
+                <!-- CONCTACT FORM -->
+                <div class="contact-form-wrapper">
+                    <form id="contact-form" method="post" class="form-horizontal margin-bottom-30px" role="form" novalidate>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="contact-name" class="control-label sr-only">Name</label>
+                                    <input type="text" class="form-control" id="contact-name" name="name" placeholder="Name*" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="contact-email" class="control-label sr-only">Email</label>
+                                    <input type="email" class="form-control" id="contact-email" name="email" placeholder="Email*" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject" class="control-label sr-only">Subject</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="contact-subject" name="subject" placeholder="Subject">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message" class="control-label sr-only">Message</label>
+                            <div class="col-sm-12">
+                                <textarea class="form-control" id="contact-message" name="message" rows="5" cols="30" placeholder="Message*" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button id="submit-button" type="submit" class="btn btn-primary"><i class="fa loading-icon"></i> <span>Submit Message</span></button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="msg-submitted" id="msg-submitted" value="true">
+                    </form>
+                </div>
+                <!-- END CONCTACT FORM -->
 
-                <iframe src="https://docs.google.com/forms/d/1kk6OyhJqney0SPM6CRgvTwHAU3uHwgIDa_13PntkAMc/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+                {{--<iframe src="https://docs.google.com/forms/d/1kk6OyhJqney0SPM6CRgvTwHAU3uHwgIDa_13PntkAMc/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>--}}
             </div>
             <div class="col-md-3">
                 <!-- RIGHT SIDEBAR CONTENT -->
@@ -96,5 +96,5 @@
 @stop
 
 @section('javascript')
-    <script src="assets/js/plugins/google-map/google-map.js"></script>
+    <script src="{{ asset('assets/js/plugins/google-map/google-map.js') }}"></script>
 @endsection
