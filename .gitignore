@@ -6,3 +6,4 @@ Homestead.json
 .idea/*
 /public/img/events/*
 /public/img/faker/*
+.env*
