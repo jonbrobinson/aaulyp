@@ -19,6 +19,7 @@
             <div class="col-md-9">
                 <p>Austin Area Urban League Young Professionals is an organization that cares for the community. Please feel free to send us a comment or question if you need more information. Our goal is to build a greater Austin through service and education. We are allways searching for oppotunities to collaborate with different organizations or promote oppotuniotees to help build personal skills and career oppotunities.</p>
                 <br>
+                <div id="server-response"></div>
                 <!-- CONCTACT FORM -->
                 <div class="contact-form-wrapper">
                     <form id="the-form" method="post" class="form-horizontal margin-bottom-30px" role="form" novalidate>
@@ -104,20 +105,23 @@
 
                 var url = "/contact"; // the script where you handle the form input.
 
-//                $.ajaxSetup({
-//                    headers: {
-//                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//                    }
-//                });
-
                 $.ajax({
                     type: "POST",
                     url: url,
                     data: $("#the-form").serialize(), // serializes the form's elements.
                     success: function(data)
                     {
-                        $('#server-response').html(data); // show response from the php script.
-                    }
+                        var success = '<p class=\'alert alert-success\'>' + data.message + '<a href=\'#\' class=\'close\' data-dismiss=\'alert\' aria-label=\'close\'>&times;</a></p>';
+                        $('#server-response').append(success);
+                        $('#contact-name').val('');
+                        $('#contact-email').val('');
+                        $('#contact-subject').val('');
+                        $('#contact-message').val('');
+                    },
+//                    error: function(xhr, status, error) {
+//                        var
+//                        console.log(xhr);
+//                    }
                 });
 
                 e.preventDefault(); // avoid to execute the actual submit of the form.

@@ -48,8 +48,11 @@ class HomeController extends Controller
         ]);
 
         if ($validator->fails()) {
-            dd($validator->errors()->all());
-            return response("My Validator Fails", 412);
+            return response()
+                ->json([
+                    'message' => 'Input submission Errors',
+                    'errors' => $validator->errors()->all()
+                ],400);
         }
 
         $contact = $request->all();
@@ -61,10 +64,13 @@ class HomeController extends Controller
             $m->subject('AAULYP CONTACT FORM | ' . $contact['subject']);
         });
 
+        if ($response->getStatusCode() == 200) {
+            return response()->json([
+                "message" => "Thank You. Your message has been successfully sent"
 
-        dd($response);
+            ], $response->getStatusCode());
+        }
 
-
-        return view('welcome');
+        return response($response->getBody(), $response->getStatusCode());
     }
 }
