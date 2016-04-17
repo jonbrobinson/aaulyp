@@ -22,7 +22,7 @@
                     <h2 class="section-heading">Join Now</h2>
                     <div class="col-md-11 row">
                         <p>Joining the YP is easy. Please purchase a member from our Eventbrite.</p>
-                        <p><a href="http://www.eventbrite.com/e/aaulyp-membership-tickets-5422224018?aff=es2" class="active">http://www.eventbrite.com/e/aaulyp-membership-tickets-5422224018?aff=es2</a></p>
+                        <p><a href="http://www.eventbrite.com/e/aaulyp-membership-tickets-5422224018?aff=es2" class="active btn btn-primary">Join on Eventbrite</a></p>
                         <p>From there, we encourage you to get involved by coming to our General Body Meetings (GBM), and volunteering at some of our service opportunities. Our committee chairs (Membership, Fundraising, Community Outreach, etc) are also looking for people to help plan and organize some of the events we host.</p>
                     </div>
                 </div>
