@@ -21,7 +21,8 @@
                 <br>
                 <!-- CONCTACT FORM -->
                 <div class="contact-form-wrapper">
-                    <form id="contact-form" method="post" class="form-horizontal margin-bottom-30px" role="form" novalidate>
+                    <form id="the-form" method="post" class="form-horizontal margin-bottom-30px" role="form" novalidate>
+                        {{--<meta name="csrf-token" content="{{ csrf_token() }}">--}}
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -97,4 +98,30 @@
 
 @section('javascript')
     <script src="{{ asset('assets/js/plugins/google-map/google-map.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $("#the-form").submit(function(e) {
+
+                var url = "/contact"; // the script where you handle the form input.
+
+//                $.ajaxSetup({
+//                    headers: {
+//                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//                    }
+//                });
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: $("#the-form").serialize(), // serializes the form's elements.
+                    success: function(data)
+                    {
+                        $('#server-response').html(data); // show response from the php script.
+                    }
+                });
+
+                e.preventDefault(); // avoid to execute the actual submit of the form.
+            });
+        });
+    </script>
 @endsection

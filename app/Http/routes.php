@@ -43,4 +43,5 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('events', 'EventsController');
     Route::get('{zip}/{name}', 'EventsController@show');
     Route::post('{zip}/{name}/photos', 'EventsController@addPhoto');
+    Route::post('/contact', 'HomeController@contact');
 });
