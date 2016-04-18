@@ -56,7 +56,7 @@
                             </div>
                         </form>
                         <br>
-                        <p><em>Don't have an account yet?</em> <a href="#"><strong>Sign Up</strong></a>
+                        <p><em>Don't have an account yet?</em> <a href="/register"><strong>Sign Up</strong></a>
                             <br>
                             <em>Forgot your password?</em> <a href="{{ url('/password/reset') }}">Recover Password</a></p>
                         <!-- END LOGIN FORM -->
