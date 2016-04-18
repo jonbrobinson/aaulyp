@@ -48,7 +48,12 @@ class EventRequest extends Request
         $data['state'] = $data['event-state'];
         $data['zip'] = $data['event-zip'];
         $data['date_start'] = $dateHelper->getStartTimeFromRange($data['daterangepicker']);
-        $data['date_end'] = $dateHelper->getEndTimeFromRange($data['daterangepicker']);
+
+        if ($data['daterangepicker']) {
+            $data['date_end'] = $dateHelper->getEndTimeFromRange($data['daterangepicker']);
+        } else {
+            $data['date_end'] = $data['daterangepicker'];
+        }
         $this->getInputSource()->replace($data);
 
         /*modify data before send to validator*/

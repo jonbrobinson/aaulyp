@@ -2,13 +2,13 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label for="event-name" class="control-label sr-only">Event Name</label>
-            <input type="text" class="form-control" name="event-name" id="event-name" placeholder="Event Name">
+            <input type="text" class="form-control" name="event-name" id="event-name" placeholder="Event Name" value="{{ old('event-name') }}">
         </div>
     </div>
     <div class="col-sm-6">
         <div class="form-group">
             <div class="input-group" id="date-picker-demo">
-                <input type="text" name="daterangepicker" id="daterangepicker" class="form-control" placeholder="Choose a Date Range">
+                <input type="text" name="daterangepicker" id="daterangepicker" class="form-control" placeholder="Choose a Date Range" value="{{ old('daterangepicker') }}">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
             </div>
         </div>
@@ -17,11 +17,11 @@
 <div class="form-group">
     <label for="event-street" class="control-label sr-only">Street Address</label>
     <div class="col-sm-6">
-        <input type="text" class="form-control" name="event-street" id="event-address" placeholder="Street Address">
+        <input type="text" class="form-control" name="event-street" id="event-address" placeholder="Street Address" value="{{ old('event-address') }}">
     </div>
     <label for="event-city" class="control-label sr-only">City</label>
     <div class="col-sm-2">
-        <input type="text" class="form-control" name="event-city" id="event-state" placeholder="City">
+        <input type="text" class="form-control" name="event-city" id="event-state" placeholder="City" value="{{ old('event-city') }}">
     </div>
     <label for="event-state" class="control-label sr-only">State</label>
     <div class="col-sm-2">
@@ -37,7 +37,7 @@
     </div>
     <label for="event-zip" class="control-label sr-only">Zip</label>
     <div class="col-sm-2">
-        <input type="text" class="form-control" name="event-zip" id="event-zip" placeholder="Zip">
+        <input type="text" class="form-control" name="event-zip" id="event-zip" placeholder="Zip" value="{{ old('event-zip') }}">
     </div>
 </div>
 <div class="form-group">
@@ -49,19 +49,19 @@
 <div class="form-group">
     <label for="event-social-facebook" class="control-label sr-only">Message</label>
     <div class="col-sm-3">
-        <input class="form-control" id="event-social-facebook" name="contact-facebook" rows="5" cols="30" placeholder="Facebook">
+        <input class="form-control" id="event-social-facebook" name="contact-facebook" rows="5" cols="30" placeholder="Facebook" value="{{ old('event-social-facebook') }}">
     </div>
     <label for="event-social-twitter" class="control-label sr-only">Message</label>
     <div class="col-sm-3">
-        <input class="form-control" id="event-social-twitter" name="contact-twitter" rows="5" cols="30" placeholder="Twitter">
+        <input class="form-control" id="event-social-twitter" name="contact-twitter" rows="5" cols="30" placeholder="Twitter" value="{{ old('event-social-twitter') }}">
     </div>
     <label for="event-social-instagram" class="control-label sr-only">Message</label>
     <div class="col-sm-3">
-        <input class="form-control" id="event-social-instagram" name="contact-instagram" rows="5" cols="30" placeholder="Instagram">
+        <input class="form-control" id="event-social-instagram" name="contact-instagram" rows="5" cols="30" placeholder="Instagram" value="{{ old('event-social-instagram') }}">
     </div>
     <label for="event-social-instagram" class="control-label sr-only">Message</label>
     <div class="col-sm-3">
-        <input class="form-control" id="event-social-instagram" name="contact-website" rows="5" cols="30" placeholder="Website">
+        <input class="form-control" id="event-social-website" name="contact-website" rows="5" cols="30" placeholder="Website" >
     </div>
 </div>
 <div class="form-group">

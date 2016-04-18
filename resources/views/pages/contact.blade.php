@@ -59,8 +59,6 @@
                     </form>
                 </div>
                 <!-- END CONCTACT FORM -->
-
-                {{--<iframe src="https://docs.google.com/forms/d/1kk6OyhJqney0SPM6CRgvTwHAU3uHwgIDa_13PntkAMc/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>--}}
             </div>
             <div class="col-md-3">
                 <!-- RIGHT SIDEBAR CONTENT -->
@@ -137,15 +135,15 @@
                 });
 
                 e.preventDefault(); // avoid to execute the actual submit of the form.
-
-                function resetResponse (){
-                    var emptyDiv= $('#server-response').empty();
-
-                    if (emptyDiv.hasClass('alert alert-danger')) {
-                        emptyDiv.removeClass('alert alert-danger');
-                    }
-                };
             });
+
+            function resetResponse (){
+                var emptyDiv= $('#server-response').empty();
+
+                if (emptyDiv.hasClass('alert alert-danger')) {
+                    emptyDiv.removeClass('alert alert-danger');
+                }
+            };
         });
     </script>
 @endsection
