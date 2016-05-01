@@ -29,7 +29,7 @@
                         </div>
                         <div id="top-faq1" class="panel-collapse collapse" style="height: 0px;">
                             <div class="panel-body">
-                                <p>No. We are all one Austin Area Urban League. As Young Professionals we work as an auxilary for the Austin Area Urban League and help promote the movement of the Urban League</p>
+                                <p>No. We are all one Austin Area Urban League. As Young Professionals we work as an auxiliary for the Austin Area Urban League and help promote the movement of the Urban League</p>
                                 <div class="faq-footer">
                                     <span class="text-muted">43 people found this useful - <a href="#">Me too!</a></span>
                                     <span class="share"><a href="#">Permalink</a> | <a href="#">Share</a></span>
@@ -40,7 +40,7 @@
                     <div class="panel panel-minimal">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#top-faq2" class="collapsed"><span class="number pull-left">1</span> How can I get involved?</a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#top-faq2" class="collapsed"><span class="number pull-left">2</span> How can I get involved?</a>
                             </h4>
                         </div>
                         <div id="top-faq2" class="panel-collapse collapse" style="height: 0px;">
@@ -57,7 +57,7 @@
                     <div class="panel panel-minimal">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#top-faq3" class="collapsed"><span class="number pull-left">2</span> Are AAULYP events for members only?</a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#top-faq3" class="collapsed"><span class="number pull-left">3</span> Are AAULYP events for members only?</a>
                             </h4>
                         </div>
                         <div id="top-faq3" class="panel-collapse collapse" style="height: 0px;">
@@ -70,7 +70,7 @@
                     <div class="panel panel-minimal">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#top-faq4" class="collapsed"><span class="number pull-left">3</span> Can I promote an event/job/etc through the YP social channels?</a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#top-faq4" class="collapsed"><span class="number pull-left">4</span> Can I promote an event/job/etc through the YP social channels?</a>
                             </h4>
                         </div>
                         <div id="top-faq4" class="panel-collapse collapse">
