@@ -54,7 +54,7 @@
                                             <div class="excerpt">
                                                 <p>{{ str_limit($event->description, 500) }}</p>
                                                 <p>{{ date("D, d M Y g:iA", $event->date_start) }} - {{ date("D, d M Y g:iA", $event->date_end) }}</p>
-                                                <p><h4>Location: </h4></p>
+                                                <p>{{ $event->street }} {{ $event->city }}, {{ $event->state }} {{ $event->zip }}</p>
                                                 <p class="read-more">
                                                     <a href="{{ action('EventsController@show', ['zip' => $event->zip, 'name' => str_slug($event->name)]) }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
                                                 </p>
