@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="col-sm-7">
                                             <div class="excerpt">
-                                                <p>{{ str_limit($event->description, 500) }}</p>
+                                                <p>{!! str_limit($event->description, 500) !!}</p>
                                                 <p>{{ date("D, d M Y g:iA", $event->date_start) }} - {{ date("D, d M Y g:iA", $event->date_end) }}</p>
                                                 <p>{{ $event->street }} {{ $event->city }}, {{ $event->state }} {{ $event->zip }}</p>
                                                 <p class="read-more">
@@ -77,8 +77,6 @@
                     <div class="pull-right">
                         @if ($signedIn)
                             <a href="/events/create" class="btn btn-primary">CREATE EVENT</a>
-                        @else
-                            <a href="/login" class="btn btn-primary">CREATE EVENT</a>
                         @endif
                     </div>
                     <div class="clearfix"></div>
