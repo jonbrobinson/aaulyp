@@ -41,17 +41,17 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">NEWS <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/events">Events</a></li>
-                        <li><a href="/newsletters">Newsletters</a></li>
+                        {{--<li><a href="/newsletters">Newsletters</a></li>--}}
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" data-toggle="dropdown">SERVICES <i class="fa fa-angle-down"></i></a>
-                    <ul class="dropdown-menu mega-menu-container">
-                        <li><a href="page-services.html">Programs</a></li>
-                        <li><a href="page-services.html">Volunteer</a></li>
-                        <li><a href="page-pricing-tables.html">UYEP</a></li>
-                    </ul>
-                </li>
+                {{--<li class="dropdown">--}}
+                    {{--<a href="#" data-toggle="dropdown">SERVICES <i class="fa fa-angle-down"></i></a>--}}
+                    {{--<ul class="dropdown-menu mega-menu-container">--}}
+                        {{--<li><a href="page-services.html">Programs</a></li>--}}
+                        {{--<li><a href="page-services.html">Volunteer</a></li>--}}
+                        {{--<li><a href="page-pricing-tables.html">UYEP</a></li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">TEAM <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
