@@ -195,22 +195,22 @@
     <!-- OUR CLIENTS -->
     <section class="clients">
         <div class="container">
-            <h2 class="section-heading">OUR CLIENTS</h2>
+            <h2 class="section-heading">OUR PARTNERS</h2>
             <ul class="list-inline list-client-logo">
                 <li>
-                    <a href="#"><img src="assets/img/clients/logo1.png" alt="logo"></a>
+                    <a href="#"><img src="{{ asset('assets/img/clients/aayouthHarvestFoundation_135x80.png') }}" alt="logo"></a>
                 </li>
                 <li>
-                    <a href="#"><img src="assets/img/clients/logo2.png" alt="logo"></a>
+                    <a href="#"><img src="{{ asset('assets/img/clients/Capmetrologo_95x80.png') }}" alt="logo"></a>
                 </li>
                 <li>
-                    <a href="#"><img src="assets/img/clients/logo3.png" alt="logo"></a>
+                    <a href="#"><img src="{{ asset('assets/img/clients/CityOfAustin_80x80.png') }}" alt="logo"></a>
                 </li>
                 <li>
-                    <a href="#"><img src="assets/img/clients/logo4.png" alt="logo"></a>
+                    <a href="#"><img src="{{ asset('assets/img/clients/Dell_Logo_80x80.png') }}" alt="logo"></a>
                 </li>
                 <li>
-                    <a href="#"><img src="assets/img/clients/logo5.png" alt="logo"></a>
+                    <a href="#"><img src="{{ asset('assets/img/clients/Huston-tilotson_255x80.png') }}" alt="logo"></a>
                 </li>
             </ul>
         </div>
@@ -223,11 +223,11 @@
                 <h2 class="section-heading">GET IN TOUCH</h2>
             </div>
             <div class="pull-right">
-                <span>Call us at (512) 278 - 7176 or</span>&nbsp;&nbsp;<a href="#" class="btn btn-lg btn-primary">CONTACT US</a>
+                <span>Call us at (512) 278 - 7176 or</span>&nbsp;&nbsp;<a href="/contact" class="btn btn-lg btn-primary">CONTACT US</a>
             </div>
         </div>
     </section>
-    <!-- END CALL-TO-ACTION -->
+        <!-- END CALL-TO-ACTION -->
     @include('partials.footer')
 </div>
 <!-- END WRAPPER -->
