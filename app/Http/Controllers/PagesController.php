@@ -77,4 +77,21 @@ class PagesController extends Controller
     {
         return view('pages.contact');
     }
+
+    /**
+     * Show the commitee passed in and return the view
+     *
+     * @param $committee
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function committees($committee)
+    {
+        $validCommittees = ['community', 'communication', 'fundraising', 'advocacy', 'membership'];
+
+        if (in_array($committee, $validCommittees)) {
+
+            return view('pages.committees.' . $committee);
+        }
+    }
 }

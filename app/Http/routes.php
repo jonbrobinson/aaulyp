@@ -24,6 +24,8 @@ Route::get('/contact/faq', 'PagesController@faq');
 
 Route::get('/contact', 'PagesController@contact');
 
+Route::get('/committee/{name}', 'PagesController@committees');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
