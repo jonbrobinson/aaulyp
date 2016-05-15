@@ -26,6 +26,8 @@ Route::get('/contact', 'PagesController@contact');
 
 Route::get('/committee/{name}', 'PagesController@committees');
 
+Route::post('/webhooks/eventbrite/orders', 'WebhookController@ebOrders');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
