@@ -23,18 +23,17 @@ class CreateEventsTable extends Migration
             $table->string('slug');
             $table->text('description');
             $table->text('description_plain');
+            $table->integer('feature_event')->default(0);
             $table->string('street');
             $table->string('city', 40);
             $table->string('state', 40);
             $table->string('zip',10);
             $table->string('date_start');
             $table->string('date_end');
-            $table->string('website');
-//            $table->string('twitter');
-//            $table->string('facebook');
-//            $table->string('eb_url');
-//            $table->string('startDate', 60);
-//            $table->string('endDate');
+            $table->string('website')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('eb_url')->nullable();
             $table->timestamps();
         });
     }

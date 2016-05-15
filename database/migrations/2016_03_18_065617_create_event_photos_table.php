@@ -23,6 +23,8 @@ class CreateEventPhotosTable extends Migration
             $table->string('thumbnail_path');
             $table->string('name');
             $table->string('event_main');
+            $table->string('dropbox_path')->nullable();
+            $table->string('dropbox_thumbnail_path')->nullable();
             $table->timestamps();
         });
     }
