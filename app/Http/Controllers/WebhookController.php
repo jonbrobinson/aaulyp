@@ -12,7 +12,7 @@ class WebhookController extends Controller
     {
         $data = $request->all();
 
-        return response(json_encode($data), 200);
+        return response($data['api_url'], 200);
 
     }
 }
