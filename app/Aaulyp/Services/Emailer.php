@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Aaulyp\Services;
+namespace App\Aaulyp\Services;
 
 use Illuminate\Support\Facades\Mail;
 

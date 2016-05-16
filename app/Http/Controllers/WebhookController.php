@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Aaulyp\Tools\Api\Eventbrite;
-use app\Aaulyp\Services\Emailer;
+use App\Aaulyp\Services\Emailer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
@@ -16,7 +16,7 @@ class WebhookController extends Controller
     {
         parent::__construct();
 
-        $this->eventbrite = new Eventbrite();
+//        $this->eventbrite = new Eventbrite();
         $this->emailer = new Emailer();
     }
 
