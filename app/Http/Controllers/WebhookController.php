@@ -15,9 +15,9 @@ class WebhookController extends Controller
     public function ebOrders(Request $request)
     {
 
-//        $this->init();
-
         $orderUrl = $request->input('api_url');
+
+        $this->init();
 
         return response($orderUrl);
 
@@ -42,6 +42,12 @@ class WebhookController extends Controller
     protected function init()
     {
         $this->eventbrite = new Eventbrite();
+
+
+
+
+
+        
         $this->emailer = new Emailer();
     }
 }
