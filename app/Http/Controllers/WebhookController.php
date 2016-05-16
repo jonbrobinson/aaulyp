@@ -19,6 +19,8 @@ class WebhookController extends Controller
 
         $orderUrl = $request->input('api_url');
 
+        return response($orderUrl);
+
         $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
 
         $response = $this->emailer->sendWelcomeEmail($orderUser);
