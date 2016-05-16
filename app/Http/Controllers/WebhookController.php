@@ -21,8 +21,8 @@ class WebhookController extends Controller
     public function ebOrders(Request $request)
     {
 
-        return response('made it here');
         $this->init();
+        return response('made it here');
 
 
         $orderUrl = $request->input('api_url');
