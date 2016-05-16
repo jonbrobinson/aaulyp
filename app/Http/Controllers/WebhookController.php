@@ -17,7 +17,7 @@ class WebhookController extends Controller
 
 //        $this->init();
 
-        $orderUrl = $request->all();
+        $orderUrl = $request->input('config');
         return response($orderUrl);
 //
 //        $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
