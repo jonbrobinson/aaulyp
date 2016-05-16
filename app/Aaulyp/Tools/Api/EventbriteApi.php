@@ -39,8 +39,6 @@ class EventbriteApi
             'headers' => $headers
         ];
 
-        return 'made it here';
-
         $response = $this->guzzle->request('GET', $url, $options);
 
 

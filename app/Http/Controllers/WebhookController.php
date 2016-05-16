@@ -22,8 +22,6 @@ class WebhookController extends Controller
     {
 
         $this->init();
-        return response('made it here');
-
 
         $orderUrl = $request->input('api_url');
 
