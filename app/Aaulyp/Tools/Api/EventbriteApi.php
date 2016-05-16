@@ -5,7 +5,7 @@ namespace App\Aaulyp\Tools\Api;
 use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\Psr7\Request;
 
-class Eventbrite
+class EventbriteApi
 {
     const EVENTBRITE_BASE_URL = "https://www.eventbriteapi.com/v3/";
 
