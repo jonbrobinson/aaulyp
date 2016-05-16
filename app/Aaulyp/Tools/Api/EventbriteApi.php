@@ -39,9 +39,9 @@ class EventbriteApi
             'headers' => $headers
         ];
 
+        return('made it here');
         $response = $this->guzzle->request('GET', $url, $options);
 
-        return('made it here');
 
         $orderJson = json_decode($response->getBody()->getContents());
 
