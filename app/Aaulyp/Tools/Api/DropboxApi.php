@@ -11,7 +11,7 @@ class DropboxApi
 
     public function __construct()
     {
-        $this->guzzle = $client = new Guzzle([
+        $this->guzzle = new Guzzle([
             // Base URI is used with relative requests
             'base_uri' => 'https://api.dropboxapi.com/2/',
             // You can set any number of default request options.

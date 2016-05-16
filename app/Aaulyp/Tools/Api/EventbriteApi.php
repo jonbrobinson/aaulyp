@@ -13,7 +13,7 @@ class EventbriteApi
 
     public function __construct()
     {
-        $this->guzzle = $client = new Guzzle([
+        $this->guzzle = new Guzzle([
             // Base URI is used with relative requests
             'base_uri' => self::EVENTBRITE_BASE_URL,
             // You can set any number of default request options.
