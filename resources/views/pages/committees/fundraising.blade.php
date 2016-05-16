@@ -9,8 +9,8 @@
             <h1 class="page-title pull-left">Committees</h1>
             <ol class="breadcrumb">
                 <li><a href="/">Get Involved</a></li>
-                <li><a href="{{ "/commitee/communication".request()->route()->__get('name') }}">Committees</a></li>
-                <li class="active">Communications</li>
+                <li><a href="{{ "/commitee/".request()->route()->__get('name') }}">Committees</a></li>
+                <li class="active">Fundraising</li>
             </ol>
         </div>
     </div>
@@ -22,26 +22,24 @@
                 <div class="col-md-3">
                     @include('partials.sidebar.committees', [request()->route()->__get('name') => "list-group-item current"] );
                 </div>
-                <div class="col-md-6">
-                    <h3 class="section-heading">COMMUNICATION COMMITTEE</h3>
+                <div class="col-md-6">FUNDRAISING COMMITTEE</h3>
                     <p>
-                        Maintain cooperative relationships with representatives of the community and with representatives from print, online, and broadcast journalism.  This committee will also promote the advertisement of events/programs, prepare press releases, maintain the AAULYP web presence and newsletters.  This committee will be responsible for the creation and keeping of the AAULYP branding.  All media representation must be approved by the executive board.
-                    </p>
+                        Responsible for ensuring that our organization is self-sustaining and thriving, so that we can offer more financial support to the initiatives of our affiliate chapter; Serves as a liaison to all of the other committees                    </p>
 
                     <br>
                     <h3>Activities</h3>
 
-                    <p>* Maintain primary social media channels Facebook, Twitter, Instagram</p>
-                    <p>* Prepare Monthly Newsletter of AAULYP activities</p>
-                    <p>* Create content to uplift and Empower Young Professionals</p>
-                    <p>* Generate Content or AAULYP Website</p>
+                    <p>* YP Bash and YP Weekend</p>
+                    <p>* Organize Quarterly events to help raise donations for Urban League</p>
+                    <p>* Build connections with Corporate Sponsors</p>
+                    <p>* Integrate </p>
 
                     <br>
                     <h3>Meeting Information</h3>
                     <p>When: TBD</p>
                     <p>Location: TBD</p>
-                    <p>Chair: Jonathan Robinson</p>
-                    <p>Contact: <a href="mailto:pr.aaulyp@gmail.com">pr.aaulyp@gmail.com</a></p>
+                    <p>Chair: Open</p>
+                    <p>Contact: <a href="mailto:fundraising.aaulyp@gmail.com">fundraising.aaulyp@gmail.com</a></p>
 
                 </div>
                 <div class="col-md-3">

@@ -9,7 +9,7 @@
             <h1 class="page-title pull-left">Committees</h1>
             <ol class="breadcrumb">
                 <li><a href="/">Get Involved</a></li>
-                <li><a href="{{ "/commitee/communication".request()->route()->__get('name') }}">Committees</a></li>
+                <li><a href="{{ "/commitee/".request()->route()->__get('name') }}">Committees</a></li>
                 <li class="active">Communications</li>
             </ol>
         </div>
@@ -23,25 +23,25 @@
                     @include('partials.sidebar.committees', [request()->route()->__get('name') => "list-group-item current"] );
                 </div>
                 <div class="col-md-6">
-                    <h3 class="section-heading">COMMUNICATION COMMITTEE</h3>
+                    <h3 class="section-heading">MEMBERSHIP COMMITTEE</h3>
                     <p>
-                        Maintain cooperative relationships with representatives of the community and with representatives from print, online, and broadcast journalism.  This committee will also promote the advertisement of events/programs, prepare press releases, maintain the AAULYP web presence and newsletters.  This committee will be responsible for the creation and keeping of the AAULYP branding.  All media representation must be approved by the executive board.
+                        Responsible for promoting hospitality within our organization; Engages our membership base on a personal and intimate level; Focuses on the personal touch on membership recruitment initiatives; Actively devoted to ensuring membership retention and involvement; Serves as a liaison to all of the other committees
                     </p>
 
                     <br>
                     <h3>Activities</h3>
 
-                    <p>* Maintain primary social media channels Facebook, Twitter, Instagram</p>
-                    <p>* Prepare Monthly Newsletter of AAULYP activities</p>
-                    <p>* Create content to uplift and Empower Young Professionals</p>
-                    <p>* Generate Content or AAULYP Website</p>
+                    <p>* Liaisons to transition members into the YP mindset</p>
+                    <p>* Organize mixers for members and future members to network and build connections</p>
+                    <p>* Profile members in our spotlight post and media outlets</p>
+                    <p>* Cultivate opportunities to engage members in all areas of interest</p>
 
                     <br>
                     <h3>Meeting Information</h3>
                     <p>When: TBD</p>
                     <p>Location: TBD</p>
-                    <p>Chair: Jonathan Robinson</p>
-                    <p>Contact: <a href="mailto:pr.aaulyp@gmail.com">pr.aaulyp@gmail.com</a></p>
+                    <p>Chair: Ashley Jenkins</p>
+                    <p>Contact: <a href="mailto:membership.aaulyp@gmail.com">membership.aaulyp@gmail.com</a></p>
 
                 </div>
                 <div class="col-md-3">
@@ -54,7 +54,7 @@
     <!-- END PAGE CONTENT -->
     @include('partials.footer')
 
-    @section('javascript')
+@section('javascript')
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     @stop
 </div>

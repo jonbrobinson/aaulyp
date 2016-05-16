@@ -9,7 +9,7 @@
             <h1 class="page-title pull-left">Committees</h1>
             <ol class="breadcrumb">
                 <li><a href="/">Get Involved</a></li>
-                <li><a href="{{ "/commitee/communication".request()->route()->__get('name') }}">Committees</a></li>
+                <li><a href="{{ "/commitee/".request()->route()->__get('name') }}">Committees</a></li>
                 <li class="active">Communications</li>
             </ol>
         </div>
@@ -23,25 +23,24 @@
                     @include('partials.sidebar.committees', [request()->route()->__get('name') => "list-group-item current"] );
                 </div>
                 <div class="col-md-6">
-                    <h3 class="section-heading">COMMUNICATION COMMITTEE</h3>
+                    <h3 class="section-heading">PROFESSIONAL DEVELOPMENT COMMITTEE</h3>
                     <p>
-                        Maintain cooperative relationships with representatives of the community and with representatives from print, online, and broadcast journalism.  This committee will also promote the advertisement of events/programs, prepare press releases, maintain the AAULYP web presence and newsletters.  This committee will be responsible for the creation and keeping of the AAULYP branding.  All media representation must be approved by the executive board.
+                        Responsible for encouraging our group of young professionals to remain diligent and encouraged in their respective careers; Offers tools and resources to equip our membership as they navigate through the workforce; Promotes taking a proactive approach when it comes to pursuing passions and endorsing interpersonal growth; Connects our organization with other entities that are devoted to enhancing personal performance
                     </p>
-
                     <br>
                     <h3>Activities</h3>
 
-                    <p>* Maintain primary social media channels Facebook, Twitter, Instagram</p>
-                    <p>* Prepare Monthly Newsletter of AAULYP activities</p>
-                    <p>* Create content to uplift and Empower Young Professionals</p>
+                    <p>* Cordinate our monthly developemnt workshops and initiatives</p>
+                    <p>* Organize events to build professional skills and experience around Austin</p>
+                    <p>* Cultivate relationships with other young professional organizations</p>
                     <p>* Generate Content or AAULYP Website</p>
 
                     <br>
                     <h3>Meeting Information</h3>
                     <p>When: TBD</p>
                     <p>Location: TBD</p>
-                    <p>Chair: Jonathan Robinson</p>
-                    <p>Contact: <a href="mailto:pr.aaulyp@gmail.com">pr.aaulyp@gmail.com</a></p>
+                    <p>Chair: Kobla Tetey</p>
+                    <p>Contact: <a href="mailto:careers.aaulyp@gmail.com">careers.aaulyp@gmail.com</a></p>
 
                 </div>
                 <div class="col-md-3">
