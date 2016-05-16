@@ -11,7 +11,7 @@ class WebhookController extends Controller
 {
     protected $eventbrite;
     protected $emailer;
-    
+
     public function init()
     {
         $this->eventbrite = new EventbriteApi();
@@ -21,13 +21,14 @@ class WebhookController extends Controller
     public function ebOrders(Request $request)
     {
 
+        return response('made it here');
         $this->init();
+
 
         $orderUrl = $request->input('api_url');
 
         $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
 
-        return response($orderUser);
 
         $response = $this->emailer->sendWelcomeEmail($orderUser);
 
