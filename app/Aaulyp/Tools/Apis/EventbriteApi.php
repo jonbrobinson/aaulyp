@@ -7,6 +7,8 @@ use GuzzleHttp\Psr7\Request;
 
 class Eventbrite
 {
+    public $test = "test";
+
     const EVENTBRITE_BASE_URL = "https://www.eventbriteapi.com/v3/";
 
     protected $guzzle;
