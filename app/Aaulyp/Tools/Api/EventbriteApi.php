@@ -41,6 +41,8 @@ class EventbriteApi
 
         $response = $this->guzzle->request('GET', $url, $options);
 
+        return('made it here');
+
         $orderJson = json_decode($response->getBody()->getContents());
 
         $orderInfo = $this->getOrderInfoFromJson($orderJson);
