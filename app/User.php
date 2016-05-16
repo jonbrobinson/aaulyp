@@ -32,7 +32,7 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function events()
+    public function event()
     {
         return $this->hasMany('App\Event');
     }

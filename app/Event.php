@@ -37,6 +37,11 @@ class Event extends Model
         return $this->hasMany('App\Event_Photo');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
     /**
      * Find event based on $zip and $name
      *
