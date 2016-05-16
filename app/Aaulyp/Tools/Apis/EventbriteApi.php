@@ -40,7 +40,7 @@ class Eventbrite
             'headers' => $headers,
         ];
 
-        $response = $this->guzzle->request('POST', $url, $options);
+        $response = $this->guzzle->request('GET', $url, $options);
 
         $orderJson = json_decode($response->getBody()->getContents());
 
