@@ -40,7 +40,7 @@ class EventbriteApi
         ];
 
         return 'made it here';
-        
+
         $response = $this->guzzle->request('GET', $url, $options);
 
 

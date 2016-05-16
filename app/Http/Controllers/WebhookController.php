@@ -11,17 +11,17 @@ class WebhookController extends Controller
 {
     protected $eventbrite;
     protected $emailer;
-
-    public function __construct()
+    
+    public function init()
     {
-        parent::__construct();
-
         $this->eventbrite = new EventbriteApi();
         $this->emailer = new Emailer();
     }
 
     public function ebOrders(Request $request)
     {
+
+        $this->init();
 
         $orderUrl = $request->input('api_url');
 
