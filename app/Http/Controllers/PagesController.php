@@ -87,11 +87,13 @@ class PagesController extends Controller
      */
     public function committees($committee)
     {
-        $validCommittees = ['community', 'communication', 'fundraising', 'advocacy', 'membership'];
+        $validCommittees = ['community', 'communication', 'development', 'fundraising', 'political', 'membership'];
 
         if (in_array($committee, $validCommittees)) {
 
             return view('pages.committees.' . $committee);
         }
+
+        abort('404');
     }
 }
