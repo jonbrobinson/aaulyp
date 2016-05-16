@@ -15,10 +15,10 @@ class WebhookController extends Controller
     public function ebOrders(Request $request)
     {
 
-        $this->init();
+//        $this->init();
 
-        return response($this->eventbrite->test);
         $orderUrl = $request->input('api_url');
+        return response($orderUrl);
 //
 //        $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
 //
