@@ -36,8 +36,7 @@ class Eventbrite
         ];
 
         $options = [
-            'headers' => $headers,
-            'verify' => true
+            'headers' => $headers
         ];
 
         $response = $this->guzzle->request('GET', $url, $options);

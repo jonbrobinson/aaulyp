@@ -21,18 +21,18 @@ class WebhookController extends Controller
 
         return response($orderUrl);
 
-        $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
-
-        $response = $this->emailer->sendWelcomeEmail($orderUser);
-
-        if ($response->getStatusCode() == 200) {
-            return response()->json([
-                "message" => "Success. Welcome email has been sent"
-
-            ], $response->getStatusCode());
-        }
-
-        return response($response->getBody(), $response->getStatusCode());
+//        $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
+//
+//        $response = $this->emailer->sendWelcomeEmail($orderUser);
+//
+//        if ($response->getStatusCode() == 200) {
+//            return response()->json([
+//                "message" => "Success. Welcome email has been sent"
+//
+//            ], $response->getStatusCode());
+//        }
+//
+//        return response($response->getBody(), $response->getStatusCode());
 
     }
 
