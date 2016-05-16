@@ -46,10 +46,11 @@
                 </div>
             </div>
 
-            <div class="col-xs-10 col-md-offset-1">
-                {{--<div class="col-xs-10 col-xs-offset-1">--}}
-                    <div class="col-xs-12" id="map"></div>
-                {{--</div>--}}
+            {{--<div class="col-xs-10 col-xs-offset-1">--}}
+                {{--<div class="" style="margin-left: 9%" id="map"></div>--}}
+            {{--</div>--}}
+            <div class="">
+                <div class="col-md-8 col-md-offset-2" id="map"></div>
             </div>
         </div>
     </div>

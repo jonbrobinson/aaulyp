@@ -31,13 +31,13 @@
                                     </h2>
                                     <div class="meta-line clearfix">
                                         <div class="meta-author-category pull-left">
-                                            <span class="post-author">by <a href="#">John Doe</a></span>
-                                            <span class="post-category">In: <a href="#">Business</a>, <a href="#">Creative</a>, <a href="#">Media</a></span>
+                                            <span class="post-author">by <a href="#">{{ $event->user->name }}</a></span>
+                                            {{--<span class="post-category">In: <a href="#">Business</a>, <a href="#">Creative</a>, <a href="#">Media</a></span>--}}
                                         </div>
-                                        <div class="meta-tag-comment pull-right">
-                                            <span class="post-tags"><i class="fa fa-twitter"></i> <a href="#">story</a>, <a href="#">inspiration</a>, <a href="#">creative</a></span>
-                                            <span class="post-comment"><i class="fa fa-comments"></i> <a href="#">3 Comments</a></span>
-                                        </div>
+                                        {{--<div class="meta-tag-comment pull-right">--}}
+                                            {{--<span class="post-tags"><i class="fa fa-twitter"></i> <a href="#">story</a>, <a href="#">inspiration</a>, <a href="#">creative</a></span>--}}
+                                            {{--<span class="post-comment"><i class="fa fa-comments"></i> <a href="#">3 Comments</a></span>--}}
+                                        {{--</div>--}}
                                     </div>
                                 </header>
                                 <div class="entry-content clearfix">
@@ -72,94 +72,12 @@
             </div>
             <div class="col-md-3">
                 <!-- SIDEBAR -->
-                <!-- tabbed content -->
-                <div class="widget">
-                    <div class="pull-right">
-                        @if ($signedIn)
-                            <a href="/events/create" class="btn btn-primary">CREATE EVENT</a>
-                        @endif
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="tabpanel">
-                        <!-- nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#content-popular" aria-controls="content-popular" role="tab" data-toggle="tab">POPULAR</a></li>
-                            <li role="presentation"><a href="#content-recents" aria-controls="content-recents" role="tab" data-toggle="tab">RECAPS</a></li>
-                        </ul>
-                        <!-- end nav tabs -->
-                        <!-- tab panes -->
-                        <div class="tab-content">
-                            <div id="content-popular" class="tab-pane fade in active" role="tabpanel">
-                                <ul class="list-unstyled blogposts popular">
-                                    {{--<? $post = array(); ?>--}}
-                                    {{--@if(count($post) > 0)--}}
-                                    <li>
-                                        <h4 class="post-title"><a href="#">Monotonectally Underwhelm Sustainable Outsourcing</a></h4>
-                                        <span class="text-muted">Nov 4, 2014 | by John Doe</span>
-                                    </li>
-                                    <li>
-                                        <h4 class="post-title"><a href="#">Seamlessly Repurpose Equity Invested Intellectual Capital</a></h4>
-                                        <span class="text-muted">Nov 23, 2014 | by George</span>
-                                    </li>
-                                    <li>
-                                        <h4 class="post-title"><a href="#">Efficiently Aggregate Multidisciplinary Markets With Professional Functionalities</a></h4>
-                                        <span class="text-muted">Nov 9, 2014 | by Jane</span>
-                                    </li>
-                                    <li>
-                                        <h4 class="post-title"><a href="#">Collaboratively Actualize Revolutionary Total Linkage</a></h4>
-                                        <span class="text-muted">Nov 9, 2014 | by Smith</span>
-                                    </li>
-                                    <li>
-                                        <h4 class="post-title"><a href="#">Credibly Disintermediate Client-centered Applications</a></h4>
-                                        <span class="text-muted">Nov 9, 2014 | by Barbara</span>
-                                    </li>
-                                    {{--@else--}}
-                                    <li>
-                                        <h4 class="post-title"><a href="#">More Posts Coing son</a></h4>
-                                        <span class="text-muted">Nov 4, 2014 | by John Doe</span>
-                                    </li>
-                                    {{--@endif--}}
-                                </ul>
-                            </div>
-                            <div id="content-recents" class="tab-pane fade" role="tabpanel">
-                                <ul class="list-unstyled blogposts latest">
-                                    <li>
-                                        <h4 class="post-title"><a href="#">Assertively Streamline Error-free Quality</a></h4>
-                                        <span class="text-muted">Dec 9, 2014 | by John Doe</span>
-                                    </li>
-                                    <li>
-                                        <h4 class="post-title"><a href="#">Proactively Monetize Long-term High-impact Architectures After Value-added Experiences</a></h4>
-                                        <span class="text-muted">Dec 12, 2014 | by George</span>
-                                    </li>
-                                    <li>
-                                        <h4 class="post-title"><a href="#">Efficiently Repurpose Enterprise-wide Processes For Granular Applications</a></h4>
-                                        <span class="text-muted">Dec 29, 2014 | by Jane</span>
-                                    </li>
-                                    <li>
-                                        <h4 class="post-title"><a href="#">Monotonectally Underwhelm Sustainable Outsourcing</a></h4>
-                                        <span class="text-muted">Nov 4, 2014 | by John Doe</span>
-                                    </li>
-                                    <li>
-                                        <h4 class="post-title"><a href="#">Seamlessly Repurpose Equity Invested Intellectual Capital</a></h4>
-                                        <span class="text-muted">Nov 23, 2014 | by George</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div id="content-recents-comments" class="tab-pane fade in active" role="tabpanel">
-                            </div>
-                        </div>
-                        <!-- end tab panes -->
-                    </div>
-                </div>
-                <!-- end tabbed content -->
-                <!-- end tags -->
-                <!-- text widget -->
-                <div class="widget">
-                    <h4 class="widget-title">TEXT WIDGET</h4>
-                    <p>Conveniently develop parallel technologies via user-centric benefits. Globally deploy turnkey technologies vis-a-vis excellent partnerships. Completely aggregate one-to-one human capital with principle-centered initiatives. Seamlessly enable web-enabled.</p>
-                    <p> Appropriately foster ethical architectures via functional alignments. Holisticly unleash enabled information via customized value. Collaboratively syndicate corporate benefits without process-centric communities.</p>
-                </div>
-                <!-- end text widget -->
+                @if (count($eventsFeatured) > 0)
+                    @include('partials.sidebar.contentSideBar', ['events' => $events, 'eventsFeatured' => $eventsFeatured])
+                @else
+                    <a class="twitter-timeline" href="https://twitter.com/AAULYP" data-widget-id="731769931243495424">Tweets by @AAULYP</a>
+                @endif
+                    <!-- end tags -->
                 <!-- END SIDEBAR -->
             </div>
         </div>
@@ -167,3 +85,7 @@
 </div>
 <!-- END PAGE CONTENT -->
 @endsection
+
+@section('javascript')
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+@stop

@@ -29,9 +29,10 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $events = Event::with('user')->orderBy('date_start', 'desc')->get();
+        $eventsFeatured = Event::with('user')->where('feature_event', 1)->get();
 
-        return view('pages.events.index', compact('events'));
+        return view('pages.events.index', compact('events', 'eventsFeatured'));
     }
 
     /**
