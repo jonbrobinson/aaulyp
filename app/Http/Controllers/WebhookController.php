@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Aaulyp\Tools\Api\Eventbrite;
 use app\Aaulyp\Services\Emailer;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 
 class WebhookController extends Controller
@@ -21,7 +20,7 @@ class WebhookController extends Controller
 
         $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
 
-        return response($orderUser);
+        return response($orderUrl);
 
 //        $response = $this->emailer->sendWelcomeEmail($orderUser);
 //

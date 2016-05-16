@@ -2,7 +2,6 @@
 
 namespace App\Aaulyp\Tools\Api;
 
-use Illuminate\Support\Facades\Mail;
 use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\Psr7\Request;
 
