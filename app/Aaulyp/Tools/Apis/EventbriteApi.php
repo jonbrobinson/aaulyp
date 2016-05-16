@@ -33,11 +33,11 @@ class Eventbrite
         $headers = [
             'Authorization' => 'Bearer ' . env('EVENTBRITE_TOKEN'),
             'Content-Type' => 'application/json',
-            'Verify' => true
         ];
 
         $options = [
             'headers' => $headers,
+            'verify' => true
         ];
 
         $response = $this->guzzle->request('GET', $url, $options);
