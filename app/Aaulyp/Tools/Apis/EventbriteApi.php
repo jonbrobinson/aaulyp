@@ -18,8 +18,6 @@ class Eventbrite
         $this->guzzle = $client = new Guzzle([
             // Base URI is used with relative requests
             'base_uri' => self::EVENTBRITE_BASE_URL,
-            // You can set any number of default request options.
-            'timeout'  => 2.0,
         ]);
     }
 
@@ -35,6 +33,7 @@ class Eventbrite
         $headers = [
             'Authorization' => 'Bearer ' . env('EVENTBRITE_TOKEN'),
             'Content-Type' => 'application/json',
+            'Verify' => true
         ];
 
         $options = [
