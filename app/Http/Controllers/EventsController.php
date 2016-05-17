@@ -8,19 +8,28 @@ use App\Aaulyp\Tools\Locations;
 use App\Aaulyp\Tools\DateHelper;
 use App\Http\Requests\EventRequest;
 use App\Http\Requests\AddPhotoRequest;
+use App\Aaulyp\Tools\Api\MailchimpApi;
 
 class EventsController extends Controller
 {
     protected $states;
     protected $calendarArrays;
     protected $dateHelper;
+    protected $mailchimp;
 
 
-    public function __construct()
+    public function __construct(Locations $locations, DateHelper $dateHelper, MailchimpApi $mailchimp)
     {
-        $this->middleware('auth', ['except' => ['show','index','addPhoto']]);
+        $this->middleware('auth', ['except' => ['show','index','addPhoto', 'getMediaPhotos']]);
 
         parent::__construct();
+
+        $loc = $locations;
+        $this->dateHelper = $dateHelper;
+        $this->mailchimp = $mailchimp;
+
+        $this->states = $loc->getStates();
+        $this->calendarArrays = $this->dateHelper->getCalendarArrays();
     }
 
     /**
@@ -91,31 +100,17 @@ class EventsController extends Controller
         $event->addPhoto($photo);
     }
 
-//    /**
-//     * @param UploadedFile $file
-//     * @param Event|null   $event
-//     *
-//     * @return static
-//     */
-//    protected function storePhotoFromEvent(UploadedFile $file, Event $event)
-//    {
-//        return  Event_Photo::fromForm($file->getClientOriginalName(), $event->date_start, $event->name)
-//            ->store($file);
-//    }
-
-    protected function eventSetUp()
+    public function getMediaPhotos()
     {
-        $locations = new Locations();
-        $this->dateHelper = new DateHelper();
+        $subscribers = $this->mailchimp->getListSubscribers();
 
-        $this->states = $locations->getStates();
-        $this->calendarArrays = $this->dateHelper->getCalendarArrays();
+        dd($subscribers);
+
     }
+
 
     protected function getEventFormData()
     {
-        $this->eventSetUp();
-
         $data = [
             "states" => $this->states,
             "calendar" => $this->calendarArrays

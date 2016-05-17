@@ -114,7 +114,7 @@ class DropboxApi
     /**
      * Returns an array of image url's from array of file paths passed in
      *
-     * @param array $paths file paths to reteive urls of tmp link
+     * @param array $paths file paths to retrieve urls of tmp link
      *
      * @return array
      */
