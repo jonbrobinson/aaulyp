@@ -27,7 +27,6 @@ class WebhookController extends Controller
 
         $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
 
-
         $response = $this->emailer->sendWelcomeEmail($orderUser);
 
         if ($response->getStatusCode() == 200) {

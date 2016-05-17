@@ -55,7 +55,7 @@ class EventbriteApi
     protected function getOrderInfoFromJson($json)
     {
         $orderInfo = [
-            'firstName' => $json->firs_name,
+            'firstName' => $json->first_name,
             'lastName'  => $json->last_name,
             'email'     => $json->email
         ];
