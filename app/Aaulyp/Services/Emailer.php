@@ -17,7 +17,7 @@ class Emailer
      */
     public function sendWelcomeEmail($recipient)
     {
-        $response = Mail::send('pages.emails.contact', ['firstName' => $recipient['firstName'], 'lastName' => $recipient['lastName']], function ($m) use ($recipient) {
+        $response = Mail::send('pages.emails.welcomeEmail', ['firstName' => $recipient['firstName'], 'lastName' => $recipient['lastName']], function ($m) use ($recipient) {
             $fullName = $recipient['firstName'] . " " . $recipient['lastName'];
 
             $m->from($recipient['email'], $fullName);
