@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventPhotosTable extends Migration
+class CreatePhotoPostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,12 @@ class CreateEventPhotosTable extends Migration
      */
     public function up()
     {
-        Schema::create('event_photos', function (Blueprint $table) {
+        Schema::create('photo_post', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('event_id')->unsigned();
-            $table->foreign('event_id')
+            $table->integer('post_id')->unsigned();
+            $table->foreign('post_id')
                 ->references('id')
-                ->on('events')
-                ->onDelete('cascade');
+                ->on('events');
             $table->string('path');
             $table->string('thumbnail_path');
             $table->string('name');
@@ -36,6 +35,6 @@ class CreateEventPhotosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('event_photos');
+        Schema::drop('photo_post');
     }
 }

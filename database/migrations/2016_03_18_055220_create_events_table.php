@@ -24,7 +24,8 @@ class CreateEventsTable extends Migration
             $table->text('description');
             $table->text('description_plain');
             $table->integer('feature_event')->default(0);
-            $table->string('street');
+            $table->string('address_street_1');
+            $table->string('address_street_2');
             $table->string('city', 40);
             $table->string('state', 40);
             $table->string('zip',10);
@@ -34,6 +35,8 @@ class CreateEventsTable extends Migration
             $table->string('twitter')->nullable();
             $table->string('facebook')->nullable();
             $table->string('eb_url')->nullable();
+            $table->string('facebook_id')->nullable();
+            $table->string('eventbrite_id')->nullable();
             $table->timestamps();
         });
     }
