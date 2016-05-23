@@ -43,6 +43,26 @@ class Event extends Model
     }
 
     /**
+     * An Event is composed of many photos
+     *
+     * @return object
+     */
+    public function category()
+    {
+        return $this->belongsToMany('App\Category');
+    }
+
+    /**
+     * An Event is composed of many photos
+     *
+     * @return object
+     */
+    public function tag()
+    {
+        return $this->belongsToMany('App\Tag');
+    }
+
+    /**
      * Find event based on $zip and $name
      *
      * @param string $zip

@@ -14,7 +14,7 @@ class Event_Photo extends Model
     protected $eventInfo;
     protected $filepath;
     protected $photoDir;
-    protected $table = 'event_photos';
+    protected $table = 'event_photo';
     protected $baseDir =  "img/events";
     protected $fillable = ['path', 'thumbnail_path', 'name', 'event_main'];
 

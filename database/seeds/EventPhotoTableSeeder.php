@@ -11,7 +11,7 @@ class EventPhotoTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 20 ; $i++) {
+        for ($i = 1; $i <= 30 ; $i++) {
             factory(App\Event_Photo::class)->create([
                 'event_id' => rand(1,5)
             ]);

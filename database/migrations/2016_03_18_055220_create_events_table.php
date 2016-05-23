@@ -25,7 +25,7 @@ class CreateEventsTable extends Migration
             $table->text('description_plain');
             $table->integer('feature_event')->default(0);
             $table->string('address_street_1');
-            $table->string('address_street_2');
+            $table->string('address_street_2')->nullable();
             $table->string('city', 40);
             $table->string('state', 40);
             $table->string('zip',10);

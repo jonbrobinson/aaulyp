@@ -16,7 +16,7 @@ class CreateSubscribersTable extends Migration
             $table->increments('id');
             $table->string('name_first')->nullable();
             $table->string('name_last')->nullable();
-            $table->index('email');
+            $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->string('mailchimp_status')->nullable();
             $table->integer('email_consent_volunteer')->nullable();
