@@ -51,7 +51,7 @@
                         <li class="dropdown ">
                             <a href="#">Committees <i class="fa fa-angle-right"></i></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('committee/community') }}">Community Outreach</a></li>
+                                <li><a href="{{ url('/committee/community') }}">Community Outreach</a></li>
                                 <li><a href="{{ url('/committee/communication') }}">Communications</a></li>
                                 <li><a href="{{ url('/committee/fundraising') }}">Fundraising</a></li>
                                 <li><a href="{{ url('/committee/membership') }}">Membership/Social</a></li>
@@ -69,11 +69,10 @@
                     </ul>
                 </li>
                 <li class="dropdown ">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">CONTACT</a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="/contact">Contact</a></li>
-                        <li><a href="/contact/faq">FAQ</a></li>
-                    </ul>
+                    <a href="{{ url('/donate') }}" class="dropdown-toggle">DONATE</a>
+                </li>
+                <li class="dropdown ">
+                    <a href="{{ url('/contact') }}" class="dropdown-toggle">CONTACT</a>
                 </li>
             </ul>
         </div>

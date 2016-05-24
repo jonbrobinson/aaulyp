@@ -18,6 +18,8 @@ Route::get('/aaul', 'PagesController@aaul');
 
 Route::get('/board', 'PagesController@board');
 
+Route::get('/donate', 'PagesController@donate');
+
 Route::get('/team/join', 'PagesController@join');
 
 Route::get('/contact/faq', 'PagesController@faq');

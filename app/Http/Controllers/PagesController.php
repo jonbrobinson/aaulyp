@@ -79,6 +79,14 @@ class PagesController extends Controller
     }
 
     /**
+     * Show the donation page
+     */
+    public function donate()
+    {
+       return view('pages.donate');
+    }
+
+    /**
      * Show the commitee passed in and return the view
      *
      * @param $committee
