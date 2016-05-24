@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2 class="section-heading">HOW CAN WE HELP</h2>
-                    <p class="lead">Austin Area Urban League Young Professionals, or AAULYP, is a service organization that provides young professionals with resources and activities to help cultivate progressive ideas in Austin.</p>
+                    <p class="lead">Austin Area Urban League Young Professionals is a service auxiliary that provides young professionals with resources and activities to help cultivate progressive ideas in Austin.</p>
                     <p>Austin Area Urban League Young Professionals are committed to community engagement, improving minority businesses through innovative programming, and dynamic dialogue and professional development.</p>
                     <p>Our activities are characterized by excellence in community service, fund-raising, and dedication to the development of its diverse members to empower communities and change lives through consistent involvement in the community in partnership with the Urban League.</p>
                 </div>
@@ -75,7 +75,7 @@
                 <div class="col-md-6">
                     <div class="boxed-content left-aligned left-boxed-icon">
                         <i class="fa fa-group"></i>
-                        <h2 class="boxed-content-title">LEADERSHIP EXPERIENCE</h2>
+                        <h2 class="boxed-content-title">PROFESSIONAL DEVELOPMENT</h2>
                         <p>We encourage our members to become leaders within Austin and surrounding cities by building skills </p>
                     </div>
                 </div>
@@ -88,8 +88,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="boxed-content left-aligned left-boxed-icon">
-                        <i class="fa fa-globe"></i>
-                        <h2 class="boxed-content-title">ECONOMIC DEVELOPMENT</h2>
+                        <i class="fa fa-money"></i>
+                        <h2 class="boxed-content-title">FINANCIAL LITERACY</h2>
                         <p>Our network connects young professionals from across the nation to vast communities within Austin professions and companies.</p>
                     </div>
                 </div>
