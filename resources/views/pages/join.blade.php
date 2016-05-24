@@ -26,21 +26,48 @@
                     <div class="col-md-6 row">
                         <div>
                             <h2 class="section-heading">Membership Benefits</h2>
-                            <div class="col-md-12 row">
-                                <h4><span class="favicon-list-custom"><i class="fa fa-check-circle fa-lg"></i></span> Partnering with us to impact our generation, empower communities and change lives </h4>
-                                <h4><span class="favicon-list-custom"><i class="fa fa-check-circle fa-lg"></i></span> Invitations and discounts to YP events and YP partner organization events</h4>
-                                <h4><span class="favicon-list-custom"><i class="fa fa-check-circle fa-lg"></i></span> Invitations to Austin Urban League events</h4>
-                                <h4><span class="favicon-list-custom"><i class="fa fa-check-circle fa-lg"></i></span> Discounts to Austin Area Urban League and Austin Area Urban League Young Professional Events</h4>
-                                <h4><span class="favicon-list-custom"><i class="fa fa-check-circle fa-lg"></i></span> Discounts to National Urban League and National Urban League Young Professional Events</h4>
-                                <h4><span class="favicon-list-custom"><i class="fa fa-check-circle fa-lg"></i></span> Austin Area Urban League Young Professionals Shirt</h4>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <i class="fa fa-check-circle fa-lg favicon-list-custom"></i>
+                                </div>
+                                <div class="col-md-11">
+                                    <h4>Partnering with us to impact our generation, empower communities and change lives</h4>
+                                </div>
+                                <div class="col-md-1">
+                                    <i class="fa fa-check-circle fa-lg favicon-list-custom"></i>
+                                </div>
+                                <div class="col-md-11">
+                                    <h4>Invitations and discounts to YP events and YP partner organization events</h4>
+                                </div>
+                                <div class="col-md-1">
+                                    <i class="fa fa-check-circle fa-lg favicon-list-custom"></i>
+                                </div>
+                                <div class="col-md-11">
+                                    <h4>Invitations to Austin Urban League events</h4>
+                                </div>
+                                <div class="col-md-1">
+                                    <i class="fa fa-check-circle fa-lg favicon-list-custom"></i>
+                                </div>
+                                <div class="col-md-11">
+                                    <h4>Discounts to Austin Area Urban League and Austin Area Urban League Young Professional Events</h4>
+                                </div>
+                                <div class="col-md-1">
+                                    <i class="fa fa-check-circle fa-lg favicon-list-custom"></i>
+                                </div>
+                                <div class="col-md-11">
+                                    <h4>Discounts to National Urban League and National Urban League Young Professional Events</h4>
+                                </div>
+                                <div class="col-md-1">
+                                    <i class="fa fa-check-circle fa-lg favicon-list-custom"></i>
+                                </div>
+                                <div class="col-md-11">
+                                    <h4>Austin Area Urban League Young Professionals Shirt</h4>
+                                </div>
                             </div>
                         </div>
                         <div class="clearfix"></div>
                         <br>
                         <br>
-                        <div class="col-md-11 row">
-                            <p class="text-center"><a href="http://www.eventbrite.com/e/aaulyp-membership-tickets-5422224018?aff=es2" class="active btn btn-primary btn-lg">Join Now</a></p>
-                        </div>
                     </div>
                     <div class="col-md-6 row">
                         <div class="col-xs-6">
@@ -67,6 +94,11 @@
                 </div>
 
             </section>
+            <div style="width:100%; text-align:left;" >
+                <iframe  src="//eventbrite.com/tickets-external?eid=25179039184&ref=etckt" frameborder="0" height="214" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
+                <div style="font-family:Helvetica, Arial; font-size:10px; padding:5px 0 5px; margin:2px; width:100%; text-align:left;" ><a class="powered-by-eb" style="color: #dddddd; text-decoration: none;" target="_blank" href="http://www.eventbrite.com/r/etckt">Powered by Eventbrite</a>
+                </div>
+            </div>
 
         </div>
     </div>
