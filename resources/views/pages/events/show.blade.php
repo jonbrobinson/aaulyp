@@ -14,7 +14,7 @@
                     <div>{!! $event->description !!}</div>
 
                     <h4>Where</h4>
-                    <p id="map-address">{!! $event->street !!}, {!! $event->city !!}, {!! $event->state !!} {!! $event->zip !!}</p>
+                    <p id="map-address">{!! $event->address_street_1 !!}, {!! $event->city !!}, {!! $event->state !!} {!! $event->zip !!}</p>
 
                     <h4>When</h4>
                     <p>{{ date("l, F t, Y", $event->date_start) }} - {{ date("l, F t, Y", $event->date_end) }}</p>

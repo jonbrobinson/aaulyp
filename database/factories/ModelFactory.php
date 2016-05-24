@@ -34,7 +34,7 @@ $factory->define(App\Event::class, function (Faker\Generator $faker) {
         'description_plain' => $description,
         'feature_event' => 0,
         'address_street_1'      => $faker->streetAddress,
-        'address_street_2'      => $faker->streetAddress,
+        'address_street_2'      => null,
         'city'        => $faker->city,
         'state'       => $faker->stateAbbr,
         'zip'         => $faker->postcode,
