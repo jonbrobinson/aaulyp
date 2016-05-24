@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Aaulyp\Tools\Api\FacebookSdkHelper;
 use App\Event;
 use App\Event_Photo;
 use App\Aaulyp\Tools\Locations;
@@ -38,8 +39,13 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $events = Event::with('user')->orderBy('date_start', 'desc')->get();
-        $eventsFeatured = Event::with('user')->where('feature_event', 1)->get();
+//        $events = Event::with('user')->orderBy('date_start', 'desc')->get();
+//        $eventsFeatured = Event::with('user')->where('feature_event', 1)->get();
+
+        $fb = new FacebookSdkHelper();
+        $events = $fb->getEvents();
+
+        dd($events);
 
         return view('pages.events.index', compact('events', 'eventsFeatured'));
     }
