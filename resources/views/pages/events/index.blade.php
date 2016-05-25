@@ -6,7 +6,7 @@
     <div class="container">
         <h1 class="page-title pull-left">Events</h1>
         <ol class="breadcrumb">
-            <li><a href="#">Events</a></li>
+            <li><a href="#">News</a></li>
             <li class="active">Events</li>
         </ol>
     </div>
@@ -20,19 +20,19 @@
                 <!-- BLOG ENTRIES -->
                 <div class="blog medium-thumbnail margin-bottom-30px">
                     @if(count($events) == 0)
-                        <h1>We are planning some great opportunites. Please check back later to see some of the great events </h1>
+                        <h1>We are planning some great opportunities. Please check back later to see some of the great events </h1>
                     @else
                         <!-- blog post -->
                         @foreach($events as $event)
                             <article class="entry-post">
                                 <header class="entry-header">
                                     <h2 class="entry-title">
-                                        <a href="{{ action('EventsController@show', ['zip' => $event->zip, 'name' => str_slug($event->name)]) }}">{{ $event->name }}</a>
+                                        <a href="#">{{ $event->name }}</a>
                                     </h2>
                                     <div class="meta-line clearfix">
                                         <div class="meta-author-category pull-left">
-                                            <span class="post-author">by <a href="#">{{ $event->user->name }}</a></span>
-                                            {{--<span class="post-category">In: <a href="#">Business</a>, <a href="#">Creative</a>, <a href="#">Media</a></span>--}}
+                                            <span class="post-author"><a href="#">Austin Area Urban League Young Professionals</a></span>
+                                            {{--<span class="post-category">In: <a href="#">{{ $event->category }}</a></span>--}}
                                         </div>
                                         {{--<div class="meta-tag-comment pull-right">--}}
                                             {{--<span class="post-tags"><i class="fa fa-twitter"></i> <a href="#">story</a>, <a href="#">inspiration</a>, <a href="#">creative</a></span>--}}
@@ -45,7 +45,7 @@
                                         <div class="col-sm-5">
                                             <figure class="featured-image">
                                                 <a href="blog-single.html">
-                                                    <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', $event->date_start)) }}</span><span class="post-date">{{ date('j', $event->date_start) }}</span><span class="post-year">{{ date('Y', $event->date_start) }}</span></div>
+                                                    <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', strtotime($event->date_start))) }}</span><span class="post-date">{{ date('j', strtotime($event->date_start)) }}</span><span class="post-year">{{ date('Y', strtotime($event->date_start)) }}</span></div>
                                                     <img src="assets/img/blog/buildings-med.jpg" class="img-responsive" alt="featured-image" />
                                                 </a>
                                             </figure>
@@ -53,10 +53,21 @@
                                         <div class="col-sm-7">
                                             <div class="excerpt">
                                                 <p>{!! str_limit($event->description, 170) !!}</p>
-                                                <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", $event->date_start) }} - {{ date("D, d M Y g:iA", $event->date_end) }}</p>
-                                                <p><i class="fa fa-map-marker"></i> {{ $event->street }} {{ $event->city }}, {{ $event->state }} {{ $event->zip }}</p>
+                                                @if (isset($event->date_start) && isset($event->date_end))
+                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", strtotime($event->date_start)) }} - {{ date("D, d M Y g:iA", strtotime($event->date_end)) }}</p>
+                                                @elseif (!isset($event->date_end))
+                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", strtotime($event->date_start)) }}</p>
+                                                @else
+                                                    <p><i class="fa fa-clock-o"></i>TBD</p>
+                                                @endif
+
+                                                @if ($event->street_address)
+                                                    <p><i class="fa fa-map-marker"></i> {{ $event->street_address }}</p>
+                                                @else
+                                                    <p><i class="fa fa-map-marker"></i> More Details To Come</p>
+                                                @endif
                                                 <p class="read-more">
-                                                    <a href="{{ action('EventsController@show', ['zip' => $event->zip, 'name' => str_slug($event->name)]) }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                                    <a href="#" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
                                                 </p>
                                             </div>
                                         </div>

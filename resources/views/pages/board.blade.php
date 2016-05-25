@@ -29,7 +29,7 @@
                                 <strong>President</strong>
                                 <hr class="pull-left">
                                 <div class="clearfix"></div>
-                                <p>Dynamically evolve client-based portals through world-class models. Phosfluorescently simplify cross-platform convergence and multimedia based portals. Rapidiously.</p>
+                                <p>Omari has been the with the urban league since 2013 and prior to serving as YP president Omari served as Vice-President. Omari Graduated from "BLANK" University where he studied Finance and holds a degree in Finance.</p>
                                 <ul class="list-inline social-icon">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -46,7 +46,7 @@
                                 <strong>Vice President</strong>
                                 <hr class="pull-left">
                                 <div class="clearfix"></div>
-                                <p>Dynamically evolve client-based portals through world-class models. Phosfluorescently simplify cross-platform convergence and multimedia based portals. Rapidiously.</p>
+                                <p>Ericka has been a part of the Urban League since 2014. Actively serving in the community Ericka joined the urban league to fellowship and volunteer with young professionals that share her same passion for community engagement and service.</p>
                                 <ul class="list-inline social-icon">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
