@@ -9,8 +9,10 @@ class FacebookSdkHelper
     const AAULYP_FB_PAGE_ID = 135986973127166;
 
     protected $facebookHelper;
+    protected $googleMaps;
+    protected $currentEvent;
 
-    public function __construct()
+    public function __construct(GoogleMapsApi $googleMapsApi)
     {
         $this->facebookHelper = new Facebook([
             'app_id' => env('FB_APP_ID'),
@@ -19,16 +21,54 @@ class FacebookSdkHelper
             'default_access_token' => env('FB_ACCESS_TOKEN'),
 
         ]);
+
+        $this->googleMaps = $googleMapsApi;
     }
 
     /**
      * Gets contents of a single folder
      *
-     * @param string $url
-     *
      * @return array
      */
     public function getEvents()
+    {
+        $events = $this->getEventsArray();
+
+        $transformedEvents = array();
+        foreach($events as $event) {
+            $transformedEvents[] = $this->transformEventForDb($event);
+        }
+
+        return $transformedEvents;
+    }
+
+    public function getCurrentEvents()
+    {
+        $events = $this->getEventsArray();
+
+        $today = strtotime('today');
+
+        $transformedEvents = array();
+        foreach($events as $event) {
+            if (strtotime($event['start_time']) < $today) {
+                continue;
+            }
+            $transformedEvents[] = $this->transformEventForDb($event);
+        }
+
+        return array_reverse($transformedEvents);
+    }
+
+    public function getEventDetails($id)
+    {
+        $response = $this->facebookHelper->get('/' . $id);
+
+        $body = $response->getDecodedBody();
+
+        dd($body);
+    }
+
+    protected function getEventsArray()
     {
         $response = $this->facebookHelper->get('/'.self::AAULYP_FB_PAGE_ID.'/events');
 
@@ -36,29 +76,66 @@ class FacebookSdkHelper
 
         $events = $body['data'];
 
-        $transformedEvents = array();
-        foreach($events as $event) {
-            $transformedEvents[] = $this->transformEventForDb($event);
-        }
-
-        dd($transformedEvents);
-
         return $events;
     }
 
+    /**
+     * @param $fbEvent
+     *
+     * @return array
+     */
     public function transformEventForDb($fbEvent)
     {
-        $event = array();
-        $event['name'] = $fbEvent['name'];
-        $event['description'] = isset($fbEvent['description']) ? $fbEvent['description'] : null;
-        $event['facebook_id'] = $fbEvent['id'];
-        $event['date_start'] = $fbEvent['start_time']  ? $fbEvent['start_time'] : null;
-        $event['date_end'] = isset($fbEvent['end_time']) ? $fbEvent['end_time'] : null;
+
         if (isset($fbEvent['place']) && isset($fbEvent['place']['location'])) {
-            $event['city'] = $fbEvent['place']['location']['city'] ? $fbEvent['place']['location']['city'] : null;
-            $event['state'] = isset($fbEvent['place']['location']['state']) ? $fbEvent['place']['location']['state'] : null;
-            $event['latitude'] = $fbEvent['place']['location']['latitude'] ? $fbEvent['place']['location']['latitude'] : null;
-            $event['longitude'] = $fbEvent['place']['location']['longitude'] ? $fbEvent['place']['location']['longitude'] : null;
+            $latitude = $fbEvent['place']['location']['latitude'];
+            $longitude = $fbEvent['place']['location']['longitude'];
+            unset($fbEvent['place']);
+
+            $fbEvent['street_address'] = $this->googleMaps->getAddressFromLatLong($latitude, $longitude);
+
+        } else {
+            $fbEvent['street_address'] = null;
+        }
+
+        $event = $this->convertEventMainDetails($fbEvent);
+
+        $event['unique_id'] = uniqid('fb');
+
+        return $event;
+    }
+
+    /**
+     * @param array $event
+     *
+     * @return array
+     */
+    public function convertEventMainDetails($event)
+    {
+        $keys = [
+            'category', 'description', 'end_time', 'id', 'name', 'start_time', 'street_address'
+        ];
+
+        foreach ($keys as $key) {
+            if (!array_key_exists($key, $event)) {
+                $event[$key] = null;
+            }
+
+            if ($key == 'id') {
+                $event['facebook_id'] = $event[$key];
+                unset($event[$key]);
+            }
+
+            if ($key == 'start_time') {
+                $event['date_start'] = $event[$key];
+
+                unset($event[$key]);
+            }
+
+            if ($key == 'end_time') {
+                $event['date_end'] = $event[$key];
+                unset($event[$key]);
+            }
         }
 
         return $event;

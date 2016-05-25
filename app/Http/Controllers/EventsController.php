@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Aaulyp\Tools\Api\FacebookSdkHelper;
 use App\Event;
 use App\Event_Photo;
 use App\Aaulyp\Tools\Locations;
@@ -10,6 +9,7 @@ use App\Aaulyp\Tools\DateHelper;
 use App\Http\Requests\EventRequest;
 use App\Http\Requests\AddPhotoRequest;
 use App\Aaulyp\Tools\Api\MailchimpApi;
+use App\Aaulyp\Tools\Api\FacebookSdkHelper;
 
 class EventsController extends Controller
 {
@@ -19,7 +19,7 @@ class EventsController extends Controller
     protected $mailchimp;
 
 
-    public function __construct(Locations $locations, DateHelper $dateHelper, MailchimpApi $mailchimp)
+    public function __construct(Locations $locations, DateHelper $dateHelper, MailchimpApi $mailchimp, FacebookSdkHelper $facebookSdk)
     {
         $this->middleware('auth', ['except' => ['show','index','addPhoto', 'getMediaPhotos']]);
 
@@ -28,6 +28,7 @@ class EventsController extends Controller
         $loc = $locations;
         $this->dateHelper = $dateHelper;
         $this->mailchimp = $mailchimp;
+        $this->facebookSdk = $facebookSdk;
 
         $this->states = $loc->getStates();
         $this->calendarArrays = $this->dateHelper->getCalendarArrays();
@@ -40,12 +41,11 @@ class EventsController extends Controller
     public function index()
     {
 //        $events = Event::with('user')->orderBy('date_start', 'desc')->get();
-//        $eventsFeatured = Event::with('user')->where('feature_event', 1)->get();
+        $eventsFeatured = Event::with('user')->where('feature_event', 1)->get();
 
-        $fb = new FacebookSdkHelper();
-        $events = $fb->getEvents();
+        $events = $this->facebookSdk->getCurrentEvents();
 
-        dd($events);
+        $events = json_decode(json_encode($events));
 
         return view('pages.events.index', compact('events', 'eventsFeatured'));
     }
