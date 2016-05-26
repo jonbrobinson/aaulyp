@@ -65,7 +65,9 @@ class FacebookSdkHelper
 
         $body = $response->getDecodedBody();
 
-        dd($body);
+        $event = $this->transformEventForDb($body);
+
+        return $event;
     }
 
     protected function getEventsArray()

@@ -30,6 +30,8 @@ Route::get('/committee/{name}', 'PagesController@committees');
 
 Route::post('/webhooks/eventbrite/orders', 'WebhookController@ebOrders');
 
+route::get('/events/fb/{id}', 'FacebookController@show');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

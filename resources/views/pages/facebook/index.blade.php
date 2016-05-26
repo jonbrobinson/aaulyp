@@ -27,7 +27,7 @@
                             <article class="entry-post">
                                 <header class="entry-header">
                                     <h2 class="entry-title">
-                                        <a href="/events/fb/{{ $event->facebook_id }}">{{ $event->name }}</a>
+                                        <a href="#">{{ $event->name }}</a>
                                     </h2>
                                     <div class="meta-line clearfix">
                                         <div class="meta-author-category pull-left">
