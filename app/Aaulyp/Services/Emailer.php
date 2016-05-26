@@ -26,6 +26,6 @@ class Emailer
             $m->subject('Welcome to the AAULYP ' . $fullName);
         });
 
-        return $response;
+        return $response ;
     }
 }
