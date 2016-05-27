@@ -23,6 +23,8 @@ class FacebookSdkHelper
         ]);
 
         $this->googleMaps = $googleMapsApi;
+
+        date_default_timezone_set('America/Chicago');
     }
 
     /**

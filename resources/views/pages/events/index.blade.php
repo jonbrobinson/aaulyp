@@ -93,6 +93,7 @@
             </div>
         </div>
     </div>
+    @include('partials.footer')
 </div>
 <!-- END PAGE CONTENT -->
 @endsection

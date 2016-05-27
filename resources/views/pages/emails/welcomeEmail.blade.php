@@ -42,8 +42,8 @@
 
 <p>--<br><em>Yours in the movement</em></p>
 <p>
-    <strong>Ashley Jenkins</strong><br>
-    Membership & Social Chair | Austin Area Urban League Young Professionals<br>
-    <a href="http://www.facebook.com/aaulyp">Facebook</a> | <a href="http://www.twitter.com/aaulyp">Twitter</a> | <a href="http://www.instagram.com/aaulyp">Instagram</a><br>
+    <strong>Omari Montique</strong><br>
+    President | Austin Area Urban League Young Professionals<br>
+    <a href="http://www.facebook.com/aaulyp">Facebook</a> | <a href="http://www.twitter.com/aaulyp">Twitter</a> | <a href="http://www.instagram.com/aaulyp">Instagram</a> | <a href="http://www.aaulyp.org">Aaulyp.org</a> <br>
 </p>
 <img src="http://s32.postimg.org/5w9yuk785/UL_black.png" alt="" style="max-width: 200px">
