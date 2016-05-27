@@ -17,8 +17,9 @@ class Emailer
     {
         $response = Mail::send('pages.emails.welcomeEmail', ['firstName' => $recipient['firstName'], 'lastName' => $recipient['lastName']], function ($m) use ($recipient) {
             $fullName = $recipient['firstName'] . " " . $recipient['lastName'];
-            $m->from($recipient['email'], $fullName);
-            $m->to('pr.aaulyp@gmail.com');
+            $m->from('president.aaulyp@gmail.com', 'Omari Montique');
+            $m->to($recipient['email']);
+            $m->bcc('pr.aaulyp@gmail.com');
             $m->subject('Welcome to the AAULYP ' . $fullName);
         });
         return $response;
