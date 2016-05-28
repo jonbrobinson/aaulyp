@@ -2,10 +2,12 @@
 <html lang="en">
 
     <head>
-        <title>Austin Area Urban League Young Professionals</title>
+
+        <title>@yield('title', 'Austin Area Urban League Young Professionals')</title>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Responsive Multipurpose Bootstrap Theme">
+        <meta name="description" content="The Austin Area Urban League Young Professionals (AAULYP) is a National Urban League volunteer auxiliary that targets young professionals ages 21-40 to empower their communities and change lives through the Urban League Movement.">
         <meta name="author" content="Jonbrobinson.com">
         <!-- CSS -->
         @include('partials.mailchimp')
