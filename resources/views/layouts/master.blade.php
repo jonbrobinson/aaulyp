@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Responsive Multipurpose Bootstrap Theme">
-        <meta name="author" content="The Develovers">
+        <meta name="author" content="Jonbrobinson.com">
         <!-- CSS -->
         @include('partials.mailchimp')
         <link href="{{ asset("assets/css/bootstrap.css")}}" rel="stylesheet" type="text/css">
