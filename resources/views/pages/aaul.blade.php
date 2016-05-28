@@ -27,14 +27,16 @@
                 <div class="col-md-6">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/nYTlWfsK9OY" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="col-md-12">
-                    <h2 class="section-heading">OUR MISSION</h2>
-                    <p class="lead"><span class="dropcap dropcap-big">P</span>rovide tools to African-Americans and under-served populations to build a foundation for social and economic equality.</p>
-                    <br>
-                    <h2 class="section-heading">OUR VISION</h2>
-                    <p class="lead"><span class="dropcap dropcap-big">A</span> community where all individuals and families are empowered to be self-sufficient.</p>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    @include('partials.mission')
                 </div>
-
+                <div class="col-md-6">
+                    @include('partials.aaulPrograms')
+                </div>
             </div>
         </div>
     </div>
