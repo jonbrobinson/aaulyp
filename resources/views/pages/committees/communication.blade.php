@@ -9,7 +9,7 @@
             <h1 class="page-title pull-left">Committees</h1>
             <ol class="breadcrumb">
                 <li><a href="/">Get Involved</a></li>
-                <li><a href="{{ "/commitee/communication".request()->route()->__get('name') }}">Committees</a></li>
+                <li><a href="{{ "/commitee/".request()->route()->__get('name') }}">Committees</a></li>
                 <li class="active">Communications</li>
             </ol>
         </div>
