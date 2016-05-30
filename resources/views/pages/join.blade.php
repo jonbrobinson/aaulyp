@@ -21,7 +21,7 @@
                 <div class="col-md-12 row">
                     <div class="col-md-12 row">
                         <p class="lead">Join a community that is empowering Austin and connecting young professionals around the Austin Area with same values and commitment to helping others.</p>
-                        <p class="lead">Membership is an annual commitment and  runs on a 12 month cycle from the time of purchase. Please contact our member ship chair Ashley Jenkins at <a href="mailto:membership.aaulyp@gmail.com">membership.aaulyp@gmail.com</a></p>
+                        <p class="lead">Membership is an annual commitment and  runs on a 12 month cycle from the time of purchase. Please contact Erika Crespo at <a href="mailto:membership.aaulyp@gmail.com">membership.aaulyp@gmail.com</a></p>
                     </div>
                     <div class="col-md-6 row">
                         <div>

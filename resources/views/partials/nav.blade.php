@@ -65,7 +65,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">TEAM <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ url('/board') }}">Our Team</a></li>
-                        <li><a href="{{ url('/team/join') }}">Join Us</a></li>
+                        <li><a href="{{ url('/team/join') }}">Membership</a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">

@@ -22,7 +22,8 @@
                 <div class="col-md-3">
                     @include('partials.sidebar.committees', [request()->route()->__get('name') => "list-group-item current"] );
                 </div>
-                <div class="col-md-6">FUNDRAISING COMMITTEE</h3>
+                <div class="col-md-6">
+                    <h3 class="section-heading">FUNDRAISING COMMITTEE</h3>
                     <p>
                         Responsible for ensuring that our organization is self-sustaining and thriving, so that we can offer more financial support to the initiatives of our affiliate chapter; Serves as a liaison to all of the other committees                    </p>
 

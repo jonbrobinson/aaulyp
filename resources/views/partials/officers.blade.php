@@ -44,7 +44,7 @@
                     <strong>Secretary</strong>
                     <hr class="pull-left">
                     <div class="clearfix"></div>
-                    <p>Dynamically evolve client-based portals through world-class models. Phosfluorescently simplify cross-platform convergence and multimedia based portals. Rapidiously.</p>
+                    <p>Nachele has cultivated many relations through the years for the Young Professionals.  Before becoming secreatary Nachele was helped the YP's as Social Chair and put together many great happy hours and networking mixers. </p>
                     <div class="clearfix"></div>
                     <ul class="list-inline social-icon">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
