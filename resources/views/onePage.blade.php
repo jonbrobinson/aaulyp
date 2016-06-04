@@ -85,8 +85,15 @@
                 <p class="lead">Getting to know us better</p>
                 <hr>
             </div>
-            <p>Completely reinvent business mindshare with superior strategic theme areas. Dramatically build reliable platforms without real-time e-tailers. Competently predominate covalent scenarios rather than future-proof content. Intrinsicly innovate holistic users whereas cost effective partnerships. Objectively transform collaborative outsourcing before an expanded array of services.</p>
-            <p>Monotonectally provide access to next-generation imperatives rather than mission-critical materials. Seamlessly negotiate excellent services rather than web-enabled sources. Quickly actualize proactive niches rather than user friendly catalysts for change. Efficiently negotiate distributed experiences for alternative best practices. Efficiently.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Completely reinvent business mindshare with superior strategic theme areas. Dramatically build reliable platforms without real-time e-tailers. Competently predominate covalent scenarios rather than future-proof content. Intrinsicly innovate holistic users whereas cost effective partnerships. Objectively transform collaborative outsourcing before an expanded array of services.</p>
+                    <p>Monotonectally provide access to next-generation imperatives rather than mission-critical materials. Seamlessly negotiate excellent services rather than web-enabled sources. Quickly actualize proactive niches rather than user friendly catalysts for change. Efficiently negotiate distributed experiences for alternative best practices. Efficiently.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{{ asset("assets/img/aaulyp/yp_weekend/ypweeknd_group.png") }}" alt="" class="img-responsive">
+                </div>
+            </div>
         </div>
     </section>
     <!-- END ABOUT -->
@@ -103,14 +110,86 @@
                 <div class="col-md-4 soon">
                     <br>
                     <h2>FRI JULY 8th</h2>
+                    <hr>
+                    <!-- CUSTOM TABS LEFT -->
+                    <div class="custom-tabs-left">
+                        <ul class="nav nav-tabs tabs-iconized">
+                            <li class="active"><a href="#step1" data-toggle="tab"><i class="fa fa-plus-circle"></i>6:00pm</a></li>
+                            <li><a href="#step2" data-toggle="tab"><i class="fa fa-plus-circle"></i> 9:00pm</a></li>
+                            <li><a href="#step3" data-toggle="tab"></a></li>
+                            <li><a href="#step4" data-toggle="tab"></a></li>
+                            <li><a href="#step4" data-toggle="tab"></a></li>
+                            <li><a href="#step4" data-toggle="tab"></a></li>
+                            <li><a href="#step4" data-toggle="tab"></a></li>
+                        </ul>
+                        <div class="tab-content clearfix">
+                            <div class="tab-pane fade in active" id="step1">
+                                <h4>Check-in/Welcome Mixer</h4>
+                                <p>Phosfluorescently revolutionize viral leadership via turnkey technology. Synergistically monetize intermandated strategic theme areas through multimedia based.</p>
+                            </div>
+                            <div class="tab-pane fade" id="step2">
+                                <h4>Rock Rose Party</h4>
+                                <p>Continually mesh resource sucking synergy before sustainable e-commerce. Efficiently incentivize leading-edge alignments with go forward expertise. Conveniently myocardinate leveraged process improvements through progressive models. Collaboratively.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END CUSTOM TABS LEFT -->
 
                 </div>
                 <div class="col-md-4 soon">
                     <h1>SAT JULY 9th</h1>
+                    <hr>
+                    <!-- CUSTOM TABS LEFT -->
+                    <div class="custom-tabs-left">
+                        <ul class="nav nav-tabs tabs-iconized">
+                            <li class="active"><a href="#step1" data-toggle="tab"><i class="fa fa-plus-circle"></i>6:00pm</a></li>
+                            <li><a href="#step2" data-toggle="tab"><i class="fa fa-plus-circle"></i> 9:00pm</a></li>
+                            <li><a href="#step3" data-toggle="tab"><i class="fa fa-cloud-upload"></i> Step 3</a></li>
+                        </ul>
+                        <div class="tab-content clearfix">
+                            <div class="tab-pane fade in active" id="step1">
+                                <h4>Check-in/Welcome Mixer</h4>
+                                <p>Phosfluorescently revolutionize viral leadership via turnkey technology. Synergistically monetize intermandated strategic theme areas through multimedia based.</p>
+                            </div>
+                            <div class="tab-pane fade" id="step2">
+                                <h4>Rock Rose Party</h4>
+                                <p>Continually mesh resource sucking synergy before sustainable e-commerce. Efficiently incentivize leading-edge alignments with go forward expertise. Conveniently myocardinate leveraged process improvements through progressive models. Collaboratively.</p>
+                            </div>
+                            <div class="tab-pane fade" id="step3">
+                                <h4>Tab Step 3</h4>
+                                <p>Competently implement bricks-and-clicks collaboration and idea-sharing rather than visionary internal or "organic" sources. Rapidiously matrix premium core competencies for.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END CUSTOM TABS LEFT -->
                 </div>
                 <div class="col-md-4 soon">
                     <br>
                     <h2>SUN JULY 10th</h2>
+                    <hr>
+                    <!-- CUSTOM TABS LEFT -->
+                    <div class="custom-tabs-left">
+                        <ul class="nav nav-tabs tabs-iconized">
+                            <li class="active"><a href="#step1" data-toggle="tab"><i class="fa fa-plus-circle"></i>6:00pm</a></li>
+                            <li><a href="#step2" data-toggle="tab"><i class="fa fa-plus-circle"></i> 9:00pm</a></li>
+                            <li><a href="#step3" data-toggle="tab"><i class="fa fa-cloud-upload"></i> Step 3</a></li>
+                        </ul>
+                        <div class="tab-content clearfix">
+                            <div class="tab-pane fade in active" id="step1">
+                                <h4>Check-in/Welcome Mixer</h4>
+                                <p>Phosfluorescently revolutionize viral leadership via turnkey technology. Synergistically monetize intermandated strategic theme areas through multimedia based.</p>
+                            </div>
+                            <div class="tab-pane fade" id="step2">
+                                <h4>Rock Rose Party</h4>
+                                <p>Continually mesh resource sucking synergy before sustainable e-commerce. Efficiently incentivize leading-edge alignments with go forward expertise. Conveniently myocardinate leveraged process improvements through progressive models. Collaboratively.</p>
+                            </div>
+                            <div class="tab-pane fade" id="step3">
+                                <h4>Tab Step 3</h4>
+                                <p>Competently implement bricks-and-clicks collaboration and idea-sharing rather than visionary internal or "organic" sources. Rapidiously matrix premium core competencies for.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END CUSTOM TABS LEFT -->
                 </div>
             </div>
             <!-- END BOXED CONTENT -->
