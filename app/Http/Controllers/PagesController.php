@@ -15,8 +15,9 @@ class PagesController extends Controller
      */
     public function home()
     {
-        return view('welcome');
-//        return view('pages.soon');
+//        return view('welcome');
+        return view('pages.soon');
+//        return view('onePage');
     }
 
     /**
@@ -105,4 +106,14 @@ class PagesController extends Controller
 
         abort('404');
     }
+
+    /**
+     * Show the TEXAS YP WEEKEND PAGE
+     */
+    public function ypweekend()
+    {
+        return view('ypwOnePage');
+    }
+
+
 }
