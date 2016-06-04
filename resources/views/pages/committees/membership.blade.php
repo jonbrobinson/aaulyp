@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    @include('partials.sidebar.committees', [request()->route()->__get('name') => "list-group-item current"] );
+                    @include('partials.sidebar.committees', [request()->route()->__get('name') => "list-group-item current"] )
                 </div>
                 <div class="col-md-6">
                     <h3 class="section-heading">MEMBERSHIP COMMITTEE</h3>
@@ -40,7 +40,6 @@
                     <h3>Meeting Information</h3>
                     <p>When: TBD</p>
                     <p>Location: TBD</p>
-                    <p>Chair: Ashley Jenkins</p>
                     <p>Contact: <a href="mailto:membership.aaulyp@gmail.com">membership.aaulyp@gmail.com</a></p>
 
                 </div>

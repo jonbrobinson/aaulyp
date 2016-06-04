@@ -20,13 +20,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    @include('partials.sidebar.committees', [request()->route()->__get('name') => "list-group-item current"] );
+                    @include('partials.sidebar.committees', [request()->route()->__get('name') => "list-group-item current"] )
                 </div>
                 <div class="col-md-6">
                     <h3 class="section-heading">FUNDRAISING COMMITTEE</h3>
-                    <p>
-                        Responsible for ensuring that our organization is self-sustaining and thriving, so that we can offer more financial support to the initiatives of our affiliate chapter; Serves as a liaison to all of the other committees                    </p>
-
+                    <p>Responsible for ensuring that our organization is self-sustaining and thriving, so that we can offer more financial support to the initiatives of our affiliate chapter; Serves as a liaison to all of the other committees</p>
                     <br>
                     <h3>Activities</h3>
 
@@ -39,13 +37,11 @@
                     <h3>Meeting Information</h3>
                     <p>When: TBD</p>
                     <p>Location: TBD</p>
-                    <p>Chair: Open</p>
                     <p>Contact: <a href="mailto:fundraising.aaulyp@gmail.com">fundraising.aaulyp@gmail.com</a></p>
 
                 </div>
                 <div class="col-md-3">
                     <a class="twitter-timeline" href="https://twitter.com/AAULYP" data-widget-id="730989146307600386">Tweets by @AAULYP</a>
-
                 </div>
             </div>
         </div>

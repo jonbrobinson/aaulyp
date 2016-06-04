@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    @include('partials.sidebar.committees', [request()->route()->__get('name') => "list-group-item current"] );
+                    @include('partials.sidebar.committees', [request()->route()->__get('name') => "list-group-item current"] )
                 </div>
                 <div class="col-md-6">
                     <h3 class="section-heading">COMMUNICATION COMMITTEE</h3>
