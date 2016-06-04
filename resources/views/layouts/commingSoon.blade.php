@@ -16,6 +16,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/soon.css') }}">
 
 
     <!-- IE 9 Fallback-->
@@ -39,9 +40,9 @@
         <br>
         <br>
         <br>
+        @yield('content')
         <div class="row">
             <img src="UL-black.png" alt="Austin Area Urban League YOung Professionals" class="img-responsive center-block" >
-            @yield('content')
             <h1 class="text-center">Coming Soon.</h1>
             <h2 class="text-center">Follow us on
                 <a href="http://www.facebook.com/aaulyp" class="aaulyp-red"><i class="fa fa-facebook aaulyp-red"></i></a>
