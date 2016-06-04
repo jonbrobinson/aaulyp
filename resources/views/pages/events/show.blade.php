@@ -17,7 +17,7 @@
                     <p id="map-address">{!! $event->address_street_1 !!}, {!! $event->city !!}, {!! $event->state !!} {!! $event->zip !!}</p>
 
                     <h4>When</h4>
-                    <p>{{ date("l, F t, Y", $event->date_start) }} - {{ date("l, F t, Y", $event->date_end) }}</p>
+                    <p>{{ date("l, F t, Y g:iA", $event->date_start) }} - {{ date("l, F t, Y g:iA", $event->date_end) }}</p>
 
                 </div>
             </div>

@@ -46,7 +46,7 @@
                                             <figure class="featured-image">
                                                 <a href="blog-single.html">
                                                     <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', strtotime($event->date_start))) }}</span><span class="post-date">{{ date('j', strtotime($event->date_start)) }}</span><span class="post-year">{{ date('Y', strtotime($event->date_start)) }}</span></div>
-                                                    <img src="assets/img/blog/buildings-med.jpg" class="img-responsive" alt="featured-image" />
+                                                    <img src="{{ $event->cover_photo }}" class="img-responsive" alt="featured-image" />
                                                 </a>
                                             </figure>
                                         </div>

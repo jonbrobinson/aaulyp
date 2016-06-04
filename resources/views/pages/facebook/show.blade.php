@@ -9,6 +9,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-8 col-md-offset-2">
+                    <img src="{{ $event->cover_photo }}" alt="">
+                </div>
+                <div class="col-sm-6 col-md-8 col-md-offset-2">
                     <h2>{{ $event->name }}</h2>
                     <hr>
                     <div>{!! $event->description !!}</div>
@@ -17,7 +20,7 @@
                     <p id="map-address">{!! $event->street_address !!}</p>
 
                     <h4>When</h4>
-                    <p>{{ date("l, F t, Y", strtotime($event->date_start)) }} - {{ date("l, F t, Y", strtotime($event->date_end)) }}</p>
+                    <p>{{ date("l, F t, Y g:iA", strtotime($event->date_start)) }} - {{ date("l, F t, Y g:iA", strtotime($event->date_end)) }}</p>
 
                 </div>
             </div>

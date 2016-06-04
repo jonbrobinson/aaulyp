@@ -63,7 +63,7 @@ class FacebookSdkHelper
 
     public function getEventDetails($id)
     {
-        $response = $this->facebookHelper->get('/' . $id);
+        $response = $this->facebookHelper->get('/' . $id . '?fields=id,name,category,description,place,cover,attending_count,interested_count,start_time,end_time');
 
         $body = $response->getDecodedBody();
 
@@ -74,11 +74,11 @@ class FacebookSdkHelper
 
     protected function getEventsArray()
     {
-        $response = $this->facebookHelper->get('/'.self::AAULYP_FB_PAGE_ID.'/events');
+        $response = $this->facebookHelper->get('/'.self::AAULYP_FB_PAGE_ID.'?fields=events{id,name,category,description,place,cover,attending_count,interested_count,start_time,end_time}');
 
         $body = $response->getDecodedBody();
 
-        $events = $body['data'];
+        $events = $body['events']['data'];
 
         return $events;
     }
@@ -91,18 +91,9 @@ class FacebookSdkHelper
     public function transformEventForDb($fbEvent)
     {
 
-        if (isset($fbEvent['place']) && isset($fbEvent['place']['location'])) {
-            $latitude = $fbEvent['place']['location']['latitude'];
-            $longitude = $fbEvent['place']['location']['longitude'];
-            unset($fbEvent['place']);
+        $event = $this->convertEventEdgeDetails($fbEvent);
 
-            $fbEvent['street_address'] = $this->googleMaps->getAddressFromLatLong($latitude, $longitude);
-
-        } else {
-            $fbEvent['street_address'] = null;
-        }
-
-        $event = $this->convertEventMainDetails($fbEvent);
+        $event = $this->convertEventMainDetails($event);
 
         $event['unique_id'] = uniqid('fb');
 
@@ -140,6 +131,29 @@ class FacebookSdkHelper
                 $event['date_end'] = $event[$key];
                 unset($event[$key]);
             }
+        }
+
+        return $event;
+    }
+
+    /**
+     * @param array $event
+     *
+     * @return array
+     */
+    public function convertEventEdgeDetails($event)
+    {
+        if (isset($event['place']) && isset($event['place']['location'])) {
+            $latitude = $event['place']['location']['latitude'];
+            $longitude = $event['place']['location']['longitude'];
+            unset($event['place']);
+
+            $event['street_address'] = $this->googleMaps->getAddressFromLatLong($latitude, $longitude);
+
+        }
+        if (isset($event['cover'])) {
+            $event['cover_photo'] = $event['cover']['source'];
+            unset($event['cover']);
         }
 
         return $event;
