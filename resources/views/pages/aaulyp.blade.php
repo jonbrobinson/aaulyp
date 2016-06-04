@@ -9,7 +9,7 @@
             <h1 class="page-title pull-left">Austin Area Urban League</h1>
             <ol class="breadcrumb">
                 <li><a href="/">Home</a></li>
-                <li><a href="/aaulyp">About</a></li>
+                <li><a href="{{ url('/aaulyp') }}">About</a></li>
                 <li class="active">Our History</li>
             </ol>
         </div>
@@ -30,10 +30,9 @@
                         <br>
                     </div>
             </div>
+            <hr>
             <div class="row">
-                <div class="col-md-12">
-                    <hr>
-                    <br>
+                <div class="col-md-6">
                     <h2 class="section-heading">OUR MISSION</h2>
                     <p class="lead"><span class="dropcap dropcap-big">P</span>rovide tools to African-Americans and under-served populations to build a foundation for social and economic equality.</p>
                     <br>
@@ -42,11 +41,8 @@
                     <br>
                     <br>
                 </div>
-            </div>
-            <div  class="row">
-                <div class="col-md-12">
-                    <hr>
-                    @include('partials.officers')
+                <div class="col-md-6">
+                    @include('partials.aaulypInitiatives')
                 </div>
             </div>
         </div>
