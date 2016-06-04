@@ -26,6 +26,8 @@ Route::get('/contact/faq', 'PagesController@faq');
 
 Route::get('/contact', 'PagesController@contact');
 
+Route::get('/ypweekend2016', 'PagesController@ypweekend');
+
 Route::get('/committee/{name}', 'PagesController@committees');
 
 Route::post('/webhooks/eventbrite/orders', 'WebhookController@ebOrders');
