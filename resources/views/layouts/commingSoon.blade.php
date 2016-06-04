@@ -40,7 +40,7 @@
         <br>
         <br>
         <br>
-        @yield('content')
+{{--        @yield('content')--}}
         <div class="row">
             <img src="UL-black.png" alt="Austin Area Urban League YOung Professionals" class="img-responsive center-block" >
             <h1 class="text-center">Coming Soon.</h1>
