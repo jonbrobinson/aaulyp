@@ -4,6 +4,7 @@ namespace App\Aaulyp\Tools\Api;
 
 use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\Psr7\Request;
+use Psy\Exception\Exception;
 
 class EventbriteApi
 {
