@@ -9,8 +9,8 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="Evential - One Page Event HTML Template">
-    <meta name="author" content="themecube">
+    <meta name="description" content="Join the Austin Area Urban League Young Professionals as we host our fellow chapters from Dallas & Houston, right here in #ATX! You don't want to miss this one-of-a-kind weekend, filled with opportunities to network, socialize, & serve with young professionals from all over TX!">
+    <meta name="author" content="jonbrobinson.com">
 
     <!-- viewport settings -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -60,7 +60,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><img src="one-page-assets/img/logo_yp.png" alt="logo"></a>
+            <a class="navbar-brand" href="/ypweekend2016"><img src="one-page-assets/img/logo_yp.png" alt="logo"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="nav">
@@ -895,6 +895,13 @@
 <script src="one-page-assets/js/retina-1.1.0.min.js"></script>
 
 <script src="one-page-assets/js/main.js"></script>
+<script>
+    $(document).on('click','.navbar-collapse.in',function(e) {
+        if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+            $(this).collapse('hide');
+        }
+    });
+</script>
 
 
 

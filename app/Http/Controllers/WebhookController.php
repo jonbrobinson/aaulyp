@@ -39,4 +39,20 @@ class WebhookController extends Controller
         return response($response->getBody(), $response->getStatusCode());
 
     }
+
+    public function ypWeekendOrders(Request $request)
+    {
+
+        $this->init();
+
+        $orderUrl = $request->input('api_url');
+
+        $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
+
+        return response()->json([
+                "message" => [ 'user' => $orderUser]
+            ], 200
+        );
+
+    }
 }
