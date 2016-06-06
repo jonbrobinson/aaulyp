@@ -32,7 +32,7 @@ Route::get('/committee/{name}', 'PagesController@committees');
 
 Route::post('/webhooks/eventbrite/orders', 'WebhookController@ebOrders');
 
-Route::post('/webooks/ypweekend/orders', 'WebhookController@ypweekendOrders');
+Route::post('/webhooks/ypweekend/orders', 'WebhookController@ypWeekendOrders');
 
 route::get('/events/fb/{id}', 'FacebookController@show');
 
