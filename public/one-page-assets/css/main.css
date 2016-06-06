@@ -161,7 +161,7 @@ h4 {
 /* TOP */
 
 #top {
-	background:url(../img/top_yp_group_v3.png) bottom center no-repeat;
+	background:url(../img/top_yp_group_v3.jpg) bottom center no-repeat;
 	width:100%;
 	max-height:auto;
 	height:600px;
@@ -449,7 +449,7 @@ h4 {
 }
 
 .venue {
-	background:url(../img/venue_aloft.png) bottom center no-repeat;
+	background:url(../img/venue_aloft.jpg) bottom center no-repeat;
 	width:100%;
 	height:auto;
 	min-height:540px;
@@ -604,7 +604,7 @@ h4 {
 
 #register {
 	padding:70px 0;
-	background:url(../img/top_yp_group_v3.png) center center no-repeat fixed;
+	background:url(../img/top_yp_group_v3.jpg) center center no-repeat fixed;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
