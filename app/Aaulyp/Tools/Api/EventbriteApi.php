@@ -39,7 +39,11 @@ class EventbriteApi
             'headers' => $headers
         ];
 
-        $response = $this->guzzle->request('GET', $url, $options);
+        try {
+            $response = $this->guzzle->request('GET', $url, $options);
+        } catch (Exception $e) {
+            return null;
+        }
 
 
         $orderJson = json_decode($response->getBody()->getContents());
