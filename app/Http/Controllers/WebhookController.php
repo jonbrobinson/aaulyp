@@ -20,16 +20,13 @@ class WebhookController extends Controller
 
     public function ebOrders(Request $request)
     {
-
-        return response('made it here');
-        
         $this->init();
 
         $orderUrl = $request->input('api_url');
 
         $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
 
-//        $response = $this->emailer->sendWelcomeEmail($orderUser);
+        $response = $this->emailer->sendWelcomeEmail($orderUser);
 
         if ($response->getStatusCode() == 200) {
             return response()->json([
@@ -39,14 +36,10 @@ class WebhookController extends Controller
         }
 
         return response($response->getBody(), $response->getStatusCode());
-
     }
 
     public function ypWeekendOrders(Request $request)
     {
-        return response('made it here');
-
-
         $this->init();
 
         $orderUrl = $request->input('api_url');
@@ -59,6 +52,5 @@ class WebhookController extends Controller
         }
 
         return response('made it here');
-
     }
 }
