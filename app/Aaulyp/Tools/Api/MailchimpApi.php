@@ -11,6 +11,7 @@ class MailchimpApi
 {
     const MAILCHIMP_BASE_URL = "https://us4.api.mailchimp.com/3.0";
     const MC_GENERAL_BODY_LIST_ID = "17d8d9f32d";
+    const MC_YP_WEEKEND_LIST_ID = "";
 
     protected $guzzle;
     protected $stack;
@@ -97,5 +98,24 @@ class MailchimpApi
         $subscribersJson = json_decode($response->getBody()->getContents());
 
         return $subscribersJson;
+    }
+
+    /**
+     * Add member to list based on ID
+     *
+     * @param int   $listId
+     * @param array $member
+     */
+    public function addMemberToList($listId, $member)
+    {
+
+    }
+
+    protected function createMailchimpListMember($user)
+    {
+        $member['merge_fields']['FNAME'] = $user['first_name'];
+        $member['merge_fields']['LNAME'] = $user['last_name'];
+
+        return $member;
     }
 }

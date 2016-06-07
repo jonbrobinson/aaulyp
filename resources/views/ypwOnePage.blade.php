@@ -103,7 +103,7 @@
             <div class="col-lg-10 col-lg-offset-1 text-center">
                 <i class="fa fa-4x fa-globe"></i>
                 <h2 class="uppercase">about YP weekend</h2>
-                <p class="lead">Join the Austin Area Urban League Young Professionals as we host our fellow chapters from Dallas & Houston, right here in #ATX! You don't want to miss this one-of-a-kind weekend, filled with opportunities to network, socialize, & serve with young professionals from all over TX!</p>
+                <p class="lead">Join us for the 5th Annual TX YP Weekend, hosted by the Austin Area Urban League Young Professionals and sponsored by all three Texas chapters, including the Houston Area Urban League Young Professionals and the Greater Dallas League of Young Professionals.</p>
             </div>
 
 
@@ -368,7 +368,7 @@
                                 </div>
 
                                 <div class="description">
-                                    <h3>YP Pub Crawl Mixer</h3>
+                                    <h3>Rock Rose Pub Crawl [Optional]</h3>
                                     <p>Rock Rose is a new nightlife in North Austin we want share networking mixing before we get to service work the next day</p>
                                     <span class="name">North Austin</span>
                                 </div>
@@ -417,8 +417,8 @@
                                 </div>
 
                                 <div class="description">
-                                    <h3>YP's on the Dock</h3>
-                                    <p>Integer ut felis diam. Duis sit amet sapien non ipsum ornare consequat. Nunc suscipit ut massa a adipiscing. Integer ac convallis diam. In sagittis eleifend urna in porttitor.</p>
+                                    <h3>Party at the Oasis</h3>
+                                    <p>After a hard day of work and team building lets have some at one of the best views in Austin. Let's dance and celebrate </p>
                                     <span class="name">WEST AUSTIN</span>
                                 </div>
                             </div>
@@ -432,9 +432,9 @@
                                 </div>
 
                                 <div class="description">
-                                    <h3>NIGHT CAP DOWNTOWN</h3>
-                                    <p>Mauris laoreet lorem dapibus, mollis mi nec, lacinia neque. Cras bibendum orci lectus, aliquet auctor ante lobortis in</p>
-                                    <span class="name">Randy Graves</span>
+                                    <h3>Night Out Downtown</h3>
+                                    <p>Music, food, persolatily defines Austin Downtown, If you are not to tired come out as we explore some of the dowtown late night scene.</p>
+                                    <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
                         </div>
@@ -452,9 +452,9 @@
                                 </div>
 
                                 <div class="description">
-                                    <h3>Brunch at </h3>
-                                    <p>Duis sit amet pulvinar est. Nullam vehicula gravida porttitor. Nullam accumsan ornare massa ut porta. Ut turpis neque, sodales eu venenatis ut, tincidunt id neque. Etiam porttitor sapien a velit mollis fringilla nec nec lorem.</p>
-                                    <span class="name">Brandie Peterson</span>
+                                    <h3>YP BRUNCH</h3>
+                                    <p>After all the work and fun. We gather to celebrate our chapters and get plan for the future.</p>
+                                    <span class="name">AUSTIN</span>
                                 </div>
                             </div>
                         </div>
@@ -467,9 +467,9 @@
                                 </div>
 
                                 <div class="description">
-                                    <h3>GUEST OF HONOR</h3>
-                                    <p>Maecenas faucibus odio vitae nibh tempus cursus. Nulla nec commodo justo, non pellentesque enim.</p>
-                                    <span class="name">Bertha Lane</span>
+                                    <h3>FEATURED SPEAKER</h3>
+                                    {{--<p>We all know where we want to be in our futures and the best advice comes from those who are willing to share their journey.</p>--}}
+                                    <span class="name">AUSTIN</span>
                                 </div>
                             </div>
                         </div>
@@ -500,7 +500,8 @@
             <div class="row">
                 <div class="venue-address">
                     <h2 class="uppercase">aloft | domain</h2>
-                    <p>Take advantage of some great lodging in one of <br>Austin's exciting new neighborhoods and <br>Domain shopping centers.</p>
+                    <p>YP WEEKEND SPECIAL $139 single and double rooms. <br>Take advantage of some great lodging in one of <br>Austin's exciting new neighborhoods and <br>Domain shopping centers.
+                        <br>*limit time only</p>
 
                     <p class="address">
                         <i class="fa fa-2x fa-map-marker fa-inverse"></i>
@@ -517,7 +518,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3>Alternative Lodging Options</h3>
+                <h3>Alternative Acommodation Options</h3>
             </div>
 
             <div class="col-md-4 col-lg-4">
@@ -528,13 +529,13 @@
             <div class="col-md-4 col-lg-4">
                 <br>
                 <i class="fa fa-3x fa-building-o"></i>
-                <h4 style="margin-bottom: 24px;">Downtown</h4>
-                <p>Downtown offers a great variety of attractions and capitol city culture of the city. THe great thing about being downtown is that you are in the heart of the city and have a variety of options within walking distance from your rental. </p>
+                <h4 style="margin-bottom: 24px;">Downtown Hotel</h4>
+                <p>Downtown offers a great variety of attractions and capitol city culture of the city. The great thing about being downtown is that you are in the heart of the city and have a variety of options within walking distance from your rental. Take a look at some alternative options</p>
             </div>
 
             <div class="col-md-4 col-lg-4">
                 <img src="one-page-assets/img/homeaway-inc-logo.png" alt="">
-                <p>HomeAway® offers an extensive selection of vacation rental homes that provide travelers with memorable experiences and benefits, especially more room to relax, for less than the cost of traditional hotel accommodations.  If you have a group of friends of YP's and want more of a home  feel for the weekend we recommend <a href="https://www.homeaway.com">HOMEAWAY</a></p>
+                <p>HomeAway® offers an extensive selection of vacation rental homes that provide travelers with memorable experiences and benefits, especially more room to relax, for less than the cost of traditional hotel accommodations.  If you have a group of friends of YP's and want more of a home  feel for the weekend we recommend <a href="https://www.homeaway.com" class="">HOMEAWAY</a></p>
             </div>
         </div>
     </div>
