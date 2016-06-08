@@ -555,7 +555,7 @@
                     <div class="item text-center">
                         <img class="img-circle" src="one-page-assets/img/yp_testimonial1.png" alt="">
                         <div>
-                            <p>I enjoy getting a chance to meet awesome YP across the state who are doing great things within their communities. When we all get together, its inspiring to see the reach of the Urban LEague Movement</p>
+                            <p>I enjoy getting a chance to meet awesome YP across the state who are doing great things within their communities. When we all get together, its inspiring to see the reach of the Urban League Movement</p>
                             <h4 class="uppercase">Omari</h4>
                         </div>
                     </div>
@@ -675,7 +675,7 @@
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#faq" href="#collapseTwo" class="collapsed">
-                                    <i class="fa fa-2x fa-plus-circle"></i> Can I buy tickets to the boat party only?
+                                    <i class="fa fa-2x fa-plus-circle"></i> Can I buy tickets to the Saturday Night Party only?
                                 </a>
                             </h4>
                         </div>
