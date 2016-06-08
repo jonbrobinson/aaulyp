@@ -355,7 +355,7 @@
 
                                 <div class="description">
                                     <h3>Check In | Welcome Mixer</h3>
-                                    <p>Casual gathering to meet and greet some of the awesome YP's coming down for the weekend</p>
+                                    <p>Our welcome reception to meet and greet some of the awesome YP's coming down for the weekend. Get some Weekend details and get settled as we prepare for a weekend of activities.</p>
                                     <span class="name">NORTH AUSTIN</span>
                                 </div>
                             </div>
