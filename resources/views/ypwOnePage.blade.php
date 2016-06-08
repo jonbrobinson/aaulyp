@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="Join the Austin Area Urban League Young Professionals as we host our fellow chapters from Dallas & Houston, right here in #ATX! You don't want to miss this one-of-a-kind weekend, filled with opportunities to network, socialize, & serve with young professionals from all over TX!">
-    <meta name="author" content="jonbrobinson.com">
+    <meta name="author" content="Austin Area Urban League Young Professionals">
 
     <!-- viewport settings -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -113,26 +113,26 @@
                     <div class="row">
 
                         <div class="fact col-xs-6 col-md-3 col-lg-3">
-                            <p style="font-size: larger"><span class="timer" data-to="100" data-speed="3000"></span>+</p>
+                            <p style="font-size: larger"><span class="timer" data-to="100" data-speed="5000"></span>+</p>
                             <i class="fa fa-2x fa-users"></i>
                             <p>YP's</p>
 
                         </div>
 
                         <div class="fact col-xs-6 col-md-3 col-lg-3">
-                            <p style="font-size: larger"><span class="timer" data-to="36" data-speed="3000"></span>+</p>
+                            <p style="font-size: larger"><span class="timer" data-to="36" data-speed="5000"></span>+</p>
                             <i class="fa fa-2x fa-clock-o"></i>
                             <p>hours</p>
                         </div>
 
                         <div class="fact col-xs-6 col-md-3 col-lg-3">
-                            <p style="font-size: larger"><span class="timer" data-to="300" data-speed="3000"></span>+</p>
+                            <p style="font-size: larger"><span class="timer" data-to="200" data-speed="5000"></span>+</p>
                             <i class="fa fa-2x fa-plug"></i>
                             <p>connections</p>
                         </div>
 
                         <div class="fact col-xs-6 col-md-3 col-lg-3">
-                            <p style="font-size: larger"><span class="timer" data-to="1000" data-speed="3000"></span>+</p>
+                            <p style="font-size: larger"><span class="timer" data-to="300" data-speed="5000"></span>+</p>
                             <i class="fa fa-2x fa-power-off"></i>
                             <p>memories</p>
                         </div>
@@ -350,30 +350,30 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time">06.00 PM</span>
+                                    <span class="time">07.00 PM</span>
                                 </div>
 
                                 <div class="description">
                                     <h3>Check In | Welcome Mixer</h3>
-                                    <p>We are excited to check in and see everyone from everywhere. </p>
-                                    <span class="name">North Austin</span>
+                                    <p>Casual gathering to meet and greet some of the awesome YP's coming down for the weekend</p>
+                                    <span class="name">NORTH AUSTIN</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="event">
-                            <div class="event-inner">
-                                <div class="icon">
-                                    <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time">08.30 PM</span>
-                                </div>
+                        {{--<div class="event">--}}
+                            {{--<div class="event-inner">--}}
+                                {{--<div class="icon">--}}
+                                    {{--<i class="fa fa-2x fa-clock-o"></i>--}}
+                                    {{--<span class="time">08.30 PM</span>--}}
+                                {{--</div>--}}
 
-                                <div class="description">
-                                    <h3>Rock Rose Pub Crawl [Optional]</h3>
-                                    <p>Rock Rose is a new nightlife in North Austin we want share networking mixing before we get to service work the next day</p>
-                                    <span class="name">North Austin</span>
-                                </div>
-                            </div>
-                        </div>
+                                {{--<div class="description">--}}
+                                    {{--<h3>Rock Rose Pub Crawl [Optional]</h3>--}}
+                                    {{--<p>Rock Rose is a new nightlife in North Austin we want share networking mixing before we get to service work the next day</p>--}}
+                                    {{--<span class="name">North Austin</span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                     </div>
 
@@ -384,12 +384,12 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time">09.30 AM</span>
+                                    <span class="time">09.00 AM</span>
                                 </div>
 
                                 <div class="description">
-                                    <h3>Service Activity 1</h3>
-                                    <p>Nulla nulla risus, feugiat ut semper id, luctus ac neque. Sed fringilla, metus at elementum elementum, tortor ipsum convallis mi, non luctus sapien urna sed purus.</p>
+                                    <h3>Service Activity</h3>
+                                    <p>As Young Professionals part of the Urban League Movement its important that we spend time serviceing the community. We are going to make a big impact with many hands helping the communities around austin.</p>
                                     <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
@@ -424,20 +424,20 @@
                             </div>
                         </div>
 
-                        <div class="event">
-                            <div class="event-inner">
-                                <div class="icon">
-                                    <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time">10.30 PM</span>
-                                </div>
+                        {{--<div class="event">--}}
+                            {{--<div class="event-inner">--}}
+                                {{--<div class="icon">--}}
+                                    {{--<i class="fa fa-2x fa-clock-o"></i>--}}
+                                    {{--<span class="time">10.30 PM</span>--}}
+                                {{--</div>--}}
 
-                                <div class="description">
-                                    <h3>Night Out Downtown</h3>
-                                    <p>Music, food, persolatily defines Austin Downtown, If you are not to tired come out as we explore some of the dowtown late night scene.</p>
-                                    <span class="name">DOWNTOWN AUSTIN</span>
-                                </div>
-                            </div>
-                        </div>
+                                {{--<div class="description">--}}
+                                    {{--<h3>Night Out Downtown</h3>--}}
+                                    {{--<p>Music, food, persolatily defines Austin Downtown, If you are not to tired come out as we explore some of the dowtown late night scene.</p>--}}
+                                    {{--<span class="name">DOWNTOWN AUSTIN</span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                     </div>
 
@@ -452,9 +452,9 @@
                                 </div>
 
                                 <div class="description">
-                                    <h3>YP BRUNCH</h3>
+                                    <h3>YP BRUNCH | Max's Wine & Dive</h3>
                                     <p>After all the work and fun. We gather to celebrate our chapters and get plan for the future.</p>
-                                    <span class="name">AUSTIN</span>
+                                    <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
                         </div>
@@ -469,7 +469,7 @@
                                 <div class="description">
                                     <h3>FEATURED SPEAKER</h3>
                                     {{--<p>We all know where we want to be in our futures and the best advice comes from those who are willing to share their journey.</p>--}}
-                                    <span class="name">AUSTIN</span>
+                                    <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
                         </div>
@@ -518,12 +518,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3>Alternative Acommodation Options</h3>
+                <h3>Alternative Accommodation Options</h3>
             </div>
 
             <div class="col-md-4 col-lg-4">
                 <img src="one-page-assets/img/airbnb_horizontal_lockup_web.png" alt="">
-                <p>Airbnb is a trusted community marketplace for people to list, discover, and book unique accommodations around the world. Austin has a variety of listings.  THere are some great listings in east Austin and in the barton springs area that will keep you at the center of eveything.</p>
+                <p>Airbnb is a trusted community marketplace for people to list, discover, and book unique accommodations around the world. Austin has a variety of listings.  THere are some great listings in east Austin and in the barton springs area that will keep you at the center of everything.</p>
+                <a href="http://www.airbnb.com" class="button  button-dark">search AirBnB Listings</a>
             </div>
 
             <div class="col-md-4 col-lg-4">
@@ -531,11 +532,13 @@
                 <i class="fa fa-3x fa-building-o"></i>
                 <h4 style="margin-bottom: 24px;">Downtown Hotel</h4>
                 <p>Downtown offers a great variety of attractions and capitol city culture of the city. The great thing about being downtown is that you are in the heart of the city and have a variety of options within walking distance from your rental. Take a look at some alternative options</p>
+                <a href="https://www.hotels.com" class="button button-dark">search Hotel Listings</a>
             </div>
 
             <div class="col-md-4 col-lg-4">
                 <img src="one-page-assets/img/homeaway-inc-logo.png" alt="">
-                <p>HomeAway® offers an extensive selection of vacation rental homes that provide travelers with memorable experiences and benefits, especially more room to relax, for less than the cost of traditional hotel accommodations.  If you have a group of friends of YP's and want more of a home  feel for the weekend we recommend <a href="https://www.homeaway.com" class="">HOMEAWAY</a></p>
+                <p>HomeAway® offers an extensive selection of vacation rental homes that provide travelers with memorable experiences and benefits, especially more room to relax, for less than the cost of traditional hotel accommodations.  If you have a group of friends of YP's and want more of a home feel for the weekend we recommend</p>
+                <a href="https://www.homeaway.com" class="button button-dark">search HomeAway Listings</a>
             </div>
         </div>
     </div>
@@ -650,7 +653,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="panel-group" id="faq">
                     <h3 class="uppercase">faq</h3>
-                    <p>Suspendisse mattis tempus erat, ac aliquam lectus</p>
+                    <p>We're here to help answer questions</p>
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -662,7 +665,8 @@
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
                             <div class="panel-body">
-                                <p class="small">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+                                <p class="small">Yes. On Mon May 9th 2016, Uber and Lyft suspended their respective ridesharing services. However here is a list of alternative ridesharing apps that are working in Austin.</p>
+                                <a href="http://www.bizjournals.com/austin/blog/techflash/2016/06/the-complete-field-guide-to-austins-ridesharing.html?ana=fbk" class="button button-dark">see article</a>
                             </div>
                         </div>
                     </div>
@@ -677,25 +681,25 @@
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <p class="small">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.</p>
+                                <p class="small">Yes. </p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#faq" href="#collapseThree" class="collapsed">
-                                    <i class="fa fa-2x fa-plus-circle"></i> Do I have to be YP to partake in the weekend
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p class="small">Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
-                            </div>
-                        </div>
-                    </div>
+                    {{--<div class="panel panel-default">--}}
+                        {{--<div class="panel-heading">--}}
+                            {{--<h4 class="panel-title">--}}
+                                {{--<a data-toggle="collapse" data-parent="#faq" href="#collapseThree" class="collapsed">--}}
+                                    {{--<i class="fa fa-2x fa-plus-circle"></i> Do I have to be YP to partake in the weekend--}}
+                                {{--</a>--}}
+                            {{--</h4>--}}
+                        {{--</div>--}}
+                        {{--<div id="collapseThree" class="panel-collapse collapse">--}}
+                            {{--<div class="panel-body">--}}
+                                {{--<p class="small">Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -707,37 +711,43 @@
                         </div>
                         <div id="collapseFour" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <p class="small"> Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                <p class="small"> What's great about Austin is that good food can be found around the city.  Too keep it simple, Austin is known for BBQ, TACOS and FUSION FOOD TRUCKS.  Here are a couple resources to help find some great food around town</p>
+                                <ul>
+                                    <li><a href="http://austin.eater.com/" class="yp_red">Austin Eater</a></li>
+                                    <li><a href="http://roaminghunger.com/aus/vendors/" class="yp_red">Food Truck Locator</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#faq" href="#collapseFive" class="collapsed">
-                                    <i class="fa fa-2x fa-plus-circle"></i> Nulla quis adipiscing nisi
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseFive" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p class="small">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
-                            </div>
-                        </div>
-                    </div>
+                    {{--<div class="panel panel-default">--}}
+                        {{--<div class="panel-heading">--}}
+                            {{--<h4 class="panel-title">--}}
+                                {{--<a data-toggle="collapse" data-parent="#faq" href="#collapseFive" class="collapsed">--}}
+                                    {{--<i class="fa fa-2x fa-plus-circle"></i> Nulla quis adipiscing nisi--}}
+                                {{--</a>--}}
+                            {{--</h4>--}}
+                        {{--</div>--}}
+                        {{--<div id="collapseFive" class="panel-collapse collapse">--}}
+                            {{--<div class="panel-body">--}}
+                                {{--<p class="small">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
 
                 </div>
             </div>
 
             <div class="col-md-6 col-lg-6">
                 <div id="gallery">
-                    <h3>Past events photos</h3>
-                    <p>Proin eu malesuada leo, eu aliquet lorem. In vitae condimentum</p>
+                    <h3>Past YP Weekend photos</h3>
+                    <p>Take a look at some previous photos</p>
                     <div class="row">
                         <a class="image-link col-md-4 col-lg-4" href="one-page-assets/img/past/ypw_past_001.jpg"><img class="img-responsive" src="one-page-assets/img/past/tn-ypw_past_001.jpg" alt=""></a>
                         <a class="image-link col-md-4 col-lg-4" href="one-page-assets/img/past/ypw_past_002.jpg"><img class="img-responsive" src="one-page-assets/img/past/tn-ypw_past_002.jpg" alt=""></a>
                         <a class="image-link col-md-4 col-lg-4" href="one-page-assets/img/past/ypw_past_003.jpg"><img class="img-responsive" src="one-page-assets/img/past/tn-ypw_past_003.jpg" alt=""></a>
+                    </div>
+                    <div class="row">
                         <a class="image-link col-md-4 col-lg-4" href="one-page-assets/img/past/ypw_past_004.jpg"><img class="img-responsive" src="one-page-assets/img/past/tn-ypw_past_004.jpg" alt=""></a>
                         <a class="image-link col-md-4 col-lg-4" href="one-page-assets/img/past/ypw_past_005.jpg"><img class="img-responsive" src="one-page-assets/img/past/tn-ypw_past_005.jpg" alt=""></a>
                         <a class="image-link col-md-4 col-lg-4" href="one-page-assets/img/past/ypw_past_006.jpg"><img class="img-responsive" src="one-page-assets/img/past/tn-ypw_past_006.jpg" alt=""></a>
@@ -768,10 +778,10 @@
                         <!-- back -->
                         <div class="back">
                             <ul class="price-table-description">
-                                <li class="description-item">Conference kit</li>
-                                <li class="description-item stripe">Coffee break</li>
-                                <li class="description-item">Lunch</li>
-                                <li class="description-item stripe ">All seasons</li>
+                                <li class="description-item">Sat Lunch</li>
+                                <li class="description-item stripe">Ticket to Saturday Night Party</li>
+                                <li class="description-item">Brunch</li>
+                                <li class="description-item stripe ">YP Weekend T-Shirt</li>
                             </ul>
                         </div>
                     </div>
@@ -784,16 +794,16 @@
                         <!-- front -->
                         <div class="front price-table-header">
                             <p class="price">$65</p>
-                            <p class="title">Standard</p>
+                            <p class="title">Regular</p>
                         </div>
 
                         <!-- back -->
                         <div class="back">
                             <ul class="price-table-description">
-                                <li class="description-item">Conference kit</li>
-                                <li class="description-item stripe">Coffee break</li>
-                                <li class="description-item">Lunch</li>
-                                <li class="description-item stripe ">All seasons</li>
+                                <li class="description-item">Sat Lunch</li>
+                                <li class="description-item stripe">Ticket to Saturday Night Party</li>
+                                <li class="description-item">Brunch</li>
+                                <li class="description-item stripe ">YP Weekend T-Shirt</li>
                             </ul>
                         </div>
                     </div>
@@ -806,16 +816,13 @@
                         <!-- front -->
                         <div class="front price-table-header">
                             <p class="price">$40</p>
-                            <p class="title">Boat Pary Only</p>
+                            <p class="title">YP Party at the OASIS*</p>
                         </div>
 
                         <!-- back -->
                         <div class="back">
                             <ul class="price-table-description">
-                                <li class="description-item">Conference kit</li>
-                                <li class="description-item stripe">Coffee break</li>
-                                <li class="description-item">Lunch</li>
-                                <li class="description-item stripe ">All seasons</li>
+                                <li class="description-item">YP Weekend Party Only</li>
                             </ul>
                         </div>
                     </div>
@@ -823,8 +830,8 @@
             </div>
 
             <div class="col-lg-12 text-center">
-                <p class="lead">Hurry Up! Only <span class="timer" data-from="500" data-to="150" data-speed="5000"></span> seats</p>
-                <a class="button button-big button-light register" href="register.html">register</a>
+                {{--<p class="lead">Hurry Up! Only <span class="timer" data-from="500" data-to="150" data-speed="5000"></span> seats</p>--}}
+                <a class="button button-big button-light" href="https://www.eventbrite.com/e/texas-yp-weekend-2016-tickets-25893386817">register</a>
             </div>
         </div>
     </div>
@@ -845,7 +852,7 @@
 
                     <p class="address">
                         8011A Cameron Rd, Austin, TX 78754<br><br>
-                        (917) 600-4570</p>
+                    </p>
 
                     <p>Still have questions?</p>
                     <p>Please reach out to us via email <a href="mailto:pr.aaulyp@gmail.com" style="color: white;">pr.aaulyp@gmail.com</a> to help answer any questions we may have missed.  See you JULY 8th!</p>
