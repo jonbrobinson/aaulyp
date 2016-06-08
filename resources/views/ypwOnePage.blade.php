@@ -523,7 +523,7 @@
 
             <div class="col-md-4 col-lg-4">
                 <img src="one-page-assets/img/airbnb_horizontal_lockup_web.png" alt="">
-                <p>Airbnb is a trusted community marketplace for people to list, discover, and book unique accommodations around the world. Austin has a variety of listings.  THere are some great listings in east Austin and in the barton springs area that will keep you at the center of everything.</p>
+                <p>Airbnb is a trusted community marketplace for people to list, discover, and book unique accommodations around the world. Austin has a variety of listings.  There are some great listings in east Austin and in the barton springs area that will keep you at the center of everything.</p>
                 <a href="http://www.airbnb.com" class="button  button-dark">search AirBnB Listings</a>
             </div>
 
