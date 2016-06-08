@@ -452,7 +452,7 @@
                                 </div>
 
                                 <div class="description">
-                                    <h3>YP BRUNCH | Max's Wine & Dive</h3>
+                                    <h3>YP BRUNCH | Max's Wine Dive</h3>
                                     <p>After all the work and fun. We gather to celebrate our chapters and get plan for the future.</p>
                                     <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
