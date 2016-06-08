@@ -389,7 +389,7 @@
 
                                 <div class="description">
                                     <h3>Service Activity</h3>
-                                    <p>As Young Professionals part of the Urban League Movement its important that we spend time serviceing the community. We are going to make a big impact with many hands helping the communities around austin.</p>
+                                    <p>As Young Professionals part of the Urban League Movement its important that we spend time servicing the community. We are going to make a big impact with many hands helping the communities around austin.</p>
                                     <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
@@ -463,7 +463,7 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time">11.00 AM</span>
+                                    <span class="time">1.00 PM</span>
                                 </div>
 
                                 <div class="description">
@@ -478,7 +478,7 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time">12.00 PM</span>
+                                    <span class="time">3.00 PM</span>
                                 </div>
 
                                 <div class="description">
