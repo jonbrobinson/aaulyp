@@ -766,63 +766,88 @@
                 <h2 class="uppercase">register</h2>
             </div>
 
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-3 col-lg-3">
                 <div class="card-container">
                     <div class="card click price-table" data-direction="right">
                         <!-- front -->
                         <div class="front price-table-header">
-                            <p class="price">$50</p>
-                            <p class="title">Early Bird</p>
+                            <p class="price">$30</p>
+                            <p class="title">Sunday Brunch*</p>
+                            <p>Single Event</p>
                         </div>
 
                         <!-- back -->
                         <div class="back">
                             <ul class="price-table-description">
-                                <li class="description-item">Sat Lunch</li>
-                                <li class="description-item stripe">Ticket to Saturday Night Party</li>
-                                <li class="description-item">Brunch</li>
-                                <li class="description-item stripe ">YP Weekend T-Shirt</li>
+                                <li class="description-item">Sunday Brunch Only</li>
+                                <li class="description-item">*Excludes Saturday</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4 col-lg-4">
-                <div class="card-container">
-                    <div class="card click price-table" data-direction="right">
-                        <!-- front -->
-                        <div class="front price-table-header">
-                            <p class="price">$65</p>
-                            <p class="title">Regular</p>
-                        </div>
-
-                        <!-- back -->
-                        <div class="back">
-                            <ul class="price-table-description">
-                                <li class="description-item">Sat Lunch</li>
-                                <li class="description-item stripe">Ticket to Saturday Night Party</li>
-                                <li class="description-item">Brunch</li>
-                                <li class="description-item stripe ">YP Weekend T-Shirt</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-3 col-lg-3">
                 <div class="card-container">
                     <div class="card click price-table" data-direction="right">
                         <!-- front -->
                         <div class="front price-table-header">
                             <p class="price">$40</p>
-                            <p class="title">YP Party at the OASIS*</p>
+                            <p class="title">Party at the OASIS*</p>
+                            <p>Single Event</p>
                         </div>
 
                         <!-- back -->
                         <div class="back">
                             <ul class="price-table-description">
                                 <li class="description-item">YP Weekend Party Only</li>
+                                <li class="description-item">*Excludes Sunday Brunch</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-lg-3">
+                <div class="card-container">
+                    <div class="card click price-table" data-direction="right">
+                        <!-- front -->
+                        <div class="front price-table-header">
+                            <p class="price">$50</p>
+                            <p class="title">Early Bird</p>
+                            <p>Includes All Weekend</p>
+                        </div>
+
+                        <!-- back -->
+                        <div class="back">
+                            <ul class="price-table-description">
+                                <li class="description-item">Sat Lunch</li>
+                                <li class="description-item stripe">Ticket to Saturday Night Party</li>
+                                <li class="description-item">Brunch</li>
+                                <li class="description-item stripe ">YP Weekend T-Shirt</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-lg-3">
+                <div class="card-container">
+                    <div class="card click price-table" data-direction="right">
+                        <!-- front -->
+                        <div class="front price-table-header">
+                            <p class="price">$65</p>
+                            <p class="title">Regular</p>
+                            <p>Includes All Weekend</p>
+                        </div>
+
+                        <!-- back -->
+                        <div class="back">
+                            <ul class="price-table-description">
+                                <li class="description-item">Sat Lunch</li>
+                                <li class="description-item stripe">Ticket to Saturday Night Party</li>
+                                <li class="description-item">Brunch</li>
+                                <li class="description-item stripe ">YP Weekend T-Shirt</li>
                             </ul>
                         </div>
                     </div>
@@ -830,6 +855,7 @@
             </div>
 
             <div class="col-lg-12 text-center">
+                <br>
                 {{--<p class="lead">Hurry Up! Only <span class="timer" data-from="500" data-to="150" data-speed="5000"></span> seats</p>--}}
                 <a class="button button-big button-light" href="https://www.eventbrite.com/e/texas-yp-weekend-2016-tickets-25893386817">register</a>
             </div>
