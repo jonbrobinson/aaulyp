@@ -27,6 +27,7 @@
 
     <link rel="stylesheet" href="one-page-assets/css/main.css">
     <link rel="stylesheet" href="one-page-assets/css/color/custom_red.css"><!-- Choose your color, green, blue, yellow, red, darkblue, purple -->
+    <link rel="stylesheet" href="one-page-assets/css/color/custom.css">
 
 
     <!-- Font -->
@@ -350,7 +351,7 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time">07.00 PM</span>
+                                    <span class="time schedule-font">7.00 PM - 9:00 PM</span>
                                 </div>
 
                                 <div class="description">
@@ -384,7 +385,7 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time">09.00 AM</span>
+                                    <span class="time schedule-font">09.00 AM</span>
                                 </div>
 
                                 <div class="description">
@@ -399,7 +400,7 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-cutlery"></i>
-                                    <span class="time">12.30 PM</span>
+                                    <span class="time schedule-font">12.30 PM</span>
                                 </div>
 
                                 <div class="description">
@@ -413,7 +414,7 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-anchor"></i>
-                                    <span class="time">06.00 PM</span>
+                                    <span class="time schedule-font">6.00PM - 10.00PM</span>
                                 </div>
 
                                 <div class="description">
@@ -448,7 +449,7 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-cutlery"></i>
-                                    <span class="time">10.00 AM</span>
+                                    <span class="time schedule-font">10.00AM - 3.00PM</span>
                                 </div>
 
                                 <div class="description">
@@ -463,7 +464,7 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time">1.00 PM</span>
+                                    <span class="time schedule-font">1.00 PM</span>
                                 </div>
 
                                 <div class="description">
@@ -478,7 +479,7 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time">3.00 PM</span>
+                                    <span class="time schedule-font">3.00 PM</span>
                                 </div>
 
                                 <div class="description">
@@ -555,8 +556,12 @@
                     <div class="item text-center">
                         <img class="img-circle" src="one-page-assets/img/yp_testimonial1.png" alt="">
                         <div>
-                            <p>I enjoy getting a chance to meet awesome YP across the state who are doing great things within their communities. When we all get together, its inspiring to see the reach of the Urban League Movement</p>
-                            <h4 class="uppercase">Omari</h4>
+                            {{--<p>I enjoy getting a chance to meet awesome YP across the state who are doing great things within their communities. When we all get together, its inspiring to see the reach of the Urban League Movement</p>--}}
+                            <p>I would like to personally invite our Texas YP Family to attend the 5th Annual YP Weekend, held in Austin, TX.  Come experience an Austin culture, give back, share ideas and make long lasting connections. We are the Austin Area Urban League Young Professionals</p>
+                            <p>--Yours in the Movement</p>
+
+                            <h4 class="uppercase">Omari - President</h4>
+                            <h4>Austin Area Urban League Young Professionals</h4>
                         </div>
                     </div>
 
