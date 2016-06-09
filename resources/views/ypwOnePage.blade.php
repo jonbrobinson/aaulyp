@@ -390,7 +390,7 @@
 
                                 <div class="description">
                                     <h3>Service Activity</h3>
-                                    <p>As Young Professionals part of the Urban League Movement its important that we spend time servicing the community. We are going to make a big impact with many hands helping the communities around austin.</p>
+                                    <p>As Young Professionals in the Urban League Movement its important that we spend time servicing the community. We are going to make a big impact with many hands helping the communities around Austin.</p>
                                     <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
@@ -418,8 +418,8 @@
                                 </div>
 
                                 <div class="description">
-                                    <h3>Party at the Oasis</h3>
-                                    <p>After a hard day of work and team building lets have some at one of the best views in Austin. Let's dance and celebrate </p>
+                                    <h3>The OASIS on Lake Travis</h3>
+                                    <p>Come experience the best views in Austin, eat good food, and make lasting connections all while grooving to one of Austin's best DJ's.</p>
                                     <span class="name">WEST AUSTIN</span>
                                 </div>
                             </div>
@@ -454,7 +454,7 @@
 
                                 <div class="description">
                                     <h3>YP BRUNCH | Max's Wine Dive</h3>
-                                    <p>After all the work and fun. We gather to celebrate our chapters and get plan for the future.</p>
+                                    <p>Max's Wine Dive is consistently ranked as one of the top brunch locations in Austin. Don't miss out! We'll be enjoying Max's famous "gourmet comfort food" for our sunday affair.</p>
                                     <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
@@ -464,26 +464,13 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time schedule-font">1.00 PM</span>
+                                    <span class="time schedule-font">1.00PM - 3.00PM</span>
                                 </div>
 
                                 <div class="description">
                                     <h3>FEATURED SPEAKER</h3>
                                     {{--<p>We all know where we want to be in our futures and the best advice comes from those who are willing to share their journey.</p>--}}
                                     <span class="name">DOWNTOWN AUSTIN</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="event">
-                            <div class="event-inner">
-                                <div class="icon">
-                                    <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time schedule-font">3.00 PM</span>
-                                </div>
-
-                                <div class="description">
-                                    <h3>Closing Ceremonies</h3>
                                 </div>
                             </div>
                         </div>
@@ -502,7 +489,7 @@
                 <div class="venue-address">
                     <h2 class="uppercase">aloft | domain</h2>
                     <p>YP WEEKEND SPECIAL $139 single and double rooms. <br>Take advantage of some great lodging in one of <br>Austin's exciting new neighborhoods and <br>Domain shopping centers.
-                        <br>*limit time only</p>
+                        <br>*limited time only</p>
 
                     <p class="address">
                         <i class="fa fa-2x fa-map-marker fa-inverse"></i>
@@ -532,13 +519,13 @@
                 <br>
                 <i class="fa fa-3x fa-building-o"></i>
                 <h4 style="margin-bottom: 24px;">Downtown Hotel</h4>
-                <p>Downtown offers a great variety of attractions and capitol city culture of the city. The great thing about being downtown is that you are in the heart of the city and have a variety of options within walking distance from your rental. Take a look at some alternative options</p>
+                <p>Downtown offers a great variety of attractions and capitol city culture of the city. The great thing about being downtown is that you are in the heart of the city and have a variety of options within walking distance from your rental. Take a look at some alternative options.</p>
                 <a href="https://www.hotels.com" class="button button-dark">search Hotel Listings</a>
             </div>
 
             <div class="col-md-4 col-lg-4">
                 <img src="one-page-assets/img/homeaway-inc-logo.png" alt="">
-                <p>HomeAway® offers an extensive selection of vacation rental homes that provide travelers with memorable experiences and benefits, especially more room to relax, for less than the cost of traditional hotel accommodations.  If you have a group of friends of YP's and want more of a home feel for the weekend we recommend</p>
+                <p>HomeAway® offers an extensive selection of vacation rental homes that provide travelers with memorable experiences and benefits, especially more room to relax, for less than the cost of traditional hotel accommodations.  If you have a group of friends of YP's and want more of a home feel for the weekend we recommend.</p>
                 <a href="https://www.homeaway.com" class="button button-dark">search HomeAway Listings</a>
             </div>
         </div>
@@ -557,7 +544,7 @@
                         <img class="img-circle" src="one-page-assets/img/yp_testimonial1.png" alt="">
                         <div>
                             {{--<p>I enjoy getting a chance to meet awesome YP across the state who are doing great things within their communities. When we all get together, its inspiring to see the reach of the Urban League Movement</p>--}}
-                            <p>I would like to personally invite our Texas YP Family to attend the 5th Annual YP Weekend, held in Austin, TX.  Come experience an Austin culture, give back, share ideas and make long lasting connections. We are the Austin Area Urban League Young Professionals</p>
+                            <p>I would like to personally invite our Texas YP Family to attend the 5th Annual YP Weekend, held in Austin, TX.  Come experience an Austin culture, give back, share ideas and make long lasting connections. We are the Austin Area Urban League Young Professionals.</p>
                             <p>--Yours in the Movement</p>
 
                             <h4 class="uppercase">Omari - President</h4>
@@ -576,7 +563,7 @@
                     <div class="item text-center">
                         <img class="img-circle" src="one-page-assets/img/yp_testimonial3.png" alt="">
                         <div>
-                            <p>It's incredible what a group of YP's gan get done when they all work on one project.  Whether it's building homes, sorting sorting food at a food bank, the imapct makes a different because of the indivuals willing to help</p>
+                            <p>It's incredible what a group of YP's can get done when they all work on one project.  Whether it's building homes, sorting sorting food at a food bank, the imapct makes a different because of the indivuals willing to help.</p>
                             <h4 class="uppercase">Jade</h4>
                         </div>
                     </div>
