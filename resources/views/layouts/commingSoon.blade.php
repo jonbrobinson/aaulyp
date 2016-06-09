@@ -44,7 +44,7 @@
         <div class="row">
             <a href="/ypweekend2016"><img src="one-page-assets/img/facebook-ypwknd.jpg" alt="Austin Area Urban League Young Professionals" class="img-responsive center-block" ></a>
             {{--<img src="UL-black.png" alt="Austin Area Urban League YOung Professionals" class="img-responsive center-block" >--}}
-            <h1 class="text-center"><a href="/ypweekend2016" class="aaulyp-red">Get YP Weekend Details</a></h1>
+            <h1 class="text-center"><a href="/ypweekend2016" class="aaulyp-red">Click Here For YP Weekend Details</a></h1>
             <br>
             <h1 class="text-center">Website Coming Soon.</h1>
             <h2 class="text-center">Follow us on

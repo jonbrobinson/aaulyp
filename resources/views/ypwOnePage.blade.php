@@ -61,7 +61,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/ypweekend2016"><img src="one-page-assets/img/logo_yp.png" alt="logo"></a>
+            <a class="navbar-brand" href="/ypweekend2016"><img src="one-page-assets/img/logo_yp_v3.png" alt="logo"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="nav">
@@ -72,7 +72,7 @@
                 <li><a data-scroll href="#venue">Accommodations</a></li>
                 {{--<li><a data-scroll href="#sponsors">Sponsors</a></li>--}}
                 <li><a data-scroll href="#faq-gallery">FAQ</a></li>
-                <li><a data-scroll href="#register">Register</a></li>
+                <li><a data-scroll href="#register">Pricing</a></li>
                 <li><a data-scroll href="#contact">Contact</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -144,7 +144,7 @@
 
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 {{--<h3>Hurry Up! Only <span class="timer" data-from="575" data-to="198" data-speed="3000"></span> seats</h3>--}}
-                <a class="button button-big button-dark" data-scroll href="#register">register</a>
+                <a class="button button-big button-dark" data-scroll href="#register">tickets</a>
             </div>
 
         </div>
@@ -390,7 +390,7 @@
 
                                 <div class="description">
                                     <h3>Service Activity</h3>
-                                    <p>As Young Professionals in the Urban League Movement its important that we spend time servicing the community. We are going to make a big impact with many hands helping the communities around Austin.</p>
+                                    <p>Join the YPs as we serve the Austin Area Community.</p>
                                     <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
@@ -464,7 +464,7 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-clock-o"></i>
-                                    <span class="time schedule-font">1.00PM - 3.00PM</span>
+                                    <span class="time schedule-font">12.00PM</span>
                                 </div>
 
                                 <div class="description">
@@ -549,6 +549,7 @@
 
                             <h4 class="uppercase">Omari - President</h4>
                             <h4>Austin Area Urban League Young Professionals</h4>
+                            <br>
                         </div>
                     </div>
 
@@ -563,7 +564,7 @@
                     <div class="item text-center">
                         <img class="img-circle" src="one-page-assets/img/yp_testimonial3.png" alt="">
                         <div>
-                            <p>It's incredible what a group of YP's can get done when they all work on one project.  Whether it's building homes, sorting sorting food at a food bank, the imapct makes a different because of the indivuals willing to help.</p>
+                            <p>It's incredible what a group of YP's can get done when they all work on one project.  Whether it's building homes, sorting food at a food bank, the imapct makes a different because of the individuals willing to help.</p>
                             <h4 class="uppercase">Jade</h4>
                         </div>
                     </div>
@@ -673,7 +674,7 @@
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <p class="small">Yes. </p>
+                                <p class="small">Yes. Please take a look at our <a href="#register" class="yp_red">Pricing</a> model for more details.</p>
                             </div>
                         </div>
                     </div>
@@ -755,7 +756,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="uppercase">register</h2>
+                <h2 class="uppercase">pricing</h2>
             </div>
 
             <div class="col-md-3 col-lg-3">
@@ -764,7 +765,7 @@
                         <!-- front -->
                         <div class="front price-table-header">
                             <p class="price">$30</p>
-                            <p class="title">Sunday Brunch*</p>
+                            <p class="title">Max's Wine Dive Brunch*</p>
                             <p>Single Event</p>
                         </div>
 
@@ -785,7 +786,7 @@
                         <!-- front -->
                         <div class="front price-table-header">
                             <p class="price">$40</p>
-                            <p class="title">Party at the OASIS*</p>
+                            <p class="title">OASIS on the Lake*</p><br>
                             <p>Single Event</p>
                         </div>
 
@@ -806,7 +807,7 @@
                         <!-- front -->
                         <div class="front price-table-header">
                             <p class="price">$50</p>
-                            <p class="title">Early Bird</p>
+                            <p class="title">Early Bird</p><br>
                             <p>Includes All Weekend</p>
                         </div>
 
@@ -829,7 +830,7 @@
                         <!-- front -->
                         <div class="front price-table-header">
                             <p class="price">$65</p>
-                            <p class="title">Regular</p>
+                            <p class="title">Regular</p><br>
                             <p>Includes All Weekend</p>
                         </div>
 
@@ -848,8 +849,9 @@
 
             <div class="col-lg-12 text-center">
                 <br>
+                <br>
                 {{--<p class="lead">Hurry Up! Only <span class="timer" data-from="500" data-to="150" data-speed="5000"></span> seats</p>--}}
-                <a class="button button-big button-light" href="https://www.eventbrite.com/e/texas-yp-weekend-2016-tickets-25893386817">register</a>
+                <a class="button button-big button-light" href="https://www.eventbrite.com/e/texas-yp-weekend-2016-tickets-25893386817">get tickets</a>
             </div>
         </div>
     </div>
