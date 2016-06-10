@@ -64,7 +64,7 @@ class EventbriteApi
 
     public function getEventOrders($id)
     {
-        $url = self::EVENTBRITE_BASE_URL . "events/{$id}";
+        $url = self::EVENTBRITE_BASE_URL . "events/{$id}/orders";
         $headers = [
             'Authorization' => 'Bearer ' . env('EVENTBRITE_TOKEN'),
             'Content-Type' => 'application/json',
