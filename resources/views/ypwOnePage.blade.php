@@ -544,7 +544,7 @@
                         <img class="img-circle" src="one-page-assets/img/yp_testimonial1.png" alt="">
                         <div>
                             {{--<p>I enjoy getting a chance to meet awesome YP across the state who are doing great things within their communities. When we all get together, its inspiring to see the reach of the Urban League Movement</p>--}}
-                            <p>I would like to personally invite our Texas YP Family to attend the 5th Annual YP Weekend, held in Austin, TX.  Come experience an Austin culture, give back, share ideas and make long lasting connections. We are the Austin Area Urban League Young Professionals.</p>
+                            <p>I would like to personally invite our Texas YP Family to attend the 5th Annual YP Weekend, held in Austin, TX.  Come experience an Austin culture, give back, share ideas and make long lasting connections.</p>
                             <p>--Yours in the Movement</p>
 
                             <h4 class="uppercase">Omari - President</h4>
