@@ -77,7 +77,7 @@ class EventbriteApi
         try {
             $response = $this->guzzle->request('GET', $url, $options);
         } catch (Exception $e) {
-            return null;
+            return $e->getMessage();
         }
 
         return $response;
