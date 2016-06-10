@@ -80,9 +80,9 @@ class EventbriteApi
             return $e->getMessage();
         }
 
-        $order = json_decode($response->getBody()->getContents());
+        $orders = json_decode($response->getBody()->getContents());
 
-        return $order;
+        return $orders;
     }
 
 
