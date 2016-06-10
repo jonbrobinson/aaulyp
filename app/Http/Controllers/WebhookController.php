@@ -50,7 +50,7 @@ class WebhookController extends Controller
 
         if ($orders) {
             return response()->json([
-                "orderCount" => $orders['pagination']->object_count,
+                "orderCount" => $orders->pagination->object_count,
                 "order" => $orderUser]);
         }
 
