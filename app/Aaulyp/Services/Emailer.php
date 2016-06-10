@@ -24,4 +24,23 @@ class Emailer
         });
         return $response;
     }
+
+    /**
+     * Send welcome email to recipient
+     *
+     * @param array $recipient
+     *
+     * @return mixed
+     */
+    public function sendYpEmailOrderPlaced($recipient)
+    {
+        $response = Mail::send('pages.emails.welcomeEmail', ['firstName' => $recipient['firstName'], 'lastName' => $recipient['lastName']], function ($m) use ($recipient) {
+//            $fullName = $recipient['firstName'] . " " . $recipient['lastName'];
+            $m->from('pr.aaulyp@gmail.com', 'Public Relations');
+            $m->to('pr.aaulyp@gmail.com');
+//            $m->bcc('pr.aaulyp@gmail.com');
+            $m->subject('YP Tickect Sold ');
+        });
+        return $response;
+    }
 }

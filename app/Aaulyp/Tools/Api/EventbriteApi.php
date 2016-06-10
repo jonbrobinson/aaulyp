@@ -9,6 +9,7 @@ use Psy\Exception\Exception;
 class EventbriteApi
 {
     const EVENTBRITE_BASE_URL = "https://www.eventbriteapi.com/v3/";
+    const YP_WEEKEND_ID = 25893386817;
 
     protected $guzzle;
 
@@ -53,6 +54,36 @@ class EventbriteApi
 
         return $orderInfo;
     }
+
+    public function getYpWeekendOrders()
+    {
+        $orders = $this->getEventOrders(self::YP_WEEKEND_ID);
+
+        return $orders;
+    }
+
+    public function getEventOrders($id)
+    {
+        $url = self::EVENTBRITE_BASE_URL . "events/{$id}/orders";
+        $headers = [
+            'Authorization' => 'Bearer ' . env('EVENTBRITE_TOKEN'),
+            'Content-Type' => 'application/json',
+        ];
+
+        $options = [
+            'headers' => $headers
+        ];
+
+        try {
+            $response = $this->guzzle->request('GET', $url, $options);
+        } catch (Exception $e) {
+            return null;
+        }
+
+        return $response;
+    }
+
+
 
     /**
      *

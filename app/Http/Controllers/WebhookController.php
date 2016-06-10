@@ -46,11 +46,14 @@ class WebhookController extends Controller
 
         $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
 
-        if (!$orderUser) {
+        $orders = $this->eventbrite->getYpWeekendOrders();
+
+        if ($orders) {
             return response()->json([
-                "message" => "Success. Welcome email has been sent"]);
+                "message" => $orders,
+                "order" => $orderUser]);
         }
 
-        return response('made it here');
+        return response('did not receive orders');
     }
 }
