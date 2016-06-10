@@ -44,7 +44,7 @@ class EventbriteApi
         try {
             $response = $this->guzzle->request('GET', $url, $options);
         } catch (Exception $e) {
-            return null;
+            return $e->getMessage();
         }
 
 
@@ -80,7 +80,9 @@ class EventbriteApi
             return $e->getMessage();
         }
 
-        return $response;
+        $order = json_decode($response->getBody()->getContents());
+
+        return $order;
     }
 
 
