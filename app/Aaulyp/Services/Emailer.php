@@ -32,14 +32,14 @@ class Emailer
      *
      * @return mixed
      */
-    public function sendYpEmailOrderPlaced($recipient)
+    public function sendYpWeekendOrdersEmail($recipient, $orderCount)
     {
-        $response = Mail::send('pages.emails.welcomeEmail', ['firstName' => $recipient['firstName'], 'lastName' => $recipient['lastName']], function ($m) use ($recipient) {
+        $response = Mail::send('pages.emails.ypWeekendOrdersUpdateEmail', ['firstName' => $recipient['firstName'], 'lastName' => $recipient['lastName'], 'orderCount' => $orderCount], function ($m) use ($recipient) {
 //            $fullName = $recipient['firstName'] . " " . $recipient['lastName'];
             $m->from('pr.aaulyp@gmail.com', 'Public Relations');
             $m->to('pr.aaulyp@gmail.com');
 //            $m->bcc('pr.aaulyp@gmail.com');
-            $m->subject('YP Tickect Sold ');
+            $m->subject('YP Tickect Sold');
         });
         return $response;
     }

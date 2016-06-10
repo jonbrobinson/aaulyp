@@ -48,12 +48,17 @@ class WebhookController extends Controller
 
         $orders = $this->eventbrite->getYpWeekendOrders();
 
-        if ($orders) {
+        $orderCount = $orders->pagination->object_count;
+
+        $response = $this->emailer->sendYpWeekendOrdersEmail($orderUser, $orderCount);
+
+        if ($response->getStatusCode() == 200) {
             return response()->json([
-                "orderCount" => $orders->pagination->object_count,
-                "order" => $orderUser]);
+                "message" => "Success. Welcome email has been sent"
+
+            ], $response->getStatusCode());
         }
 
-        return response('did not receive orders');
+        return response($response->getBody(), $response->getStatusCode());
     }
 }
