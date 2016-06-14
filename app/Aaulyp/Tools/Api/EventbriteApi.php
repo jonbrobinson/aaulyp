@@ -140,6 +140,7 @@ class EventbriteApi
         $json = json_decode($tickets);
 
         $ticketsInfo= array();
+        $ticketsInfo['total'] = 0;
 
         foreach ($json->ticket_classes as $key => $ticketClass) {
             $ticketInfo = array();
@@ -151,7 +152,7 @@ class EventbriteApi
             } else {
                 $ticketInfo['price'] = $ticketClass->actual_cost->value / 100;
             }
-
+            $ticketsInfo['total'] += $ticketInfo['sold'];
             $ticketsInfo[$key][] = $ticketInfo;
         }
 

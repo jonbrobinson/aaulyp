@@ -30,16 +30,16 @@ class Emailer
      *
      * @param array $recipient
      *
-     * @param int   $orderCount
+     * @param int   $ticketsInfo
      *
      * @return mixed
      */
-    public function sendYpWeekendOrdersEmail($recipient, $orderCount)
+    public function sendYpWeekendOrdersEmail($recipient, $ticketsInfo)
     {
-        $response = Mail::send('pages.emails.ypWeekendOrdersUpdateEmail', ['firstName' => $recipient['firstName'], 'lastName' => $recipient['lastName'], 'orderCount' => $orderCount], function ($m) use ($recipient) {
+        $response = Mail::send('pages.emails.ypWeekendOrdersUpdateEmail', ['firstName' => $recipient['firstName'], 'lastName' => $recipient['lastName'], 'ticketsInfo' => $ticketsInfo], function ($m) use ($recipient) {
 //            $fullName = $recipient['firstName'] . " " . $recipient['lastName'];
             $m->from('pr.aaulyp@gmail.com', 'Public Relations');
-            $m->to('secretary.aaulyp@gmail.com');
+            $m->to('pr.aaulyp@gmail.com');
             $m->bcc('pr.aaulyp@gmail.com');
             $m->subject('Texas YP Weekend 2016 Ticket Sold');
         });

@@ -38,45 +38,25 @@ class WebhookController extends Controller
         return response($response->getBody(), $response->getStatusCode());
     }
 
-//    public function ypWeekendOrders(Request $request)
-//    {
-//        $this->init();
-//
-//        $orderUrl = $request->input('api_url');
-//
-//        $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
-//
-//        $orders = $this->eventbrite->getYpWeekendOrders();
-//
-//        $orderCount = $orders->pagination->object_count;
-//
-//        $response = $this->emailer->sendYpWeekendOrdersEmail($orderUser, $orderCount);
-//
-//        if ($response->getStatusCode() == 200) {
-//            return response()->json([
-//                "message" => "Success. Ticket Update email has been sent"
-//
-//            ], $response->getStatusCode());
-//        }
-//
-//        return response($response->getBody(), $response->getStatusCode());
-//    }
-
-    /**
-     * @param Request $request
-     *
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
-     */
     public function ypWeekendOrders(Request $request)
     {
         $this->init();
 
+        $orderUrl = $request->input('api_url');
+
+        $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
+
         $ticketsInfo = $this->eventbrite->getYpWeekendTicketInfo();
 
-        if ($ticketsInfo) {
-            return response(json_encode($ticketsInfo), 200);
+        $response = $this->emailer->sendYpWeekendOrdersEmail($orderUser, $ticketsInfo);
+
+        if ($response->getStatusCode() == 200) {
+            return response()->json([
+                "message" => "Success. Ticket Update email has been sent"
+
+            ], $response->getStatusCode());
         }
 
-        return response('Something went wrong', 500);
+        return response($response->getBody(), $response->getStatusCode());
     }
 }

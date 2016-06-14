@@ -2,7 +2,12 @@
 
 <p>A new order has been placed</p>
 
-<p>Order count: {{ $orderCount or 0 }}</p>
+<p>Order count: {{ $tickets->total }}</p>
+<br>
+<p>Order Breakdown</p>
+@foreach( $ticketsInfo as $ticketInfo)
+    <p>{{ $ticketInfo->name }} count: {{ $ticketInfo->sold }}</p>
+@endforeach
 
 
 <p>--<br><em>Yours in the movement</em></p>
