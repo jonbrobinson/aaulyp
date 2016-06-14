@@ -72,7 +72,7 @@ class WebhookController extends Controller
         $this->init();
 
         $eventInfo = $this->eventbrite->getEventInfo();
-        
+
         if ($eventInfo) {
             return response(json_encode($eventInfo), 200);
         }

@@ -87,7 +87,7 @@ class EventbriteApi
 
     public function getEventInfo()
     {
-        $url = self::EVENTBRITE_BASE_URL . "events/" . self::YP_WEEKEND_ID;
+        $url = self::EVENTBRITE_BASE_URL . "events/" . self::YP_WEEKEND_ID . "/ticket_classes";
         $headers = [
             'Authorization' => 'Bearer ' . env('EVENTBRITE_TOKEN'),
             'Content-Type' => 'application/json',
