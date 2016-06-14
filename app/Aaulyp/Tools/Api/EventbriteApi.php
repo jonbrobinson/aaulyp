@@ -140,6 +140,7 @@ class EventbriteApi
         $ticketsInfo= array();
 
         foreach ($tickets->ticket_classes as $key => $ticketClass) {
+            $ticketInfo = array();
             $ticketInfo['name'] = $ticketClass->name;
             $ticketInfo['price'] = $ticketClass->cost;
             $ticketInfo['sold'] = $ticketClass->quantity_sold;

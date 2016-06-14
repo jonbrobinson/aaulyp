@@ -71,10 +71,10 @@ class WebhookController extends Controller
     {
         $this->init();
 
-        $eventInfo = $this->eventbrite->getYpWeekendTicketInfo();
+        $ticketsInfo = $this->eventbrite->getYpWeekendTicketInfo();
 
-        if ($eventInfo) {
-            return response(json_encode($eventInfo), 200);
+        if ($ticketsInfo) {
+            return response(json_encode($ticketsInfo), 200);
         }
 
         return response('Something went wrong', 500);
