@@ -11,8 +11,8 @@
     </tr>
     @foreach( $ticketsInfo['ticketTypes'] as $ticketInfo)
         <tr>
-            <td>{{ $ticketInfo['name'] }} </td>
-            <td>{{ $ticketInfo['sold'] }} </td>
+            <td>{{ $ticketInfo['name'] }} &nbsp</td>
+            <td>{{ $ticketInfo['sold'] }} &nbsp</td>
         </tr>
     @endforeach
 </table>
