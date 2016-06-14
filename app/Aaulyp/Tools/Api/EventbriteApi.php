@@ -137,19 +137,19 @@ class EventbriteApi
      */
     protected function convertTicketsInfo($tickets)
     {
-        $json = json_decode($tickets, true);
+        $json = json_decode($tickets);
 
         $ticketsInfo= array();
 
-        foreach ($json->{'ticket_classes'} as $key => $ticketClass) {
+        foreach ($json->ticket_classes as $key => $ticketClass) {
             $ticketInfo = array();
             $ticketInfo['name']  = $ticketClass->name;
-            $ticketInfo['sold']  = $ticketClass->{'quantity_sold'};
+            $ticketInfo['sold']  = $ticketClass->quantity_sold;
 
             if ($ticketClass->name == 'Donation') {
                 $ticketInfo['price'] = "donation";
             } else {
-                $ticketInfo['price'] = $ticketClass->{'actual_cost'}->value / 100;
+                $ticketInfo['price'] = $ticketClass->actual_cost->value / 100;
             }
 
             $ticketsInfo[$key][] = $ticketInfo;
