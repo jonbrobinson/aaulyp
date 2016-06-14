@@ -3,7 +3,6 @@
 <p>A new order has been placed</p>
 
 <p>Order count: {{ $ticketsInfo['total'] }}</p>
-<br>
 
 <table style="border: none">
     <tr>
@@ -12,8 +11,8 @@
     </tr>
     @foreach( $ticketsInfo['ticketTypes'] as $ticketInfo)
         <tr>
-            <td>{{ $ticketInfo['name'] }}</td>
-            <td>{{ $ticketInfo['sold'] }}</td>
+            <td>{{ $ticketInfo['name'] }} </td>
+            <td>{{ $ticketInfo['sold'] }} </td>
         </tr>
     @endforeach
 </table>
