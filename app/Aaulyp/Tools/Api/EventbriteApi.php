@@ -139,11 +139,13 @@ class EventbriteApi
     {
         $ticketsInfo= array();
 
+        $tickets = json_decode(json_encode($tickets),true);
+
         foreach ($tickets['ticket_classes'] as $key => $ticketClass) {
             $ticketInfo = array();
-            $ticketInfo['name'] = $ticketClass->name;
-            $ticketInfo['price'] = $ticketClass->cost;
-            $ticketInfo['sold'] = $ticketClass->quantity_sold;
+            $ticketInfo['name'] = $ticketClass['name'];
+            $ticketInfo['price'] = $ticketClass['cost'];
+            $ticketInfo['sold'] = $ticketClass['quantity_sold'];
             $ticketsInfo[$key][]= $ticketInfo;
         }
 
