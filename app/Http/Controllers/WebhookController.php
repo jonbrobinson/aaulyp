@@ -71,8 +71,6 @@ class WebhookController extends Controller
     {
         $this->init();
 
-        $orderUrl = $request->input('api_url');
-
         $eventInfo = $this->eventbrite->getEventInfo();
 
         if ($eventInfo) {
