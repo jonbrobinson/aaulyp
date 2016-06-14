@@ -71,7 +71,7 @@ class WebhookController extends Controller
     {
         $this->init();
 
-        $eventInfo = $this->eventbrite->getEventInfo();
+        $eventInfo = $this->eventbrite->getYpWeekendTicketInfo();
 
         if ($eventInfo) {
             return response(json_encode($eventInfo), 200);

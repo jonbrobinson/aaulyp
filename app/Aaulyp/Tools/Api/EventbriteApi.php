@@ -62,6 +62,15 @@ class EventbriteApi
         return $orders;
     }
 
+    public function getYpWeekendTicketInfo()
+    {
+        $ticketClasses = $this->getTicketClassInfo(self::YP_WEEKEND_ID);
+
+        $ticketsInfo = $this->convertTicketsInfo($ticketClasses);
+
+        return $ticketsInfo;
+    }
+
     public function getEventOrders($id)
     {
         $url = self::EVENTBRITE_BASE_URL . "events/{$id}/orders";
@@ -85,9 +94,9 @@ class EventbriteApi
         return $orders;
     }
 
-    public function getEventInfo()
+    public function getTicketClassInfo($id)
     {
-        $url = self::EVENTBRITE_BASE_URL . "events/" . self::YP_WEEKEND_ID . "/ticket_classes";
+        $url = self::EVENTBRITE_BASE_URL . "events/" . $id. "/ticket_classes";
         $headers = [
             'Authorization' => 'Bearer ' . env('EVENTBRITE_TOKEN'),
             'Content-Type' => 'application/json',
@@ -103,9 +112,9 @@ class EventbriteApi
             return $e->getMessage();
         }
 
-        $event = json_decode($response->getBody()->getContents());
+        $ticketClasses = $response->getBody()->getContents();
 
-        return $event;
+        return $ticketClasses;
     }
 
 
@@ -121,5 +130,22 @@ class EventbriteApi
         ];
 
         return $orderInfo;
+    }
+
+    /**
+     * @return array
+     */
+    protected function convertTicketsInfo($tickets)
+    {
+        $ticketsInfo= array();
+
+        foreach ($tickets->ticket_classes as $key => $ticketClass) {
+            $ticketInfo['name'] = $ticketClass->name;
+            $ticketInfo['price'] = $ticketClass->cost;
+            $ticketInfo['sold'] = $ticketClass->quantity_sold;
+            $ticketsInfo[$key][]= $ticketInfo;
+        }
+
+        return $ticketsInfo;
     }
 }
