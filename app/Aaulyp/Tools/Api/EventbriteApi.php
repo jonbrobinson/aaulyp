@@ -112,7 +112,7 @@ class EventbriteApi
             return $e->getMessage();
         }
 
-        $ticketClasses = json_encode($response->getBody()->getContents());
+        $ticketClasses = json_decode($response->getBody()->getContents());
 
         return $ticketClasses;
     }
