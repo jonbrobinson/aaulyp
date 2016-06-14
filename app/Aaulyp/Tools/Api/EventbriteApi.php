@@ -96,7 +96,7 @@ class EventbriteApi
 
     public function getTicketClassInfo($id)
     {
-        $url = self::EVENTBRITE_BASE_URL . "events/" . $id . "/ticket_classes";
+        $url = self::EVENTBRITE_BASE_URL . "events/{$id}/ticket_classes";
         $headers = [
             'Authorization' => 'Bearer ' . env('EVENTBRITE_TOKEN'),
             'Content-Type' => 'application/json',
@@ -112,7 +112,7 @@ class EventbriteApi
             return $e->getMessage();
         }
 
-        $ticketClasses = $response->getBody()->getContents();
+        $ticketClasses = json_encode($response->getBody()->getContents());
 
         return $ticketClasses;
     }
