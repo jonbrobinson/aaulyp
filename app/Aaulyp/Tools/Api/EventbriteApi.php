@@ -137,11 +137,9 @@ class EventbriteApi
      */
     protected function convertTicketsInfo($tickets)
     {
-        $json = json_decode($tickets);
-
         $ticketsInfo= array();
 
-        foreach ($json->ticket_classes as $key => $ticketClass) {
+        foreach ($tickets['ticket_classes'] as $key => $ticketClass) {
             $ticketInfo = array();
             $ticketInfo['name'] = $ticketClass->name;
             $ticketInfo['price'] = $ticketClass->cost;
