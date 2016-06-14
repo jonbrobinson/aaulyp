@@ -6,7 +6,9 @@
 <br>
 <p>Order Breakdown</p>
 @foreach( $ticketsInfo as $ticketInfo)
-    <p>{{ $ticketInfo['name'] }} count: {{ $ticketInfo['sold'] }}</p>
+    @if(isset($ticketInfo['name']))
+        <p>{{ $ticketInfo['name'] }} count: {{ $ticketInfo['sold']  or 0}}</p>
+    @endif
 @endforeach
 
 
