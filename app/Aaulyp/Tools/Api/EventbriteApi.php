@@ -153,7 +153,7 @@ class EventbriteApi
                 $ticketInfo['price'] = $ticketClass->actual_cost->value / 100;
             }
             $ticketsInfo['total'] += $ticketInfo['sold'];
-            $ticketsInfo['ticketTypes'][$key][] = $ticketInfo;
+            $ticketsInfo['ticketTypes'][] = $ticketInfo;
         }
 
         return $ticketsInfo;

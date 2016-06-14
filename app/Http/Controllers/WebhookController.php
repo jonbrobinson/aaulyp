@@ -42,13 +42,9 @@ class WebhookController extends Controller
     {
         $this->init();
 
-        $orderUrl = $request->input('api_url');
-
-        $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
-
         $ticketsInfo = $this->eventbrite->getYpWeekendTicketInfo();
 
-        $response = $this->emailer->sendYpWeekendOrdersEmail($orderUser, $ticketsInfo);
+        $response = $this->emailer->sendYpWeekendOrdersEmail($ticketsInfo);
 
         if ($response->getStatusCode() == 200) {
             return response()->json([

@@ -28,17 +28,14 @@ class Emailer
     /**
      * Send welcome email to recipient
      *
-     * @param array $recipient
-     *
      * @param int   $ticketsInfo
      *
      * @return mixed
      */
-    public function sendYpWeekendOrdersEmail($recipient, $ticketsInfo)
+    public function sendYpWeekendOrdersEmail($ticketsInfo)
     {
-        $response = Mail::send('pages.emails.ypWeekendOrdersUpdateEmail', ['firstName' => $recipient['firstName'], 'lastName' => $recipient['lastName'], 'ticketsInfo' => $ticketsInfo], function ($m) use ($recipient) {
-//            $fullName = $recipient['firstName'] . " " . $recipient['lastName'];
-            $m->from('pr.aaulyp@gmail.com', 'Public Relations');
+        $response = Mail::send('pages.emails.ypWeekendOrdersUpdateEmail', ['ticketsInfo' => $ticketsInfo], function ($m) use ($recipient) {
+            $m->from('pr.aaulyp@gmail.com', 'Austin Area Urban League');
             $m->to('pr.aaulyp@gmail.com');
             $m->bcc('pr.aaulyp@gmail.com');
             $m->subject('Texas YP Weekend 2016 Ticket Sold');
