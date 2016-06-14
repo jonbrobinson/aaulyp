@@ -71,10 +71,10 @@ class WebhookController extends Controller
     {
         $this->init();
 
-//        return response('made it here');
-
         $eventInfo = $this->eventbrite->getEventInfo();
 
+
+        return response('made it here');
         if ($eventInfo) {
             return response($eventInfo, 200);
         }
