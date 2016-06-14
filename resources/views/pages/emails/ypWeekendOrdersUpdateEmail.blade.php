@@ -2,7 +2,7 @@
 
 <p>A new order has been placed</p>
 
-<p>Order count: {{ $tickets['total'] }}</p>
+<p>Order count: {{ $ticketsInfo['total'] }}</p>
 <br>
 <p>Order Breakdown</p>
 @foreach( $ticketsInfo as $ticketInfo)
