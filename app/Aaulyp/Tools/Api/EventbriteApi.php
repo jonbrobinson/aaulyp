@@ -137,6 +137,8 @@ class EventbriteApi
      */
     protected function convertTicketsInfo($tickets)
     {
+        return $tickets;
+        
         $ticketsInfo= array();
 
         foreach ($tickets->ticket_classes as $key => $ticketClass) {
