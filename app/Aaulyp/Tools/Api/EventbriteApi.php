@@ -85,6 +85,28 @@ class EventbriteApi
         return $orders;
     }
 
+    public function getEventInfo()
+    {
+        $url = self::EVENTBRITE_BASE_URL . "events/" . self::YP_WEEKEND_ID;
+        $headers = [
+            'Authorization' => 'Bearer ' . env('EVENTBRITE_TOKEN'),
+            'Content-Type' => 'application/json',
+        ];
+
+        $options = [
+            'headers' => $headers
+        ];
+
+        try {
+            $response = $this->guzzle->request('GET', $url, $options);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+
+        $event = json_decode($response->getBody()->getContents());
+
+        return $event;
+    }
 
 
     /**
