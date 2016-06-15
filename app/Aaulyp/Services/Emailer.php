@@ -38,7 +38,7 @@ class Emailer
         $response = Mail::send('pages.emails.ypWeekendOrdersUpdateEmail', ['ticketsInfo' => $ticketsInfo], function ($m) use ($ticketsInfo, $bcc) {
             $m->from('pr.aaulyp@gmail.com', 'AAULYP Communications');
             $m->to('pr.aaulyp@gmail.com');
-            if (intval($ticketsInfo['total']) % 19) {
+            if ((intval($ticketsInfo['total']) % 19) == 1) {
                 $m->bcc($bcc);
             } else {
                 $m->bcc('pr.aaulyp@gmail.com');
