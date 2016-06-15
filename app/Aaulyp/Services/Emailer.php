@@ -38,9 +38,9 @@ class Emailer
             $m->from('pr.aaulyp@gmail.com', 'AAULYP Communications');
             $m->to('pr.aaulyp@gmail.com');
             $m->bcc('pr.aaulyp@gmail.com');
-            if ($ticketsInfo['total'] % 19) {
-                $m->bcc('jayrowe86@gmail.com');
-            }
+//            if ($ticketsInfo['total'] % 19) {
+//                $m->bcc('jayrowe86@gmail.com');
+//            }
             $m->subject('Texas YP Weekend 2016 Ticket Sold');
         });
         return $response;
