@@ -34,10 +34,13 @@ class Emailer
      */
     public function sendYpWeekendOrdersEmail($ticketsInfo)
     {
-        $response = Mail::send('pages.emails.ypWeekendOrdersUpdateEmail', ['ticketsInfo' => $ticketsInfo], function ($m) {
+        $response = Mail::send('pages.emails.ypWeekendOrdersUpdateEmail', ['ticketsInfo' => $ticketsInfo], function ($m) use ($ticketsInfo) {
             $m->from('pr.aaulyp@gmail.com', 'AAULYP Communications');
-            $m->to('secretary.aaulyp@gmail.com');
+            $m->to('pr.aaulyp@gmail.com');
             $m->bcc('pr.aaulyp@gmail.com');
+            if ($ticketsInfo['total'] % 19) {
+                $m->bcc('jayrowe86@gmail.com');
+            }
             $m->subject('Texas YP Weekend 2016 Ticket Sold');
         });
         return $response;

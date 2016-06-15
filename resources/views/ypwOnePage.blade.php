@@ -651,6 +651,22 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#faq" href="#collapseThree" class="collapsed">
+                                    <i class="fa fa-2x fa-plus-circle"></i>
+                                    Is Texas YP Weekend a members only event?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p class="small">No. YP Weekend is for anyone who wants to serve, network, and cebrate being a young professionals in Texas. Get your ticket and let's make an even greater impact.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#faq" href="#collapseOne" class="collapsed">
                                     <i class="fa fa-2x fa-plus-circle"></i> Did Uber and Lyft Leave Austin?
                                 </a>
@@ -678,21 +694,6 @@
                             </div>
                         </div>
                     </div>
-
-                    {{--<div class="panel panel-default">--}}
-                        {{--<div class="panel-heading">--}}
-                            {{--<h4 class="panel-title">--}}
-                                {{--<a data-toggle="collapse" data-parent="#faq" href="#collapseThree" class="collapsed">--}}
-                                    {{--<i class="fa fa-2x fa-plus-circle"></i> Do I have to be YP to partake in the weekend--}}
-                                {{--</a>--}}
-                            {{--</h4>--}}
-                        {{--</div>--}}
-                        {{--<div id="collapseThree" class="panel-collapse collapse">--}}
-                            {{--<div class="panel-body">--}}
-                                {{--<p class="small">Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
