@@ -449,7 +449,7 @@
                             <div class="event-inner">
                                 <div class="icon">
                                     <i class="fa fa-2x fa-cutlery"></i>
-                                    <span class="time schedule-font">10.00AM - 3.00PM</span>
+                                    <span class="time schedule-font">10.30AM - 2.30PM</span>
                                 </div>
 
                                 <div class="description">
@@ -543,7 +543,6 @@
                     <div class="item text-center">
                         <img class="img-circle" src="one-page-assets/img/yp_testimonial1.png" alt="">
                         <div>
-                            {{--<p>I enjoy getting a chance to meet awesome YP across the state who are doing great things within their communities. When we all get together, its inspiring to see the reach of the Urban League Movement</p>--}}
                             <p>I would like to personally invite our Texas YP Family to attend the 5th Annual YP Weekend, held in Austin, TX.  Come experience an Austin culture, give back, share ideas and make long lasting connections.</p>
                             <p>--Yours in the Movement</p>
 

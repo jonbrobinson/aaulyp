@@ -34,11 +34,11 @@ class Emailer
      */
     public function sendYpWeekendOrdersEmail($ticketsInfo)
     {
-        $bcc = array('pr.aaulyp@gmail.com', 'jayrowe86@gmail.com');
+        $bcc = array('pr.aaulyp@gmail.com', 'president.aaulyp@gmail.com');
         $response = Mail::send('pages.emails.ypWeekendOrdersUpdateEmail', ['ticketsInfo' => $ticketsInfo], function ($m) use ($ticketsInfo, $bcc) {
-            $m->from('pr.aaulyp@gmail.com', 'AAULYP Communications');
+            $m->from('secretary.aaulyp@gmail.com', 'AAULYP Communications');
             $m->to('pr.aaulyp@gmail.com');
-            if ((intval($ticketsInfo['total']) % 19) == 0) {
+            if ((intval($ticketsInfo['total']) % 5) == 0) {
                 $m->bcc($bcc);
             } else {
                 $m->bcc('pr.aaulyp@gmail.com');
