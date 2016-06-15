@@ -658,7 +658,7 @@
                         </div>
                         <div id="collapseThree" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <p class="small">No. YP Weekend is for anyone who wants to serve, network, and cebrate being a young professionals in Texas. Get your ticket and let's make an even greater impact.</p>
+                                <p class="small">No. YP Weekend is for anyone who wants to serve, network, and celebrate being a young professionals in Texas. Get your ticket and let's make an even greater impact.</p>
                             </div>
                         </div>
                     </div>
