@@ -27,7 +27,7 @@
 
     <link rel="stylesheet" href="one-page-assets/css/main.css">
     <link rel="stylesheet" href="one-page-assets/css/color/custom_red.css"><!-- Choose your color, green, blue, yellow, red, darkblue, purple -->
-    <link rel="stylesheet" href="one-page-assets/css/color/custom.css">
+    <link rel="stylesheet" href="one-page-assets/css/custom.css">
 
 
     <!-- Font -->
@@ -805,9 +805,9 @@
                     <div class="card click price-table" data-direction="right">
                         <!-- front -->
                         <div class="front price-table-header">
-                            <p class="price">$50</p>
-                            <p class="title">Early Bird</p><br>
-                            <p>Includes All Weekend</p>
+                            <p class="price strike-through">$50</p>
+                            <p class="title strike-through">Early Bird</p><br>
+                            <p>Sale Ended</p>
                         </div>
 
                         <!-- back -->
