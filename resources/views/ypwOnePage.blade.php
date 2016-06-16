@@ -488,8 +488,7 @@
             <div class="row">
                 <div class="venue-address">
                     <h2 class="uppercase">aloft | domain</h2>
-                    <p>YP WEEKEND SPECIAL $139 single and double rooms. <br>Take advantage of some great lodging in one of <br>Austin's exciting new neighborhoods and <br>Domain shopping centers.
-                        <br>*limited time only</p>
+                    <p>YP WEEKEND SPECIAL has officially ended but let <br> the front desk know you are booking a room for<br>Texas YP Weekend to see if they have other specials. <br>Take advantage of some great lodging in one of <br>Austin's exciting new neighborhoods and <br>Domain shopping centers.
 
                     <p class="address">
                         <i class="fa fa-2x fa-map-marker fa-inverse"></i>
@@ -497,7 +496,7 @@
                         TX, 78758
                     </p>
 
-                    <a class="button button-light" href="https://www.starwoodmeeting.com/Book/AAULYP">BOOK ROOM</a>
+                    <a class="button button-light" href="http://www.aloftaustinatthedomain.com/">BOOK ROOM</a>
                 </div>
             </div>
         </div>
