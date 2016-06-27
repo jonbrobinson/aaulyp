@@ -359,7 +359,7 @@
                                     <p>Apanas Coffee (Formally Two Hands Coffee)</p>
                                     <p>We're kicking Off Texas YP Weekend in one of Austins hottest new nightlife destinations, Rock Rose, located in the Domain</p>
                                     <p>Grab a drink, listen to some tunes, meet and greet some of the awesome YP's coming down for the weekend. Get some Weekend details and get settled as we prepare for a weekend of activities.</p>
-                                    <span class="name">DOWNTOWN AUSTIN</span>
+                                    <span class="name">NORTH AUSTIN</span>
                                 </div>
                             </div>
                         </div>
