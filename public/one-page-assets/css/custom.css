@@ -5,3 +5,11 @@
 .strike-through {
     text-decoration: line-through;
 }
+
+.event .icon-blank {
+    width:16%;
+    padding:5px;
+    text-align:center;
+    display:table-cell;
+    vertical-align:middle;
+}

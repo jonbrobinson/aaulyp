@@ -356,26 +356,13 @@
 
                                 <div class="description">
                                     <h3>Check In | Welcome Mixer</h3>
-                                    <p>Our welcome reception to meet and greet some of the awesome YP's coming down for the weekend. Get some Weekend details and get settled as we prepare for a weekend of activities.</p>
-                                    <span class="name">NORTH AUSTIN</span>
+                                    <p>Apanas Coffee (Formally Two Hands Coffee)</p>
+                                    <p>We're kicking Off Texas YP Weekend in one of Austins hottest new nightlife destinations, Rock Rose, located in the Domain</p>
+                                    <p>Grab a drink, listen to some tunes, and meet and greet some of the awesome YP's coming down for the weekend. Get some Weekend details and get settled as we prepare for a weekend of activities.</p>
+                                    <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
                         </div>
-                        {{--<div class="event">--}}
-                            {{--<div class="event-inner">--}}
-                                {{--<div class="icon">--}}
-                                    {{--<i class="fa fa-2x fa-clock-o"></i>--}}
-                                    {{--<span class="time">08.30 PM</span>--}}
-                                {{--</div>--}}
-
-                                {{--<div class="description">--}}
-                                    {{--<h3>Rock Rose Pub Crawl [Optional]</h3>--}}
-                                    {{--<p>Rock Rose is a new nightlife in North Austin we want share networking mixing before we get to service work the next day</p>--}}
-                                    {{--<span class="name">North Austin</span>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-
                     </div>
 
                     <!-- DAY 2 -->
@@ -390,7 +377,7 @@
 
                                 <div class="description">
                                     <h3>Service Activity</h3>
-                                    <p>Join the YPs as we serve the Austin Area Community.</p>
+                                    <p>School is out for the Summer and we're going to help a few local schools get ready for the upcoming year. Join us for some great service activities that truly make an impact on Austin's Future.</p>
                                     <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
@@ -468,8 +455,15 @@
                                 </div>
 
                                 <div class="description">
-                                    <h3>FEATURED SPEAKER</h3>
-                                    {{--<p>We all know where we want to be in our futures and the best advice comes from those who are willing to share their journey.</p>--}}
+                                    <div class="row">
+                                        <h3>FEATURED SPEAKER  - PATRICK FELDER</h3>
+                                        <div class="col-md-3">
+                                            <img src="one-page-assets/img/pf_headshot_h200.png" alt="" class="img-responsive">
+                                        </div>
+                                        <div class="col-md-9">
+                                            <p>Patrick currently serves and the human resources business partner for the Global Services and Deployment business at Dell Inc.  Patrick Felder is responsible for providing human resources support for ~17,000 team members globally.    During his tenure at Dell, he has held roles in Talent Acquisition and as an HR Generalist supporting a wide variety of client groups from technical support to marketing.</p>
+                                        </div>
+                                    </div>
                                     <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
@@ -573,11 +567,11 @@
     </div>
 </section>
 
-{{--<!-- SPONSORS -->--}}
-{{--<section id="sponsors">--}}
-    {{--<div class="container">--}}
-        {{--<div class="row">--}}
-            {{--<div class="col-lg-12 text-center">--}}
+<!-- SPONSORS -->
+<section id="sponsors">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
                 {{--<h2 class="uppercase">sponsors</h2>--}}
 
                 {{--<h3 class="uppercase">gold partners</h3>--}}
@@ -588,17 +582,18 @@
 
                 {{--</div>--}}
 
-                {{--<h3 class="uppercase">silver partners</h3>--}}
-                {{--<div class="sponsor-slider">--}}
-                    {{--<img class="img-responsive" src="one-page-assets/img/logo_04.png" alt="logo">--}}
-                    {{--<img class="img-responsive" src="one-page-assets/img/logo_05.png" alt="logo">--}}
+                <h3 class="uppercase">yp partners</h3>
+                <div class="sponsor-slider">
+                    <img class="img-responsive" src="one-page-assets/img/Juiceland_h114.png" alt="Juiceland">
+                    <img class="img-responsive" src="one-page-assets/img/Beanitos_h114.jpg" alt="Beanitos">
+                    <img class="img-responsive" src="one-page-assets/img/ufcu_h114.jpg" alt="University Federal Credit Union">
                     {{--<img class="img-responsive" src="one-page-assets/img/logo_06.png" alt="logo">--}}
                     {{--<img class="img-responsive" src="one-page-assets/img/logo_07.png" alt="logo">--}}
                     {{--<img class="img-responsive" src="one-page-assets/img/logo_08.png" alt="logo">--}}
                     {{--<img class="img-responsive" src="one-page-assets/img/logo_09.png" alt="logo">--}}
-                {{--</div>--}}
+                </div>
 
-                {{--<h3 class="uppercase">community partners</h3>--}}
+                {{--<h3 class="uppercase">yp partners</h3>--}}
                 {{--<div class="sponsor-slider">--}}
                     {{--<img class="img-responsive" src="one-page-assets/img/logo_10.png" alt="logo">--}}
                     {{--<img class="img-responsive" src="one-page-assets/img/logo_11.png" alt="logo">--}}
@@ -608,12 +603,12 @@
                 {{--<p class="lead uppercase">Become a sponsor</p>--}}
                 {{--<p>Interested in becoming a sponsor? Learn about opportunities and benefits.</p>--}}
                 {{--<a class="button button-dark" href="#">request info</a>--}}
-            {{--</div>--}}
+            </div>
 
 
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</section>--}}
+        </div>
+    </div>
+</section>
 
 {{--<!-- SUBSCRIBE -->--}}
 {{--<div id="subscribe">--}}
