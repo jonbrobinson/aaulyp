@@ -358,7 +358,7 @@
                                     <h3>Check In | Welcome Mixer</h3>
                                     <p>Apanas Coffee (Formally Two Hands Coffee)</p>
                                     <p>We're kicking Off Texas YP Weekend in one of Austins hottest new nightlife destinations, Rock Rose, located in the Domain</p>
-                                    <p>Grab a drink, listen to some tunes, and meet and greet some of the awesome YP's coming down for the weekend. Get some Weekend details and get settled as we prepare for a weekend of activities.</p>
+                                    <p>Grab a drink, listen to some tunes, meet and greet some of the awesome YP's coming down for the weekend. Get some Weekend details and get settled as we prepare for a weekend of activities.</p>
                                     <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
@@ -377,7 +377,7 @@
 
                                 <div class="description">
                                     <h3>Service Activity</h3>
-                                    <p>School is out for the Summer and we're going to help a few local schools get ready for the upcoming year. Join us for some great service activities that truly make an impact on Austin's Future.</p>
+                                    <p>School is out for the Summer and we're going to help a few local schools get ready for their upcoming year. Join us for some great service activities that will make an impact on the Austin youth.</p>
                                     <span class="name">DOWNTOWN AUSTIN</span>
                                 </div>
                             </div>
