@@ -13,3 +13,11 @@
     display:table-cell;
     vertical-align:middle;
 }
+
+.aaulyp-red {
+    color: #a5101e;
+}
+
+.aaulyp-red-bg {
+    background-color: #a5101e;
+}

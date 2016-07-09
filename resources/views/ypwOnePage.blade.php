@@ -70,9 +70,9 @@
                 {{--<li><a data-scroll href="#speakers">Speakers</a></li>--}}
                 <li><a data-scroll href="#schedule">Schedule</a></li>
                 <li><a data-scroll href="#venue">Accommodations</a></li>
-                {{--<li><a data-scroll href="#sponsors">Sponsors</a></li>--}}
                 <li><a data-scroll href="#faq-gallery">FAQ</a></li>
                 <li><a data-scroll href="#register">Pricing</a></li>
+                <li><a data-scroll href="#" data-toggle="modal" data-target="#myModal">Join AAULYP</a></li>
                 <li><a data-scroll href="#contact">Contact</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -584,10 +584,24 @@
 
                 <h3 class="uppercase">yp partners</h3>
                 <div class="sponsor-slider">
-                    <img class="img-responsive" src="one-page-assets/img/Juiceland_h114.png" alt="Juiceland">
-                    <img class="img-responsive" src="one-page-assets/img/Beanitos_h114.jpg" alt="Beanitos">
-                    <img class="img-responsive" src="one-page-assets/img/ufcu_h114.jpg" alt="University Federal Credit Union">
-                    {{--<img class="img-responsive" src="one-page-assets/img/logo_06.png" alt="logo">--}}
+                    <div>
+
+                        <img class="img-responsive" src="one-page-assets/img/logos/Six _Square_Logo_h135.jpg" alt="Six Square">
+                        <img class="img-responsive" src="one-page-assets/img/logos/jade_shaw_events_h135.png" alt="Jade Shaw Events">
+                        <img class="img-responsive" src="one-page-assets/img/logos/titos_vodka_h135.png" alt="Titos Vodka">
+                        <img class="img-responsive" src="one-page-assets/img/logos/apanas_h135.jpg" alt="Six Square">
+                    </div>
+                    <div>
+                        <img class="img-responsive" src="one-page-assets/img/logos/ACL-Logo_h114.png" alt="ACL">
+                        <img class="img-responsive" src="one-page-assets/img/logos/Juiceland_h114.png" alt="Juiceland">
+                        <img class="img-responsive" src="one-page-assets/img/logos/Beanitos_h114.jpg" alt="Beanitos">
+                        <img class="img-responsive" src="one-page-assets/img/logos/ufcu_h114.jpg" alt="University Federal Credit Union">
+                    </div>
+                    <div>
+                        <img class="img-responsive" src="one-page-assets/img/logos/tribeza_h114.png" alt="Tribeza">
+                        <img class="img-responsive" src="one-page-assets/img/logos/Time_Warner_Cable_logo_h114.png" alt="Time Warner Cable">
+                    </div>
+
                     {{--<img class="img-responsive" src="one-page-assets/img/logo_07.png" alt="logo">--}}
                     {{--<img class="img-responsive" src="one-page-assets/img/logo_08.png" alt="logo">--}}
                     {{--<img class="img-responsive" src="one-page-assets/img/logo_09.png" alt="logo">--}}
@@ -900,6 +914,52 @@
     </div>
 </section>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Join Austin Area Urban League Young Professionals</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+
+                </div>
+                <p>
+                    The Austin Area Urban League Young Professionals  serves as an auxiliary component of the Austin Area Urban League (AAUL).
+
+                </p>
+                <p>
+                    Locally, since 1977, the mission of the Austin Area Urban League has been to assist African Americans and all other under-served Austin-area residents in the achievement of societal and economic equality by focusing on educational improvement, employment readiness, health and wellness, and the preservation of affordable housing, annually serving for more than 5,000 clients across all programs.
+                </p>
+
+                <div class="col-md-12 row">
+                    <p class="">Join a community that is empowering Austin and connecting young professionals around the Austin Area with same values and commitment to helping others.</p>
+                    <p class="">Membership is an annual commitment and  runs on a 12 month cycle from the time of purchase. Please contact us at <a href="mailto:membership.aaulyp@gmail.com" class="aaulyp-red">membership.aaulyp@gmail.com</a></p>
+                </div>
+                <div class="col-md-12 row">
+                    <div>
+                        <h4 class="">Membership Benefits</h4>
+                        <div class="row">
+                            <ul>
+                                <li>Partnering with us to impact our generation, empower communities and change lives</li>
+                                <li>Invitations and discounts to YP events and YP partner organization events</li>
+                                <li>Invitations to Austin Urban League events</li>
+                                <li>Discounts to Austin Area Urban League and Austin Area Urban League Young Professional Events</li>
+                                <li>Discounts to National Urban League and National Urban League Young Professional Events</li>
+                                <li>Austin Area Urban League Young Professionals Shirt</li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <a href="https://www.eventbrite.com/e/aaulyp-membership-tickets-5422224018" class="btn btn-primary aaulyp-red-bg">Purchase Membership</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- modernizr -->
 <script src="one-page-assets/js/modernizr.custom.00695.js"></script>
