@@ -30,11 +30,15 @@ Route::get('/ypweekend2016', 'PagesController@ypweekend');
 
 Route::get('/committee/{name}', 'PagesController@committees');
 
+route::get('/events/fb/{id}', 'FacebookController@show');
+
+Route::get('/news/photos', 'FacebookController@photos');
+
+Route::get('/album/{id}', 'FacebookController@showAlbum');
+
 Route::post('/webhooks/eventbrite/orders', 'WebhookController@ebOrders');
 
 Route::post('/webhooks/ypweekend/orders', 'WebhookController@ypWeekendOrders');
-
-route::get('/events/fb/{id}', 'FacebookController@show');
 
 /*
 |--------------------------------------------------------------------------

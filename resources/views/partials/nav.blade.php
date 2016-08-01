@@ -42,7 +42,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">NEWS <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ url('/events') }}">Events</a></li>
-                        {{--<li><a href="/newsletters">Newsletters</a></li>--}}
+                        <li><a href="{{ url('/news/photos') }}">Photos</a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">

@@ -6,11 +6,10 @@
         <!-- BREADCRUMBS -->
         <div class="page-header">
             <div class="container">
-                <h1 class="page-title pull-left">Austin Area Urban League</h1>
+                <h1 class="page-title pull-left">Photos</h1>
                 <ol class="breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/aaul">About</a></li>
-                    <li class="active">AAUL</li>
+                    <li><a href="#">News</a></li>
+                    <li class="active"><a href="{{ url('/news/events') }}">Photos</a></li>
                 </ol>
             </div>
         </div>
@@ -19,9 +18,19 @@
         <div class="page-content">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-4 col-md-2 gallery_image">
-                        <img src="" alt="" class="img-responsive">
+                    @foreach( $albums as $album)
+                    <div class="col-md-12">
+                        <h2 class="section-heading pull-left"><a href="{{ url('/album/'.$album->id) }}">{{ $album->name }}</a></h2>
                     </div>
+
+                    <div class="row">
+                        @foreach($album->photos as $photo)
+                        <div class="col-xs-4 col-md-2">
+                            <img src="{{ $photo->picture }}" alt="" class="img-responsive">
+                        </div>
+                        @endforeach
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

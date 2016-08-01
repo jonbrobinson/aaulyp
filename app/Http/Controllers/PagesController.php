@@ -15,8 +15,8 @@ class PagesController extends Controller
      */
     public function home()
     {
-//        return view('welcome');
-        return view('pages.soon');
+        return view('welcome');
+//        return view('pages.soon');
 //        return view('onePage');
     }
 

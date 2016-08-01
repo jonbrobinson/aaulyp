@@ -65,4 +65,32 @@ class FacebookController extends Controller
 
         return view('pages.facebook.show', compact('event'));
     }
+
+    /**
+     * @param string $id
+     *
+     * @return mixed
+     */
+    public function showAlbum($id)
+    {
+        $albumArray = $this->facebookSdk->getAlbumDetails($id);
+
+        $album = json_decode(json_encode($albumArray));
+//        dd($album);
+
+        return view('pages.facebook.albumShow', compact('album'));
+    }
+
+    /**
+     *
+     * @return mixed
+     */
+    public function photos()
+    {
+        $albums = $this->facebookSdk->getAlbums();
+
+        $albums = json_decode(json_encode($albums));
+
+        return view('pages.photos', compact('albums'));
+    }
 }
