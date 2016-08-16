@@ -30,6 +30,8 @@ Route::get('/ypweekend2016', 'PagesController@ypweekend');
 
 Route::get('/committee/{name}', 'PagesController@committees');
 
+Route::get('/volunteer/request', 'PagesController@volunteerRequest');
+
 Route::post('/webhooks/eventbrite/orders', 'WebhookController@ebOrders');
 
 Route::post('/webhooks/ypweekend/orders', 'WebhookController@ypWeekendOrders');

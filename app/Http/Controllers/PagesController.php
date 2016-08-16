@@ -108,12 +108,18 @@ class PagesController extends Controller
     }
 
     /**
+     * Volunteer Request Form
+     */
+    public function volunteerRequest()
+    {
+        return view('pages.volunteerRequest');
+    }
+
+    /**
      * Show the TEXAS YP WEEKEND PAGE
      */
     public function ypweekend()
     {
         return view('ypwOnePage');
     }
-
-
 }
