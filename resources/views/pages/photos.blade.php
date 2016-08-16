@@ -30,10 +30,13 @@
                         </div>
                         @endforeach
                     </div>
+                    <br><br>
                     @endforeach
                 </div>
             </div>
         </div>
         <!-- END PAGE CONTENT -->
+
+        @include('partials.footer')
     </div>
 @stop

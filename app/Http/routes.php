@@ -32,6 +32,8 @@ Route::get('/committee/{name}', 'PagesController@committees');
 
 route::get('/events/fb/{id}', 'FacebookController@show');
 
+Route::get('/volunteer/request', 'PagesController@volunteerRequest');
+
 Route::get('/news/photos', 'FacebookController@photos');
 
 Route::get('/album/{id}', 'FacebookController@showAlbum');
