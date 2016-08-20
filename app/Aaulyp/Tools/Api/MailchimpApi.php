@@ -83,7 +83,6 @@ class MailchimpApi
         $headers = [
             'anything',
             env('MAILCHIMP_TOKEN'),
-
         ];
 
         $options = [
@@ -93,7 +92,6 @@ class MailchimpApi
         ];
 
         $response = $this->guzzle->request('GET', $url, $options);
-
 
         $subscribersJson = json_decode($response->getBody()->getContents());
 
