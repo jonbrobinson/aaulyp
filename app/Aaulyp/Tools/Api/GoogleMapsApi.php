@@ -48,7 +48,7 @@ class GoogleMapsApi
         if ($addressJson->results) {
             $address = $addressJson->results[0]->formatted_address;
         } else {
-            $address = "TDB";
+            $address = null;
         }
 
         return $address;
