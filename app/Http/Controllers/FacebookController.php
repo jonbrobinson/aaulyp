@@ -16,8 +16,6 @@ class FacebookController extends Controller
         parent::__construct();
 
         $this->facebookSdk = $facebookSdk;
-
-
     }
 
     /**
@@ -60,10 +58,12 @@ class FacebookController extends Controller
     public function show($id)
     {
         $eventArray = $this->facebookSdk->getEventDetails($id);
+        $events = json_decode(json_encode($this->facebookSdk->getCurrentEvents()));
+//        dd($events);
 
         $event = json_decode(json_encode($eventArray));
 
-        return view('pages.facebook.show', compact('event'));
+        return view('pages.facebook.show', compact('event', 'events'));
     }
 
     /**
@@ -76,7 +76,6 @@ class FacebookController extends Controller
         $albumArray = $this->facebookSdk->getAlbumDetails($id);
 
         $album = json_decode(json_encode($albumArray));
-//        dd($album);
 
         return view('pages.facebook.albumShow', compact('album'));
     }
@@ -87,10 +86,14 @@ class FacebookController extends Controller
      */
     public function photos()
     {
-        $albums = $this->facebookSdk->getAlbums();
+        $allAlbums = $this->facebookSdk->getAlbums();
 
-        $albums = json_decode(json_encode($albums));
+        $albums = json_decode(json_encode($allAlbums['albums']));
 
-        return view('pages.photos', compact('albums'));
+        $next = $this->facebookSdk->getNextPage($allAlbums['paging']['next']);
+
+        $page2 = json_decode(json_encode($next['albums']));
+
+        return view('pages.photos', compact('albums', 'page2'));
     }
 }

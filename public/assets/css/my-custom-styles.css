@@ -7,6 +7,16 @@
     text-shadow: none;
 }
 
+.admin-form-wrapper {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.social-button {
+    display: inline-block;
+    vertical-align: top;
+}
+
 @media screen and (min-width: 1200px) and (max-width: 1440px) {
     .hero-unit-slider .carousel-caption {
         top: 25%;

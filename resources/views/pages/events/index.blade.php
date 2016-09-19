@@ -61,7 +61,9 @@
                                                     <p><i class="fa fa-clock-o"></i>TBD</p>
                                                 @endif
 
-                                                @if ($event->street_address)
+                                                @if ($event->street_address && $event->location_name)
+                                                    <p><i class="fa fa-map-marker"></i> {{ $event->location_name }} <br> {{ $event->street_address }}</p>
+                                                @elseif($event->street_address)
                                                     <p><i class="fa fa-map-marker"></i> {{ $event->street_address }}</p>
                                                 @else
                                                     <p><i class="fa fa-map-marker"></i> More Details To Come</p>

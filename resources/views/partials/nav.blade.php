@@ -48,7 +48,7 @@
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">GET INVOLVED <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ url('/team/join') }}">Membership</a></li>
+                        <li><a href="{{ url('/join') }}">Membership</a></li>
                         <li class="dropdown ">
                             <a href="#">Committees <i class="fa fa-angle-right"></i></a>
                             <ul class="dropdown-menu" role="menu">

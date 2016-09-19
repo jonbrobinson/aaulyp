@@ -41,6 +41,46 @@ $(document).ready( function() {
         });
     }
 
+    var form = $('#admin-form');
+    if ( form.length > 0) {
+
+        form.submit(function(e) {
+
+            var url = "/admin"; // the script where you handle the form input.
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#admin-form").serialize(), // serializes the form's elements.
+                success: function(data)
+                {
+                    console.log('made it here');
+                    resetResponse();
+                    var success = '<p class=\'alert alert-success\'>' + data.message + '<a href=\'#\' class=\'close\' data-dismiss=\'alert\' aria-label=\'close\'>&times;</a></p>';
+                    $('#server-response').append(success);
+                },
+                error: function(xhr, status, error) {
+                    resetResponse();
+                    console.log(xhr.responseJSON.errors);
+                    var errorList = '';
+                    var errors = xhr.responseJSON.errors;
+
+                    for (index = 0; index < errors.length; ++index) {
+                        errorList += '<li>' + errors[index] + '</li>';
+                    }
+
+                    var errorElem = '<ul>' + errorList + '</ul>';
+
+                    $('#server-response').addClass('alert alert-danger').append(errorElem);
+                    window.location.href('/');
+
+                }
+            });
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+        });
+    }
+
     function resetResponse (){
         var emptyDiv= $('#server-response').empty();
 

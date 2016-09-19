@@ -12,11 +12,10 @@ class HomeController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @return void
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['contact']]);
+        $this->middleware('auth', ['except' => ['contact', 'adminGet', 'adminPost', 'adminGet']]);
 
         parent::__construct();
     }
@@ -72,5 +71,31 @@ class HomeController extends Controller
         }
 
         return response($response->getBody(), $response->getStatusCode());
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function adminGet()
+    {
+        return view('pages.admin.adminGet');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function adminPost(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'admin' => 'required|in:'.env('YP_ADMIN'),
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/admin')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        return view('pages.admin.dashboard', ['success' => 'yes']);
     }
 }
