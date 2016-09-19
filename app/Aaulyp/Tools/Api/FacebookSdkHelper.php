@@ -3,15 +3,18 @@
 namespace App\Aaulyp\Tools\Api;
 
 use Facebook\Facebook;
+use GuzzleHttp\Client as Guzzle;
+use Illuminate\Support\Facades\Event;
 
 class FacebookSdkHelper
 {
     const AAULYP_FB_PAGE_ID = 135986973127166;
+    const FB_BASE_URL = 'https://graph.facebook.com/v2.6/';
 
     protected $facebookHelper;
     protected $googleMaps;
     protected $currentEvent;
-    protected $albumBlacklist = array('352412258151302', '139721309420399');
+    protected $albumBlacklist = array('352412258151302', '139721309420399', '574486469277212', '136089056450291');
 
     public function __construct(GoogleMapsApi $googleMapsApi)
     {
@@ -25,21 +28,46 @@ class FacebookSdkHelper
         $this->googleMaps = $googleMapsApi;
 
         date_default_timezone_set('America/Chicago');
+
+        $this->guzzle = new Guzzle([
+            // Base URI is used with relative requests
+            'base_uri' => self::FB_BASE_URL,
+        ]);
     }
 
     public function getAlbums()
     {
         $fbAlbums = $this->getAlbumsArray();
 
+        $transformedAlbums = $this->sanitizeAlbums($fbAlbums);
+
+        return $transformedAlbums;
+    }
+
+    public function getNextPage($url)
+    {
+        $response = $this->guzzle->request('GET', $url);
+
+        $pageArray = json_decode($response->getBody()->getContents(), true);
+
+        $sanitizedArray = $this->sanitizeAlbums($pageArray);
+
+        return $sanitizedArray;
+    }
+
+    protected function sanitizeAlbums($albums)
+    {
         $transformedAlbums = array();
 
-        foreach ($fbAlbums as $album) {
+        foreach ($albums['data'] as $album) {
             if (in_array($album['id'], $this->albumBlacklist)) {
                 continue;
             }
 
-            $transformedAlbums[] = $this->transformAlbumForDb($album);
+            $transformedAlbums['albums'][] = $this->transformAlbumForDb($album);
         }
+
+        $transformedAlbums['paging'] = $albums['paging'];
 
         return $transformedAlbums;
     }
@@ -65,7 +93,6 @@ class FacebookSdkHelper
     {
         $events = $this->getEventsArray();
 
-
         $today = strtotime('today');
 
         $transformedEvents = array();
@@ -81,7 +108,7 @@ class FacebookSdkHelper
 
     public function getEventDetails($id)
     {
-        $uri =  $id . '?fields=id,name,category,description,place,cover,attending_count,interested_count,start_time,end_time';
+        $uri =  $id . '?fields=id,name,category,description,place,cover,attending_count,interested_count,start_time,end_time,ticket_uri';
 
         $body = $this->getBodyFromRequest($uri);
 
@@ -98,6 +125,8 @@ class FacebookSdkHelper
 
         $album['photos'] = $this->getAlbumPhotos($album['id'], $album['count']);
 
+        $album = $this->transformAlbumForDb($album);
+
         return $album;
     }
 
@@ -112,7 +141,7 @@ class FacebookSdkHelper
 
     protected function getEventsArray()
     {
-        $uri = self::AAULYP_FB_PAGE_ID.'?fields=events{id,name,category,description,place,cover,attending_count,interested_count,start_time,end_time}';
+        $uri = self::AAULYP_FB_PAGE_ID.'?fields=events{id,name,category,description,place,cover,attending_count,interested_count,start_time,end_time,ticket_uri}';
 
         $body = $this->getBodyFromRequest($uri);
 
@@ -127,7 +156,7 @@ class FacebookSdkHelper
 
         $body = $this->getBodyFromRequest($uri);
 
-        $events = $body['albums']['data'];
+        $events = $body['albums'];
 
         return $events;
     }
@@ -165,12 +194,14 @@ class FacebookSdkHelper
     protected function convertEventMainDetails($event)
     {
         $keys = [
-            'end_time' => 'date_start',
+            'start_time' => 'date_start',
             'id' => 'facebook_id',
-            'start_time' => 'date_end',
+            'end_time' => 'date_end',
             'street_address' => 'street_address',
             'cover_photo' => 'cover_photo',
-            'description' => 'description'
+            'description' => 'description',
+            'ticket_uri' => 'tickets',
+            'location_name' => 'location_name'
         ];
 
         $event = $this->convertMainDetails($keys, $event);
@@ -186,10 +217,11 @@ class FacebookSdkHelper
     protected function convertAlbumMainDetails($album)
     {
         $keys = [
-            'id' => 'album_id'
+            'id' => 'album_id',
+            'description' => 'description'
         ];
 
-        $this->convertMainDetails($keys, $album);
+        $album = $this->convertMainDetails($keys, $album);
 
         return $album;
     }
@@ -226,12 +258,26 @@ class FacebookSdkHelper
      */
     protected function convertEventEdgeDetails($event)
     {
-        if (isset($event['place']) && isset($event['place']['location'])) {
-            $latitude = $event['place']['location']['latitude'];
-            $longitude = $event['place']['location']['longitude'];
-            unset($event['place']);
+        if (isset($event['place']) && (isset($event['place']['location']) || isset($event['place']['name']))) {
+            if ($event['place']['location']) {
+                if($event['place']['location']['city'] &&
+                    $event['place']['location']['street'] &&
+                    $event['place']['location']['zip'] &&
+                    $event['place']['location']['state']) {
+                    $event['street_address'] = $event['place']['location']['street'].', '.$event['place']['location']['city'].', '.$event['place']['location']['state'].' '.$event['place']['location']['zip'];
+                } else {
+                    $latitude = $event['place']['location']['latitude'];
+                    $longitude = $event['place']['location']['longitude'];
+                    $event['street_address'] = $this->googleMaps->getAddressFromLatLong($latitude, $longitude);
+                }
 
-            $event['street_address'] = $this->googleMaps->getAddressFromLatLong($latitude, $longitude);
+            }
+
+            if ($event['place']['name']) {
+                $event['location_name'] = $event['place']['name'];
+            }
+
+            unset($event['place']);
         }
 
         if (isset($event['cover'])) {
