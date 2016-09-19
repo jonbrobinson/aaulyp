@@ -34,6 +34,6 @@ class CreateFacebookEventsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('facebookEvents');
     }
 }
