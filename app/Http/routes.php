@@ -20,7 +20,7 @@ Route::get('/board', 'PagesController@board');
 
 Route::get('/donate', 'PagesController@donate');
 
-Route::get('/team/join', 'PagesController@join');
+Route::get('/join', 'PagesController@join');
 
 Route::get('/contact/faq', 'PagesController@faq');
 
@@ -38,9 +38,15 @@ Route::get('/news/photos', 'FacebookController@photos');
 
 Route::get('/album/{id}', 'FacebookController@showAlbum');
 
+
 Route::post('/webhooks/eventbrite/orders', 'WebhookController@ebOrders');
 
 Route::post('/webhooks/ypweekend/orders', 'WebhookController@ypWeekendOrders');
+
+
+Route::get('/admin/create', 'AdminController@leadershipCreate');
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +58,6 @@ Route::post('/webhooks/ypweekend/orders', 'WebhookController@ypWeekendOrders');
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
@@ -62,4 +67,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('{zip}/{name}', 'EventsController@show');
     Route::post('{zip}/{name}/photos', 'EventsController@addPhoto');
     Route::post('/contact', 'HomeController@contact');
+    Route::post('/admin/store', 'AdminController@leadershipStore');
+    Route::get('/admin/{id}/edit');
 });
+Route::get('/admin', 'AdminController@login');
+Route::post('/admin', 'AdminController@dashboard');
+
