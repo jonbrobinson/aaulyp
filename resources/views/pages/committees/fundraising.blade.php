@@ -24,14 +24,13 @@
                 </div>
                 <div class="col-md-6">
                     <h3 class="section-heading">FUNDRAISING COMMITTEE</h3>
-                    <p>Responsible for ensuring that our organization is self-sustaining and thriving, so that we can offer more financial support to the initiatives of our affiliate chapter; Serves as a liaison to all of the other committees</p>
+                    <p>Our Fundraising Committee is responsible for ensuring that our organization is self-sustaining and thriving, so that we can offer more financial support to the initiatives of our affiliate chapter. Serves as a liaison to all of the other committees</p>
                     <br>
                     <h3>Activities</h3>
 
                     <p>* YP Bash and YP Weekend</p>
                     <p>* Organize Quarterly events to help raise donations for Urban League</p>
-                    <p>* Build connections with Corporate Sponsors</p>
-                    <p>* Integrate </p>
+                    <p>* Organize Financial Literacy Activities for PRofessional Developement</p>\
 
                     <br>
                     <h3>Meeting Information</h3>

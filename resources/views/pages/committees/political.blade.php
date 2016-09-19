@@ -25,7 +25,7 @@
                 <div class="col-md-6">
                     <h3 class="section-heading">POLITICAL COMMITTEE</h3>
                     <p>
-                        Responsible for keeping our membership base informed and involved in the political process, with a special focus on what is going on locally; Promotes our organization as a noteworthy collection of engaged citizens that are passionate about policy reform that promotes our focus on socioeconomic advancement; Connects our organization with other entities that share in our purpose; Assists with bringing the sexy back into politics for our age group and demographic.
+                        Our Political Committee is responsible for keeping our membership base informed and involved in the political process, with a special focus on what is going on locally in Austin Area politics. Promotes our organization as a noteworthy collection of engaged citizens that are passionate about policy reform that promotes our focus on socioeconomic advancement; Connects our organization with other entities that share in our purpose; Assists with bringing the sexy back into politics for our age group and demographic.
                     </p>
 
                     <br>

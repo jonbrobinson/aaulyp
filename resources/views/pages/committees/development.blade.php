@@ -25,15 +25,14 @@
                 <div class="col-md-6">
                     <h3 class="section-heading">PROFESSIONAL DEVELOPMENT COMMITTEE</h3>
                     <p>
-                        Responsible for encouraging our group of young professionals to remain diligent and encouraged in their respective careers; Offers tools and resources to equip our membership as they navigate through the workforce; Promotes taking a proactive approach when it comes to pursuing passions and endorsing interpersonal growth; Connects our organization with other entities that are devoted to enhancing personal performance
+                        Our Development Committee is responsible for encouraging our group of young professionals to remain diligent and encouraged in their respective careers.Other initiatives include offer tools and resources to equip our membership as they navigate through the workforce. Promotes taking a proactive approach when it comes to pursuing passions and endorsing interpersonal growth; Connects our organization with other entities that are devoted to enhancing personal performance
                     </p>
                     <br>
                     <h3>Activities</h3>
 
-                    <p>* Cordinate our monthly developemnt workshops and initiatives</p>
-                    <p>* Organize events to build professional skills and experience around Austin</p>
+                    <p>* Organize workshops to build professional skills</p>
+                    <p>* Host events to promote networking of local industries</p>
                     <p>* Cultivate relationships with other young professional organizations</p>
-                    <p>* Generate Content or AAULYP Website</p>
 
                     <br>
                     <h3>Meeting Information</h3>

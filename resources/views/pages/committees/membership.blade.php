@@ -25,13 +25,13 @@
                 <div class="col-md-6">
                     <h3 class="section-heading">MEMBERSHIP COMMITTEE</h3>
                     <p>
-                        Responsible for promoting hospitality within our organization; Engages our membership base on a personal and intimate level; Focuses on the personal touch on membership recruitment initiatives; Actively devoted to ensuring membership retention and involvement; Serves as a liaison to all of the other committees
+                        Our Membership Committee is responsible for promoting hospitality within our organization. Our liasons engage our membership base level. Other responsibilities include membership recruitment initiatives and are actively devoted to ensuring membership retention and involvement.
                     </p>
 
                     <br>
                     <h3>Activities</h3>
 
-                    <p>* Liaisons to transition members into the YP mindset</p>
+                    <p>* Liaisons to transition members into the Austin YP Community</p>
                     <p>* Organize mixers for members and future members to network and build connections</p>
                     <p>* Profile members in our spotlight post and media outlets</p>
                     <p>* Cultivate opportunities to engage members in all areas of interest</p>

@@ -8,18 +8,10 @@
         <div id="carousel-hero" class="slick-carousel">
             <div class="carousel-inner" role="listbox">
                 <div class="item">
-                    <img class="img-responsive" src="{{ asset("assets/img/aaulyp/slider_1920x500/slider1-h500-new.png") }}" alt="Slider Image">
-                    <div class="carousel-caption">
-                        <h2 class="hero-heading">SUPPORT YOUR COMMUNITY</h2>
-                        <p class="lead">We are looking for more young professionals</p>
-                        <a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>
-                    </div>
-                </div>
-                <div class="item">
                     <img class="img-responsive" src="{{ asset("assets/img/aaulyp/slider_1920x500/slider2-h500-new.png") }}" alt="Slider Image">
                     <div class="carousel-caption">
                         <h2 class="hero-heading">JOIN THE MOVEMENT</h2>
-                        <p class="lead">We are looking for more young professionals</p>
+                        <p class="lead">Be a part of the change to empower lives</p>
                         <a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>
                     </div>
                 </div>
@@ -29,6 +21,14 @@
                         <h2 class="hero-heading">BUILD RELATIONSHIPS</h2>
                         <p class="lead">We are looking for more young professionals</p>
                         <a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="img-responsive" src="{{ asset("assets/img/aaulyp/slider_1920x500/slider1-h500-new.png") }}" alt="Slider Image">
+                    <div class="carousel-caption">
+                        <h2 class="hero-heading">SUPPORT YOUR COMMUNITY</h2>
+                        <p class="lead">Together we build stronger neighborheads</p>
+                        {{--<a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>--}}
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2 class="section-heading">HOW CAN WE HELP</h2>
-                    <p class="lead">Austin Area Urban League Young Professionals is a service auxiliary that provides young professionals with resources and activities to help cultivate progressive ideas in Austin.</p>
+                    <p class="lead">Austin Area Urban League Young Professionals is a service auxiliary that provides young professionals with resources and activities to help empower communities in Austin.</p>
                     <p>Austin Area Urban League Young Professionals are committed to community engagement, improving minority businesses through innovative programming, and dynamic dialogue and professional development.</p>
                     <p>Our activities are characterized by excellence in community service, fund-raising, and dedication to the development of its diverse members to empower communities and change lives through consistent involvement in the community in partnership with the Urban League.</p>
                 </div>

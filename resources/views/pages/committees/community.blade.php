@@ -25,7 +25,7 @@
                 <div class="col-md-6">
                     <h3 class="section-heading">COMMUNITY OUTREACH COMMITTEE</h3>
                     <p>
-                        Maintain cooperative relationships with representatives of the community and with representatives from print, online, and broadcast journalism.  This committee will also promote the advertisement of events/programs, prepare press releases, maintain the AAULYP web presence and newsletters.  This committee will be responsible for the creation and keeping of the AAULYP branding.  All media representation must be approved by the executive board.
+                        Our Community Outreach committee is responsible for coordinating our service initiatives. Keeping us engaged and involved in making a difference in our local community. Promotes the mission of our organization in a tangible and impactful manner. Connects our organization with other entities that are active in the Greater Austin Area.
                     </p>
 
                     <br>

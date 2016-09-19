@@ -71,22 +71,22 @@
                     </div>
                     <div class="col-md-6 row">
                         <div class="col-xs-6">
-                            <img src="{{ asset('assets/img/aaulyp/img_800x800/gcp_garden_800x800.png') }}" alt="" class="img-responsive">
+                            <img src="{{ asset('assets/img/aaulyp/img_800x800/gcp_garden_800x800.jpg') }}" alt="" class="img-responsive">
                             <br>
                             <br>
                         </div>
                         <div class="col-xs-6">
-                            <img src="{{ asset('assets/img/aaulyp/img_800x800/heritage_fest_group_800x800.png') }}" alt="" class="img-responsive">
+                            <img src="{{ asset('assets/img/aaulyp/img_800x800/heritage_fest_group_800x800.jpg') }}" alt="" class="img-responsive">
                             <br>
                             <br>
                         </div>
                         <div class="col-xs-6">
-                            <img src="{{ asset('assets/img/aaulyp/img_800x800/omni_pres_800x800.png') }}" alt="" class="img-responsive">
+                            <img src="{{ asset('assets/img/aaulyp/img_800x800/pres_800x800.jpg') }}" alt="" class="img-responsive">
                             <br>
                             <br>
                         </div>
                         <div class="col-xs-6">
-                            <img src="{{ asset('assets/img/aaulyp/img_800x800/gbm_secretary_800x800.png') }}" alt="" class="img-responsive">
+                            <img src="{{ asset('assets/img/aaulyp/img_800x800/gbm_secretary_800x800.jpg') }}" alt="" class="img-responsive">
                             <br>
                             <br>
                         </div>
@@ -95,8 +95,8 @@
 
             </section>
             <div style="width:100%; text-align:left;" >
-                <iframe  src="//eventbrite.com/tickets-external?eid=25179039184&ref=etckt" frameborder="0" height="214" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
-                <div style="font-family:Helvetica, Arial; font-size:10px; padding:5px 0 5px; margin:2px; width:100%; text-align:left;" ><a class="powered-by-eb" style="color: #dddddd; text-decoration: none;" target="_blank" href="http://www.eventbrite.com/r/etckt">Powered by Eventbrite</a>
+                <iframe  src="//eventbrite.com/tickets-external?eid=5422224018&ref=etckt" frameborder="0" height="339" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
+                <div style="font-family:Helvetica, Arial; font-size:10px; padding:5px 0 5px; margin:2px; width:100%; text-align:left;" ><a class="powered-by-eb" style="color: #dddddd; text-decoration: none;" target="_blank" href="http://www.eventbrite.com/l/registration-online/">Powered by Eventbrite</a>
                 </div>
             </div>
 

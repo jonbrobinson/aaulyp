@@ -31,6 +31,24 @@
                     </div>
             </div>
             <hr>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <img src="{{ asset('assets/img/yp/yp_service_1_200x200.jpg') }}" alt="services" class="img-responsive">
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <img src="{{ asset('assets/img/yp/Texas_YP_Weekend_2016_32_200x200.jpg') }}" alt="services" class="img-responsive">
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <img src="{{ asset('assets/img/yp/yp_formal_group.png') }}" alt="services" class="img-responsive">
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <img src="{{ asset('assets/img/yp/yp_shirt.jpg') }}" alt="services" class="img-responsive">
+                </div>
+            </div>
+            <br>
+            <br>
             <div class="row">
                 <div class="col-md-6">
                     <h2 class="section-heading">OUR MISSION</h2>

@@ -25,7 +25,7 @@
                 <div class="col-md-6">
                     <h3 class="section-heading">COMMUNICATION COMMITTEE</h3>
                     <p>
-                        Maintain cooperative relationships with representatives of the community and with representatives from print, online, and broadcast journalism.  This committee will also promote the advertisement of events/programs, prepare press releases, maintain the AAULYP web presence and newsletters.  This committee will be responsible for the creation and keeping of the AAULYP branding.  All media representation must be approved by the executive board.
+                        Our communication committee is responsible for the advertisement of events, programs,  newsletters, and maintaining the AAULYP digital presence.  Communications will be responsible for the creation and keeping of the AAULYP branding. Other Responsibilities include cooperative relationships with representatives of the community and with representatives from print, online, and broadcast journalism.
                     </p>
 
                     <br>

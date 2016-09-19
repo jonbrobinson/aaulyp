@@ -11,15 +11,15 @@
                     <img class="img-responsive" src="{{ asset("assets/img/aaulyp/slider_1920x500/slider1-h500-new.png") }}" alt="Slider Image">
                     <div class="carousel-caption">
                         <h2 class="hero-heading">SUPPORT YOUR COMMUNITY</h2>
-                        <p class="lead">We are looking for more young professionals</p>
-                        <a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>
+                        <p class="lead">Together we build stronger neighborheads</p>
+                        {{--<a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>--}}
                     </div>
                 </div>
                 <div class="item">
                     <img class="img-responsive" src="{{ asset("assets/img/aaulyp/slider_1920x500/slider2-h500-new.png") }}" alt="Slider Image">
                     <div class="carousel-caption">
                         <h2 class="hero-heading">JOIN THE MOVEMENT</h2>
-                        <p class="lead">We are looking for more young professionals</p>
+                        <p class="lead">Be a part of the change to empower lives</p>
                         <a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>
                     </div>
                 </div>
