@@ -62,9 +62,9 @@
                         </li>
                     </ul>
                 </li>
-                <li class="dropdown ">
-                    <a href="{{ url('/donate') }}" class="dropdown-toggle">DONATE</a>
-                </li>
+                {{--<li class="dropdown ">--}}
+                    {{--<a href="{{ url('/donate') }}" class="dropdown-toggle">DONATE</a>--}}
+                {{--</li>--}}
                 <li class="dropdown ">
                     <a href="{{ url('/contact') }}" class="dropdown-toggle">CONTACT</a>
                 </li>
