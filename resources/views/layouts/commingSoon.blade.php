@@ -48,9 +48,9 @@
             <br>
             <h1 class="text-center">Website Coming Soon.</h1>
             <h2 class="text-center">Follow us on
-                <a href="http://www.facebook.com/aaulyp" class="aaulyp-red"><i class="fa fa-facebook aaulyp-red"></i></a>
-                <a href="http://www.twitter.com/aaulyp" class="aaulyp-red"><i class="fa fa-twitter aaulyp-red"></i></a>
-                <a href="http://www.instagram.com/aaulyp" class="aaulyp-red"><i class="fa fa-instagram aaulyp-red"></i></a>
+                <a href="//www.facebook.com/aaulyp" class="aaulyp-red"><i class="fa fa-facebook aaulyp-red"></i></a>
+                <a href="//www.twitter.com/aaulyp" class="aaulyp-red"><i class="fa fa-twitter aaulyp-red"></i></a>
+                <a href="//www.instagram.com/aaulyp" class="aaulyp-red"><i class="fa fa-instagram aaulyp-red"></i></a>
                 @AAULYP.  #YPEmpowered
             </h2>
             <h2 class="text-center">Email: <a href="mailto:pr.aaulyp@gmail.com" class="aaulyp-red">pr.aaulyp@gmail.com</a></h2>
