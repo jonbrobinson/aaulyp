@@ -104,48 +104,46 @@
         </div>
     </section>
     <!-- END BOXED CONTENT -->
-    {{--<!-- WHY REPUTE -->--}}
-    {{--<section>--}}
-    {{--<div class="container">--}}
-    {{--<h2 class="section-heading sr-only">WHY REPUTE</h2>--}}
-    {{--<div class="tab-content">--}}
-    {{--<div class="tab-pane fade in active text-center" id="tab-bottom1">--}}
-    {{--<img src="assets/img/hero-unit-obj.png" class="img-responsive center-block margin-bottom-30px" alt="Ultra Responsive">--}}
-    {{--<h3 class="text-accent-color">ULTRA RESPONSIVE</h3>--}}
-    {{--<p class="lead">Phosfluorescently revolutionize viral leadership via turnkey technology. Synergistically monetize intermandated strategic theme areas through multimedia based.</p>--}}
-    {{--</div>--}}
-    {{--<div class="tab-pane fade text-center" id="tab-bottom2">--}}
-    {{--<img src="assets/img/hero-unit-obj3.png" class="img-responsive center-block margin-bottom-30px" alt="Easy to Customize">--}}
-    {{--<h3 class="text-accent-color">IT'S EASY TO CUSTOMIZE</h3>--}}
-    {{--<p class="lead">Efficiently incentivize leading-edge alignments with go forward expertise. Conveniently myocardinate leveraged process improvements through progressive models.</p>--}}
-    {{--</div>--}}
-    {{--<div class="tab-pane fade text-center" id="tab-bottom3">--}}
-    {{--<img src="assets/img/hero-unit-obj.png" class="img-responsive center-block margin-bottom-30px" alt="Clean and Elegant Design">--}}
-    {{--<h3 class="text-accent-color">CLEAN &amp; ELEGANT DESIGN</h3>--}}
-    {{--<p class="lead">Competently implement bricks-and-clicks collaboration and idea-sharing rather than visionary internal or "organic" sources. Rapidiously matrix premium core competencies for.</p>--}}
-    {{--</div>--}}
-    {{--<div class="tab-pane fade text-center" id="tab-bottom4">--}}
-    {{--<img src="assets/img/free.png" class="img-responsive center-block margin-bottom-30px" alt="Free Updates and Support">--}}
-    {{--<h3 class="text-accent-color">GET UPDATES &amp; SUPPORT FOR FREE</h3>--}}
-    {{--<p class="lead">Dramatically supply adaptive imperatives and stand-alone content. Exceptional solutions after web-enabled potentialities. Synergistically negotiate alternative best practices whereas professional "outside the box" thinking.</p>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--<div class="custom-tabs-line tabs-line-top">--}}
-    {{--<ul class="nav" role="tablist">--}}
-    {{--<li class="active"><a href="#tab-bottom1" role="tab" data-toggle="tab">Responsive</a></li>--}}
-    {{--<li><a href="#tab-bottom2" role="tab" data-toggle="tab">Easy to Customize</a></li>--}}
-    {{--<li><a href="#tab-bottom3" role="tab" data-toggle="tab">Design</a></li>--}}
-    {{--<li><a href="#tab-bottom4" role="tab" data-toggle="tab">Free Updates &amp; Support</a></li>--}}
-    {{--</ul>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</section>--}}
-    {{--<!-- END WHY REPUTE -->--}}
     <!-- RECENT WORKS -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="col-md-12 row">
+                        <h2 class="section-heading pull-left">UPCOMING EVENTS</h2>
+                    </div>
+                    @if(count($events) >= 1)
+                    <div class="row">
+                        @foreach($events as $index => $event)
+                            @if($index <= 1)
+                                <div class="col-md-6">
+                                    <div class="">
+                                        <img src="{{ $event->cover_photo }}" alt="" class="img-responsive">
+                                    </div>
+                                    <h4 class="post-title"><a href="{{ url('events/fb/'.$event->facebook_id) }}">{{ $event->name }}</a></h4>
+                                    <h5 class="text-muted">{{ date('M j, Y', strtotime($event->date_start)) }} | {{  date('g:iA', strtotime($event->date_start)) }} - {{  date('g:iA', strtotime($event->date_end)) }}</h5>
+                                    <h5>{{ $event->street_address }}</h5>
+                                    <p>{!! str_limit($event->description, 150) !!}<a href="{{ url('events/fb/'.$event->facebook_id) }}">SEE DETAILS</a></p>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                    @else
+                        <div class="col-md-12 row">
+                            <h3>We are planning some great opportunities. Please check back later to see some of the activities we have planned</h3>
+                        </div>
+                    @endif
+                </div>
+                <div class="col-md-4">
+                    @include('partials.socialMediaTabs')
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="recent-works">
         <div class="container">
             <h2 class="section-heading pull-left">OUR WORKS</h2>
-            <a href="/team/join" class="btn btn-primary pull-right">Join AAULYP</a>
+            <a href="{{ url('/join') }}" class="btn btn-primary pull-right">Join AAULYP</a>
             <div class="clearfix"></div>
             <div class="portfolio-static">
                 <div class="row">
@@ -158,7 +156,7 @@
                                 <a href="#" class="btn">read more</a>
                             </div>
                             <div class="media-wrapper">
-                                <img src="assets/img/aaulyp/yp_weekend_group.png" alt="Item Thumbnail" />
+                                <img src="{{ asset('assets/img/aaulyp/yp_weekend_group.png') }}" alt="TX YP Weekend" />
                             </div>
                         </div>
                     </div>
@@ -166,7 +164,7 @@
                         <div class="portfolio-item">
                             <div class="overlay"></div>
                             <div class="info">
-                                <h4 class="title">Volunteer Oppurtunities</h4>
+                                <h4 class="title">Volunteer Opportunities</h4>
                                 <p class="brief-description">Make an in impact across the Greater Austin community</p>
                                 <a href="#" class="btn">read more</a>
                             </div>
@@ -184,7 +182,7 @@
                                 <a href="#" class="btn">read more</a>
                             </div>
                             <div class="media-wrapper">
-                                <img src="assets/img/aaulyp/yp_award800x500.png" alt="Item Thumbnail" />
+                                <img src="{{ asset("assets/img/aaulyp/yp_award800x500.png") }}" alt="Item Thumbnail" />
                             </div>
                         </div>
                     </div>
@@ -232,3 +230,7 @@
 </div>
 <!-- END WRAPPER -->
 @endsection
+
+@section('javascript')
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+@stop

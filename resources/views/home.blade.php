@@ -103,6 +103,7 @@
             </div>
         </div>
     </section>
+
     <!-- END BOXED CONTENT -->
     {{--<!-- WHY REPUTE -->--}}
     {{--<section>--}}
@@ -195,7 +196,7 @@
     <!-- OUR CLIENTS -->
     <section class="clients">
         <div class="container">
-            <h2 class="section-heading">OUR CLIENTS</h2>
+            <h2 class="section-heading">OUR PARTNERS</h2>
             <ul class="list-inline list-client-logo">
                 <li>
                     <a href="#"><img src="assets/img/clients/logo1.png" alt="logo"></a>

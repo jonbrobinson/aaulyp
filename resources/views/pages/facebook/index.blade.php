@@ -20,7 +20,7 @@
                 <!-- BLOG ENTRIES -->
                 <div class="blog medium-thumbnail margin-bottom-30px">
                     @if(count($events) == 0)
-                        <h1>We are planning some great opportunities. Please check back later to see some of the great events </h1>
+                        <h1>We are planning some great opportunities. Please check back later to see some of the activities we have planned</h1>
                     @else
                         <!-- blog post -->
                         @foreach($events as $event)
