@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Aaulyp\Tools\Api\FacebookSdkHelper;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -9,15 +10,19 @@ use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
+    protected $facebookSdk;
+
     /**
      * Create a new controller instance.
      *
      */
-    public function __construct()
+    public function __construct(FacebookSdkHelper $facebookSdk)
     {
         $this->middleware('auth', ['except' => ['contact', 'adminGet', 'adminPost', 'adminGet']]);
 
         parent::__construct();
+
+        $this->facebookSdk = $facebookSdk;
     }
 
     /**
@@ -27,7 +32,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $events = $this->facebookSdk->getCurrentEvents();
+
+        $events = json_decode(json_encode($events));
+
+        return view('welcome', compact('events'));
     }
 
     /**

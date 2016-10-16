@@ -3,11 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Aaulyp\Tools\Api\FacebookSdkHelper;
 
 use App\Http\Requests;
 
 class PagesController extends Controller
 {
+    protected $facebookSdk;
+
+    public function __construct(FacebookSdkHelper $facebookSdk)
+    {
+        parent::__construct();
+
+        $this->facebookSdk = $facebookSdk;
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -15,7 +25,11 @@ class PagesController extends Controller
      */
     public function home()
     {
-        return view('welcome');
+        $events = $this->facebookSdk->getCurrentEvents();
+
+        $events = json_decode(json_encode($events));
+
+        return view('welcome', compact('events'));
 //        return view('pages.soon');
 //        return view('onePage');
     }
