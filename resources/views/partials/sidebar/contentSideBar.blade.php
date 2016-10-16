@@ -53,7 +53,7 @@
                 {{--@endif--}}
             {{--</div>--}}
             <div id="content-recent-comments" class="tab-pane fade" role="tabpanel">
-                <a class="twitter-timeline" href="https://twitter.com/AAULYP" data-widget-id="730989146307600386">Tweets by @AAULYP</a>
+                <a class="twitter-timeline" href="//twitter.com/AAULYP" data-widget-id="730989146307600386">Tweets by @AAULYP</a>
             </div>
         </div>
         <!-- end tab panes -->
