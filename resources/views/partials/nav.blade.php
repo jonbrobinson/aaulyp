@@ -8,7 +8,7 @@
                 @endif
             <ul class="list-inline top-nav">
                 <li>Empowering Communitites | Changing Lives</li>
-                <li><a href="http://twitter.com/aaulyp"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://twitter.com/aaulyp"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="https://www.facebook.com/AAULYP"><i class="fa fa-facebook"></i></a></li>
                 @if($signedIn)
                     <li><a href="/logout"><i class="fa fa-sign-out"></i></a></li>
@@ -33,8 +33,8 @@
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">ABOUT <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="/aaulyp">Our History</a></li>
-                        <li><a href={{ url('/board') }}>Meet the YP Officers</a></li>
+                        <li><a href="{{ url('/aaulyp') }}">AAULYP History</a></li>
+                        <li><a href="{{ url('/board') }}">Meet the YP Officers</a></li>
                         <li><a href="{{ url('/aaul') }}">Austin Area Urban League</a></li>
                     </ul>
                 </li>
