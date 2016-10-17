@@ -26,8 +26,8 @@
 
                             <div class="row">
                                 @foreach($album->photos as $photo)
-                                    <div class="col-xs-4 col-md-2">
-                                        <img src="{{ $photo->picture }}" alt="" class="img-responsive">
+                                    <div class="col-xs-4 col-md-3">
+                                        <img src="{{ $photo->images[0]->source }}" alt="" class="img-responsive">
                                     </div>
                                 @endforeach
                             </div>

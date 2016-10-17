@@ -37,7 +37,7 @@ class FacebookSdkHelper
 
     public function getAlbums()
     {
-        $fbAlbums = $this->getAlbumsArray();
+        $fbAlbums = $this->getAlbumsArray(10, 4);
 
         $transformedAlbums = $this->sanitizeAlbums($fbAlbums);
 

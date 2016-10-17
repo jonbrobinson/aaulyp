@@ -12,7 +12,7 @@
                     <div class="carousel-caption">
                         <h2 class="hero-heading">JOIN THE MOVEMENT</h2>
                         <p class="lead">Be a part of the change to empower lives</p>
-                        <a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>
+                        <a href="{{ url('join') }}" class="btn btn-lg hero-button">JOIN NOW</a>
                     </div>
                 </div>
                 <div class="item">
@@ -20,7 +20,7 @@
                     <div class="carousel-caption">
                         <h2 class="hero-heading">BUILD RELATIONSHIPS</h2>
                         <p class="lead">We are looking for more young professionals</p>
-                        <a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>
+                        <a href="{{ url('join') }}" class="btn btn-lg hero-button">JOIN NOW</a>
                     </div>
                 </div>
                 <div class="item">
@@ -28,7 +28,7 @@
                     <div class="carousel-caption">
                         <h2 class="hero-heading">SUPPORT YOUR COMMUNITY</h2>
                         <p class="lead">Together we build stronger neighborheads</p>
-                        {{--<a href="#about" class="btn btn-lg hero-button">JOIN NOW</a>--}}
+                        <a href="{{ url('join') }}" class="btn btn-lg hero-button">JOIN NOW</a>
                     </div>
                 </div>
             </div>
@@ -131,6 +131,7 @@
                     @else
                         <div class="col-md-12 row">
                             <h3>We are planning some great opportunities. Please check back later to see some of the activities we have planned</h3>
+                            <h3>Please follow on social medai @AAULYP to keep up to date with our latest updates.</h3>
                         </div>
                     @endif
                 </div>
@@ -152,8 +153,8 @@
                             <div class="overlay"></div>
                             <div class="info">
                                 <h4 class="title">Network In Service</h4>
-                                <p class="brief-description">Build Connections around and outside of Austin</p>
-                                <a href="#" class="btn">read more</a>
+                                <p class="brief-description">We collaborate with other YP chapters in Texas and participate in national initiatives and conferences</p>
+                                <a href="{{ url('committee/membership') }}" class="btn">See Membership & Social Committee</a>
                             </div>
                             <div class="media-wrapper">
                                 <img src="{{ asset('assets/img/aaulyp/yp_weekend_group.png') }}" alt="TX YP Weekend" />
@@ -164,9 +165,9 @@
                         <div class="portfolio-item">
                             <div class="overlay"></div>
                             <div class="info">
-                                <h4 class="title">Volunteer Opportunities</h4>
-                                <p class="brief-description">Make an in impact across the Greater Austin community</p>
-                                <a href="#" class="btn">read more</a>
+                                <h4 class="title">Acts of Service</h4>
+                                <p class="brief-description">YP's are always involved through community service. From food banks to school campus cleanups, each year there are a variety of service efforts we get involved with.</p>
+                                <a href="{{ url('committee/community') }}" class="btn">See Community Outreach Committee</a>
                             </div>
                             <div class="media-wrapper">
                                 <img src="{{ asset("assets/img/aaulyp/yp_food_drive800x500.png") }}" alt="Item Thumbnail" />
@@ -177,12 +178,12 @@
                         <div class="portfolio-item">
                             <div class="overlay"></div>
                             <div class="info">
-                                <h4 class="title">Career Advancement</h4>
-                                <p class="brief-description">Celebrate in Making a difference</p>
-                                <a href="#" class="btn">read more</a>
+                                <h4 class="title">Advocacy</h4>
+                                <p class="brief-description">We host voter registration events, promote discussions on local policies and community action initiatives</p>
+                                <a href="{{ url('committee/political') }}" class="btn">See Advocacy Committee</a>
                             </div>
                             <div class="media-wrapper">
-                                <img src="{{ asset("assets/img/aaulyp/yp_award800x500.png") }}" alt="Item Thumbnail" />
+                                <img src="{{ asset("assets/img/aaulyp/voterRegistration_800x500.jpg") }}" alt="Item Thumbnail" />
                             </div>
                         </div>
                     </div>

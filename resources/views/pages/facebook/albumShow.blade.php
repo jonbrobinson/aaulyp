@@ -58,8 +58,8 @@
                 <div class="col-sm-6 col-md-8 gallery">
                     <div class="row">
                         @foreach($album->photos as $photo)
-                            <div class="col-xs-4 col-sm-3 gallery_image">
-                                <a href="{{ $photo->images[0]->source }}" data-lightbox="album-show"><img src="{{ $photo->picture }}" alt="" class="img-responsive"></a>
+                            <div class="col-xs-4 col-sm-4 gallery_image">
+                                <a href="{{ $photo->images[0]->source }}" data-lightbox="album-show"><img src="{{ $photo->images[0]->source }}" alt="" class="img-responsive"></a>
                             </div>
                         @endforeach
                     </div>
