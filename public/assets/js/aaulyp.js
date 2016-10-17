@@ -1,9 +1,7 @@
 $(document).ready( function() {
     var form = $('#the-form');
     if ( form.length > 0) {
-
         form.submit(function(e) {
-
             var url = "/contact"; // the script where you handle the form input.
 
             $.ajax({
