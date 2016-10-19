@@ -93,7 +93,7 @@ class FacebookSdkHelper
     {
         $events = $this->getEventsArray();
 
-        $today = strtotime('today');
+        $today = strtotime('today -2');
 
         $transformedEvents = array();
         foreach($events as $event) {
