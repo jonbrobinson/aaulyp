@@ -104,6 +104,7 @@
         </div>
     </section>
     <!-- END BOXED CONTENT -->
+    @if(isset($events))
     <!-- RECENT WORKS -->
     <section>
         <div class="container">
@@ -141,6 +142,7 @@
             </div>
         </div>
     </section>
+    @endif
     <section class="recent-works">
         <div class="container">
             <h2 class="section-heading pull-left">OUR WORKS</h2>
