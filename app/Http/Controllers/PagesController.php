@@ -27,6 +27,8 @@ class PagesController extends Controller
     {
         $events = $this->facebookSdk->getCurrentEvents();
 
+        dd($events);
+
         $events = json_decode(json_encode($events));
 
         return view('welcome', compact('events'));

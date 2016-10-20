@@ -104,7 +104,7 @@
         </div>
     </section>
     <!-- END BOXED CONTENT -->
-    @if(empty($events))
+    @if(!empty($events))
     <!-- RECENT WORKS -->
     <section>
         <div class="container">
