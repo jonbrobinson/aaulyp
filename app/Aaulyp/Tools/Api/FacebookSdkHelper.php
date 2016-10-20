@@ -259,7 +259,7 @@ class FacebookSdkHelper
     protected function convertEventEdgeDetails($event)
     {
         if (isset($event['place']) && (isset($event['place']['location']) || isset($event['place']['name']))) {
-            if ($event['place']['location']) {
+            if (isset($event['place']['location'])) {
                 if($event['place']['location']['city'] &&
                     $event['place']['location']['street'] &&
                     $event['place']['location']['zip'] &&
@@ -271,6 +271,8 @@ class FacebookSdkHelper
                     $event['street_address'] = $this->googleMaps->getAddressFromLatLong($latitude, $longitude);
                 }
 
+            } elseif ($event['place']) {
+                $event['street_address'] = $event['place']['name'];
             }
 
             if ($event['place']['name']) {
