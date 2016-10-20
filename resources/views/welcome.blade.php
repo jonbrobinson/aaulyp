@@ -104,7 +104,7 @@
         </div>
     </section>
     <!-- END BOXED CONTENT -->
-    @if(isset($events))
+    @if(empty($events))
     <!-- RECENT WORKS -->
     <section>
         <div class="container">
@@ -132,7 +132,7 @@
                     @else
                         <div class="col-md-12 row">
                             <h3>We are planning some great opportunities. Please check back later to see some of the activities we have planned</h3>
-                            <h3>Please follow on social medai @AAULYP to keep up to date with our latest updates.</h3>
+                            <h3>Please follow us on social media @AAULYP to keep up to date with our latest updates.</h3>
                         </div>
                     @endif
                 </div>
