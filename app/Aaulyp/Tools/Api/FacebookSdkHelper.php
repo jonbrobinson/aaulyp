@@ -106,6 +106,23 @@ class FacebookSdkHelper
         return array_reverse($transformedEvents);
     }
 
+    public function getPastEvents()
+    {
+        $events = $this->getEventsArray();
+
+        $pastDate = strtotime('today -3 months');
+
+        $transformedEvents = array();
+        foreach($events as $event) {
+            if (strtotime($event['start_time']) < $pastDate) {
+                continue;
+            }
+            $transformedEvents[] = $this->transformEventForDb($event);
+        }
+
+        return array_reverse($transformedEvents);
+    }
+
     public function getEventDetails($id)
     {
         $uri =  $id . '?fields=id,name,category,description,place,cover,attending_count,interested_count,start_time,end_time,ticket_uri';

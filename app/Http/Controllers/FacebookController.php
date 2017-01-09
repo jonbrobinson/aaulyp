@@ -25,13 +25,17 @@ class FacebookController extends Controller
     public function index()
     {
 //        $events = Event::with('user')->orderBy('date_start', 'desc')->get();
-        $eventsFeatured = Event::with('user')->where('feature_event', 1)->get();
+//        $eventsFeatured = Event::with('user')->where('feature_event', 1)->get();
 
         $events = $this->facebookSdk->getCurrentEvents();
 
         $events = json_decode(json_encode($events));
 
-        return view('pages.events.index', compact('events', 'eventsFeatured'));
+        $pastEvents = $this->facebookSdk->getPastEvents();
+
+        $pastEvents = json_decode(json_encode($pastEvents));
+
+        return view('pages.events.index', compact('events', 'pastEvents'));
     }
 
     /**
