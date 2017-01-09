@@ -7,25 +7,47 @@
   width: 225px;
 }
 
+/* main features */
 .main-features {
-  color: #DD4F5D;
-  /*background-color: #c33d3d;*/
+  padding: 10px 0;
+  margin-bottom: 60px;
+  text-align: center;
   background-color: #a5101e;
-
+  color: #c33d3d;
+  /*color: white;*/
 }
-
-.feature-heading {
-  color: #DD4F5D;
+.main-features i {
+  font-size: 5em;
+  margin-bottom: 28px;
 }
-
 .main-features div[class^="col-"]:after {
   content: '';
-  border-right: 1px dashed #DD4F5D;
+  border-right: 1px dashed #c33d3d;
   position: absolute;
   height: 80px;
   top: 50%;
   right: 0;
   margin-top: -40px;
+}
+.main-features div[class^="col-"]:last-child:after {
+  border-right: none;
+}
+
+.feature-heading {
+  margin: 0;
+  color: white;
+  font-weight: 100;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 992px) {
+  .main-features div[class^="col-"] {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  .main-features div[class^="col-"]:after {
+    display: none;
+  }
 }
 
 .testimonial-with-bg {

@@ -1,5 +1,4 @@
 /* your custom styles here */
-
 .hero-unit-slider .carousel-caption {
 
     bottom: inherit;
@@ -16,6 +15,21 @@
     display: inline-block;
     vertical-align: top;
 }
+
+/*.main-features {*/
+    /*padding: 40px 0;*/
+    /*margin-bottom: 60px;*/
+    /*text-align: center;*/
+    /*background-color: #a5101e;*/
+    /*color: #c33d3d;*/
+/*}*/
+
+/*.feature-heading {*/
+    /*margin: 0;*/
+    /*color: #c33d3d;*/
+    /*font-weight: 300;*/
+    /*font-size: 18px;*/
+/*}*/
 
 @media screen and (min-width: 1200px) and (max-width: 1440px) {
     .hero-unit-slider .carousel-caption {
