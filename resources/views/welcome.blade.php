@@ -135,7 +135,7 @@
                     <div class="boxed-content left-aligned left-boxed-icon">
                         <i class="fa fa-graduation-cap"></i>
                         <h2 class="boxed-content-title">EDUCATION AND YOUTH EMPOWERMENT</h2>
-                        <p>We are committed to mentoring and educating youth to help grow their opportunitties for future accomplishments</p>
+                        <p>We are committed to mentoring and educating youth to help grow their opportunities for future accomplishments</p>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -158,7 +158,7 @@
     @endif
     <section class="recent-works">
         <div class="container">
-            <h2 class="section-heading pull-left">OUR WORKS</h2>
+            <h2 class="section-heading pull-left">WHAT WE HAVE BEEN DOING</h2>
             <a href="{{ url('/join') }}" class="btn btn-primary pull-right">Join AAULYP</a>
             <div class="clearfix"></div>
             <div class="portfolio-static">

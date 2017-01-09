@@ -10,6 +10,7 @@
                 <br>
                 <address class="margin-bottom-30px">
                     <ul class="list-unstyled">
+                        <li>Austin Area Urban League</li>
                         <li>8011A Cameron Rd
                             <br/> Austin, TX 78754</li>
                         <li>Phone: (512) 278 - 7176</li>
@@ -24,18 +25,18 @@
                 <div class="row margin-bottom-30px">
                     <div class="col-xs-6">
                         <ul class="list-unstyled footer-nav">
-                            <li><a href="/aaulyp">About Us</a></li>
-                            <li><a href="/aaul">Austin Area Urban League</a></li>
-                            <li><a href="/team/join">Join Us</a></li>
-                            <li><a href="/events">Events</a></li>
+                            <li><a href="{{ url('/aaulyp') }}">About Us</a></li>
+                            <li><a href="{{ url('https://www.aaul.org') }}">Austin Area Urban League</a></li>
+                            <li><a href="{{ url('/join') }}">Join Us</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-6">
                         <ul class="list-unstyled footer-nav">
-                            <li><a href="">Our Team</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="/recaps">Blog</a></li>
-                            <li><a href="/contact">Contact Us</a></li>
+                            <li><a href="{{ url('/events') }}">Events</a></li>
+                            {{--<li><a href="">Our Team</a></li>--}}
+                            {{--<li><a href="#">FAQ</a></li>--}}
+                            {{--<li><a href="/recaps">Blog</a></li>--}}
+                            <li><a href="{{ url('/contact') }}">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -62,7 +63,7 @@
                     <ul class="list-inline social-icons">
                         <li><a href="http://www.fabebook.com/aaulyp" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="http://www.twitter.com/aaulyp" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="http://www.google.com/" class="googleplus-bg"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#" class="googleplus-bg"><i class="fa fa-google-plus"></i></a></li>
                         <li><a href="http://www.instagram.com/aaulyp" class="rss-bg"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>

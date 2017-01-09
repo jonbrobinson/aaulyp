@@ -21,7 +21,7 @@
                 <div class="col-md-12 row">
                     <div class="col-md-12 row">
                         <p class="lead">Join a community that is empowering Austin and connecting young professionals around the Austin Area with same values and commitment to helping others.</p>
-                        <p class="lead">Membership is an annual commitment and  runs on a 12 month cycle from the time of purchase. Please contact Erika Crespo at <a href="mailto:membership.aaulyp@gmail.com">membership.aaulyp@gmail.com</a></p>
+                        <p class="lead">Please contact Erika Crespo at <a href="mailto:membership.aaulyp@gmail.com">membership.aaulyp@gmail.com</a> for additional information.</p>
                     </div>
                     <div class="col-md-6 row">
                         <div>
@@ -31,37 +31,38 @@
                                     <i class="fa fa-check-circle fa-lg favicon-list-custom"></i>
                                 </div>
                                 <div class="col-md-11">
-                                    <h4>Partnering with us to impact our generation, empower communities and change lives</h4>
+                                    <h4>Discounts to YP Events</h4>
                                 </div>
                                 <div class="col-md-1">
                                     <i class="fa fa-check-circle fa-lg favicon-list-custom"></i>
                                 </div>
                                 <div class="col-md-11">
-                                    <h4>Invitations and discounts to YP events and YP partner organization events</h4>
+                                    <h4>Discounts to AAUL events</h4>
                                 </div>
                                 <div class="col-md-1">
                                     <i class="fa fa-check-circle fa-lg favicon-list-custom"></i>
                                 </div>
                                 <div class="col-md-11">
-                                    <h4>Invitations to Austin Urban League events</h4>
+                                    <h4>Discounts to events of our partner organizations</h4>
                                 </div>
                                 <div class="col-md-1">
                                     <i class="fa fa-check-circle fa-lg favicon-list-custom"></i>
                                 </div>
                                 <div class="col-md-11">
-                                    <h4>Discounts to Austin Area Urban League and Austin Area Urban League Young Professional Events</h4>
+                                    <h4>Discounts to NUL events</h4>
                                 </div>
                                 <div class="col-md-1">
                                     <i class="fa fa-check-circle fa-lg favicon-list-custom"></i>
                                 </div>
                                 <div class="col-md-11">
-                                    <h4>Discounts to National Urban League and National Urban League Young Professional Events</h4>
+                                    <h4>Discounts to NULYP events</h4>
                                 </div>
+
                                 <div class="col-md-1">
                                     <i class="fa fa-check-circle fa-lg favicon-list-custom"></i>
                                 </div>
                                 <div class="col-md-11">
-                                    <h4>Austin Area Urban League Young Professionals Shirt</h4>
+                                    <h4>YP Paraphernalia</h4>
                                 </div>
                             </div>
                         </div>
@@ -94,12 +95,10 @@
                 </div>
 
             </section>
-            <div style="width:100%; text-align:left;" >
-                <iframe  src="//eventbrite.com/tickets-external?eid=5422224018&ref=etckt" frameborder="0" height="339" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
-                <div style="font-family:Helvetica, Arial; font-size:10px; padding:5px 0 5px; margin:2px; width:100%; text-align:left;" ><a class="powered-by-eb" style="color: #dddddd; text-decoration: none;" target="_blank" href="http://www.eventbrite.com/l/registration-online/">Powered by Eventbrite</a>
+            <div style="width:100%; text-align:left;">
+                <iframe src="//eventbrite.com/tickets-external?eid=31015190269&ref=etckt" frameborder="0" height="563" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe><div style="font-family:Helvetica, Arial; font-size:12px; padding:10px 0 5px; margin:2px; width:100%; text-align:left;" ><a class="powered-by-eb" style="color: #ADB0B6; text-decoration: none;" target="_blank" href="http://www.eventbrite.com/">Powered by Eventbrite</a>
                 </div>
             </div>
-
         </div>
     </div>
     @include('partials.footer')
