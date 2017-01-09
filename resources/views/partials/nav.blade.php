@@ -33,7 +33,7 @@
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">ABOUT <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ url('/aaulyp') }}">AAULYP History</a></li>
+                        <li><a href="{{ url('/aaulyp') }}">About Us</a></li>
                         {{--<li><a href="{{ url('/board') }}">Meet the YP Officers</a></li>--}}
                         <li><a href="{{ url('/aaul') }}">Austin Area Urban League</a></li>
                     </ul>

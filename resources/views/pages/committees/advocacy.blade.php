@@ -12,7 +12,7 @@
                 <li><a href="{{ "/commitee/".request()->route()->__get('name') }}">Committees</a></li>
                 <li class="active">Advocacy</li>
             </ol>
-        </div>
+        </div
     </div>
     <!-- END BREADCRUMBS -->
     <!-- PAGE CONTENT -->
