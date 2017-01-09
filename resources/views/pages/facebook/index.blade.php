@@ -20,7 +20,64 @@
                 <!-- BLOG ENTRIES -->
                 <div class="blog medium-thumbnail margin-bottom-30px">
                     @if(count($events) == 0)
-                        <h1>We are planning some great opportunities. Please check back later to see some of the activities we have planned</h1>
+                        <h1>We are planning some great opportunities. Checkout Some of our past events we hosted</h1>
+                        <!-- blog post -->
+                        @foreach($pastEvents as $pastEvent)
+                            <article class="entry-post">
+                                <header class="entry-header">
+                                    <h2 class="entry-title">
+                                        <a href="#">{{ $pastEvent->name }}</a>
+                                    </h2>
+                                    <div class="meta-line clearfix">
+                                        <div class="meta-author-category pull-left">
+                                            <span class="post-author"><a href="#">Austin Area Urban League Young Professionals</a></span>
+                                            {{--<span class="post-category">In: <a href="#">{{ $pastEvent->category }}</a></span>--}}
+                                        </div>
+                                        {{--<div class="meta-tag-comment pull-right">--}}
+                                        {{--<span class="post-tags"><i class="fa fa-twitter"></i> <a href="#">story</a>, <a href="#">inspiration</a>, <a href="#">creative</a></span>--}}
+                                        {{--<span class="post-comment"><i class="fa fa-comments"></i> <a href="#">3 Comments</a></span>--}}
+                                        {{--</div>--}}
+                                    </div>
+                                </header>
+                                <div class="entry-content clearfix">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <figure class="featured-image">
+                                                <a href="#">
+                                                    <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', strtotime($pastEvent->date_start))) }}</span><span class="post-date">{{ date('j', strtotime($pastEvent->date_start)) }}</span><span class="post-year">{{ date('Y', strtotime($pastEvent->date_start)) }}</span></div>
+                                                    <img src="{{ $pastEvent->cover_photo }}" class="img-responsive" alt="featured-image" />
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="excerpt">
+                                                <p>{!! str_limit($pastEvent->description, 170) !!}</p>
+                                                @if (isset($pastEvent->date_start) && isset($pastEvent->date_end))
+                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", strtotime($pastEvent->date_start)) }} - {{ date("D, d M Y g:iA", strtotime($pastEvent->date_end)) }}</p>
+                                                @elseif (!isset($pastEvent->date_end))
+                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", strtotime($pastEvent->date_start)) }}</p>
+                                                @else
+                                                    <p><i class="fa fa-clock-o"></i>TBD</p>
+                                                @endif
+
+                                                @if ($pastEvent->street_address && $pastEvent->location_name)
+                                                    <p><i class="fa fa-map-marker"></i> {{ $pastEvent->location_name }} <br> {{ $pastEvent->street_address }}</p>
+                                                @elseif($pastEvent->street_address)
+                                                    <p><i class="fa fa-map-marker"></i> {{ $pastEvent->street_address }}</p>
+                                                @else
+                                                    <p><i class="fa fa-map-marker"></i> More Details To Come</p>
+                                                @endif
+                                                <p class="read-more">
+                                                    <a href="/events/fb/{{ $pastEvent->facebook_id }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- end blog post -->
+                            <hr />
+                        @endforeach
                     @else
                         <!-- blog post -->
                         @foreach($events as $event)
@@ -44,7 +101,7 @@
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <figure class="featured-image">
-                                                <a href="blog-single.html">
+                                                <a href="#">
                                                     <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', strtotime($event->date_start))) }}</span><span class="post-date">{{ date('j', strtotime($event->date_start)) }}</span><span class="post-year">{{ date('Y', strtotime($event->date_start)) }}</span></div>
                                                     <img src="{{ $event->cover_photo }}" class="img-responsive" alt="featured-image" />
                                                 </a>
@@ -85,11 +142,7 @@
             </div>
             <div class="col-md-3">
                 <!-- SIDEBAR -->
-                @if (count($eventsFeatured) > 0)
-                    @include('partials.sidebar.contentSideBar', ['events' => $events, 'eventsFeatured' => $eventsFeatured])
-                @else
                     <a class="twitter-timeline" href="https://twitter.com/AAULYP" data-widget-id="731769931243495424">Tweets by @AAULYP</a>
-                @endif
                     <!-- end tags -->
                 <!-- END SIDEBAR -->
             </div>

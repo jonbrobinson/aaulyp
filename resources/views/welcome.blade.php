@@ -36,17 +36,29 @@
     </section>
     <!-- END HERO UNIT -->
     <!-- MAIN FEATURES -->
-    <div class="main-features ">
+    <div class="main-features">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-6"><i class="fa fa-cubes "></i>
-                    <h3 class="feature-heading">LEADERSHIP FOUNDATION</h3></div>
-                <div class="col-md-3 col-sm-6"><i class="fa fa-globe "></i>
-                    <h3 class="feature-heading">PASSIONATE SERVICE</h3></div>
-                <div class="col-md-3 col-sm-6"><i class="fa fa-refresh "></i>
-                    <h3 class="feature-heading">DYNAMIC CHANGE</h3></div>
-                <div class="col-md-3 col-sm-6"><i class="fa fa-rocket "></i>
-                    <h3 class="feature-heading">CAREER DEVELOPMENT</h3></div>
+                <div class="col-md-3 col-sm-6">
+                    {{--<i class="fa fa-cubes"></i>--}}
+                    {{--<h3 class="feature-heading">LEADERSHIP FOUNDATION</h3>--}}
+                    <h3 class="feature-heading">PROFESSIONAL DEVELOPMENT</h3>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    {{--<i class="fa fa-globe"></i>--}}
+                    {{--<h3 class="feature-heading">PASSIONATE SERVICE</h3>--}}
+                    <h3 class="feature-heading">FINANCIAL LITERACY</h3>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    {{--<i class="fa fa-refresh"></i>--}}
+                    {{--<h3 class="feature-heading">DYNAMIC CHANGE</h3>--}}
+                    <h3 class="feature-heading">YOUTH EMPOWERMENT</h3>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    {{--<i class="fa fa-rocket"></i>--}}
+                    {{--<h3 class="feature-heading">CAREER DEVELOPMENT</h3>--}}
+                    <h3 class="feature-heading">CIVIC ENGAGEMENT</h3>
+                </div>
             </div>
         </div>
     </div>
@@ -69,40 +81,6 @@
     </section>
     <!-- END INTRO -->
     <!-- BOXED CONTENT -->
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="boxed-content left-aligned left-boxed-icon">
-                        <i class="fa fa-group"></i>
-                        <h2 class="boxed-content-title">PROFESSIONAL DEVELOPMENT</h2>
-                        <p>We encourage our members to become leaders within Austin and surrounding cities by building skills </p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="boxed-content left-aligned left-boxed-icon">
-                        <i class="fa fa-graduation-cap"></i>
-                        <h2 class="boxed-content-title">EDUCATION AND YOUTH EMPOWERMENT</h2>
-                        <p>We are committed to mentoring and educating youth to help grow their opportunitties for future accomplishments</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="boxed-content left-aligned left-boxed-icon">
-                        <i class="fa fa-money"></i>
-                        <h2 class="boxed-content-title">FINANCIAL LITERACY</h2>
-                        <p>Our network connects young professionals from across the nation to vast communities within Austin professions and companies.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="boxed-content left-aligned left-boxed-icon">
-                        <i class="fa fa-gavel"></i>
-                        <h2 class="boxed-content-title">CIVIC ENGAGEMENT</h2>
-                        <p>Our members are educated, dedicated, and committed to helping the comminity get involed in their polication and social movements.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- END BOXED CONTENT -->
     @if(!empty($events))
     <!-- RECENT WORKS -->
@@ -138,6 +116,41 @@
                 </div>
                 <div class="col-md-4">
                     @include('partials.socialMediaTabs')
+                </div>
+            </div>
+        </div>
+    </section>
+    @else
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="boxed-content left-aligned left-boxed-icon">
+                        <i class="fa fa-group"></i>
+                        <h2 class="boxed-content-title">PROFESSIONAL DEVELOPMENT</h2>
+                        <p>We encourage our members to become leaders within Austin and surrounding cities by building skills </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="boxed-content left-aligned left-boxed-icon">
+                        <i class="fa fa-graduation-cap"></i>
+                        <h2 class="boxed-content-title">EDUCATION AND YOUTH EMPOWERMENT</h2>
+                        <p>We are committed to mentoring and educating youth to help grow their opportunitties for future accomplishments</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="boxed-content left-aligned left-boxed-icon">
+                        <i class="fa fa-money"></i>
+                        <h2 class="boxed-content-title">FINANCIAL LITERACY</h2>
+                        <p>Our network connects young professionals from across the nation to vast communities within Austin professions and companies.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="boxed-content left-aligned left-boxed-icon">
+                        <i class="fa fa-gavel"></i>
+                        <h2 class="boxed-content-title">CIVIC ENGAGEMENT</h2>
+                        <p>Our members are educated, dedicated, and committed to helping the comminity get involed in their polication and social movements.</p>
+                    </div>
                 </div>
             </div>
         </div>
