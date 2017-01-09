@@ -52,12 +52,12 @@
                         <li class="dropdown ">
                             <a href="#">Committees <i class="fa fa-angle-right"></i></a>
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/committee/advocacy') }}">Advocacy</a></li>
                                 <li><a href="{{ url('/committee/community') }}">Community Outreach</a></li>
                                 <li><a href="{{ url('/committee/communication') }}">Communications</a></li>
                                 <li><a href="{{ url('/committee/fundraising') }}">Fundraising</a></li>
                                 <li><a href="{{ url('/committee/membership') }}">Membership/Social</a></li>
                                 <li><a href="{{ url('/committee/development') }}">Professional Development</a></li>
-                                <li><a href="{{ url('/committee/political') }}">Political</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -111,7 +111,7 @@ class PagesController extends Controller
      */
     public function committees($committee)
     {
-        $validCommittees = ['community', 'communication', 'development', 'fundraising', 'political', 'membership'];
+        $validCommittees = ['community', 'communication', 'development', 'fundraising', 'advocacy', 'membership'];
 
         if (in_array($committee, $validCommittees)) {
 

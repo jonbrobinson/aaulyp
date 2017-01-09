@@ -89,7 +89,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="col-md-12 row">
-                        <h2 class="section-heading pull-left">UPCOMING EVENTS</h2>
+                        <h2 class="section-heading pull-left"><a href="{{ url('/events') }}">UPCOMING EVENTS</a></h2>
                     </div>
                     @if(count($events) >= 1)
                     <div class="row">

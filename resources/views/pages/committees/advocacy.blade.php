@@ -10,7 +10,7 @@
             <ol class="breadcrumb">
                 <li><a href="/">Get Involved</a></li>
                 <li><a href="{{ "/commitee/".request()->route()->__get('name') }}">Committees</a></li>
-                <li class="active">Political</li>
+                <li class="active">Advocacy</li>
             </ol>
         </div>
     </div>
@@ -23,9 +23,9 @@
                     @include('partials.sidebar.committees', [request()->route()->__get('name') => "list-group-item current"] )
                 </div>
                 <div class="col-md-6">
-                    <h3 class="section-heading">POLITICAL COMMITTEE</h3>
+                    <h3 class="section-heading">ADVOCACY COMMITTEE</h3>
                     <p>
-                        Our Political Committee is responsible for keeping our membership base informed and involved in the political process, with a special focus on what is going on locally in Austin Area politics. Promotes our organization as a noteworthy collection of engaged citizens that are passionate about policy reform that promotes our focus on socioeconomic advancement; Connects our organization with other entities that share in our purpose; Assists with bringing the sexy back into politics for our age group and demographic.
+                        Our Advocacy Committee is responsible for keeping our membership base informed and involved in the political process, with a special focus on what is going on locally in Austin Area politics. Promotes our organization as a noteworthy collection of engaged citizens that are passionate about policy reform that promotes our focus on socioeconomic advancement; Connects our organization with other entities that share in our purpose; Assists with bringing the sexy back into politics for our age group and demographic.
                     </p>
 
                     <br>
