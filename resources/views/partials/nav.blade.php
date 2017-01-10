@@ -39,6 +39,8 @@
                         <li><a href="{{ url('/aaulyp') }}">History</a></li>
                         {{--<li><a href="{{ url('/board') }}">Meet the YP Officers</a></li>--}}
                         <li><a href="{{ url('http://www.aaul.org') }}">Austin Area Urban League</a></li>
+                        <li><a href="{{ url('http://www.nulyp.org') }}">National Urban League Young Professionals</a></li>
+                        <li><a href="{{ url('http://www.nul.org') }}">National Urban League</a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">

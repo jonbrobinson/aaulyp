@@ -45,7 +45,7 @@
         </div>
         <div id="collapseFour" class="panel-collapse collapse">
             <div class="panel-body">
-                <p>As younng professionals the YP's are great role models to learn from.  Helping empower youth and prepare them for our future is  a big opportunity to empoer our communities.</p>
+                <p>We create implement As young professionals the YP's are great role models to learn from.  Empower youth and prepare them for our future is  a big opportunity to empower our communities.</p>
             </div>
         </div>
     </div>
