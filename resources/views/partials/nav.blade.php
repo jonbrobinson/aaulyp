@@ -31,9 +31,12 @@
         <div id="main-nav" class="navbar-collapse collapse navbar-mega-menu">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown ">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ABOUT <i class="fa fa-angle-down"></i></a>
+                    <a href="{{ url('/') }}" class="dropdown-toggle">HOME</a>
+                </li>
+                <li class="dropdown ">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ABOUT US<i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ url('/aaulyp') }}">About Us</a></li>
+                        <li><a href="{{ url('/aaulyp') }}">History</a></li>
                         {{--<li><a href="{{ url('/board') }}">Meet the YP Officers</a></li>--}}
                         <li><a href="{{ url('http://www.aaul.org') }}">Austin Area Urban League</a></li>
                     </ul>
