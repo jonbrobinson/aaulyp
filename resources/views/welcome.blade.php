@@ -158,7 +158,7 @@
     @endif
     <section class="recent-works">
         <div class="container">
-            <h2 class="section-heading pull-left">WHAT WE HAVE BEEN DOING</h2>
+            <h2 class="section-heading pull-left">GET INVOLVED</h2>
             <a href="{{ url('/join') }}" class="btn btn-primary pull-right">Join AAULYP</a>
             <div class="clearfix"></div>
             <div class="portfolio-static">
