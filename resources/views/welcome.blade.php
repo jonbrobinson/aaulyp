@@ -69,7 +69,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2 class="section-heading">HOW CAN WE HELP</h2>
-                    <p class="lead">Austin Area Urban League Young Professionals is a service auxiliary that provides young professionals with resources and activities to help empower communities in Austin.</p>
+                    <p class="lead">Austin Area Urban League Young Professionals (AAULYP) is a service auxiliary that provides young professionals with resources and activities to help empower communities in Austin.</p>
                     <p>Austin Area Urban League Young Professionals are committed to community engagement, improving minority businesses through innovative programming, and dynamic dialogue and professional development.</p>
                     <p>Our activities are characterized by excellence in community service, fund-raising, and dedication to the development of its diverse members to empower communities and change lives through consistent involvement in the community in partnership with the Urban League.</p>
                 </div>

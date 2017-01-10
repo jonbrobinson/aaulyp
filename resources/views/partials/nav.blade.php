@@ -35,7 +35,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ url('/aaulyp') }}">About Us</a></li>
                         {{--<li><a href="{{ url('/board') }}">Meet the YP Officers</a></li>--}}
-                        <li><a href="{{ url('/aaul') }}">Austin Area Urban League</a></li>
+                        <li><a href="{{ url('http://www.aaul.org') }}">Austin Area Urban League</a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">

@@ -69,7 +69,7 @@
                     <h3 class="widget-title">CONTACT INFO</h3>
                     <ul class="contact-info fa-ul">
                         <li><i class="fa fa-li fa-building-o"></i>8011A Cameron Rd, Austin, TX 78754</li>
-                        <li><i class="fa fa-li fa-phone"></i> (512) 278 - 7176</li>
+                        <li><i class="fa fa-li fa-phone"></i> (512) 478 - 7176</li>
                         <li><i class="fa fa-li fa-envelope-o"></i> <a href="mailto:pr.aaulyp@gmail.com">pr.aaulyp@gmail.com</a></li>
                     </ul>
                 </div>

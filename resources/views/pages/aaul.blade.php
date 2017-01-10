@@ -5,7 +5,7 @@
     <!-- BREADCRUMBS -->
     <div class="page-header">
         <div class="container">
-            <h1 class="page-title pull-left">Austin Area Urban League</h1>
+            <h1 class="page-title pull-left">Austin Area Urban League Young Professionals</h1>
             <ol class="breadcrumb">
                 <li><a href="/">Home</a></li>
                 <li><a href="/aaul">About</a></li>

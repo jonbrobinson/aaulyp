@@ -9,7 +9,7 @@
             <h1 class="page-title pull-left">Austin Area Urban League</h1>
             <ol class="breadcrumb">
                 <li><a href="/">Home</a></li>
-                <li><a href="{{ url('/aaulyp') }}">About</a></li>
+                <li><a href="{{ url('/aaulyp') }}">About Us</a></li>
                 <li class="active">Our History</li>
             </ol>
         </div>

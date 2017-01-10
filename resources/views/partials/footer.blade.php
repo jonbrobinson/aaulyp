@@ -13,7 +13,7 @@
                         <li>Austin Area Urban League</li>
                         <li>8011A Cameron Rd
                             <br/> Austin, TX 78754</li>
-                        <li>Phone: (512) 278 - 7176</li>
+                        <li>Phone: (512) 478 - 7176</li>
                         <li>Email: pr.aaulyp@gmail.com</li>
                     </ul>
                 </address>
@@ -26,7 +26,7 @@
                     <div class="col-xs-6">
                         <ul class="list-unstyled footer-nav">
                             <li><a href="{{ url('/aaulyp') }}">About Us</a></li>
-                            <li><a href="{{ url('https://www.aaul.org') }}">Austin Area Urban League</a></li>
+                            <li><a href="{{ url('http://www.aaul.org') }}">Austin Area Urban League</a></li>
                             <li><a href="{{ url('/join') }}">Join Us</a></li>
                         </ul>
                     </div>
