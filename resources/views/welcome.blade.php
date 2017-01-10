@@ -209,20 +209,21 @@
     <!-- OUR CLIENTS -->
     <section class="clients">
         <div class="container">
-            <h2 class="section-heading">OUR PARTNERS</h2>
+            <h2 class="section-heading">AAULYP WOULD LIKE TO THANK OUR AFFILIATE AND PARTNERS</h2>
             <ul class="list-inline list-client-logo">
                 <li>
-                    <a href="#"><img src="{{ asset('assets/img/clients/aayouthHarvestFoundation_135x80.png') }}" alt="Youth Harvest Foundation"></a>
-                </li>
-                <li>
-                    <a href="#"><img src="{{ asset('assets/img/clients/Capmetrologo_95x80.png') }}" alt="Capitol Metro"></a>
-                </li>
-                <li>
-                    <a href="#"><img src="{{ asset('assets/img/clients/CityOfAustin_80x80.png') }}" alt="City of Austin"></a>
+                    <a href="#"><img src="{{ asset('assets/img/aaul/aaul_h80.png') }}" alt="Capitol Metro"></a>
                 </li>
                 <li>
                     <a href="#"><img src="{{ asset('assets/img/clients/Dell_Logo_80x80.png') }}" alt="Dell"></a>
                 </li>
+                <li>
+                    <a href="#"><img src="{{ asset('assets/img/clients/aayouthHarvestFoundation_135x80.png') }}" alt="Youth Harvest Foundation"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="{{ asset('assets/img/clients/CityOfAustin_80x80.png') }}" alt="City of Austin"></a>
+                </li>
+
                 <li>
                     <a href="#"><img src="{{ asset('assets/img/clients/Huston-tilotson_255x80.png') }}" alt="Houston Tillotson"></a>
                 </li>
