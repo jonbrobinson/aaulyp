@@ -66,11 +66,15 @@
             <div class="col-md-3">
                 <!-- RIGHT SIDEBAR CONTENT -->
                 <div class="widget">
-                    <h3 class="widget-title">CONTACT INFO</h3>
+                    <h3 class="widget-title">AAUL CONTACT INFO</h3>
+                    <p>
+                        For More information about the Austin Area Urban League contact the AAUL Main Office at:
+                    </p>
                     <ul class="contact-info fa-ul">
-                        <li><i class="fa fa-li fa-building-o"></i>8011A Cameron Rd, Austin, TX 78754</li>
+                        <li><i class="fa fa-li fa-building-o"></i>8011A Cameron Rd
+                            <br> Austin, TX 78754
+                        </li>
                         <li><i class="fa fa-li fa-phone"></i> (512) 478 - 7176</li>
-                        <li><i class="fa fa-li fa-envelope-o"></i> <a href="mailto:pr.aaulyp@gmail.com">pr.aaulyp@gmail.com</a></li>
                     </ul>
                 </div>
                 <div class="widget">

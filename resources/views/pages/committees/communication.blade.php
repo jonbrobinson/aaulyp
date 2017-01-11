@@ -34,7 +34,7 @@
                     <p>* Maintain primary social media channels Facebook, Twitter, Instagram</p>
                     <p>* Prepare Monthly Newsletter of AAULYP activities</p>
                     <p>* Create content to uplift and Empower Young Professionals</p>
-                    <p>* Generate Content or AAULYP Website</p>
+                    <p>* AAULYP Website</p>
 
                     <br>
                     <h3>Meeting Information</h3>

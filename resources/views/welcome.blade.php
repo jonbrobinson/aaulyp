@@ -148,7 +148,7 @@
                     <div class="boxed-content left-aligned left-boxed-icon">
                         <i class="fa fa-gavel"></i>
                         <h2 class="boxed-content-title">CIVIC ENGAGEMENT</h2>
-                        <p>Our members are educated, dedicated, and committed to helping the comminity get involed in their polication and social movements.</p>
+                        <p>Our members are educated, dedicated, and committed to helping the community get involved in their politician and social movements.</p>
                     </div>
                 </div>
             </div>
@@ -237,7 +237,7 @@
                 <h2 class="section-heading">GET IN TOUCH</h2>
             </div>
             <div class="pull-right">
-                <span>Call us at (512) 278 - 7176 or</span>&nbsp;&nbsp;<a href="/contact" class="btn btn-lg btn-primary">CONTACT US</a>
+                &nbsp;&nbsp;<a href="/contact" class="btn btn-lg btn-primary">CONTACT US</a>
             </div>
         </div>
     </section>

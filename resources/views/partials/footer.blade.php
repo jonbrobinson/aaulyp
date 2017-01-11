@@ -6,15 +6,15 @@
                 <!-- COLUMN 1 -->
                 <h3 class="sr-only">ABOUT US</h3>
                 <img src="{{ asset("assets/img/aaulyp/logos/UL-white.png") }}" class="logo" alt="AAULYP Logo">
-                <p>The Austin Area Urban League Young Professionals (AAULYP) is a National Urban League volunteer auxiliary that targets young professionals ages 21-40 to empower their communities and change lives through the Urban League Movement.</p>
-                <br>
+                <p>The Austin Area Urban League Young Professionals (AAULYP) is a service auxiliary to the Austin Area Urban League.</p>
                 <address class="margin-bottom-30px">
                     <ul class="list-unstyled">
-                        <li>Austin Area Urban League</li>
+                        <li>For More information about the Austin Area Urban League <br>
+                        contact the AAUL Main Office at:
+                        </li>
                         <li>8011A Cameron Rd
                             <br/> Austin, TX 78754</li>
                         <li>Phone: (512) 478 - 7176</li>
-                        <li>Email: pr.aaulyp@gmail.com</li>
                     </ul>
                 </address>
                 <!-- END COLUMN 1 -->

@@ -33,8 +33,6 @@
 
                     <p>* Coordinate Monthly Service Events</p>
                     <p>* Work with YP partners to create service opportunities to impact the community</p>
-                    <p>* Work with</p>
-                    <p>* Generate Content or AAULYP Website</p>
 
                     <br>
                     <h3>Meeting Information</h3>
