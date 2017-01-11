@@ -25,13 +25,14 @@
                 <div class="row margin-bottom-30px">
                     <div class="col-xs-6">
                         <ul class="list-unstyled footer-nav">
-                            <li><a href="{{ url('/aaulyp') }}">About Us</a></li>
+                            <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('http://www.aaul.org') }}">Austin Area Urban League</a></li>
                             <li><a href="{{ url('/join') }}">Join Us</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-6">
                         <ul class="list-unstyled footer-nav">
+                            <li><a href="{{ url('/aaulyp') }}">About Us</a></li>
                             <li><a href="{{ url('/events') }}">Events</a></li>
                             {{--<li><a href="">Our Team</a></li>--}}
                             {{--<li><a href="#">FAQ</a></li>--}}
