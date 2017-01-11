@@ -24,10 +24,10 @@
   content: '';
   border-right: 1px dashed #c33d3d;
   position: absolute;
-  height: 80px;
+  height: 20px;
   top: 50%;
   right: 0;
-  margin-top: -40px;
+  margin-top: -10px;
 }
 .main-features div[class^="col-"]:last-child:after {
   border-right: none;
