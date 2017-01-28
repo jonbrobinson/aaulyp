@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Aaulyp\Tools\Api\EventbriteApi;
 use Illuminate\Http\Request;
 use App\Aaulyp\Tools\Api\FacebookSdkHelper;
 

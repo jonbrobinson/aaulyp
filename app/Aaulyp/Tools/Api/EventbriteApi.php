@@ -170,12 +170,6 @@ class EventbriteApi
             $ticketInfo = array();
             $ticketInfo['name']  = $ticketClass->name;
             $ticketInfo['sold']  = $ticketClass->quantity_sold;
-
-            if ($ticketClass->name == 'Donation') {
-                $ticketInfo['price'] = "donation";
-            } else {
-                $ticketInfo['price'] = $ticketClass->actual_cost->value / 100;
-            }
             $ticketsInfo['total'] += $ticketInfo['sold'];
             $ticketsInfo['ticketTypes'][] = $ticketInfo;
         }
