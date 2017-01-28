@@ -55,4 +55,22 @@ class WebhookController extends Controller
 
         return response($response->getBody(), $response->getStatusCode());
     }
+
+    public function joinWeekMixerOrders(Request $request)
+    {
+        $this->init();
+
+        $ticketsInfo = $this->eventbrite->getJoinWeekTicketsInfo();
+
+        $response = $this->emailer->sendJoinWeekMixerOrdersEmail($ticketsInfo);
+
+        if ($response->getStatusCode() == 200) {
+            return response()->json([
+                "message" => "Success. Ticket Update email has been sent"
+
+            ], $response->getStatusCode());
+        }
+
+        return response($response->getBody(), $response->getStatusCode());
+    }
 }

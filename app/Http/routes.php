@@ -43,6 +43,8 @@ Route::post('/webhooks/eventbrite/orders', 'WebhookController@ebOrders');
 
 Route::post('/webhooks/ypweekend/orders', 'WebhookController@ypWeekendOrders');
 
+Route::post('/webhooks/joinWeekMixer2017/orders', 'WebhookController@joinWeekMixerOrders');
+
 
 Route::get('/admin/create', 'AdminController@leadershipCreate');
 

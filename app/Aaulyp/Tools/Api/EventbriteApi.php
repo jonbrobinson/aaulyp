@@ -10,6 +10,7 @@ class EventbriteApi
 {
     const EVENTBRITE_BASE_URL = "https://www.eventbriteapi.com/v3/";
     const YP_WEEKEND_ID = 25893386817;
+    const JOIN_WEEK_ID = 31314155482;
 
     protected $guzzle;
 
@@ -64,14 +65,37 @@ class EventbriteApi
 
     public function getYpWeekendTicketInfo()
     {
-        $ticketClasses = $this->getTicketClassInfo(self::YP_WEEKEND_ID);
+        $ticketsInfo = $this->getTicketsInfo(self::YP_WEEKEND_ID);
+
+        return $ticketsInfo;
+    }
+
+    /**
+     * @return array
+     */
+    public function getJoinWeekTicketsInfo()
+    {
+        $ticketsInfo = $this->getTicketsInfo(self::JOIN_WEEK_ID);
+
+        return $ticketsInfo;
+    }
+
+
+    /**
+     * @param string $eventId
+     *
+     * @return array
+     */
+    protected function getTicketsInfo($eventId)
+    {
+        $ticketClasses = $this->getTicketClassInfo($eventId);
 
         $ticketsInfo = $this->convertTicketsInfo($ticketClasses);
 
         return $ticketsInfo;
     }
 
-    public function getEventOrders($id)
+    protected function getEventOrders($id)
     {
         $url = self::EVENTBRITE_BASE_URL . "events/{$id}/orders";
         $headers = [
@@ -94,7 +118,7 @@ class EventbriteApi
         return $orders;
     }
 
-    public function getTicketClassInfo($id)
+    protected function getTicketClassInfo($id)
     {
         $url = self::EVENTBRITE_BASE_URL . "events/{$id}/ticket_classes";
         $headers = [
