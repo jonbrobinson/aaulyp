@@ -42,7 +42,7 @@ Route::get('/album/{id}', 'FacebookController@showAlbum');
 
 Route::post('/webhooks/ypweekend/orders', 'WebhookController@ypWeekendOrders');
 
-Route::post('/webhooks/joinWeekMixer2017/orders', 'WebhookController@joinWeekMixerOrders');
+Route::post('/webhooks/joinweekmixer2017/orders', 'WebhookController@joinWeekMixerOrders');
 
 
 Route::get('/admin/create', 'AdminController@leadershipCreate');
