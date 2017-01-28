@@ -101,7 +101,7 @@
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <figure class="featured-image">
-                                                <a href="blog-single.html">
+                                                <a href="{{ url("/events/fb/$event->facebook_id") }}">
                                                     <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', strtotime($event->date_start))) }}</span><span class="post-date">{{ date('j', strtotime($event->date_start)) }}</span><span class="post-year">{{ date('Y', strtotime($event->date_start)) }}</span></div>
                                                     <img src="{{ $event->cover_photo }}" class="img-responsive" alt="featured-image" />
                                                 </a>

@@ -96,7 +96,7 @@
                             @if($index <= 1)
                                 <div class="col-md-6">
                                     <div class="">
-                                        <img src="{{ $event->cover_photo }}" alt="" class="img-responsive">
+                                        <a href="{{ url("/events/fb/$event->facebook_id") }}"><img src="{{ $event->cover_photo }}" alt="" class="img-responsive"></a>
                                     </div>
                                     <h4 class="post-title"><a href="{{ url('events/fb/'.$event->facebook_id) }}">{{ $event->name }}</a></h4>
                                     <h5 class="text-muted">{{ date('M j, Y', strtotime($event->date_start)) }} | {{  date('g:iA', strtotime($event->date_start)) }} - {{  date('g:iA', strtotime($event->date_end)) }}</h5>
