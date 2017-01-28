@@ -1,8 +1,8 @@
-<h2><strong>RSVP Confirmed</strong></h2>
+<h2><strong>Order Confirmed</strong></h2>
 
 <p>A new order has been placed</p>
 
-<p>RSVP count: {{ $ticketsInfo['total'] }}</p>
+<p>Order count: {{ $ticketsInfo['total'] }}</p>
 
 <table style="border: none">
     <tr>
