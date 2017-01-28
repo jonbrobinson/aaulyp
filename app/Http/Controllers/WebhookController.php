@@ -27,7 +27,7 @@ class WebhookController extends Controller
 
         $response = $this->emailer->sendWelcomeEmail($orderUser);
 
-        return $this->getResponseStatus($response);
+        return $this->getTicketResponseStatus($response);
     }
 
     /**
@@ -43,7 +43,7 @@ class WebhookController extends Controller
 
         $response = $this->emailer->sendYpWeekendOrdersEmail($ticketsInfo);
 
-        return $this->getResponseStatus($response);
+        return $this->getTicketResponseStatus($response);
     }
 
     /**
@@ -59,7 +59,23 @@ class WebhookController extends Controller
 
         $response = $this->emailer->sendJoinWeekMixerOrdersEmail($ticketsInfo);
 
-        return $this->getResponseStatus($response);
+        return $this->getTicketResponseStatus($response);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function membership2017Orders(Request $request)
+    {
+        $this->init();
+
+        $ticketsInfo = $this->eventbrite->getMembership2017TicketsInfo();
+
+        $response = $this->emailer->sendMembership2017Email($ticketsInfo);
+
+        return $this->getTicketResponseStatus($response);
     }
 
     /**
@@ -67,7 +83,7 @@ class WebhookController extends Controller
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
-    protected function getResponseStatus($response)
+    protected function getTicketResponseStatus($response)
     {
         if ($response->getStatusCode() == 200) {
             return response()->json([

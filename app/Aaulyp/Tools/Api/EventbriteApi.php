@@ -11,6 +11,7 @@ class EventbriteApi
     const EVENTBRITE_BASE_URL = "https://www.eventbriteapi.com/v3/";
     const YP_WEEKEND_ID = 25893386817;
     const JOIN_WEEK_ID = 31314155482;
+    const MEMBERSHIP_2017 = 31015190269;
 
     protected $guzzle;
 
@@ -76,6 +77,16 @@ class EventbriteApi
     public function getJoinWeekTicketsInfo()
     {
         $ticketsInfo = $this->getTicketsInfo(self::JOIN_WEEK_ID);
+
+        return $ticketsInfo;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMembership2017TicketsInfo()
+    {
+        $ticketsInfo = $this->getTicketsInfo(self::MEMBERSHIP_2017);
 
         return $ticketsInfo;
     }
