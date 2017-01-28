@@ -12,12 +12,11 @@ class WebhookController extends Controller
     protected $eventbrite;
     protected $emailer;
 
-    public function init()
-    {
-        $this->eventbrite = new EventbriteApi();
-        $this->emailer = new Emailer();
-    }
-
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function ebOrders(Request $request)
     {
         $this->init();
@@ -28,16 +27,14 @@ class WebhookController extends Controller
 
         $response = $this->emailer->sendWelcomeEmail($orderUser);
 
-        if ($response->getStatusCode() == 200) {
-            return response()->json([
-                "message" => "Success. Welcome email has been sent"
-
-            ], $response->getStatusCode());
-        }
-
-        return response($response->getBody(), $response->getStatusCode());
+        return $this->getResponseStatus($response);
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function ypWeekendOrders(Request $request)
     {
         $this->init();
@@ -46,6 +43,32 @@ class WebhookController extends Controller
 
         $response = $this->emailer->sendYpWeekendOrdersEmail($ticketsInfo);
 
+        return $this->getResponseStatus($response);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function joinWeekMixerOrders(Request $request)
+    {
+        $this->init();
+
+        $ticketsInfo = $this->eventbrite->getJoinWeekTicketsInfo();
+
+        $response = $this->emailer->sendJoinWeekMixerOrdersEmail($ticketsInfo);
+
+        return $this->getResponseStatus($response);
+    }
+
+    /**
+     * @param $response
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    protected function getResponseStatus($response)
+    {
         if ($response->getStatusCode() == 200) {
             return response()->json([
                 "message" => "Success. Ticket Update email has been sent"
@@ -56,21 +79,12 @@ class WebhookController extends Controller
         return response($response->getBody(), $response->getStatusCode());
     }
 
-    public function joinWeekMixerOrders(Request $request)
+    /**
+     *
+     */
+    protected function init()
     {
-        $this->init();
-
-        $ticketsInfo = $this->eventbrite->getJoinWeekTicketsInfo();
-
-        $response = $this->emailer->sendJoinWeekMixerOrdersEmail($ticketsInfo);
-
-        if ($response->getStatusCode() == 200) {
-            return response()->json([
-                "message" => "Success. Ticket Update email has been sent"
-
-            ], $response->getStatusCode());
-        }
-
-        return response($response->getBody(), $response->getStatusCode());
+        $this->eventbrite = new EventbriteApi();
+        $this->emailer = new Emailer();
     }
 }
