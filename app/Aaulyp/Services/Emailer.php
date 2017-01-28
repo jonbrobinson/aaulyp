@@ -34,16 +34,11 @@ class Emailer
      */
     public function sendYpWeekendOrdersEmail($ticketsInfo)
     {
-        $bcc = array('pr.aaulyp@gmail.com', 'president.aaulyp@gmail.com', 'mrsjadeshaw@gmail.com');
-        $bccAll = array('pr.aaulyp@gmail.com', 'mrsjadeshaw@gmail.com');
-        $response = Mail::send('pages.emails.ypWeekendOrdersUpdateEmail', ['ticketsInfo' => $ticketsInfo], function ($m) use ($ticketsInfo, $bcc, $bccAll) {
+        $bcc = array('president.aaulyp@gmail.com');
+        $response = Mail::send('pages.emails.ypWeekendOrdersUpdateEmail', ['ticketsInfo' => $ticketsInfo], function ($m) use ($ticketsInfo, $bcc) {
             $m->from('pr.aaulyp@gmail.com', 'AAULYP Communications');
-            $m->to('secretary.aaulyp@gmail.com');
-            if ((intval($ticketsInfo['total']) % 5) == 0) {
-                $m->bcc($bcc);
-            } else {
-                $m->bcc($bccAll);
-            }
+            $m->to('pr.aaulyp@gmail.com');
+//            $m->bcc($bcc);
             $m->subject('Texas YP Weekend 2016 Ticket Sold');
         });
         return $response;
