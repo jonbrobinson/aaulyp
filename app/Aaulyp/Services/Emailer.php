@@ -53,7 +53,7 @@ class Emailer
      */
     public function sendJoinWeekMixerOrdersEmail($ticketsInfo)
     {
-        $cc = array('president.aaulyp@gmail.com', 'social.aaulyp@gmail.com');
+        $cc = array('president.aaulyp@gmail.com', 'vicepresident.aaulyp@gmail.com', 'social.aaulyp@gmail.com');
         $response = Mail::send('pages.emails.joinWeekMixerEmail', ['ticketsInfo' => $ticketsInfo], function ($m) use ($ticketsInfo, $cc) {
             $m->from('pr.aaulyp@gmail.com', 'AAULYP Communications');
             $m->to('pr.aaulyp@gmail.com');
@@ -72,7 +72,7 @@ class Emailer
      */
     public function sendMembership2017Email($ticketsInfo)
     {
-        $cc = array('president.aaulyp@gmail.com');
+        $cc = array('president.aaulyp@gmail.com', 'vicepresident.aaulyp@gmail.com');
         $response = Mail::send('pages.emails.membership2017Email', ['ticketsInfo' => $ticketsInfo], function ($m) use ($ticketsInfo, $cc) {
             $m->from('pr.aaulyp@gmail.com', 'AAULYP Communications');
             $m->to('pr.aaulyp@gmail.com');
