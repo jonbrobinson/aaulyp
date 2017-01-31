@@ -76,7 +76,7 @@ class Emailer
         $response = Mail::send('pages.emails.joinWeekMixerEmail', ['ticketsInfo' => $ticketsInfo], function ($m) use ($ticketsInfo, $cc) {
             $m->from('pr.aaulyp@gmail.com', 'AAULYP Communications');
             $m->to('pr.aaulyp@gmail.com');
-//            $m->cc($cc);
+            $m->cc($cc);
             $m->subject('Financial Meetup Ticket RSVP');
         });
         return $response;
