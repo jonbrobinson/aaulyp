@@ -79,6 +79,22 @@ class WebhookController extends Controller
     }
 
     /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function financial2017Orders(Request $request)
+    {
+        $this->init();
+
+        $ticketsInfo = $this->eventbrite->getFinancialMeetupTicketsInfo();
+
+        $response = $this->emailer->sendFinancialMeetUpOrdersEmail($ticketsInfo);
+
+        return $this->getTicketResponseStatus($response);
+    }
+
+    /**
      * @param $response
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response

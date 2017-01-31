@@ -70,6 +70,25 @@ class Emailer
      *
      * @return mixed
      */
+    public function sendFinancialMeetUpOrdersEmail($ticketsInfo)
+    {
+        $cc = array('president.aaulyp@gmail.com', 'vicepresident.aaulyp@gmail.com');
+        $response = Mail::send('pages.emails.joinWeekMixerEmail', ['ticketsInfo' => $ticketsInfo], function ($m) use ($ticketsInfo, $cc) {
+            $m->from('pr.aaulyp@gmail.com', 'AAULYP Communications');
+            $m->to('pr.aaulyp@gmail.com');
+//            $m->cc($cc);
+            $m->subject('Financial Meetup Ticket RSVP');
+        });
+        return $response;
+    }
+
+    /**
+     * Send YP Weekend Status Updates
+     *
+     * @param int   $ticketsInfo
+     *
+     * @return mixed
+     */
     public function sendMembership2017Email($ticketsInfo)
     {
         $cc = array('president.aaulyp@gmail.com', 'vicepresident.aaulyp@gmail.com');

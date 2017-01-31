@@ -12,6 +12,7 @@ class EventbriteApi
     const YP_WEEKEND_ID = 25893386817;
     const JOIN_WEEK_ID = 31314155482;
     const MEMBERSHIP_2017 = 31015190269;
+    const FINANCIAL_MEETUP = 31440952736;
 
     protected $guzzle;
 
@@ -87,6 +88,16 @@ class EventbriteApi
     public function getMembership2017TicketsInfo()
     {
         $ticketsInfo = $this->getTicketsInfo(self::MEMBERSHIP_2017);
+
+        return $ticketsInfo;
+    }
+
+    /**
+     * @return array
+     */
+    public function getFinancialMeetupTicketsInfo()
+    {
+        $ticketsInfo = $this->getTicketsInfo(self::FINANCIAL_MEETUP);
 
         return $ticketsInfo;
     }

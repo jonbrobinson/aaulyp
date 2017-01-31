@@ -40,6 +40,8 @@ Route::get('/album/{id}', 'FacebookController@showAlbum');
 
 //Route::post('/webhooks/eventbrite/orders', 'WebhookController@ebOrders');
 
+Route::post('/webhooks/financialMeetup2017/orders', 'WebhookController@financial2017Orders');
+
 Route::post('/webhooks/membership2017/orders', 'WebhookController@membership2017Orders');
 
 Route::post('/webhooks/ypweekend/orders', 'WebhookController@ypWeekendOrders');
