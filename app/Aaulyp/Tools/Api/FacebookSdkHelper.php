@@ -120,7 +120,7 @@ class FacebookSdkHelper
             $transformedEvents[] = $this->transformEventForDb($event);
         }
 
-        return array_reverse($transformedEvents);
+        return $transformedEvents;
     }
 
     public function getEventDetails($id)
