@@ -110,7 +110,7 @@ class FacebookSdkHelper
     {
         $events = $this->getEventsArray();
 
-        $pastDate = strtotime('today -3 months');
+        $pastDate = strtotime('today -1.5 months');
 
         $transformedEvents = array();
         foreach($events as $event) {
