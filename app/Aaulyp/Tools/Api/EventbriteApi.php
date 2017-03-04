@@ -9,6 +9,7 @@ use Psy\Exception\Exception;
 class EventbriteApi
 {
     const EVENTBRITE_BASE_URL = "https://www.eventbriteapi.com/v3/";
+    const EVENTBRITE_YP_ID = 1877578689;
     const YP_WEEKEND_ID = 25893386817;
     const JOIN_WEEK_ID = 31314155482;
     const MEMBERSHIP_2017 = 31015190269;
@@ -18,12 +19,7 @@ class EventbriteApi
 
     public function __construct()
     {
-        $this->guzzle = new Guzzle([
-            // Base URI is used with relative requests
-            'base_uri' => self::EVENTBRITE_BASE_URL,
-            // You can set any number of default request options.
-            'timeout'  => 2.0,
-        ]);
+        $this->guzzle = new Guzzle();
     }
 
     /**
@@ -35,28 +31,69 @@ class EventbriteApi
      */
     public function getOrderPlaced($url)
     {
-        $headers = [
-            'Authorization' => 'Bearer ' . env('EVENTBRITE_TOKEN'),
-            'Content-Type' => 'application/json',
-        ];
+        $content = $this->getContentFromRequest('GET', $url, $this->getBaseOptions());
 
-        $options = [
-            'headers' => $headers
-        ];
-
-        try {
-            $response = $this->guzzle->request('GET', $url, $options);
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
-
-
-        $orderJson = json_decode($response->getBody()->getContents());
+        $orderJson = json_decode($content);
 
         $orderInfo = $this->getOrderInfoFromJson($orderJson);
 
         return $orderInfo;
     }
+
+    public function getYpEvents()
+    {
+        $url = self::EVENTBRITE_BASE_URL . "/organizers/".self::EVENTBRITE_YP_ID."/events/";
+
+        $events = $this->getContentFromRequest('GET', $url, $this->getBaseOptions());
+
+        $events = json_decode($events, true);
+
+        $completedEvents = array();
+
+        foreach ($events['events'] as $event) {
+            $completedEvents[] = $this->transformEvent($event);
+        }
+
+        dd($completedEvents);
+
+        return $events;
+
+    }
+
+    protected function transformEvent($event, $text = 'html')
+    {
+
+
+
+        $transformedEvent = array(
+            'startTime' => null,
+            'endTime' => null,
+            'venue' => null,
+            'image' => null
+        );
+        $transformedEvent['name'] = $event['name']['text'];
+        $transformedEvent['description'] = $event['description'][$text];
+        if (array_key_exists('start', $event) && array_key_exists('local', $event['start'])) {
+            $transformedEvent['startTime'] = $event['start']['local'];
+        }
+
+        if (array_key_exists('end', $event) && array_key_exists('local', $event['end'])) {
+            $transformedEvent['endTime'] = $event['start']['local'];
+        }
+
+        if (isset($event['venue_id'])) {
+            $venueDetails = json_decode($this->getVenueById($event['venue_id']), true);
+            $transformedEvent['venue'] = $venueDetails['address'];
+        }
+
+        if (isset($event['logo_id'])) {
+            $mediaDetails = json_decode($this->getMediaById($event['logo_id']), true);
+            $transformedEvent['image'] = $mediaDetails['original'];
+        }
+
+        return $transformedEvent;
+    }
+
 
     public function getYpWeekendOrders()
     {
@@ -102,6 +139,65 @@ class EventbriteApi
         return $ticketsInfo;
     }
 
+    public function getMediaResults($mediaId)
+    {
+        $url = self::EVENTBRITE_BASE_URL."media/{$mediaId}";
+
+        $options = $this->getBaseOptions();
+
+        $content = $this->getContentFromRequest('GET', $url, $options);
+
+        return $content;
+    }
+
+    /**
+     * @param $eventId
+     *
+     * @return object
+     */
+    public function getGetEventById($eventId)
+    {
+        $url = self::EVENTBRITE_BASE_URL."events/{$eventId}";
+
+        $options = $this->getBaseOptions();
+
+        $content = $this->getContentFromRequest('GET', $url, $options);
+
+        return json_decode($content, true);
+    }
+
+    /**
+     * @param string $venueId
+     *
+     * @return object
+     */
+    public function getVenueById($venueId)
+    {
+        $url = self::EVENTBRITE_BASE_URL."venues/{$venueId}";
+
+        $options = $this->getBaseOptions();
+
+        $content = $this->getContentFromRequest('GET', $url, $options);
+
+        return $content;
+    }
+
+    /**
+     * @param string $mediaId
+     *
+     * @return object
+     */
+    public function getMediaById($mediaId)
+    {
+        $url = self::EVENTBRITE_BASE_URL."media/{$mediaId}";
+
+        $options = $this->getBaseOptions();
+
+        $content = $this->getContentFromRequest('GET', $url, $options);
+
+        return $content;
+    }
+
 
     /**
      * @param string $eventId
@@ -120,22 +216,10 @@ class EventbriteApi
     protected function getEventOrders($id)
     {
         $url = self::EVENTBRITE_BASE_URL . "events/{$id}/orders";
-        $headers = [
-            'Authorization' => 'Bearer ' . env('EVENTBRITE_TOKEN'),
-            'Content-Type' => 'application/json',
-        ];
 
-        $options = [
-            'headers' => $headers
-        ];
+        $content = $this->getContentFromRequest('GET', $url, $this->getBaseOptions());
 
-        try {
-            $response = $this->guzzle->request('GET', $url, $options);
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
-
-        $orders = json_decode($response->getBody()->getContents());
+        $orders = json_decode($content);
 
         return $orders;
     }
@@ -143,6 +227,34 @@ class EventbriteApi
     protected function getTicketClassInfo($id)
     {
         $url = self::EVENTBRITE_BASE_URL . "events/{$id}/ticket_classes";
+
+        $ticketClasses = $this->getContentFromRequest('GET', $url, $this->getBaseOptions());
+
+        return $ticketClasses;
+    }
+
+    /**
+     * @param string $method
+     * @param string $url
+     * @param array  $options
+     *
+     * @return object
+     */
+    protected function getContentFromRequest($method, $url, $options = array())
+    {
+        try {
+            $response = $this->guzzle->request($method, $url, $options);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+
+        $content = $response->getBody()->getContents();
+
+        return $content;
+    }
+
+    protected function getBaseOptions()
+    {
         $headers = [
             'Authorization' => 'Bearer ' . env('EVENTBRITE_TOKEN'),
             'Content-Type' => 'application/json',
@@ -152,15 +264,7 @@ class EventbriteApi
             'headers' => $headers
         ];
 
-        try {
-            $response = $this->guzzle->request('GET', $url, $options);
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
-
-        $ticketClasses = $response->getBody()->getContents();
-
-        return $ticketClasses;
+        return $options;
     }
 
 
@@ -197,5 +301,51 @@ class EventbriteApi
         }
 
         return $ticketsInfo;
+    }
+
+    /**
+     * @param array $event
+     *
+     * @return array
+     */
+    protected function convertEventMainDetails($event)
+    {
+        $keys = [
+            'id' => 'id',
+            'start_time' => 'start',
+            'end_time' => 'end',
+            'street_address' => 'street_address',
+            'cover_photo' => 'logo',
+            'description' => 'description',
+            'ticket_uri' => 'tickets',
+            'location_name' => 'location_name'
+        ];
+
+        $event = $this->convertMainDetails($keys, $event);
+
+        return $event;
+    }
+
+    /**
+     * @param array $keys
+     * @param array $array
+     *
+     * @return array
+     */
+    protected function convertMainDetails($keys, $array)
+    {
+        foreach ($keys as $index => $key) {
+            if (array_key_exists($index, $array)) {
+                $array[$key] = $array[$index];
+            } else {
+                $array[$key] = "";
+            }
+
+            if ($index !== $key) {
+                unset($array[$index]);
+            }
+        }
+
+        return $array;
     }
 }

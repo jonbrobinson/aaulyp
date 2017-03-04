@@ -10,6 +10,7 @@ use App\Http\Requests\EventRequest;
 use App\Http\Requests\AddPhotoRequest;
 use App\Aaulyp\Tools\Api\MailchimpApi;
 use App\Aaulyp\Tools\Api\FacebookSdkHelper;
+use App\Aaulyp\Tools\Api\EventbriteApi;
 
 class EventsController extends Controller
 {
@@ -19,7 +20,7 @@ class EventsController extends Controller
     protected $mailchimp;
 
 
-    public function __construct(Locations $locations, DateHelper $dateHelper, MailchimpApi $mailchimp, FacebookSdkHelper $facebookSdk)
+    public function __construct(Locations $locations, DateHelper $dateHelper, MailchimpApi $mailchimp, FacebookSdkHelper $facebookSdk, EventbriteApi $eventbrite)
     {
         $this->middleware('auth', ['except' => ['show','index','addPhoto', 'getMediaPhotos']]);
 
@@ -29,6 +30,7 @@ class EventsController extends Controller
         $this->dateHelper = $dateHelper;
         $this->mailchimp = $mailchimp;
         $this->facebookSdk = $facebookSdk;
+        $this->eventBriteApi = $eventbrite;
 
         $this->states = $loc->getStates();
         $this->calendarArrays = $this->dateHelper->getCalendarArrays();
@@ -43,7 +45,9 @@ class EventsController extends Controller
 //        $events = Event::with('user')->orderBy('date_start', 'desc')->get();
 //        $eventsFeatured = Event::with('user')->where('feature_event', 1)->get();
 
-        $events = $this->facebookSdk->getCurrentEvents();
+        $events = $this->eventBriteApi->getYpEvents();
+
+        dd($events['events']);
 
         $events = json_decode(json_encode($events));
 

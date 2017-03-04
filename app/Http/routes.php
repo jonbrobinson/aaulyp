@@ -50,6 +50,8 @@ Route::post('/webhooks/joinweekmixer2017/orders', 'WebhookController@joinWeekMix
 
 Route::get('/admin/create', 'AdminController@leadershipCreate');
 
+Route::get('/test', 'EventsController@index');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
