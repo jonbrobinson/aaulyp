@@ -5,6 +5,7 @@ namespace App\Aaulyp\Tools\Api;
 use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\Psr7\Request;
 use Psy\Exception\Exception;
+use App\Aaulyp\Tools\Api\GoogleMapsApi;
 
 class EventbriteApi
 {
@@ -16,10 +17,12 @@ class EventbriteApi
     const FINANCIAL_MEETUP = 31440952736;
 
     protected $guzzle;
+    protected $googleMapsApi;
 
-    public function __construct()
+    public function __construct(GoogleMapsApi $googleMapsApi)
     {
         $this->guzzle = new Guzzle();
+        $this->googleMapsApi = $googleMapsApi;
     }
 
     /**
@@ -51,7 +54,10 @@ class EventbriteApi
         $completedEvents = array();
 
         foreach ($events['events'] as $event) {
-            $completedEvents[] = $this->transformEvent($event);
+            $eventDetails = $this->addRelationalDetails($event);
+//            dd($eventDetails);
+            $completedEvents[] = $this->transformEventDetails($eventDetails);
+//            dd($completedEvents);
         }
 
         dd($completedEvents);
@@ -60,38 +66,123 @@ class EventbriteApi
 
     }
 
-    protected function transformEvent($event, $text = 'html')
+    /**
+     * Add relational details to eventbrite data
+     *
+     * @param array $event
+     *
+     * @return array
+     */
+    protected function addRelationalDetails($event)
     {
-
-
-
-        $transformedEvent = array(
-            'startTime' => null,
-            'endTime' => null,
-            'venue' => null,
-            'image' => null
-        );
-        $transformedEvent['name'] = $event['name']['text'];
-        $transformedEvent['description'] = $event['description'][$text];
         if (array_key_exists('start', $event) && array_key_exists('local', $event['start'])) {
-            $transformedEvent['startTime'] = $event['start']['local'];
+            $event['start_epoch'] = strtotime($event['start']['local']);
         }
 
         if (array_key_exists('end', $event) && array_key_exists('local', $event['end'])) {
-            $transformedEvent['endTime'] = $event['start']['local'];
+            $event['end_epoch'] = strtotime($event['start']['local']);
         }
 
         if (isset($event['venue_id'])) {
-            $venueDetails = json_decode($this->getVenueById($event['venue_id']), true);
-            $transformedEvent['venue'] = $venueDetails['address'];
+            $event['venue_details'] = json_decode($this->getVenueById($event['venue_id']), true);
         }
 
         if (isset($event['logo_id'])) {
-            $mediaDetails = json_decode($this->getMediaById($event['logo_id']), true);
-            $transformedEvent['image'] = $mediaDetails['original'];
+            $event['image_details'] = json_decode($this->getMediaById($event['logo_id']), true);
         }
 
-        return $transformedEvent;
+        return $event;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getSimpleVenueDetails()
+    {
+        $details = array(
+            "address" => "",
+            "city" => "",
+            "postal_code" => "",
+            "state" => "",
+            'longitude' => "",
+            'latitude' => "",
+            'display' => "",
+            'name' => "",
+        );
+
+        return $details;
+    }
+
+    /**
+     * Validates Venue information and returns a simple address and name for venue
+     *
+     * @param $venueDetails
+     *
+     * @return array
+     */
+    protected function getSimpleVenueAddress($venueDetails)
+    {
+        $ebKeys = array('address_1', 'address_2', 'city', 'postal_code', 'region');
+        $details = $this->getSimpleVenueDetails();
+        $missingEbKeys = array();
+
+        foreach ($ebKeys as $ebKey) {
+            if (!array_key_exists($ebKey, $venueDetails['address']) ) {
+                $missingEbKeys[] = $ebKey;
+                continue;
+            }
+
+            if (!isset($venueDetails['address'][$ebKey])) {
+                $missingEbKeys[] = $ebKey;
+                continue;
+            }
+        }
+
+        if (in_array('address_2', $missingEbKeys) && (count($missingEbKeys) > 1)) {
+            if (!empty(floatval($venueDetails['latitude'])) && !empty(floatval($venueDetails['longitude']))) {
+                $address = $this->googleMapsApi->getAddressFromLatLong($venueDetails['latitude'], $venueDetails['longitude']);
+                $details['display'] = $address;
+
+                return $address;
+            }
+
+            return $details;
+        }
+
+        $details['address'] = $venueDetails['address']['address_1'];
+        $details['city'] = $venueDetails['address']['city'];
+        $details['postal_code'] = $venueDetails['address']['postal_code'];
+        $details['state'] = $venueDetails['address']['region'];
+
+        if (isset($venueDetails['address']['address_2'])) {
+            $details['address'] .= " ".$venueDetails['address']['address_2'];
+        }
+
+        if (isset($venueDetails['name'])) {
+            $details['name'] = $venueDetails['name'];
+        }
+
+        $details['display'] = $details['address'].", ".$details['city'].", ".$details['state'].$details['display'];
+
+        return $details;
+    }
+
+    /**
+     * @param array $event eventbrite venue details
+     *
+     * @return array
+     */
+    protected function transformEventDetails($event)
+    {
+        if (!array_key_exists('venue_details', $event) || empty($event['venue_details'])) {
+            $event['venue_address'] =  $this->getSimpleVenueDetails();
+
+            return $event;
+        }
+
+        $event['venue_address'] = $this->getSimpleVenueAddress($event['venue_details']);
+
+        return $event;
     }
 
 

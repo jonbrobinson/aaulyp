@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use App\Event;
 use App\Event_Photo;
 use App\Aaulyp\Tools\Locations;
@@ -42,9 +43,6 @@ class EventsController extends Controller
      */
     public function index()
     {
-//        $events = Event::with('user')->orderBy('date_start', 'desc')->get();
-//        $eventsFeatured = Event::with('user')->where('feature_event', 1)->get();
-
         $events = $this->eventBriteApi->getYpEvents();
 
         dd($events['events']);
