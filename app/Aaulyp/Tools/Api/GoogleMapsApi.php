@@ -46,11 +46,48 @@ class GoogleMapsApi
         $addressJson = json_decode($response->getBody()->getContents());
 
         if ($addressJson->results) {
-            $address = $addressJson->results[0]->formatted_address;
+            $address = $this->sanitizeGoogleMapsLocation($addressJson->results[0]);
         } else {
-            $address = null;
+            $address = array();
         }
 
         return $address;
+    }
+
+    protected function sanitizeGoogleMapsLocation($location)
+    {
+        $details = array();
+        $locationArray = json_decode(json_encode($location), true);
+        $components = $locationArray['address_components'];
+
+        foreach ($components as $component) {
+            if ('street_number' == $component['types'][0]) {
+                $details[$component['types'][0]] = $component['long_name'];
+            }
+
+            if ('route' == $component['types'][0]) {
+                $details['street'] = $component['short_name'];
+            }
+
+            if ('locality' == $component['types'][0]) {
+                $details['city'] = $component['long_name'];
+            }
+
+            if ('locality' == $component['types'][0]) {
+                $details['city'] = $component['long_name'];
+            }
+
+            if ('administrative_area_level_1' == $component['types'][0]) {
+                $details['state'] = $component['short_name'];
+            }
+
+            if ('postal_code' == $component['types'][0]) {
+                $details['zip'] = $component['long_name'];
+            }
+        }
+
+        $details['formatted_address'] = $locationArray['formatted_address'];
+
+        return $details;
     }
 }
