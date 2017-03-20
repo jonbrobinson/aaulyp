@@ -2,11 +2,12 @@
 
 namespace App\Aaulyp\Tools\Api;
 
+use App\Aaulyp\Services\EventFormatter;
 use Facebook\Facebook;
 use GuzzleHttp\Client as Guzzle;
 use Illuminate\Support\Facades\Event;
 
-class FacebookSdkHelper
+class FacebookSdkHelper extends EventFormatter
 {
     const AAULYP_FB_PAGE_ID = 135986973127166;
     const FB_BASE_URL = 'https://graph.facebook.com/v2.6/';
@@ -83,10 +84,24 @@ class FacebookSdkHelper
 
         $transformedEvents = array();
         foreach($events as $event) {
-            $transformedEvents[] = $this->transformEventForDb($event);
+            $transformedEvents[] = $this->processSingleEvent($event);
         }
 
         return $transformedEvents;
+    }
+
+    /**
+     * @param array $event
+     *
+     * @return array
+     */
+    protected function processSingleEvent($event)
+    {
+        $eventDetails = $this->addRelationalDetails($event);
+        $relations = $this->getFacebookRelations();
+        $finalEvent = $this->convertEventToStandard('facebook', $relations, $eventDetails);
+
+        return $finalEvent;
     }
 
     public function getCurrentEvents()
@@ -100,7 +115,8 @@ class FacebookSdkHelper
             if (strtotime($event['start_time']) < $today) {
                 continue;
             }
-            $transformedEvents[] = $this->transformEventForDb($event);
+
+            $transformedEvents[] = $this->processSingleEvent($event);
         }
 
         return array_reverse($transformedEvents);
@@ -110,14 +126,14 @@ class FacebookSdkHelper
     {
         $events = $this->getEventsArray();
 
-        $pastDate = strtotime('today -1.5 months');
+        $pastDate = strtotime('today -3 months');
 
         $transformedEvents = array();
         foreach($events as $event) {
             if (strtotime($event['start_time']) < $pastDate) {
                 continue;
             }
-            $transformedEvents[] = $this->transformEventForDb($event);
+            $transformedEvents[] = $this->processSingleEvent($event);
         }
 
         return $transformedEvents;
@@ -156,7 +172,7 @@ class FacebookSdkHelper
         return $photos['data'];
     }
 
-    protected function getEventsArray()
+    public function getEventsArray()
     {
         $uri = self::AAULYP_FB_PAGE_ID.'?fields=events{id,name,category,description,place,cover,attending_count,interested_count,start_time,end_time,ticket_uri}';
 
@@ -187,6 +203,45 @@ class FacebookSdkHelper
         return $album;
     }
 
+    protected function addRelationalDetails($event)
+    {
+        $venue = $this->getSimpleVenueDetails();
+
+        if (!empty($event['place']) && !empty($event['place']['location'])) {
+            $venue = $this->transformVenueDetails($event['place']);
+        }
+
+        $event['venue_address'] = $venue;
+
+        if ($event['cover']) {
+            $event['cover_image'] = $event['cover']['source'];
+        }
+
+        $event['description'] = array(
+            'text' => $event['description'],
+            'html' => nl2br($event['description'])
+        );
+
+        $event['name'] = array(
+            'text' => $event['name'],
+            'html' => nl2br($event['name'])
+        );
+
+        if(!empty($event['start_time'])) {
+
+            $event['start_epoch'] = strtotime($event['start_time']);
+        }
+
+        if (!empty($event['end_time'])) {
+            $event['end_epoch'] = strtotime($event['end_time']);
+        }
+
+        $event['platform_url'] = "https://www.facebook.com/events/".$event['id'];
+
+
+        return $event;
+    }
+
     /**
      * @param $fbEvent
      *
@@ -194,34 +249,7 @@ class FacebookSdkHelper
      */
     public function transformEventForDb($fbEvent)
     {
-        $event = $this->convertEventEdgeDetails($fbEvent);
-
-        $event = $this->convertEventMainDetails($event);
-
-        $event['unique_id'] = uniqid('fb');
-
-        return $event;
-    }
-
-    /**
-     * @param array $event
-     *
-     * @return array
-     */
-    protected function convertEventMainDetails($event)
-    {
-        $keys = [
-            'start_time' => 'date_start',
-            'id' => 'facebook_id',
-            'end_time' => 'date_end',
-            'street_address' => 'street_address',
-            'cover_photo' => 'cover_photo',
-            'description' => 'description',
-            'ticket_uri' => 'tickets',
-            'location_name' => 'location_name'
-        ];
-
-        $event = $this->convertMainDetails($keys, $event);
+        $event = $this->addRelationalDetails($fbEvent);
 
         return $event;
     }
@@ -268,43 +296,49 @@ class FacebookSdkHelper
         return $body;
     }
 
-    /**
-     * @param array $event
-     *
-     * @return array
-     */
-    protected function convertEventEdgeDetails($event)
+    protected function transformVenueDetails($venueDetails)
     {
-        if (isset($event['place']) && (isset($event['place']['location']) || isset($event['place']['name']))) {
-            if (isset($event['place']['location'])) {
-                if($event['place']['location']['city'] &&
-                    $event['place']['location']['street'] &&
-                    $event['place']['location']['zip'] &&
-                    $event['place']['location']['state']) {
-                    $event['street_address'] = $event['place']['location']['street'].', '.$event['place']['location']['city'].', '.$event['place']['location']['state'].' '.$event['place']['location']['zip'];
-                } else {
-                    $latitude = $event['place']['location']['latitude'];
-                    $longitude = $event['place']['location']['longitude'];
-                    $event['street_address'] = $this->googleMaps->getAddressFromLatLong($latitude, $longitude);
+        $fbKeys = array('street', 'city', 'zip', 'state');
+        $details = $this->getSimpleVenueDetails();
+        $missingFbKeys = array();
+
+        if ((isset($venueDetails['location']))) {
+            foreach ($fbKeys as $fbKey) {
+                if (!array_key_exists($fbKey, $venueDetails['location'])) {
+                    $missingFbKeys[] = $fbKey;
+                    continue;
                 }
 
-            } elseif ($event['place']) {
-                $event['street_address'] = $event['place']['name'];
+                if (empty($venueDetails['location'][$fbKey])) {
+                    $missingFbKeys[] = $fbKey;
+                    continue;
+                }
             }
-
-            if ($event['place']['name']) {
-                $event['location_name'] = $event['place']['name'];
-            }
-
-            unset($event['place']);
         }
 
-        if (isset($event['cover'])) {
-            $event['cover_photo'] = $event['cover']['source'];
-            unset($event['cover']);
+        $missingCount = count($missingFbKeys);
+
+        if (isset($venueDetails['name'])) {
+            $details['name'] = $venueDetails['name'];
         }
 
-        return $event;
+        if ($missingCount > 0) {
+            $latitude = $venueDetails['location']['latitude'];
+            $longitude = $venueDetails['location']['longitude'];
+            $mapsAddress = $this->googleMaps->getAddressFromLatLong($latitude, $longitude);
+            $details['display'] = $mapsAddress['formatted_address'];
+
+            return $details;
+        }
+
+        $details['address'] = $venueDetails['location']['street'];
+        $details['city'] = $venueDetails['location']['city'];
+        $details['postal_code'] = $venueDetails['location']['zip'];
+        $details['state'] = $venueDetails['location']['state'];
+
+        $details['display'] = $details['address'].", ".$details['city'].", ".$details['state']." ".$details['postal_code'];
+
+        return $details;
     }
 
     /**
@@ -319,5 +353,25 @@ class FacebookSdkHelper
         }
 
         return $album;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getFacebookRelations()
+    {
+        $relations = [
+            'id' => 'id',
+            'title' => 'name',
+            'description' => 'description',
+            'time_start' => 'start_epoch',
+            'time_end' => 'end_epoch',
+            'venue' => 'venue_address',
+            'cover_image' => 'cover_image',
+            'ticket_url' => 'ticket_uri',
+            'platform_url' => 'platform_url',
+        ];
+
+        return $relations;
     }
 }
