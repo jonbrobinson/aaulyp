@@ -30,7 +30,7 @@ Route::get('/ypweekend2016', 'PagesController@ypweekend');
 
 Route::get('/committee/{name}', 'PagesController@committees');
 
-route::get('/events/fb/{id}', 'FacebookController@show');
+//route::get('/events/fb/{id}', 'FacebookController@show');
 
 Route::get('/volunteer/request', 'PagesController@volunteerRequest');
 
@@ -50,7 +50,7 @@ Route::post('/webhooks/joinweekmixer2017/orders', 'WebhookController@joinWeekMix
 
 Route::get('/admin/create', 'AdminController@leadershipCreate');
 
-Route::get('/test', 'EventsController@index');
+//Route::get('/test', 'EventsController@index');
 
 /*
 |--------------------------------------------------------------------------
@@ -68,7 +68,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
 
     Route::resource('events', 'EventsController');
-    Route::get('{zip}/{name}', 'EventsController@show');
+    Route::get('event/{eventId}', 'EventsController@show');
     Route::post('{zip}/{name}/photos', 'EventsController@addPhoto');
     Route::post('/contact', 'HomeController@contact');
     Route::post('/admin/store', 'AdminController@leadershipStore');
