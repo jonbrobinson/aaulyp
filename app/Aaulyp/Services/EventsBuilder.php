@@ -54,7 +54,7 @@ class EventsBuilder
         $fileTimestamp = $matches[0];
 
         if (false == $this->isLastTenMinutes(time(), $fileTimestamp)) {
-            $this->buildEventsFile();
+//            $this->buildEventsFile();
         }
 
         $encoded = file_get_contents($latestFile);
