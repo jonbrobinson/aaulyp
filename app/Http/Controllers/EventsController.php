@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Aaulyp\Services\EventsBuilder;
 use Illuminate\Support\Facades\Storage;
 use App\Event;
 use App\Event_Photo;
@@ -10,8 +11,6 @@ use App\Aaulyp\Tools\DateHelper;
 use App\Http\Requests\EventRequest;
 use App\Http\Requests\AddPhotoRequest;
 use App\Aaulyp\Tools\Api\MailchimpApi;
-use App\Aaulyp\Tools\Api\FacebookSdkHelper;
-use App\Aaulyp\Tools\Api\EventbriteApi;
 
 class EventsController extends Controller
 {
@@ -19,9 +18,10 @@ class EventsController extends Controller
     protected $calendarArrays;
     protected $dateHelper;
     protected $mailchimp;
+    protected $eventBuilder;
 
 
-    public function __construct(Locations $locations, DateHelper $dateHelper, MailchimpApi $mailchimp, FacebookSdkHelper $facebookSdk, EventbriteApi $eventbrite)
+    public function __construct(Locations $locations, DateHelper $dateHelper, MailchimpApi $mailchimp, EventsBuilder $eventBuilder)
     {
         $this->middleware('auth', ['except' => ['show','index','addPhoto', 'getMediaPhotos']]);
 
@@ -30,8 +30,7 @@ class EventsController extends Controller
         $loc = $locations;
         $this->dateHelper = $dateHelper;
         $this->mailchimp = $mailchimp;
-        $this->facebookSdk = $facebookSdk;
-        $this->eventBriteApi = $eventbrite;
+        $this->eventBuilder = $eventBuilder;
 
         $this->states = $loc->getStates();
         $this->calendarArrays = $this->dateHelper->getCalendarArrays();
@@ -43,13 +42,11 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $events = $this->eventBriteApi->getYpEvents();
-
-        dd($events['events']);
+        $events = $this->eventBuilder->getCurrentEvents();
 
         $events = json_decode(json_encode($events));
 
-        $pastEvents = $this->facebookSdk->getPastEvents();
+        $pastEvents = $this->eventBuilder->getPastEvents();
 
         $pastEvents = json_decode(json_encode($pastEvents));
 
@@ -89,11 +86,20 @@ class EventsController extends Controller
      *
      * @return mixed
      */
-    public function show($zip, $title)
+    public function show($eventId)
     {
-        $event = Event::locatedAt($zip, $title);
+        $strCount = strlen($eventId);
+        $id = str_limit($eventId, $strCount - 2, "");
 
-        return view('pages.events.show', compact('event'));
+        $event = $this->eventBuilder->getEventById($id);
+
+        $event = json_decode(json_encode($event));
+
+        $events = $this->eventBuilder->getCurrentEvents();
+
+        $events = json_decode(json_encode($events));
+
+        return view('pages.events.show', compact('event', 'events'));
     }
 
     /**

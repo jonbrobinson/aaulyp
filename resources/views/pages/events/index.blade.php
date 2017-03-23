@@ -20,13 +20,13 @@
                 <!-- BLOG ENTRIES -->
                 <div class="blog medium-thumbnail margin-bottom-30px">
                     @if(count($events) == 0)
-                        <<h1>We are planning some great opportunities. Check out some of our past events we hosted</h1>
+                        <h1>We are planning some great opportunities. Check out some of our past events we hosted</h1>
                         <!-- blog post -->
                         @foreach($pastEvents as $pastEvent)
                             <article class="entry-post">
                                 <header class="entry-header">
                                     <h2 class="entry-title">
-                                        <a href="#">{{ $pastEvent->name }}</a>
+                                        <a href="/event/{{ $pastEvent->id.str_limit($pastEvent->platform, 2, "") }}">{{ $pastEvent->title->text }}</a>
                                     </h2>
                                     <div class="meta-line clearfix">
                                         <div class="meta-author-category pull-left">
@@ -43,32 +43,32 @@
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <figure class="featured-image">
-                                                <a href="#">
-                                                    <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', strtotime($pastEvent->date_start))) }}</span><span class="post-date">{{ date('j', strtotime($pastEvent->date_start)) }}</span><span class="post-year">{{ date('Y', strtotime($pastEvent->date_start)) }}</span></div>
-                                                    <img src="{{ $pastEvent->cover_photo }}" class="img-responsive" alt="featured-image" />
+                                                <a href="/event/{{ $pastEvent->id.str_limit($pastEvent->platform, 2, "") }}">
+                                                    <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', $pastEvent->time_start)) }}</span><span class="post-date">{{ date('j', $pastEvent->time_start) }}</span><span class="post-year">{{ date('Y', $pastEvent->time_start) }}</span></div>
+                                                    <img src="{{ $pastEvent->cover_image }}" class="img-responsive" alt="featured-image" />
                                                 </a>
                                             </figure>
                                         </div>
                                         <div class="col-sm-7">
                                             <div class="excerpt">
-                                                <p>{!! str_limit($pastEvent->description, 170) !!}</p>
-                                                @if (isset($pastEvent->date_start) && isset($pastEvent->date_end))
-                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", strtotime($pastEvent->date_start)) }} - {{ date("D, d M Y g:iA", strtotime($pastEvent->date_end)) }}</p>
-                                                @elseif (!isset($pastEvent->date_end))
-                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", strtotime($pastEvent->date_start)) }}</p>
+                                                <p>{!! str_limit($pastEvent->description->text, 170) !!}</p>
+                                                @if (isset($pastEvent->time_start) && isset($pastEvent->time_end))
+                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", $pastEvent->time_start) }} - {{ date("D, d M Y g:iA", $pastEvent->time_end) }}</p>
+                                                @elseif (!isset($pastEvent->time_end))
+                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", $pastEvent->time_start) }}</p>
                                                 @else
                                                     <p><i class="fa fa-clock-o"></i>TBD</p>
                                                 @endif
 
-                                                @if ($pastEvent->street_address && $pastEvent->location_name)
-                                                    <p><i class="fa fa-map-marker"></i> {{ $pastEvent->location_name }} <br> {{ $pastEvent->street_address }}</p>
-                                                @elseif($pastEvent->street_address)
-                                                    <p><i class="fa fa-map-marker"></i> {{ $pastEvent->street_address }}</p>
+                                                @if ($pastEvent->venue->display && $pastEvent->venue->name)
+                                                    <p><i class="fa fa-map-marker"></i> {{ $pastEvent->venue->name }} <br> {{ $pastEvent->venue->display }}</p>
+                                                @elseif($pastEvent->venue->display)
+                                                    <p><i class="fa fa-map-marker"></i> {{ $pastEvent->venue->display }}</p>
                                                 @else
                                                     <p><i class="fa fa-map-marker"></i> More Details To Come</p>
                                                 @endif
                                                 <p class="read-more">
-                                                    <a href="/events/fb/{{ $pastEvent->facebook_id }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                                    <a href="/event/{{ $pastEvent->id.str_limit($pastEvent->platform, 2, "") }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
                                                 </p>
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@
                             <article class="entry-post">
                                 <header class="entry-header">
                                     <h2 class="entry-title">
-                                        <a href="/events/fb/{{ $event->facebook_id }}">{{ $event->name }}</a>
+                                        <a href="/event/{{ $pastEvent->id.str_limit($pastEvent->platform, 2, "") }}">{{ $event->title->text }}</a>
                                     </h2>
                                     <div class="meta-line clearfix">
                                         <div class="meta-author-category pull-left">
@@ -101,32 +101,32 @@
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <figure class="featured-image">
-                                                <a href="{{ url("/events/fb/$event->facebook_id") }}">
-                                                    <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', strtotime($event->date_start))) }}</span><span class="post-date">{{ date('j', strtotime($event->date_start)) }}</span><span class="post-year">{{ date('Y', strtotime($event->date_start)) }}</span></div>
-                                                    <img src="{{ $event->cover_photo }}" class="img-responsive" alt="featured-image" />
+                                                <a href="{{ url("/events/fb/$event->id. str_limit()") }}">
+                                                    <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', strtotime($event->time_start))) }}</span><span class="post-date">{{ date('j', strtotime($event->time_start)) }}</span><span class="post-year">{{ date('Y', strtotime($event->time_start)) }}</span></div>
+                                                    <img src="{{ $event->cover_image }}" class="img-responsive" alt="featured-image" />
                                                 </a>
                                             </figure>
                                         </div>
                                         <div class="col-sm-7">
                                             <div class="excerpt">
-                                                <p>{!! str_limit($event->description, 170) !!}</p>
-                                                @if (isset($event->date_start) && isset($event->date_end))
-                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", strtotime($event->date_start)) }} - {{ date("D, d M Y g:iA", strtotime($event->date_end)) }}</p>
-                                                @elseif (!isset($event->date_end))
-                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", strtotime($event->date_start)) }}</p>
+                                                <p>{!! str_limit($event->description->text, 170) !!}</p>
+                                                @if (isset($event->time_start) && isset($event->time_end))
+                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", $event->time_start) }} - {{ date("D, d M Y g:iA", $event->time_end ) }}</p>
+                                                @elseif (!isset($event->time_end))
+                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", $event->time_start) }}</p>
                                                 @else
                                                     <p><i class="fa fa-clock-o"></i>TBD</p>
                                                 @endif
 
-                                                @if ($event->street_address && $event->location_name)
-                                                    <p><i class="fa fa-map-marker"></i> {{ $event->location_name }} <br> {{ $event->street_address }}</p>
-                                                @elseif($event->street_address)
-                                                    <p><i class="fa fa-map-marker"></i> {{ $event->street_address }}</p>
+                                                @if (!empty($event->venue->display) && !empty($event->venue->name))
+                                                    <p><i class="fa fa-map-marker"></i> {{ $event->venue->display}} <br> {{ $event->venue->name }}</p>
+                                                @elseif(!empty($event->venue->display))
+                                                    <p><i class="fa fa-map-marker"></i> {{ $event->venue->display }}</p>
                                                 @else
-                                                    <p><i class="fa fa-map-marker"></i> More Details To Come</p>
+                                                    <p><i class="fa fa-map-marker"></i></p>
                                                 @endif
                                                 <p class="read-more">
-                                                    <a href="/events/fb/{{ $event->facebook_id }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                                    <a href="/event/{{ $pastEvent->id.str_limit($pastEvent->platform, 2, "") }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
                                                 </p>
                                             </div>
                                         </div>
