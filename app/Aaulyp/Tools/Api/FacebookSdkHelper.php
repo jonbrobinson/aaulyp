@@ -172,7 +172,7 @@ class FacebookSdkHelper extends EventFormatter
         return $photos['data'];
     }
 
-    public function getEventsArray()
+    protected function getEventsArray()
     {
         $uri = self::AAULYP_FB_PAGE_ID.'?fields=events{id,name,category,description,place,cover,attending_count,interested_count,start_time,end_time,ticket_uri}';
 
