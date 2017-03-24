@@ -10,7 +10,8 @@
         "intervention/image": "^2.3",
         "guzzlehttp/guzzle": "~6.0",
         "league/flysystem-dropbox": "^1.0",
-        "facebook/php-sdk-v4": "^5.2"
+        "facebook/php-sdk-v4": "^5.2",
+        "predis/predis": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
