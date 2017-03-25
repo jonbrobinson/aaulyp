@@ -75,6 +75,25 @@
                 <li class="dropdown ">
                     <a href="{{ url('/contact') }}" class="dropdown-toggle">CONTACT</a>
                 </li>
+                <li class="dropdown ">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">CONTACT US <i class="fa fa-angle-down"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/contact') }}">Send Us A Message</a></li>
+                        <li class="dropdown ">
+                            <a href="{{ url('/mail') }}">Join Our Mailing List
+                                {{--<i class="fa fa-angle-right"></i>--}}
+                            </a>
+                            {{--<ul class="dropdown-menu" role="menu">--}}
+                            {{--<li><a href="{{ url('/committee/advocacy') }}">Advocacy</a></li>--}}
+                            {{--<li><a href="{{ url('/committee/community') }}">Community Outreach</a></li>--}}
+                            {{--<li><a href="{{ url('/committee/communication') }}">Communications</a></li>--}}
+                            {{--<li><a href="{{ url('/committee/fundraising') }}">Fundraising</a></li>--}}
+                            {{--<li><a href="{{ url('/committee/membership') }}">Membership/Social</a></li>--}}
+                            {{--<li><a href="{{ url('/committee/development') }}">Professional Development</a></li>--}}
+                            {{--</ul>--}}
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- END MAIN NAVIGATION -->

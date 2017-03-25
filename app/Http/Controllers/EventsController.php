@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Aaulyp\Services\EventsBuilder;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Event;
 use App\Event_Photo;
@@ -57,7 +58,7 @@ class EventsController extends Controller
      * Create an event
      *
      */
-    public function create()
+    public function create(Request $request)
     {
         $data = $this->getEventFormData();
 
@@ -81,8 +82,7 @@ class EventsController extends Controller
     }
 
     /**
-     * @param string $zip
-     * @param string $title
+     * @param string $eventId
      *
      * @return mixed
      */
