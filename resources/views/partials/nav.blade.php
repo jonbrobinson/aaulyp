@@ -3,9 +3,6 @@
     <div class="container">
         <!-- TOPBAR -->
         <div class="topbar">
-                @if($signedIn)
-                    <p class="top-nav">Hi {{ $user->name }} | </p>
-                @endif
             <ul class="list-inline top-nav">
                 <li>Empowering Communitites | Changing Lives</li>
                 <li><a href="https://twitter.com/aaulyp"><i class="fa fa-twitter"></i></a></li>
@@ -37,25 +34,37 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">ABOUT US<i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ url('/aaulyp') }}">Our History</a></li>
-                        {{--<li><a href="{{ url('/board') }}">Meet the YP Officers</a></li>--}}
                         <li><a href="{{ url('http://www.aaul.org') }}">Austin Area Urban League</a></li>
                         <li><a href="{{ url('http://www.nulyp.org') }}">National Urban League Young Professionals</a></li>
                         <li><a href="{{ url('http://www.nul.org') }}">National Urban League</a></li>
                     </ul>
                 </li>
+                {{--<li class="dropdown ">--}}
+                    {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">LEADERSHIP <i class="fa fa-angle-down"></i></a>--}}
+                    {{--<ul class="dropdown-menu" role="menu">--}}
+                        {{--<li><a href="{{ url('/board') }}">Officers</a></li>--}}
+                        {{--<li><a href="{{ url('http://www.aaul.org') }}">Committees</a></li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
                 <li class="dropdown ">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">NEWS <i class="fa fa-angle-down"></i></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">EVENTS <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ url('/events') }}">Events</a></li>
-                        <li><a href="{{ url('/news/photos') }}">Photos</a></li>
+                        <li><a href="{{ url('/events') }}">Upcoming Events</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown ">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">MEDIA <i class="fa fa-angle-down"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        {{--<li><a href="{{ url('/events') }}">Upcoming Events</a></li>--}}
+                        <li><a href="{{ url('/photos') }}">Photos</a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">GET INVOLVED <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ url('/join') }}">Membership</a></li>
+                        <li><a href="{{ url('/join') }}">Become A Member</a></li>
                         <li class="dropdown ">
-                            <a href="{{ url('/committee/advocacy') }}">Committees
+                            <a href="{{ url('/committee/advocacy') }}">Join A Committee
                                 {{--<i class="fa fa-angle-right"></i>--}}
                             </a>
                             {{--<ul class="dropdown-menu" role="menu">--}}
@@ -72,17 +81,17 @@
                 {{--<li class="dropdown ">--}}
                     {{--<a href="{{ url('/donate') }}" class="dropdown-toggle">DONATE</a>--}}
                 {{--</li>--}}
-                <li class="dropdown ">
-                    <a href="{{ url('/contact') }}" class="dropdown-toggle">CONTACT</a>
-                </li>
+                {{--<li class="dropdown ">--}}
+                    {{--<a href="{{ url('/contact') }}" class="dropdown-toggle">CONTACT</a>--}}
+                {{--</li>--}}
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">CONTACT US <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ url('/contact') }}">Send Us A Message</a></li>
                         <li class="dropdown ">
-                            <a href="{{ url('/mail') }}">Join Our Mailing List
+                            {{--<a href="{{ url('/mail') }}">Join Our Mailing List--}}
                                 {{--<i class="fa fa-angle-right"></i>--}}
-                            </a>
+                            {{--</a>--}}
                             {{--<ul class="dropdown-menu" role="menu">--}}
                             {{--<li><a href="{{ url('/committee/advocacy') }}">Advocacy</a></li>--}}
                             {{--<li><a href="{{ url('/committee/community') }}">Community Outreach</a></li>--}}
