@@ -21,7 +21,7 @@
             </div>
             <div class="col-md-4">
                 <!-- COLUMN 2 -->
-                <h3 class="footer-heading">USEFUL LINKS</h3>
+                <h3 class="footer-heading">QUICK LINKS</h3>
                 <div class="row margin-bottom-30px">
                     <div class="col-xs-6">
                         <ul class="list-unstyled footer-nav">
