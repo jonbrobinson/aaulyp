@@ -26,7 +26,7 @@
                             <article class="entry-post">
                                 <header class="entry-header">
                                     <h2 class="entry-title">
-                                        <a href="/event/{{ $pastEvent->id.str_limit($pastEvent->platform, 2, "") }}">{{ $pastEvent->title->text }}</a>
+                                        <a href="{{ url("/events/fb/$pastEvent->id".str_limit($event->platform, 2, "")) }}">{{ $pastEvent->title->text }}</a>
                                     </h2>
                                     <div class="meta-line clearfix">
                                         <div class="meta-author-category pull-left">
@@ -43,7 +43,7 @@
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <figure class="featured-image">
-                                                <a href="/event/{{ $pastEvent->id.str_limit($pastEvent->platform, 2, "") }}">
+                                                <a href="{{ url("/events/fb/$pastEvent->id".str_limit($event->platform, 2, "")) }}">
                                                     <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', $pastEvent->time_start)) }}</span><span class="post-date">{{ date('j', $pastEvent->time_start) }}</span><span class="post-year">{{ date('Y', $pastEvent->time_start) }}</span></div>
                                                     <img src="{{ $pastEvent->cover_image }}" class="img-responsive" alt="featured-image" />
                                                 </a>
@@ -68,7 +68,7 @@
                                                     <p><i class="fa fa-map-marker"></i> More Details To Come</p>
                                                 @endif
                                                 <p class="read-more">
-                                                    <a href="/event/{{ $pastEvent->id.str_limit($pastEvent->platform, 2, "") }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                                    <a href="{{ url("/events/fb/$pastEvent->id".str_limit($event->platform, 2, "")) }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
                                                 </p>
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@
                             <article class="entry-post">
                                 <header class="entry-header">
                                     <h2 class="entry-title">
-                                        <a href="/event/{{ $event->id.str_limit($event->platform, 2, "") }}">{{ $event->title->text }}</a>
+                                        <a href="{{ url("/events/fb/$event->id".str_limit($event->platform, 2, "")) }}">{{ $event->title->text }}</a>
                                     </h2>
                                     <div class="meta-line clearfix">
                                         <div class="meta-author-category pull-left">
@@ -101,8 +101,8 @@
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <figure class="featured-image">
-                                                <a href="{{ url("/events/fb/$event->id. str_limit()") }}">
-                                                    <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', strtotime($event->time_start))) }}</span><span class="post-date">{{ date('j', strtotime($event->time_start)) }}</span><span class="post-year">{{ date('Y', strtotime($event->time_start)) }}</span></div>
+                                                <a href="{{ url("/events/fb/$event->id".str_limit($event->platform, 2, "")) }}">
+                                                    <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', $event->time_start)) }}</span><span class="post-date">{{ date('j', $event->time_start) }}</span><span class="post-year">{{ date('Y', $event->time_start) }}</span></div>
                                                     <img src="{{ $event->cover_image }}" class="img-responsive" alt="featured-image" />
                                                 </a>
                                             </figure>
@@ -126,7 +126,7 @@
                                                     <p><i class="fa fa-map-marker"></i></p>
                                                 @endif
                                                 <p class="read-more">
-                                                    <a href="/event/{{ $event->id.str_limit($event->platform, 2, "") }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                                    <a href="{{ url("/events/fb/$event->id".str_limit($event->platform, 2, "")) }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
                                                 </p>
                                             </div>
                                         </div>
