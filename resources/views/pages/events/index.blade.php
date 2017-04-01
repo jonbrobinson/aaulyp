@@ -84,7 +84,7 @@
                             <article class="entry-post">
                                 <header class="entry-header">
                                     <h2 class="entry-title">
-                                        <a href="{{ url("/events/fb/$event->id".str_limit($event->platform, 2, "")) }}">{{ $event->title->text }}</a>
+                                        <a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}">{{ $event->title->text }}</a>
                                     </h2>
                                     <div class="meta-line clearfix">
                                         <div class="meta-author-category pull-left">
@@ -101,7 +101,7 @@
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <figure class="featured-image">
-                                                <a href="{{ url("/events/fb/$event->id".str_limit($event->platform, 2, "")) }}">
+                                                <a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}">
                                                     <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', $event->time_start)) }}</span><span class="post-date">{{ date('j', $event->time_start) }}</span><span class="post-year">{{ date('Y', $event->time_start) }}</span></div>
                                                     <img src="{{ $event->cover_image }}" class="img-responsive" alt="featured-image" />
                                                 </a>
@@ -126,7 +126,7 @@
                                                     <p><i class="fa fa-map-marker"></i></p>
                                                 @endif
                                                 <p class="read-more">
-                                                    <a href="{{ url("/events/fb/$event->id".str_limit($event->platform, 2, "")) }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                                    <a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
                                                 </p>
                                             </div>
                                         </div>
