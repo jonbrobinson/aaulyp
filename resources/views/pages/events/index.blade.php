@@ -19,7 +19,7 @@
             <div class="col-md-9">
                 <!-- BLOG ENTRIES -->
                 <div class="blog medium-thumbnail margin-bottom-30px">
-                    @if(count($events) == 0)
+                    @if(count($events) < 1)
                         <h1>We are planning some great opportunities. Check out some of our past events we hosted</h1>
                         <!-- blog post -->
                         @foreach($pastEvents as $pastEvent)
@@ -84,7 +84,7 @@
                             <article class="entry-post">
                                 <header class="entry-header">
                                     <h2 class="entry-title">
-                                        <a href="/event/{{ $pastEvent->id.str_limit($pastEvent->platform, 2, "") }}">{{ $event->title->text }}</a>
+                                        <a href="/event/{{ $event->id.str_limit($event->platform, 2, "") }}">{{ $event->title->text }}</a>
                                     </h2>
                                     <div class="meta-line clearfix">
                                         <div class="meta-author-category pull-left">
@@ -126,7 +126,7 @@
                                                     <p><i class="fa fa-map-marker"></i></p>
                                                 @endif
                                                 <p class="read-more">
-                                                    <a href="/event/{{ $pastEvent->id.str_limit($pastEvent->platform, 2, "") }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                                    <a href="/event/{{ $event->id.str_limit($event->platform, 2, "") }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
                                                 </p>
                                             </div>
                                         </div>
