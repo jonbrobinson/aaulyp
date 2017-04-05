@@ -96,12 +96,12 @@
                             @if($index <= 1)
                                 <div class="col-md-6">
                                     <div class="">
-                                        <a href="{{ url("/events/fb/$event->facebook_id") }}"><img src="{{ $event->cover_photo }}" alt="" class="img-responsive"></a>
+                                        <a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}"><img src="{{ $event->cover_image }}" alt="" class="img-responsive"></a>
                                     </div>
-                                    <h4 class="post-title"><a href="{{ url('events/fb/'.$event->facebook_id) }}">{{ $event->name }}</a></h4>
-                                    <h5 class="text-muted">{{ date('M j, Y', strtotime($event->date_start)) }} | {{  date('g:iA', strtotime($event->date_start)) }} - {{  date('g:iA', strtotime($event->date_end)) }}</h5>
-                                    <h5>{{ $event->street_address }}</h5>
-                                    <p>{!! str_limit($event->description, 150) !!}<a href="{{ url('events/fb/'.$event->facebook_id) }}">SEE DETAILS</a></p>
+                                    <h4 class="post-title"><a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}">{{ $event->title->text }}</a></h4>
+                                    <h5 class="text-muted">{{ date('M j, Y', $event->time_start) }} | {{  date('g:iA', $event->time_start) }} - {{  date('g:iA', $event->time_end) }}</h5>
+                                    <h5>{{ $event->venue->display or "" }}</h5>
+                                    <p>{!! str_limit($event->description->text, 150) !!}<a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}">SEE DETAILS</a></p>
                                 </div>
                             @endif
                         @endforeach

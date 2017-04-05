@@ -44,11 +44,10 @@ class EventsController extends Controller
     public function index()
     {
         $events = $this->eventBuilder->getCurrentEvents();
-
-        $events = json_decode(json_encode($events));
+        $reversed = array_reverse($events);
+        $events = json_decode(json_encode($reversed));
 
         $pastEvents = $this->eventBuilder->getPastEvents();
-
         $pastEvents = json_decode(json_encode($pastEvents));
 
         return view('pages.events.index', compact('events', 'pastEvents'));

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Aaulyp\Services\EventsBuilder;
 use Illuminate\Http\Request;
 use App\Aaulyp\Tools\Api\FacebookSdkHelper;
 
@@ -10,12 +11,14 @@ use App\Http\Requests;
 class PagesController extends Controller
 {
     protected $facebookSdk;
+    protected $eventBuilder;
 
-    public function __construct(FacebookSdkHelper $facebookSdk)
+    public function __construct(FacebookSdkHelper $facebookSdk, EventsBuilder $eventsBuilder)
     {
         parent::__construct();
 
         $this->facebookSdk = $facebookSdk;
+        $this->eventBuilder = $eventsBuilder;
     }
 
     /**
@@ -25,13 +28,13 @@ class PagesController extends Controller
      */
     public function home()
     {
-        $events = $this->facebookSdk->getCurrentEvents();
+        $events = $this->eventBuilder->getCurrentEvents();
 
-        $events = json_decode(json_encode($events));
+        $reversed = array_reverse($events);
+
+        $events = json_decode(json_encode($reversed));
 
         return view('welcome', compact('events'));
-//        return view('pages.soon');
-//        return view('onePage');
     }
 
     /**
