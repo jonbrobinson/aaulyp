@@ -328,6 +328,8 @@ class EventbriteApi extends EventFormatter
     {
         $json = json_decode($tickets);
 
+        dd($json);
+
         $ticketsInfo= array();
         $ticketsInfo['total'] = 0;
 
