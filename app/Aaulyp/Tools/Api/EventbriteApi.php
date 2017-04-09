@@ -12,10 +12,6 @@ class EventbriteApi extends EventFormatter
 {
     const EVENTBRITE_BASE_URL = "https://www.eventbriteapi.com/v3/";
     const EVENTBRITE_YP_ID = 1877578689;
-    const YP_WEEKEND_ID = 25893386817;
-    const JOIN_WEEK_ID = 31314155482;
-    const MEMBERSHIP_2017 = 31015190269;
-    const FINANCIAL_MEETUP = 31440952736;
 
     protected $guzzle;
     protected $googleMapsApi;
@@ -27,20 +23,6 @@ class EventbriteApi extends EventFormatter
     }
 
     /**
-     * @param int $timestamp
-     *
-     * @return mixed
-     */
-    public function buildStorageFile($timestamp)
-    {
-        $path = storage_path()."/cache/eventbrite/tmp/events_{$timestamp}.json";
-
-        $file = $this->createFile($path);
-
-        return $file;
-    }
-
-    /**
      * Gets contents of a single folder
      *
      * @param string $url
@@ -49,13 +31,27 @@ class EventbriteApi extends EventFormatter
      */
     public function getOrderPlaced($url)
     {
-          $content = $this->getContentFromRequest('GET', $url, $this->getBaseOptions());
+        $content = $this->getContentFromRequest('GET', $url, $this->getBaseOptions());
 
         $orderJson = json_decode($content);
 
         $orderInfo = $this->getOrderInfoFromJson($orderJson);
 
         return $orderInfo;
+    }
+
+    /**
+     * @param string $eventId
+     *
+     * @return array
+     */
+    public function getTicketsInfo($eventId)
+    {
+        $ticketClasses = $this->getTicketClassInfo($eventId);
+
+        $ticketsInfo = $this->convertTicketsInfo($ticketClasses);
+
+        return $ticketsInfo;
     }
 
     /**
@@ -79,6 +75,20 @@ class EventbriteApi extends EventFormatter
         }
 
         return $completedEvents;
+    }
+
+    /**
+     * @param int $timestamp
+     *
+     * @return mixed
+     */
+    public function buildStorageFile($timestamp)
+    {
+        $path = storage_path()."/cache/eventbrite/tmp/events_{$timestamp}.json";
+
+        $file = $this->createFile($path);
+
+        return $file;
     }
 
     /**
@@ -179,50 +189,6 @@ class EventbriteApi extends EventFormatter
         return $details;
     }
 
-    public function getYpWeekendOrders()
-    {
-        $orders = $this->getEventOrders(self::YP_WEEKEND_ID);
-
-        return $orders;
-    }
-
-    public function getYpWeekendTicketInfo()
-    {
-        $ticketsInfo = $this->getTicketsInfo(self::YP_WEEKEND_ID);
-
-        return $ticketsInfo;
-    }
-
-    /**
-     * @return array
-     */
-    public function getJoinWeekTicketsInfo()
-    {
-        $ticketsInfo = $this->getTicketsInfo(self::JOIN_WEEK_ID);
-
-        return $ticketsInfo;
-    }
-
-    /**
-     * @return array
-     */
-    public function getMembership2017TicketsInfo()
-    {
-        $ticketsInfo = $this->getTicketsInfo(self::MEMBERSHIP_2017);
-
-        return $ticketsInfo;
-    }
-
-    /**
-     * @return array
-     */
-    public function getFinancialMeetupTicketsInfo()
-    {
-        $ticketsInfo = $this->getTicketsInfo(self::FINANCIAL_MEETUP);
-
-        return $ticketsInfo;
-    }
-
     public function getMediaResults($mediaId)
     {
         $url = self::EVENTBRITE_BASE_URL."media/{$mediaId}";
@@ -280,21 +246,6 @@ class EventbriteApi extends EventFormatter
         $content = $this->getContentFromRequest('GET', $url, $options);
 
         return $content;
-    }
-
-
-    /**
-     * @param string $eventId
-     *
-     * @return array
-     */
-    protected function getTicketsInfo($eventId)
-    {
-        $ticketClasses = $this->getTicketClassInfo($eventId);
-
-        $ticketsInfo = $this->convertTicketsInfo($ticketClasses);
-
-        return $ticketsInfo;
     }
 
     protected function getEventOrders($id)
@@ -363,7 +314,8 @@ class EventbriteApi extends EventFormatter
         $orderInfo = [
             'firstName' => $json->first_name,
             'lastName'  => $json->last_name,
-            'email'     => $json->email
+            'email'     => $json->email,
+            'event_id'  => $json->event_id
         ];
 
         return $orderInfo;

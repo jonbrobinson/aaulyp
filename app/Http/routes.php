@@ -38,15 +38,7 @@ Route::get('/photos', 'FacebookController@photos');
 
 Route::get('/album/{id}', 'FacebookController@showAlbum');
 
-//Route::post('/webhooks/eventbrite/orders', 'WebhookController@ebOrders');
-
-Route::post('/webhooks/financialmeetup2017/orders', 'WebhookController@financial2017Orders');
-
-Route::post('/webhooks/membership2017/orders', 'WebhookController@membership2017Orders');
-
-Route::post('/webhooks/ypweekend/orders', 'WebhookController@ypWeekendOrders');
-
-Route::post('/webhooks/joinweekmixer2017/orders', 'WebhookController@joinWeekMixerOrders');
+Route::post('/webhooks/eb/orders/placed/all', 'WebhookController@ebOrdersPlacedAll');
 
 Route::get('/admin/create', 'AdminController@leadershipCreate');
 

@@ -64,7 +64,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ url('/join') }}">Become A Member</a></li>
                         <li class="dropdown ">
-                            <a href="{{ url('/committee/advocacy') }}">Join A Committee
+                            <a href="{{ url('/committee/communication') }}">Join A Committee
                                 {{--<i class="fa fa-angle-right"></i>--}}
                             </a>
                             {{--<ul class="dropdown-menu" role="menu">--}}

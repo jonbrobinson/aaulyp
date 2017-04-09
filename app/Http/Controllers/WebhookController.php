@@ -17,7 +17,7 @@ class WebhookController extends Controller
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function ebOrders(Request $request)
+    public function ebOrdersPlacedAll(Request $request)
     {
         $this->init();
 
@@ -25,71 +25,9 @@ class WebhookController extends Controller
 
         $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
 
-        $response = $this->emailer->sendWelcomeEmail($orderUser);
+        $ticketInfo = $this->eventbrite->getTicketsInfo($orderUser["event_id"]);
 
-        return $this->getTicketResponseStatus($response);
-    }
-
-    /**
-     * @param Request $request
-     *
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function ypWeekendOrders(Request $request)
-    {
-        $this->init();
-
-        $ticketsInfo = $this->eventbrite->getYpWeekendTicketInfo();
-
-        $response = $this->emailer->sendYpWeekendOrdersEmail($ticketsInfo);
-
-        return $this->getTicketResponseStatus($response);
-    }
-
-    /**
-     * @param Request $request
-     *
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function joinWeekMixerOrders(Request $request)
-    {
-        $this->init();
-
-        $ticketsInfo = $this->eventbrite->getJoinWeekTicketsInfo();
-
-        $response = $this->emailer->sendJoinWeekMixerOrdersEmail($ticketsInfo);
-
-        return $this->getTicketResponseStatus($response);
-    }
-
-    /**
-     * @param Request $request
-     *
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function membership2017Orders(Request $request)
-    {
-        $this->init();
-
-        $ticketsInfo = $this->eventbrite->getMembership2017TicketsInfo();
-
-        $response = $this->emailer->sendMembership2017Email($ticketsInfo);
-
-        return $this->getTicketResponseStatus($response);
-    }
-
-    /**
-     * @param Request $request
-     *
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function financial2017Orders(Request $request)
-    {
-        $this->init();
-
-        $ticketsInfo = $this->eventbrite->getFinancialMeetupTicketsInfo();
-
-        $response = $this->emailer->sendFinancialMeetUpOrdersEmail($ticketsInfo);
+        $response = $this->emailer->sendOrdersPlacedAllEmail($ticketInfo);
 
         return $this->getTicketResponseStatus($response);
     }
