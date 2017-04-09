@@ -7,6 +7,7 @@ use App\Aaulyp\Tools\Api\GoogleMapsApi;
 use App\Aaulyp\Services\Emailer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Illuminate\Http\Response;
 
 class WebhookController extends Controller
 {
@@ -24,7 +25,12 @@ class WebhookController extends Controller
 
         $orderUrl = $request->input('api_url');
 
-        dd($orderUrl);
+        $response = new Response();
+
+        return response()->json([
+            "message" => $orderUrl
+
+        ], $response->getStatusCode());
 
         $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
 
