@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Aaulyp\Tools\Api\EventbriteApi;
+use App\Aaulyp\Tools\Api\GoogleMapsApi;
 use App\Aaulyp\Services\Emailer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -54,7 +55,7 @@ class WebhookController extends Controller
      */
     protected function init()
     {
-        $this->eventbrite = new EventbriteApi();
+        $this->eventbrite = new EventbriteApi(new GoogleMapsApi());
         $this->emailer = new Emailer();
     }
 }
