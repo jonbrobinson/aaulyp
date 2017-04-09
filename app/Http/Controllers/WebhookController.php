@@ -30,7 +30,7 @@ class WebhookController extends Controller
 
         $event = $this->eventbrite->getGetEventById($orderUser["event_id"]);
 
-        $ticketsInfo['name'] =$event->name->text;
+        $ticketsInfo['name'] = $event['name']['text'];
 
         $response = $this->emailer->sendEbOrdersPlacedAllEmail($ticketsInfo);
 
