@@ -337,6 +337,7 @@ class EventbriteApi extends EventFormatter
             $ticketInfo = array();
             $ticketInfo['name']  = $ticketClass->name;
             $ticketInfo['sold']  = $ticketClass->quantity_sold;
+            $tickets['event_id'] = $ticketClass->event_id;
             $ticketsInfo['total'] += $ticketInfo['sold'];
             $ticketsInfo['ticketTypes'][] = $ticketInfo;
         }

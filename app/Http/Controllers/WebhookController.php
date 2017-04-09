@@ -23,13 +23,16 @@ class WebhookController extends Controller
         $this->init();
 
         $orderUrl = $request->input('api_url');
-        $orderUrl = "https://www.eventbriteapi.com/v3/orders/616594622/";
 
         $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
 
-        $ticketInfo = $this->eventbrite->getTicketsInfo($orderUser["event_id"]);
+        $ticketsInfo = $this->eventbrite->getTicketsInfo($orderUser["event_id"]);
 
-        $response = $this->emailer->sendEbOrdersPlacedAllEmail($ticketInfo);
+        $event = $this->eventbrite->getGetEventById($orderUser["event_id"]);
+
+        $ticketsInfo['name'] =$event->name->text;
+
+        $response = $this->emailer->sendEbOrdersPlacedAllEmail($ticketsInfo);
 
         return $this->getTicketResponseStatus($response);
     }
