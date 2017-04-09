@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Jonbrobinson
- * Date: 3/18/17
- * Time: 7:26 PM
- */
 
 namespace App\Aaulyp\Services;
 
