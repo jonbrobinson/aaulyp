@@ -35,11 +35,11 @@
                     <p>* Work with YP partners to create service opportunities to impact the community</p>
 
                     <br>
-                    <h3>Meeting Information</h3>
-                    <p>When: TBD - Check with Committee chair</p>
-                    <p>Location: TBD</p>
-                    <p>Chair: Alexis Redick</p>
-                    <p>Contact: <a href="mailto:community.aaulyp@gmail.com">community.aaulyp@gmail.com</a></p>
+                    {{--<h3>Meeting Information</h3>--}}
+                    {{--<p>When: TBD - Check with Committee chair</p>--}}
+                    {{--<p>Location: TBD</p>--}}
+                    {{--<p>Chair: Alexis Redick</p>--}}
+                    {{--<p>Contact: <a href="mailto:community.aaulyp@gmail.com">community.aaulyp@gmail.com</a></p>--}}
 
                 </div>
                 <div class="col-md-3">

@@ -40,7 +40,7 @@
                     <h3>Meeting Information</h3>
                     <p>When: TBD</p>
                     <p>Location: TBD</p>
-                    <p>Chair: Chris Tolbert</p>
+                    {{--<p>Chair: Chris Tolbert</p>--}}
                     <p>Contact: <a href="mailto:poly.edu.aaulyp@gmail.com">poly.edu.aaulyp@gmail.com</a></p>
 
                 </div>

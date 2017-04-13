@@ -40,6 +40,7 @@
                     <h3>Meeting Information</h3>
                     <p>When: TBD</p>
                     <p>Location: TBD</p>
+                    <p>Chair: Brook Campbell</p>
                     <p>Contact: <a href="mailto:membership.aaulyp@gmail.com">membership.aaulyp@gmail.com</a></p>
 
                 </div>

@@ -86,18 +86,22 @@
     <section>
         <div class="container">
             <div class="row">
+                @if(count($events) >= 1)
                 <div class="col-md-8">
                     <div class="col-md-12 row">
                         <h2 class="section-heading pull-left"><a href="{{ url('/events') }}">UPCOMING EVENTS</a></h2>
                     </div>
-                    @if(count($events) >= 1)
                     <div class="row">
                         @foreach($events as $index => $event)
-                            @if($index <= 1)
-                                <div class="col-md-6">
-                                    <div class="">
-                                        <a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}"><img src="{{ $event->cover_image }}" alt="" class="img-responsive"></a>
-                                    </div>
+                            @if($index <= 2)
+                                @if(count($events) == 3)
+                                    <div class="col-md-4">
+                                @else
+                                    <div class="col-md-6">
+                                @endif
+                                <div class="">
+                                    <a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}"><img src="{{ $event->cover_image }}" alt="" class="img-responsive"></a>
+                                </div>
                                     <h4 class="post-title"><a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}">{{ $event->title->text }}</a></h4>
                                     <h5 class="text-muted">{{ date('M j, Y', $event->time_start) }} | {{  date('g:iA', $event->time_start) }} - {{  date('g:iA', $event->time_end) }}</h5>
                                     <h5>{{ $event->venue->display or "" }}</h5>
@@ -106,18 +110,13 @@
                             @endif
                         @endforeach
                     </div>
-                    @else
-                        <div class="col-md-12 row">
-                            <h3>We are planning some great opportunities. Please check back later to see some of the activities we have planned</h3>
-                            <h3>Please follow us on social media @AAULYP to keep up to date with our latest updates.</h3>
-                        </div>
-                    @endif
                 </div>
-                <div class="col-md-4">
-                    @include('partials.socialMediaTabs')
+                    <div class="col-md-4">
+                        @include('partials.socialMediaTabs')
+                    </div>
                 </div>
+                @endif
             </div>
-        </div>
     </section>
     @else
     <section>
@@ -237,7 +236,7 @@
                 <h2 class="section-heading">GET IN TOUCH</h2>
             </div>
             <div class="pull-right">
-                &nbsp;&nbsp;<a href="/contact" class="btn btn-lg btn-primary">CONTACT US</a>
+                &nbsp;&nbsp;<a href="{{ url("/contact") }}" class="btn btn-lg btn-primary">CONTACT US</a>
             </div>
         </div>
     </section>
