@@ -94,7 +94,7 @@
                     <div class="row">
                         @foreach($events as $index => $event)
                             @if($index <= 2)
-                                @if(count($events) == 3)
+                                @if(count($events) >= 3)
                                     <div class="col-md-4">
                                 @else
                                     <div class="col-md-6">
