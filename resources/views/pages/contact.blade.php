@@ -25,7 +25,7 @@
                     <form id="the-form" method="post" class="form-horizontal margin-bottom-30px" role="form" novalidate>
                         {{--<meta name="csrf-token" content="{{ csrf_token() }}">--}}
                         <div>
-                            <input type="text" id="contact-aaulyp" name="website" value="">
+                            <input type="text" class="contact-aaulyp" name="website" value="">
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
