@@ -36,8 +36,8 @@
                             <li><a href="{{ url('/events') }}">Events</a></li>
                             {{--<li><a href="">Our Team</a></li>--}}
                             {{--<li><a href="#">FAQ</a></li>--}}
-                            {{--<li><a href="/recaps">Blog</a></li>--}}
                             <li><a href="{{ url('/contact') }}">Contact Us</a></li>
+                            <li><a href="/linkedin">LinkedIn Tips</a></li>
                         </ul>
                     </div>
                 </div>

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Aaulyp\Tools\Api\FacebookSdkHelper;
 
 use App\Http\Requests;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class PagesController extends Controller
 {
@@ -122,6 +126,61 @@ class PagesController extends Controller
         }
 
         abort('404');
+    }
+
+    /**
+     * Show the commitee passed in and return the view
+     *
+     * @param $committee
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function linkedin()
+    {
+        $file = Storage::get("linkedin_tips.pdf");
+        if (true) {
+            return view("pages.linkedin", compact('file'));
+        }
+        $response = response($file, 200)->header('Content-Type', 'application/pdf');
+
+        return $response;
+    }
+
+    public function linkedinNotes(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'website' => 'size:0'
+        ]);
+
+        if ($validator->fails()) {
+            return response()
+                ->json([
+                    'message' => 'Input submission Errors',
+                    'errors' => $validator->errors()->all()
+                ],400);
+        }
+
+        $linkedIn = $request->all();
+
+        $response = Mail::send('pages.emails.linkedInEmail', ['data' => $linkedIn], function ($m) use ($linkedIn) {
+            $m->from('pr.aaulyp@gmail.com', "AAULYP Communications");
+
+            $m->to($linkedIn['email']);
+            $m->subject('AAULYP LinkedIn Tips');
+            $m->attach(public_path("/assets/pdf/linkedIn_tips.pdf"), ["as" => "linkedInTips.pdf", "mime" => "application/pdf"]);
+        });
+
+        $statusCode = $response->getStatusCode();
+        if ($statusCode == 200) {
+            return response()->json([
+                "message" => "Thank You. Your message has been successfully sent"
+
+            ], $statusCode);
+        }
+
+        return response($response->getBody(), $statusCode);
+
     }
 
     /**

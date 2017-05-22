@@ -39,6 +39,43 @@ $(document).ready( function() {
         });
     }
 
+    var form = $('#the-form-linkedin');
+    if ( form.length > 0) {
+        form.submit(function(e) {
+            var url = "/linkedin"; // the script where you handle the form input.
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#the-form-linkedin").serialize(), // serializes the form's elements.
+                success: function(data)
+                {
+                    resetResponse();
+                    var success = '<p class=\'alert alert-success\'>' + data.message + '<a href=\'#\' class=\'close\' data-dismiss=\'alert\' aria-label=\'close\'>&times;</a></p>';
+                    $('#server-response').append(success);
+                    $('#linkedin-email').val('');
+                },
+                error: function(xhr, status, error) {
+                    resetResponse();
+                    console.log(xhr.responseJSON.errors);
+                    var errorList = '';
+                    var errors = xhr.responseJSON.errors;
+
+                    for (index = 0; index < errors.length; ++index) {
+                        errorList += '<li>' + errors[index] + '</li>';
+                    }
+
+                    var errorElem = '<ul>' + errorList + '</ul>';
+
+                    $('#server-response').addClass('alert alert-danger').append(errorElem);
+
+                }
+            });
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+        });
+    }
+
     var form = $('#admin-form');
     if ( form.length > 0) {
 

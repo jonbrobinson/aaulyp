@@ -30,6 +30,8 @@ Route::get('/ypweekend2016', 'PagesController@ypweekend');
 
 Route::get('/committee/{name}', 'PagesController@committees');
 
+Route::get('/linkedin', 'PagesController@linkedin');
+
 //route::get('/events/fb/{id}', 'FacebookController@show');
 
 Route::get('/volunteer/request', 'PagesController@volunteerRequest');
@@ -63,6 +65,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('event/{eventId}', 'EventsController@show');
     Route::post('{zip}/{name}/photos', 'EventsController@addPhoto');
     Route::post('/contact', 'HomeController@contact');
+    Route::post('/linkedin', 'PagesController@linkedinNotes');
     Route::post('/admin/store', 'AdminController@leadershipStore');
     Route::get('/admin/{id}/edit');
 });
