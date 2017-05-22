@@ -7,11 +7,7 @@
                 <li>Empowering Communitites | Changing Lives</li>
                 <li><a href="https://twitter.com/aaulyp"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="https://www.facebook.com/AAULYP"><i class="fa fa-facebook"></i></a></li>
-                @if($signedIn)
-                    <li><a href="/logout"><i class="fa fa-sign-out"></i></a></li>
-                @else
-                    <li><a href="/login"><i class="fa fa-user"></i></a></li>
-                @endif
+                <li><a href="https://www.instagram.com/aaulyp"><i class="fa fa-instagram"></i></a></li>
             </ul>
         </div>
         <!-- END TOPBAR -->
