@@ -167,6 +167,7 @@ class PagesController extends Controller
             $m->from('pr.aaulyp@gmail.com', "AAULYP Communications");
 
             $m->to($linkedIn['email']);
+            $m->bcc('pr.aaulyp@gmail.com');
             $m->subject('AAULYP LinkedIn Tips');
             $m->attach(public_path("/assets/pdf/linkedIn_tips.pdf"), ["as" => "linkedInTips.pdf", "mime" => "application/pdf"]);
         });
@@ -181,6 +182,14 @@ class PagesController extends Controller
 
         return response($response->getBody(), $statusCode);
 
+    }
+
+    /**
+     * Volunteer Request Form
+     */
+    public function checkin()
+    {
+        return view('pages.checkin');
     }
 
     /**
