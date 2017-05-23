@@ -28,6 +28,8 @@
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('http://www.aaul.org') }}">Austin Area Urban League</a></li>
                             <li><a href="{{ url('/join') }}">Join Us</a></li>
+                            <li><a href="/signin">Sign In</a></li>
+
                         </ul>
                     </div>
                     <div class="col-xs-6">
@@ -37,7 +39,7 @@
                             {{--<li><a href="">Our Team</a></li>--}}
                             {{--<li><a href="#">FAQ</a></li>--}}
                             <li><a href="{{ url('/contact') }}">Contact Us</a></li>
-                            <li><a href="/linkedin">LinkedIn Tips</a></li>
+                            {{--<li><a href="/linkedin">LinkedIn Tips</a></li>--}}
                         </ul>
                     </div>
                 </div>
