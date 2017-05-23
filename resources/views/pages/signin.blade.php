@@ -6,7 +6,7 @@
     <!-- BREADCRUMBS -->
     <div class="page-header">
         <div class="container">
-            <h1 class="page-title pull-left">Check In</h1>
+            <h1 class="page-title pull-left">Sign In</h1>
             <ol class="breadcrumb">
                 {{--<li><a href="{{ url('/board') }}"></a></li>--}}
                 {{--<li class="active">LinkedIn</li>--}}
@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScVABw8epTUOGU_PtjWtooKi18xXRRzUgMNnSPw48kW07zfGA/viewform?embedded=true" width="760" height="1400" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScVABw8epTUOGU_PtjWtooKi18xXRRzUgMNnSPw48kW07zfGA/viewform?embedded=true" width="760" height="1600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
                 </div>
             </div>
         </div>

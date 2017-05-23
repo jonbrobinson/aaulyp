@@ -32,7 +32,7 @@ Route::get('/committee/{name}', 'PagesController@committees');
 
 Route::get('/linkedin', 'PagesController@linkedin');
 
-Route::get('/checkin', 'PagesController@checkin');
+Route::get('/signin', 'PagesController@signin');
 
 //route::get('/events/fb/{id}', 'FacebookController@show');
 

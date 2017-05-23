@@ -187,9 +187,9 @@ class PagesController extends Controller
     /**
      * Volunteer Request Form
      */
-    public function checkin()
+    public function signin()
     {
-        return view('pages.checkin');
+        return view('pages.signin');
     }
 
     /**
