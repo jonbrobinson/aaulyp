@@ -96,7 +96,9 @@ class EventsController extends Controller
 
         $events = $this->eventBuilder->getCurrentEvents();
 
-        $events = json_decode(json_encode($events));
+        $reversed = array_reverse($events);
+
+        $events = json_decode(json_encode($reversed));
 
         return view('pages.events.show', compact('event', 'events'));
     }
