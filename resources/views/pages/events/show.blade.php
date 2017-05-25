@@ -77,7 +77,7 @@
                         <div class="widget">
                             <h2 class="widget-title"><i class="fa fa-calendar"></i> Upcoming Events</h2>
                             @foreach($events as $feature)
-                                <h4><a href="{{ url('/events/fb/'.$feature->id) }}">{{ $feature->title->text }}</a></h4>
+                                <h4><a href="{{ url("/events/$feature->id".str_limit($event->platform, 2, "")) }}">{{ $feature->title->text }}</a></h4>
                                 <p><strong>{{ date("l, F j, Y g:iA", $feature->time_start) }}</strong></p>
                                 <br>
                             @endforeach
