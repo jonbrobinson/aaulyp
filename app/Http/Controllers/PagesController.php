@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Aaulyp\Services\EventsBuilder;
+use App\Aaulyp\Tools\Api\MailchimpApi;
 use Illuminate\Http\Request;
 use App\Aaulyp\Tools\Api\FacebookSdkHelper;
 
@@ -181,6 +182,13 @@ class PagesController extends Controller
         }
 
         return response($response->getBody(), $statusCode);
+    }
+
+    /**
+     * Test Page
+     */
+    public function test()
+    {
 
     }
 

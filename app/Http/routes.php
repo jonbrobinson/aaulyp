@@ -30,7 +30,7 @@ Route::get('/ypweekend2016', 'PagesController@ypweekend');
 
 Route::get('/committee/{name}', 'PagesController@committees');
 
-Route::get('/linkedin', 'PagesController@linkedin');
+//Route::get('/linkedin', 'PagesController@linkedin');
 
 Route::get('/signin', 'PagesController@signin');
 
@@ -46,7 +46,7 @@ Route::post('/webhooks/eb/orders/placed/all', 'WebhookController@ebOrdersPlacedA
 
 Route::get('/admin/create', 'AdminController@leadershipCreate');
 
-//Route::get('/test', 'EventsController@index');
+//Route::get('/test', 'PagesController@test');
 
 /*
 |--------------------------------------------------------------------------

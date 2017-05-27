@@ -6,12 +6,12 @@ use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
 
 class MailchimpApi
 {
     const MAILCHIMP_BASE_URL = "https://us4.api.mailchimp.com/3.0";
     const MC_GENERAL_BODY_LIST_ID = "17d8d9f32d";
-    const MC_YP_WEEKEND_LIST_ID = "";
 
     protected $guzzle;
     protected $stack;
@@ -103,17 +103,40 @@ class MailchimpApi
      *
      * @param int   $listId
      * @param array $member
+     *
+     * @return Response
      */
     public function addMemberToList($listId, $member)
     {
+        $url = self::MAILCHIMP_BASE_URL."/lists/".$listId."/members/".md5($member["email"]);
 
-    }
+        $headers = [
+            'aaulyp',
+            env('MAILCHIMP_TOKEN'),
+        ];
 
-    protected function createMailchimpListMember($user)
-    {
-        $member['merge_fields']['FNAME'] = $user['first_name'];
-        $member['merge_fields']['LNAME'] = $user['last_name'];
+        $mergeFields = [
+            'FNAME' => $member["first_name"],
+            'LNAME' => $member["last_name"],
+        ];
 
-        return $member;
+        $options = [
+            'auth' => $headers,
+            'handler' => $this->stack,
+            'json' => [
+                "email_address" => $member['email'],
+                "status_if_new" => "subscribed",
+                "merge_fields" => $mergeFields
+            ]
+        ];
+
+        $response = $this->guzzle->request('PUT', $url, $options);
+
+        if ($response->getStatusCode() != 200) {
+
+            return false;
+        }
+
+        return $response->getBody()->getContents();
     }
 }

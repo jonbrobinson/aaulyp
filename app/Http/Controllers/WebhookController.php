@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Aaulyp\Tools\Api\EventbriteApi;
 use App\Aaulyp\Tools\Api\GoogleMapsApi;
 use App\Aaulyp\Services\Emailer;
+use App\Aaulyp\Tools\Api\MailchimpApi;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
@@ -12,6 +13,7 @@ class WebhookController extends Controller
 {
     protected $eventbrite;
     protected $emailer;
+    protected $mailChimp;
 
     /**
      * @param Request $request
@@ -25,6 +27,8 @@ class WebhookController extends Controller
         $orderUrl = $request->input('api_url');
 
         $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
+
+        $this->mailChimp->addMemberToList(MailchimpApi::MC_GENERAL_BODY_LIST_ID, $orderUser);
 
         $ticketsInfo = $this->eventbrite->getTicketsInfo($orderUser["event_id"]);
 
@@ -61,5 +65,6 @@ class WebhookController extends Controller
     {
         $this->eventbrite = new EventbriteApi(new GoogleMapsApi());
         $this->emailer = new Emailer();
+        $this->mailChimp = new MailchimpApi();
     }
 }
