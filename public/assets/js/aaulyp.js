@@ -20,7 +20,6 @@ $(document).ready( function() {
                 },
                 error: function(xhr, status, error) {
                     resetResponse();
-                    console.log(xhr.responseJSON.errors);
                     var errorList = '';
                     var errors = xhr.responseJSON.errors;
 
@@ -57,7 +56,46 @@ $(document).ready( function() {
                 },
                 error: function(xhr, status, error) {
                     resetResponse();
-                    console.log(xhr.responseJSON.errors);
+                    var errorList = '';
+                    var errors = xhr.responseJSON.errors;
+
+                    for (index = 0; index < errors.length; ++index) {
+                        errorList += '<li>' + errors[index] + '</li>';
+                    }
+
+                    var errorElem = '<ul>' + errorList + '</ul>';
+
+                    $('#server-response').addClass('alert alert-danger').append(errorElem);
+
+                }
+            });
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+        });
+    }
+
+    var form = $('#the-form-signin');
+    if ( form.length > 0) {
+        form.submit(function(e) {
+            var url = "/signinyes"; // the script where you handle the form input.
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#the-form-signin").serialize(), // serializes the form's elements.
+                success: function(data)
+                {
+                    resetResponse();
+                    var success = '<p class=\'alert alert-success\'>' + data.message + '<a href=\'#\' class=\'close\' data-dismiss=\'alert\' aria-label=\'close\'>&times;</a></p>';
+                    $('#server-response').append(success);
+                    $('#signin-name').val('');
+                    $('#signin-email').val('');
+                    $('#datepicker').val('');
+                    $('#signin-event').val('');
+                    $('input[name="ypFirst"]').prop('checked', false);
+                    $('input[name="mailList"]').prop('checked', false);
+                },
+                error: function(xhr, status, error) {
+                    resetResponse();
                     var errorList = '';
                     var errors = xhr.responseJSON.errors;
 
@@ -89,14 +127,12 @@ $(document).ready( function() {
                 data: $("#admin-form").serialize(), // serializes the form's elements.
                 success: function(data)
                 {
-                    console.log('made it here');
                     resetResponse();
                     var success = '<p class=\'alert alert-success\'>' + data.message + '<a href=\'#\' class=\'close\' data-dismiss=\'alert\' aria-label=\'close\'>&times;</a></p>';
                     $('#server-response').append(success);
                 },
                 error: function(xhr, status, error) {
                     resetResponse();
-                    console.log(xhr.responseJSON.errors);
                     var errorList = '';
                     var errors = xhr.responseJSON.errors;
 
