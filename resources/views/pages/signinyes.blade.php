@@ -136,7 +136,6 @@
 @section('javascript')
     <script src="{{ asset('assets/js/plugins/google-map/google-map.js') }}"></script>
     <script src="{{ asset('assets/js/aaulyp.js') }}"></script>
-    <script src="{{ asset('assets/js/spin.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/daterangepicker/daterangepicker.js') }}"></script>
 @endsection
