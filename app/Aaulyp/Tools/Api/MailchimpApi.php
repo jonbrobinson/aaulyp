@@ -12,7 +12,9 @@ class MailchimpApi
 {
     const MAILCHIMP_BASE_URL = "https://us4.api.mailchimp.com/3.0";
     const MC_GENERAL_BODY_LIST_ID = "17d8d9f32d";
+    const MC_TEST_LIST = "f8ae11f203";
 
+    protected $validMemberKeys = ['first_name', 'last_name', 'email'];
     protected $guzzle;
     protected $stack;
 
@@ -101,34 +103,20 @@ class MailchimpApi
     /**
      * Add member to list based on ID
      *
-     * @param int   $listId
-     * @param array $member
+     * @param array  $member
+     * @param string $updateStatus
+     * @param string $newStatus
      *
      * @return Response
+     * @throws \Exception
      */
-    public function addMemberToList($listId, $member)
+    public function updateMemberGeneralMailingList($member, $updateStatus = "subscribed", $newStatus = "subscribed")
     {
-        $url = self::MAILCHIMP_BASE_URL."/lists/".$listId."/members/".md5($member["email"]);
+        $validMember = $this->sanitizeMemberInfo($member);
 
-        $headers = [
-            'aaulyp',
-            env('MAILCHIMP_TOKEN'),
-        ];
+        $url = self::MAILCHIMP_BASE_URL."/lists/".self::MC_GENERAL_BODY_LIST_ID."/members/".md5($validMember["email"]);
 
-        $mergeFields = [
-            'FNAME' => $member["first_name"],
-            'LNAME' => $member["last_name"],
-        ];
-
-        $options = [
-            'auth' => $headers,
-            'handler' => $this->stack,
-            'json' => [
-                "email_address" => $member['email'],
-                "status_if_new" => "subscribed",
-                "merge_fields" => $mergeFields
-            ]
-        ];
+        $options = $this->buildMemberOptions($validMember, $updateStatus, $newStatus);
 
         $response = $this->guzzle->request('PUT', $url, $options);
 
@@ -138,5 +126,83 @@ class MailchimpApi
         }
 
         return $response->getBody()->getContents();
+    }
+
+    /**
+     * Add member to list based on ID
+     *
+     * @param int    $listId
+     * @param array  $member
+     * @param string $updateStatus
+     * @param string $newStatus
+     *
+     * @return Response
+     * @throws \Exception
+     */
+    public function addMemberToList($listId, $member, $newStatus = "unsubscribed", $updateStatus = null)
+    {
+        $validMember = $this->sanitizeMemberInfo($member);
+
+        $url = self::MAILCHIMP_BASE_URL."/lists/".$listId."/members/".md5($validMember["email"]);
+
+        $options = $this->buildMemberOptions($validMember,$newStatus, $updateStatus);
+
+        $response = $this->guzzle->request('PUT', $url, $options);
+
+        if ($response->getStatusCode() != 200) {
+
+            return false;
+        }
+
+        return $response->getBody()->getContents();
+    }
+
+    /**
+     * @param array $member
+     *
+     * @throws \Exception
+     *
+     * @return array
+     */
+    protected function sanitizeMemberInfo($member)
+    {
+        if (!array_key_exists("email" , $member)){
+            throw new \Exception("Member Must have a valid email. Please verify member input");
+        }
+
+        foreach ($this->validMemberKeys as $key) {
+            if (!array_key_exists($key, $member)) {
+                $member[$key] = "";
+            }
+        }
+
+        return $member;
+    }
+
+    protected function buildMemberOptions($member, $newStatus = "subscribed", $updateStatus = null)
+    {
+        $headers = [
+            'aaulyp',
+            env('MAILCHIMP_TOKEN'),
+        ];
+
+        $options = [
+            'auth' => $headers,
+            'handler' => $this->stack,
+            'json' => [
+                "email_address" => $member['email'],
+                "status_if_new" => $newStatus,
+                "merge_fields" => [
+                    'FNAME' => $member["first_name"],
+                    'LNAME' => $member["last_name"],
+                ],
+            ]
+        ];
+
+        if ($updateStatus) {
+            $options["json"]["status"] = $updateStatus;
+        }
+
+        return $options;
     }
 }
