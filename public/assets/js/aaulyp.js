@@ -84,9 +84,6 @@ $(document).ready( function() {
                     'X_CSRF_TOKEN':$('meta[name="csrf-token"]').attr('content'),
                 },
                 url: url,
-                beforeSend: function() {
-                    spinner.show();
-                },
                 data: $("#the-form-signin").serialize(), // serializes the form's elements.
                 success: function(data)
                 {
@@ -99,7 +96,6 @@ $(document).ready( function() {
                     $('#signin-event').val('');
                     $('input[name="ypFirst"]').prop('checked', false);
                     $('input[name="mailList"]').prop('checked', false);
-                    spinner.hide();
                 },
                 error: function(xhr, status, error) {
                     resetResponse();
@@ -113,7 +109,6 @@ $(document).ready( function() {
                     var errorElem = '<ul>' + errorList + '</ul>';
 
                     $('#server-response').addClass('alert alert-danger').append(errorElem);
-                    spinner.hide();
                 }
             });
 
