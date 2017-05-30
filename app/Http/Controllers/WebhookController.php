@@ -28,7 +28,7 @@ class WebhookController extends Controller
 
         $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
 
-        $this->mailChimp->addMemberToList(MailchimpApi::MC_GENERAL_BODY_LIST_ID, $orderUser);
+        $this->mailChimp->addMemberToList(MailchimpApi::MC_GENERAL_BODY_LIST_ID, $orderUser, "unsubscribed");
 
         $ticketsInfo = $this->eventbrite->getTicketsInfo($orderUser["event_id"]);
 
