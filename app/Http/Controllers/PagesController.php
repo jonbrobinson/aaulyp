@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Aaulyp\Services\EventsBuilder;
+use App\Aaulyp\Tools\Api\MailchimpApi;
 use Illuminate\Http\Request;
 use App\Aaulyp\Tools\Api\FacebookSdkHelper;
 
@@ -16,13 +17,15 @@ class PagesController extends Controller
 {
     protected $facebookSdk;
     protected $eventBuilder;
+    protected $mailchimpApi;
 
-    public function __construct(FacebookSdkHelper $facebookSdk, EventsBuilder $eventsBuilder)
+    public function __construct(FacebookSdkHelper $facebookSdk, EventsBuilder $eventsBuilder, MailchimpApi $mailchimpApi)
     {
         parent::__construct();
 
         $this->facebookSdk = $facebookSdk;
         $this->eventBuilder = $eventsBuilder;
+        $this->mailchimpApi = $mailchimpApi;
     }
 
     /**
@@ -197,6 +200,80 @@ class PagesController extends Controller
     public function signin()
     {
         return view('pages.signin');
+    }
+
+    /**
+     * Volunteer Request Form
+     */
+    public function signinyes()
+    {
+        return view('pages.signinyes');
+    }
+
+    /**
+     * Volunteer Request Form
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function signinform(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|min:3',
+            'email' => 'required|email',
+            'event' => 'required|string',
+            'website' => 'size:0'
+        ]);
+
+        if ($validator->fails()) {
+            return response()
+                ->json([
+                    'message' => 'Input submission Errors',
+                    'errors' => $validator->errors()->all()
+                ],400);
+        }
+
+        $attendee = array();
+        $attendee['name'] = $request->input("name");
+        $attendee["email"] = strtolower($request->input("email"));
+        $attendee["event"] = $request->input("event");
+        $attendee["datepicker"] = $request->input("datepicker");
+        if ($request->input("ypFirst")) {
+            $attendee["ypFirst"] = $request->input("ypFirst");
+        } else {
+            $attendee["ypFirst"] = "false";
+        }
+
+        if ($request->input("mailList")) {
+            $attendee["mailList"] = $request->input("mailList");
+        } else {
+            $attendee["mailList"] = "false";
+        }
+
+        Storage::disk('dropbox')->append('attendance.txt', implode(",", $attendee));
+
+        $names = explode(" ", $attendee['name']);
+        if (count($names) > 1) {
+            $attendee['first_name'] = $names[0];
+            $attendee['last_name'] = $names[1];
+        } else {
+            $attendee['first_name'] = $names[0];
+        }
+
+        $newSubscribe = "unsubscribed";
+        $updateSubscribe = null;
+
+        if ("true" == $attendee['mailList']) {
+            $updateSubscribe = "subscribed";
+            $newSubscribe = "subscribed";
+        }
+
+        $this->mailchimpApi->addMemberToList(MailchimpApi::MC_TEST_LIST, $attendee, $newSubscribe, $updateSubscribe);
+
+        return response()->json([
+            "message" => "Thank You. Glad you could make it"
+        ], 200);
     }
 
     /**
