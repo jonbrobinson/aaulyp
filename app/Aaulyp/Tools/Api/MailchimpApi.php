@@ -179,7 +179,7 @@ class MailchimpApi
         return $member;
     }
 
-    protected function buildMemberOptions($member, $newStatus = "subscribed", $updateStatus = null)
+    protected function buildMemberOptions($member, $newStatus = "unsubscribed", $updateStatus = null)
     {
         $headers = [
             'aaulyp',
