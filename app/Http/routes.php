@@ -34,10 +34,6 @@ Route::get('/committee/{name}', 'PagesController@committees');
 
 Route::get('/signin', 'PagesController@signin');
 
-Route::get('/signinyes', 'PagesController@signinyes');
-
-//route::get('/events/fb/{id}', 'FacebookController@show');
-
 Route::get('/volunteer/request', 'PagesController@volunteerRequest');
 
 Route::get('/photos', 'FacebookController@photos');
@@ -70,7 +66,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('{zip}/{name}/photos', 'EventsController@addPhoto');
     Route::post('/contact', 'HomeController@contact');
     Route::post('/linkedin', 'PagesController@linkedinNotes');
-    Route::post('/signinyes', 'PagesController@signinform');
+    Route::post('/signin', 'PagesController@signinform');
     Route::post('/admin/store', 'AdminController@leadershipStore');
     Route::get('/admin/{id}/edit');
 });

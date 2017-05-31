@@ -77,7 +77,7 @@ $(document).ready( function() {
     var form = $('#the-form-signin');
     if ( form.length > 0) {
         form.submit(function(e) {
-            var url = "/signinyes"; // the script where you handle the form input.
+            var url = "/signin"; // the script where you handle the form input.
             $.ajax({
                 type: "POST",
                 headers: {

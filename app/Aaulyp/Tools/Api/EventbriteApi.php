@@ -12,6 +12,7 @@ class EventbriteApi extends EventFormatter
 {
     const EVENTBRITE_BASE_URL = "https://www.eventbriteapi.com/v3/";
     const EVENTBRITE_YP_ID = 1877578689;
+    const EB_MEMBERSHIP_EVENT_ID = 31015190269;
 
     protected $guzzle;
     protected $googleMapsApi;

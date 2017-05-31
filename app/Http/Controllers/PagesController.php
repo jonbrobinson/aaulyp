@@ -204,14 +204,6 @@ class PagesController extends Controller
 
     /**
      * Volunteer Request Form
-     */
-    public function signinyes()
-    {
-        return view('pages.signinyes');
-    }
-
-    /**
-     * Volunteer Request Form
      *
      * @param Request $request
      *
@@ -251,7 +243,7 @@ class PagesController extends Controller
             $attendee["mailList"] = "false";
         }
 
-        $attendee['timestamp'] = date('m/D/Y h:i:sa', time());
+        $attendee['timestamp'] = date('m/d/Y h:i:sa', time());
 
         Storage::disk('dropbox')->append('attendance.txt', implode(",", $attendee));
 
@@ -267,11 +259,11 @@ class PagesController extends Controller
         $updateSubscribe = null;
 
         if ("true" == $attendee['mailList']) {
-            $updateSubscribe = "subscribed";
             $newSubscribe = "subscribed";
+            $updateSubscribe = "subscribed";
         }
 
-        $this->mailchimpApi->addMemberToList(MailchimpApi::MC_TEST_LIST, $attendee, $newSubscribe, $updateSubscribe);
+        $this->mailchimpApi->addMemberToList(MailchimpApi::MC_GENERAL_BODY_LIST_ID, $attendee, $newSubscribe, $updateSubscribe);
 
         return response()->json([
             "message" => "Thank You. Glad you could make it"
