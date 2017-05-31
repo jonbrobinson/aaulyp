@@ -80,9 +80,6 @@ $(document).ready( function() {
             var url = "/signinyes"; // the script where you handle the form input.
             $.ajax({
                 type: "POST",
-                headers: {
-                    'X_CSRF_TOKEN':$('meta[name="csrf-token"]').attr('content'),
-                },
                 url: url,
                 data: $("#the-form-signin").serialize(), // serializes the form's elements.
                 success: function(data)
