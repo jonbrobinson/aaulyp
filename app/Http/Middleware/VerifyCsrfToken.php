@@ -14,6 +14,5 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         '/contact',
         '/linkedin',
-        'singinyes',
     ];
 }
