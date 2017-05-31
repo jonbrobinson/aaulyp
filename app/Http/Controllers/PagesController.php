@@ -251,6 +251,8 @@ class PagesController extends Controller
             $attendee["mailList"] = "false";
         }
 
+        $attendee['timestamp'] = date('m/D/Y h:i:sa', time());
+
         Storage::disk('dropbox')->append('attendance.txt', implode(",", $attendee));
 
         $names = explode(" ", $attendee['name']);
