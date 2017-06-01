@@ -28,6 +28,9 @@ class WebhookController extends Controller
 
         $orderUser = $this->eventbrite->getOrderPlaced($orderUrl);
 
+        $orderUser['first_name'] = $orderUser['firstName'];
+        $orderUser['last_name'] = $orderUser['lastName'];
+
         $newSubscriber = "unsubscribed";
         $updateStatus = null;
 
