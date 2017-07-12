@@ -26,7 +26,7 @@
                             <article class="entry-post">
                                 <header class="entry-header">
                                     <h2 class="entry-title">
-                                        <a href="{{ url("/events/$pastEvent->id".str_limit($event->platform, 2, "")) }}">{{ $pastEvent->title->text }}</a>
+                                        <a href="{{ url("/events/$pastEvent->id".str_limit($pastEvent->platform, 2, "")) }}">{{ $pastEvent->title->text }}</a>
                                     </h2>
                                     <div class="meta-line clearfix">
                                         <div class="meta-author-category pull-left">
@@ -43,7 +43,7 @@
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <figure class="featured-image">
-                                                <a href="{{ url("/events/$pastEvent->id".str_limit($event->platform, 2, "")) }}">
+                                                <a href="{{ url("/events/$pastEvent->id".str_limit($pastEvent->platform, 2, "")) }}">
                                                     <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', $pastEvent->time_start)) }}</span><span class="post-date">{{ date('j', $pastEvent->time_start) }}</span><span class="post-year">{{ date('Y', $pastEvent->time_start) }}</span></div>
                                                     <img src="{{ $pastEvent->cover_image }}" class="img-responsive" alt="featured-image" />
                                                 </a>

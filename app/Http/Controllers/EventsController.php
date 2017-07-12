@@ -46,9 +46,6 @@ class EventsController extends Controller
         $events = $this->eventBuilder->getCurrentEvents();
         $reversed = array_reverse($events);
         $events = json_decode(json_encode($reversed));
-        if (empty($events)) {
-            $events = [];
-        }
 
         $pastEvents = $this->eventBuilder->getPastEvents(5);
         $pastEvents = json_decode(json_encode($pastEvents));
