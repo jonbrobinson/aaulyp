@@ -68,7 +68,7 @@
                                                     <p><i class="fa fa-map-marker"></i> More Details To Come</p>
                                                 @endif
                                                 <p class="read-more">
-                                                    <a href="{{ url("/events/$pastEvent->id".str_limit($event->platform, 2, "")) }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                                    <a href="{{ url("/events/$pastEvent->id".str_limit($pastEvent->platform, 2, "")) }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
                                                 </p>
                                             </div>
                                         </div>
