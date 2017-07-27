@@ -27,6 +27,7 @@ class GoogleMapsApi
     public function getAddressFromLatLong($latitude, $longitude)
     {
         $url = self::GOOGLE_MAPS_BASE_URL . '/geocode/json';
+
         $headers = [
             'Content-Type' => 'application/json',
         ];
@@ -54,6 +55,11 @@ class GoogleMapsApi
         return $address;
     }
 
+    /**
+     * @param array $location
+     *
+     * @return array
+     */
     protected function sanitizeGoogleMapsLocation($location)
     {
         $details = array();

@@ -213,7 +213,7 @@ class FacebookSdkHelper extends EventFormatter
 
         $event['venue_address'] = $venue;
 
-        if ($event['cover']) {
+        if (isset($event['cover'])) {
             $event['cover_image'] = $event['cover']['source'];
         }
 
