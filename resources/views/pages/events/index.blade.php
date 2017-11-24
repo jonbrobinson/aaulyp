@@ -44,7 +44,7 @@
                                         <div class="col-sm-5">
                                             <figure class="featured-image">
                                                 <a href="{{ url("/events/$pastEvent->id".str_limit($pastEvent->platform, 2, "")) }}">
-                                                    <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', $pastEvent->time_start)) }}</span><span class="post-date">{{ date('j', $pastEvent->time_start) }}</span><span class="post-year">{{ date('Y', $pastEvent->time_start) }}</span></div>
+                                                    <div class="post-date-info clearfix"><span class="post-month">{{ strtoupper(date('M', intval($pastEvent->time_start))) }}</span><span class="post-date">{{ date('j', intval($pastEvent->time_start)) }}</span><span class="post-year">{{ date('Y', intval($pastEvent->time_start)) }}</span></div>
                                                     <img src="{{ $pastEvent->cover_image }}" class="img-responsive" alt="featured-image" />
                                                 </a>
                                             </figure>
@@ -52,10 +52,10 @@
                                         <div class="col-sm-7">
                                             <div class="excerpt">
                                                 <p>{!! str_limit($pastEvent->description->text, 170) !!}</p>
-                                                @if (isset($pastEvent->time_start) && isset($pastEvent->time_end))
-                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", $pastEvent->time_start) }} - {{ date("D, d M Y g:iA", $pastEvent->time_end) }}</p>
-                                                @elseif (!isset($pastEvent->time_end))
-                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", $pastEvent->time_start) }}</p>
+                                                @if (!empty($pastEvent->time_start) && !empty($pastEvent->time_end))
+                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", intval($pastEvent->time_start)) }} - {{ date("D, d M Y g:iA", intval($pastEvent->time_end)) }}</p>
+                                                @elseif (!empty($pastEvent->time_end) && empty($pastEvent->time_end))
+                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", intval($pastEvent->time_start)) }}</p>
                                                 @else
                                                     <p><i class="fa fa-clock-o"></i>TBD</p>
                                                 @endif
@@ -110,10 +110,10 @@
                                         <div class="col-sm-7">
                                             <div class="excerpt">
                                                 <p>{!! str_limit($event->description->text, 170) !!}</p>
-                                                @if (isset($event->time_start) && isset($event->time_end))
-                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", $event->time_start) }} - {{ date("D, d M Y g:iA", $event->time_end ) }}</p>
-                                                @elseif (!isset($event->time_end))
-                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", $event->time_start) }}</p>
+                                                @if (!empty($event->time_start) && !empty($event->time_end))
+                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", intval($event->time_start)) }} - {{ date("D, d M Y g:iA", intval($event->time_end) ) }}</p>
+                                                @elseif (!empty($event->time_start) && empty($event->time_end))
+                                                    <p><i class="fa fa-clock-o"></i> {{ date("D, d M Y g:iA", intval($event->time_start)) }}</p>
                                                 @else
                                                     <p><i class="fa fa-clock-o"></i>TBD</p>
                                                 @endif

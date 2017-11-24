@@ -103,7 +103,11 @@
                                     <a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}"><img src="{{ $event->cover_image }}" alt="" class="img-responsive"></a>
                                 </div>
                                     <h4 class="post-title"><a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}">{{ $event->title->text }}</a></h4>
-                                    <h5 class="text-muted">{{ date('M j, Y', $event->time_start) }} | {{  date('g:iA', $event->time_start) }} - {{  date('g:iA', $event->time_end) }}</h5>
+                                    @if(!empty($event->time_start) && !empty($event->time_end))
+                                    <h5 class="text-muted">{{ date('M j, Y', intval($event->time_start)) }} | {{  date('g:iA', intval($event->time_start)) }} - {{  date('g:iA', intval($event->time_end)) }}</h5>
+                                    @elseif(!empty($event->time_start) && empty($event->time_end))
+                                    <h5 class="text-muted">{{ date('M j, Y', intval($event->time_start)) }} | {{  date('g:iA', intval($event->time_start)) }}</h5>
+                                    @endif
                                     <h5>{{ $event->venue->display or "" }}</h5>
                                     <p>{!! str_limit($event->description->text, 150) !!}<a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}">SEE DETAILS</a></p>
                                 </div>

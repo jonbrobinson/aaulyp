@@ -64,7 +64,11 @@
                             <p><i class="fa fa-map-marker"></i></p>
                         @endif
                         <h4>When</h4>
+                        @if(!empty($event->time_start) && !empty($event->time_end))
                         <p>{{ date("l, F j, Y g:iA", $event->time_start) }} - {{ date("l, F j, Y g:iA", $event->time_end) }}</p>
+                        @elseif(!empty($event->time_start) && empty($event->time_end))
+                        <p>{{ date("l, F j, Y g:iA", $event->time_start) }}</p>
+                        @endif
                         @if(!empty($event->ticket_url))
                             <h4>Tickets</h4>
                             <p><a href="{{ url($event->ticket_url) }}">{{ $event->ticket_url }}</a></p>
