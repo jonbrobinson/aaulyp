@@ -7,3 +7,4 @@ Homestead.json
 /public/img/events/*
 /public/img/faker/*
 .env*
+.vagrant
