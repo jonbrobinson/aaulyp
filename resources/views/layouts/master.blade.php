@@ -51,6 +51,7 @@
         <script src="{{ asset("assets/js/plugins/jquery-easypiechart/jquery.easypiechart.min.js") }}"></script>
         <script src="{{ asset("assets/js/repute-scripts.js") }}"></script>
         <script src="{{ asset("js/libs.js") }}"></script>
+        <script src="{{ asset("assets/js/mailchimpyp.js") }}"></script>
         @include('partials.flash')
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
