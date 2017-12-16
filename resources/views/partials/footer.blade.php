@@ -50,7 +50,9 @@
                 <div class="newsletter">
                     <h3 class="footer-heading">NEWSLETTER</h3>
                     <p>Get the latest update from us by subscribing to our newsletter.</p>
-                    <form action="//aaul.us4.list-manage.com/subscribe/post?u=9827856e38f0a93a49703d780&amp;id=17d8d9f32d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    {{--<form action="//aaul.us4.list-manage.com/subscribe/post?u=9827856e38f0a93a49703d780&amp;id=17d8d9f32d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>--}}
+                    <form action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
                         <div id="mc_embed_signup_scroll" class="input-group input-group-lg">
                             <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="youremail@domain.com" style="background-color: #414143; border: hidden"required>
                             <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
