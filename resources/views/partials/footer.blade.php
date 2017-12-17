@@ -56,7 +56,7 @@
                             <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="youremail@domain.com" style="background-color: #414143; border: hidden"required>
                             <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                             <input type="hidden" name="{{ env("MC_HIDDEN") }}" tabindex="-1" value="">
-                            <input type="hidden" name="confirm" value="dfds" id="mch">
+                            <input type="hidden" name="confirm" value="" id="mch">
                             <span class="input-group-btn"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-primary"></span>
                         </div>
                     </form>

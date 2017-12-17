@@ -5,7 +5,6 @@ $(document).ready( function() {
 
             var inputValue = form.find(':input').val();
             var hiddenValue = $('#mch').val();
-            console.log(hiddenValue);
             var valid = true;
 
             if(!/(.com)|(.net)|(.org)|(.edu)$/.test(inputValue)) {
