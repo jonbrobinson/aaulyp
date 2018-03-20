@@ -8,7 +8,7 @@ namespace App\Aaulyp\Tools;
 class Toolbox {
 
 
-    function getCryptRandomText( $type = 'alnum', $length = 8 )
+    public function getCryptRandomText( $type = 'alnum', $length = 8 )
     {
         switch ( $type ) {
             case 'alnum':
@@ -54,6 +54,18 @@ class Toolbox {
         for ( $i = 0; $i < $length; $i++ ) {
             $token .= $pool[$crypto_rand_secure( 0, $max )];
         }
+        return $token;
+    }
+
+    /**
+     * @param int $length
+     *
+     * @return string
+     */
+    public function generateToken($length = 8)
+    {
+        $token = $this->getCryptRandomText("alnum", $length);
+
         return $token;
     }
 }

@@ -51,4 +51,21 @@ class Emailer
 
         return $response;
     }
+
+    /**
+     * @param string $email
+     * @param object $tokenMeta
+     *
+     * @return
+     */
+    public function sendAdminTokenEmail($email, $tokenMeta)
+    {
+        $response = Mail::send('pages.emails.sendAdminTokenEmail', ['token' => $tokenMeta], function ($m) use ($email) {
+            $m->from('pr.aaulyp@gmail.com', 'AAULYP Communications');
+            $m->to($email);
+            $m->subject("Admin Token Request");
+        });
+
+        return $response;
+    }
 }

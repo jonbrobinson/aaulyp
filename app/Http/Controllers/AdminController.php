@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Aaulyp\Services\AdminHelper;
+use App\Aaulyp\Services\Emailer;
+use App\Aaulyp\Tools\Toolbox;
 use App\Team;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Aaulyp\Tools\Locations;
 use App\Aaulyp\Tools\DateHelper;
@@ -17,36 +21,43 @@ use GuzzleHttp\Client as Guzzle;
 class AdminController extends Controller
 {
 
-    public function __construct(Locations $locations, DateHelper $dateHelper, MailchimpApi $mailchimp, FacebookSdkHelper $facebookSdk)
+    protected $toolBox;
+    protected $emailer;
+
+    public function __construct(Toolbox $toolbox, Emailer $emailer)
     {
-        $this->middleware('auth', ['except' => ['leadershipCreate','leadershipStore', 'dashboard', 'login']]);
+        $this->middleware('auth', ['except' => ['fetchToken', 'generateToken', 'editAdmin']]);
         parent::__construct();
 
-        $loc = $locations;
-        $this->dateHelper = $dateHelper;
-        $this->mailchimp = $mailchimp;
-        $this->facebookSdk = $facebookSdk;
-
-        $this->states = $loc->getStates();
-        $this->calendarArrays = $this->dateHelper->getCalendarArrays();
+        $this->toolBox = $toolbox;
+        $this->emailer = $emailer;
     }
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function login()
+    public function generateToken()
     {
-        return view('pages.admin.adminGet');
+        return view('pages.admin.tokenRequest');
     }
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function dashboard(Request $request)
+    public function fetchToken(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'admin' => 'required|in:'.env('YP_ADMIN'),
+        $adminHelper = new AdminHelper($this->toolBox);
+
+        $email = $request->input('email');
+        $validator = Validator::make(['email' => $email], [
+            'email' => 'required',
         ]);
+
+        $validator->after(function($validator) use ($adminHelper, $email) {
+            if (!$adminHelper->isAdminEmail($email)) {
+                $validator->errors()->add('email', 'Access Not Allowed');
+            }
+        });
 
         if ($validator->fails()) {
             return redirect('/admin')
@@ -54,71 +65,42 @@ class AdminController extends Controller
                 ->withInput();
         }
 
-        $team = json_decode(json_encode(Team::all()));
+        $tokenMeta = $adminHelper->runAdminTokenProcess();
 
-        return view('pages.admin.dashboard', ['success' => 'yes', 'team' => $team]);
+        if (env('APP_ENV') == 'local') {
+            $email = 'pr.aaulyp+testTokenEmail@gmail.com';
+        }
+
+        if ($tokenMeta) {
+            $this->emailer->sendAdminTokenEmail($email, $tokenMeta);
+        }
+
+        return view('pages.admin.tokenRequest')->with("message", "Success!. Please Check Your email for your token");
     }
 
-    /**
-     * Create an event
-     *
-     */
-    public function leadershipCreate()
+    public function editAdmin(Request $request)
     {
-        $data = $this->getEventFormData();
+        $adminHelper = new AdminHelper($this->toolBox);
 
-//        $uuid = uniqid(time()."-");
+        $token = $request->input('token');
+        $validator = Validator::make(['token' => $token], [
+            'token' => 'required',
+        ]);
 
-        return view('pages.admin.leadershipCreate',compact('data') );
-    }
+        $validator->after(function($validator) use ($adminHelper, $token) {
+            if (!$adminHelper->isTokenValid($token)) {
+                $validator->errors()->add('token', 'Authentication Token Has Expired');
+            }
+        });
 
-    /**
-     * Store newly created resource in storage
-     * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function leadershipStore(Request $request)
-    {
-        $teamMember = new Team($request->all());
+        if ($validator->fails()) {
+            return redirect('/admin')
+                ->withErrors($validator);
+        }
 
-        $teamMember->save();
+        $officers = $adminHelper->getSortedPositionsByType('officer');
+        $chairs = $adminHelper->getSortedPositionsByType('chair');
 
-        return redirect()->action('AdminController@dashboard')->withInput(['admin' => env('YP_ADMIN')]);
-    }
-
-    /**
-     * Store newly created resource in storage
-     * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function leadershipEdit($id)
-    {
-        $teamMember = Team::find($id);
-
-        dd($teamMember);
-    }
-
-    /**
-     * Store newly created resource in storage
-     * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function leadershipUpdate(Request $request)
-    {
-        $teamMember = new Team($request->all());
-
-        dd($teamMember);
-        $teamMember->save();
-    }
-
-
-    protected function getEventFormData()
-    {
-        $data = [
-            "states" => $this->states,
-            "calendar" => $this->calendarArrays
-        ];
-
-        return $data;
+        return view('pages.board_import', ["chairs" => $chairs, "officers" => $officers]);
     }
 }
