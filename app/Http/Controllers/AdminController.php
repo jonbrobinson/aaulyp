@@ -5,17 +5,10 @@ namespace App\Http\Controllers;
 use App\Aaulyp\Services\AdminHelper;
 use App\Aaulyp\Services\Emailer;
 use App\Aaulyp\Tools\Toolbox;
-use App\Team;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use App\Aaulyp\Tools\Locations;
-use App\Aaulyp\Tools\DateHelper;
-use App\Aaulyp\Tools\Api\MailchimpApi;
-use App\Aaulyp\Tools\Api\FacebookSdkHelper;
-use GuzzleHttp\Client as Guzzle;
 
 
 class AdminController extends Controller
@@ -38,7 +31,7 @@ class AdminController extends Controller
      */
     public function generateToken()
     {
-        return view('pages.admin.tokenRequest');
+        return view('pages.admin.tokenRequest', ['successMessage' => null]);
     }
 
     /**
@@ -55,14 +48,19 @@ class AdminController extends Controller
 
         $validator->after(function($validator) use ($adminHelper, $email) {
             if (!$adminHelper->isAdminEmail($email)) {
-                $validator->errors()->add('email', 'Access Not Allowed');
+                $validator->errors()->add('email', 'Permission Denied: Access Not Allowed');
             }
         });
 
         if ($validator->fails()) {
+            $emailErrorMessage = $validator->errors()->first('email');
+
+            if ($request->route()->uri() == 'admin'){
+                return view("pages.admin.tokenRequest", ['errorMessage' => $emailErrorMessage]);
+            }
+
             return redirect('/admin')
-                ->withErrors($validator)
-                ->withInput();
+                ->withErrors($validator);
         }
 
         $tokenMeta = $adminHelper->runAdminTokenProcess();
@@ -75,7 +73,7 @@ class AdminController extends Controller
             $this->emailer->sendAdminTokenEmail($email, $tokenMeta);
         }
 
-        return view('pages.admin.tokenRequest')->with("message", "Success!. Please Check Your email for your token");
+        return view('pages.admin.tokenRequest', ["successMessage" => "Success!. Please Check Your email for your token"]);
     }
 
     public function editAdmin(Request $request)

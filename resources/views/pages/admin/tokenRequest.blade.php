@@ -10,7 +10,7 @@
                             <li>{{ $errors->first('token') }}</li>
                         </ul>
                     </div>
-                @elseif(isset($errors) && count($errors) > 0)
+                @elseif (isset($errors) && count($errors) > 0)
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -18,11 +18,17 @@
                             @endforeach
                         </ul>
                     </div>
+                @elseif (isset($errorMessage))
+                    <div class="alert alert-danger">
+                        <ul>
+                            <li>{{ $errorMessage }}</li>
+                        </ul>
+                    </div>
                 @endif
 
-                @if (session('status'))
+                @if (isset($successMessage))
                     <div class="alert alert-success">
-                        {{ session('status') }}
+                        {{ $successMessage }}
                     </div>
                 @endif
 
