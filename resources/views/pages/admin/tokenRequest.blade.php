@@ -32,7 +32,7 @@
                     </div>
                 @endif
 
-                <form id='admin-form' action="{{ url('/admin') }}" method="post">
+                <form id='admin-form' action="{{ url('/token') }}" method="post">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-sm-6">

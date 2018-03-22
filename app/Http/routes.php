@@ -74,7 +74,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/admin/store', 'AdminController@leadershipStore');
     Route::get('/admin/{id}/edit');
     Route::get('/admin', 'AdminController@generateToken');
-    Route::post('/admin', 'AdminController@fetchToken');
+    Route::post('/token', 'AdminController@fetchToken');
 });
 
 
