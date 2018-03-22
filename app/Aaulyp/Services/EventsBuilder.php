@@ -237,7 +237,9 @@ class EventsBuilder
 
     protected function requestEventsFromApis()
     {
-        $fbEvents = $this->facebookSdk->getEvents();
+        // $fbEvents = $this->facebookSdk->getEvents();
+
+        $fbEvents = [];
 
         $ebEvents = $this->eventbriteApi->getYpEvents();
 
