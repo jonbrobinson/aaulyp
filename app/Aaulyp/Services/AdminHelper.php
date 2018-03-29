@@ -75,6 +75,24 @@ class AdminHelper
         return $sorted;
     }
 
+    /**
+     * @param int $index
+     *
+     * @return array
+     */
+    public function getPositionByIndex($index)
+    {
+        $positions = $this->getPositions();
+
+        foreach($positions as $position) {
+            if ($position->meta->index == $index) {
+                return json_decode(json_encode($position), true);
+            }
+        }
+
+        return [];
+    }
+
 
     /**
      * @param string $token
@@ -89,6 +107,38 @@ class AdminHelper
             $meta = json_decode(Storage::get($file));
             if($meta->active && ($meta->token === $token) && ($meta->expires_at >= time())){
                 return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @param array $formUser
+     *
+     * @return array
+     */
+    public function updatePositionViaFormUser($formUser)
+    {
+        $position = $this->getPositionByIndex($formUser['index']);
+        $position['first_name'] = trim($formUser['first_name']);
+        $position['last_name'] = trim($formUser['last_name']);
+        $position['title'] = trim($formUser['title']);
+        $position['email'] = trim($formUser['email']);
+        $position['about'] = trim($formUser['about']);
+        $position['description'] = trim($formUser['description']);
+        $position['meta']['index'] = trim($formUser['index']);
+        $position['social']['twitter'] = trim($formUser['social-twitter']);
+        $position['social']['facebook'] = trim($formUser['social-facebook']);
+        $position['social']['linkedin'] = trim($formUser['social-linkedin']);
+
+
+        $positionFiles = Storage::files('yp/positions');
+        foreach ($positionFiles as $file) {
+            $data = json_decode(Storage::get($file), true);
+
+            if ($data['meta']['index'] == $position['meta']['index']) {
+                return Storage::put($file, json_encode($position));
             }
         }
 
@@ -160,7 +210,7 @@ class AdminHelper
         $meta = [];
         $meta['token'] = $token;
         $meta['created'] = strtotime($created);
-        $meta['expires_at'] = strtotime($created. "+ 30 minute");
+        $meta['expires_at'] = strtotime($created. "+ 30 day");
         $meta['active'] = true;
 
         return json_decode(json_encode($meta));

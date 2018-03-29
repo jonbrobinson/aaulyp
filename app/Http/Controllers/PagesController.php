@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Aaulyp\Services\AdminHelper;
 use App\Aaulyp\Services\EventsBuilder;
 use App\Aaulyp\Tools\Api\MailchimpApi;
 use Illuminate\Http\Request;
@@ -18,14 +19,16 @@ class PagesController extends Controller
     protected $facebookSdk;
     protected $eventBuilder;
     protected $mailchimpApi;
+    protected $adminHelper;
 
-    public function __construct(FacebookSdkHelper $facebookSdk, EventsBuilder $eventsBuilder, MailchimpApi $mailchimpApi)
+    public function __construct(FacebookSdkHelper $facebookSdk, EventsBuilder $eventsBuilder, MailchimpApi $mailchimpApi, AdminHelper $adminHelper)
     {
         parent::__construct();
 
         $this->facebookSdk = $facebookSdk;
         $this->eventBuilder = $eventsBuilder;
         $this->mailchimpApi = $mailchimpApi;
+        $this->adminHelper = $adminHelper;
     }
 
     /**
@@ -81,7 +84,10 @@ class PagesController extends Controller
      */
     public function board()
     {
-        return view('pages.board');
+        $officers = $this->adminHelper->getSortedPositionsByType('officer');
+        $chairs = $this->adminHelper->getSortedPositionsByType('chair');
+
+        return view('pages.positions', compact('officers', 'chairs'));
     }
 
     /**

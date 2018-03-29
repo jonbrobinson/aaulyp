@@ -8,6 +8,7 @@ use App\Aaulyp\Tools\Toolbox;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -17,9 +18,15 @@ class AdminController extends Controller
     protected $toolBox;
     protected $emailer;
 
+    /**
+     * AdminController constructor.
+     *
+     * @param Toolbox $toolbox
+     * @param Emailer $emailer
+     */
     public function __construct(Toolbox $toolbox, Emailer $emailer)
     {
-        $this->middleware('auth', ['except' => ['fetchToken', 'generateToken', 'editAdmin']]);
+        $this->middleware('auth', ['except' => ['fetchToken', 'generateToken', 'editAdmin', 'updateAdminPosition']]);
         parent::__construct();
 
         $this->toolBox = $toolbox;
@@ -48,7 +55,7 @@ class AdminController extends Controller
 
         $validator->after(function($validator) use ($adminHelper, $email) {
             if (!$adminHelper->isAdminEmail($email)) {
-                $validator->errors()->add('email', 'Permission Denied: Access Not Allowed');
+                $validator->errors()->add('email', 'Access Denied: Unathorized');
             }
         });
 
@@ -99,6 +106,58 @@ class AdminController extends Controller
         $officers = $adminHelper->getSortedPositionsByType('officer');
         $chairs = $adminHelper->getSortedPositionsByType('chair');
 
-        return view('pages.board_import', ["chairs" => $chairs, "officers" => $officers]);
+        return view('pages.update_positions', ["chairs" => $chairs, "officers" => $officers]);
+    }
+
+    public function updateAdminPosition(Request $request)
+    {
+        $adminHelper = new AdminHelper($this->toolBox);
+
+        $token = $request->get('token-hidden');
+        $updatedUser = $request->all();
+        $validator = Validator::make($updatedUser, [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'title' => 'required',
+            'email' => 'required',
+            'index' => 'required',
+            'about' => 'present',
+            'description' => 'present',
+            'social-twitter' =>'present',
+            'social-facebook' => 'present',
+            'social-linkedin' => 'present',
+            'token->hidden' => 'present'
+        ]);
+
+        $validator->after(function($validator) use ($adminHelper, $token) {
+            if (!$adminHelper->isTokenValid($token)) {
+                $validator->errors()->add('token', 'Authentication Token Has Expired');
+            }
+        });
+
+        $errors = $validator->errors();
+        if ($errors && $errors->get('token')) {
+            return response()
+                ->json([
+                    'message' => 'Input submission Errors',
+                    'errors' => $errors->get('token')
+                ],400);
+        }
+
+        $completed = $adminHelper->updatePositionViaFormUser($updatedUser);
+
+        if ($completed) {
+            return response()
+                ->json([
+                    'success' => 'User Updated',
+                    'user' => $adminHelper->getPositionByIndex($updatedUser['index'])
+                ], 200);
+        }
+
+        return response()
+            ->json([
+                'message' => 'Input submission Errors',
+                'errors' => ['user' => 'Could Not Update User']
+            ], 400);
     }
 }
