@@ -10,7 +10,9 @@
             <p><a href="mailto:{{ $position->email }}">{{ $position->email }}</a></p>
             <ul class="list-inline social-icon">
                 @foreach($position->social as $channel => $link)
-                    <li><a href="{{ $link }}"><i class="fa fa-2x fa-{{ strtolower($channel) }}"></i></a></li>
+                    @if(!empty($link))
+                    <li><a href="{{ $link }}"><i class="fa fa-{{ strtolower($channel) }}"></i></a></li>
+                    @endif
                 @endforeach
             </ul>
         </div>

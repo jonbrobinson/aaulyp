@@ -113,6 +113,18 @@ class AdminHelper
         return false;
     }
 
+    public function deleteExpiredTokens()
+    {
+        $files = Storage::files('yp/tokens');
+
+        foreach($files as $file) {
+            $meta = json_decode(Storage::get($file));
+            if(!$meta->active || ($meta->expires_at <= time())){
+                Storage::delete($file);
+            }
+        }
+    }
+
     /**
      * @param array $formUser
      *
