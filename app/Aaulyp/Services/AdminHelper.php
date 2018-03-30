@@ -222,7 +222,7 @@ class AdminHelper
         $meta = [];
         $meta['token'] = $token;
         $meta['created'] = strtotime($created);
-        $meta['expires_at'] = strtotime($created. "+ 30 day");
+        $meta['expires_at'] = strtotime($created. "+ 4 hour");
         $meta['active'] = true;
 
         return json_decode(json_encode($meta));
