@@ -4,6 +4,7 @@ namespace App\Aaulyp\Services;
 
 use App\Aaulyp\Tools\Toolbox;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Expr\Cast\Object_;
 
 class AdminHelper
 {
@@ -194,6 +195,30 @@ class AdminHelper
         }
 
         return false;
+    }
+
+    /**
+     * @param $index
+     *
+     * @return mixed
+     */
+    public function resetImgInfo($index)
+    {
+        $position = $this->getPositionByIndex($index);
+        if (isset($position['img']))
+        {
+            $position['img']['profile'] = "";
+            $position['img']['uc_meta'] = [];
+        }
+
+        $positionFiles = Storage::files('yp/positions');
+        foreach ($positionFiles as $file) {
+            $data = json_decode(Storage::get($file), true);
+
+            if ($data['meta']['index'] == $position['meta']['index']) {
+                return Storage::put($file, json_encode($position));
+            }
+        }
     }
 
     /**

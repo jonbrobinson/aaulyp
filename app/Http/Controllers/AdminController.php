@@ -26,7 +26,7 @@ class AdminController extends Controller
      */
     public function __construct(AdminHelper $adminHelper, Emailer $emailer)
     {
-        $this->middleware('auth', ['except' => ['fetchToken', 'generateToken', 'editAdmin', 'updateAdminPosition', 'updateAdminImg']]);
+        $this->middleware('auth', ['except' => ['fetchToken', 'generateToken', 'editAdmin', 'updateAdminPosition', 'updateAdminImg', 'resetAdminImg']]);
         parent::__construct();
 
         $this->adminHelper = $adminHelper;
@@ -217,5 +217,42 @@ class AdminController extends Controller
                 'message' => 'Input submission Errors',
                 'errors' => ['user' => 'Could Not Update Profile Image']
             ], 400);
+    }
+
+    /**
+     * @param Request $request
+     * @param string  $index
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function resetAdminImg(Request $request, $index)
+    {
+        $adminHelper = $this->adminHelper;
+
+        $validator = Validator::make($request->all(), [
+            'token-hidden' => 'required',
+        ]);
+
+        $token = $request->get('token-hidden');
+
+        $position = $adminHelper->getPositionByIndex($index);
+        $validator->after(function($validator) use ($adminHelper, $position, $token) {
+            if (!$adminHelper->isTokenValid($token)) {
+                $validator->errors()->add('token', 'Authentication Token Has Expired');
+            }
+
+            if (empty($position)) {
+                $validator->errors()->add('index', 'Invalid Request');
+            }
+        });
+
+        if ($validator->fails()) {
+            return redirect('/admin')
+                ->withErrors($validator);
+        }
+
+        $adminHelper->resetImgInfo($index);
+
+        return redirect("/admin/edit?token={$token}");
     }
 }
