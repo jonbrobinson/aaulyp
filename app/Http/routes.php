@@ -75,7 +75,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/admin/{id}/edit');
     Route::get('/admin', 'AdminController@generateToken');
     Route::post('/token', 'AdminController@fetchToken');
-    Route::post('/admin/update/{id}', 'AdminController@updateAdminPosition');
+    Route::post('/admin/update/{index}', 'AdminController@updateAdminPosition');
+    Route::post('/admin/img/update/{index}', 'AdminController@updateAdminImg');
 });
 
 

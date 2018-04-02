@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Aaulyp\Services\AdminHelper;
 use App\Aaulyp\Services\Emailer;
+use App\Aaulyp\Services\UploadCareHelper;
 use App\Aaulyp\Tools\Toolbox;
 use Illuminate\Http\Request;
 
@@ -14,22 +15,21 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
-
-    protected $toolBox;
     protected $emailer;
+    protected $adminHelper;
 
     /**
      * AdminController constructor.
      *
-     * @param Toolbox $toolbox
-     * @param Emailer $emailer
+     * @param Toolbox          $toolbox
+     * @param Emailer          $emailer
      */
-    public function __construct(Toolbox $toolbox, Emailer $emailer)
+    public function __construct(AdminHelper $adminHelper, Emailer $emailer)
     {
-        $this->middleware('auth', ['except' => ['fetchToken', 'generateToken', 'editAdmin', 'updateAdminPosition']]);
+        $this->middleware('auth', ['except' => ['fetchToken', 'generateToken', 'editAdmin', 'updateAdminPosition', 'updateAdminImg']]);
         parent::__construct();
 
-        $this->toolBox = $toolbox;
+        $this->adminHelper = $adminHelper;
         $this->emailer = $emailer;
     }
 
@@ -46,7 +46,7 @@ class AdminController extends Controller
      */
     public function fetchToken(Request $request)
     {
-        $adminHelper = new AdminHelper($this->toolBox);
+        $adminHelper = $this->adminHelper;
 
         $email = $request->input('email');
         $validator = Validator::make(['email' => $email], [
@@ -85,7 +85,7 @@ class AdminController extends Controller
 
     public function editAdmin(Request $request)
     {
-        $adminHelper = new AdminHelper($this->toolBox);
+        $adminHelper = $this->adminHelper;
 
         $token = $request->input('token');
         $validator = Validator::make(['token' => $token], [
@@ -109,9 +109,15 @@ class AdminController extends Controller
         return view('pages.update_positions', ["chairs" => $chairs, "officers" => $officers]);
     }
 
-    public function updateAdminPosition(Request $request)
+    /**
+     * @param Request $request
+     * @param string  $index
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateAdminPosition(Request $request, $index)
     {
-        $adminHelper = new AdminHelper($this->toolBox);
+        $adminHelper = $this->adminHelper;
 
         $token = $request->get('token-hidden');
         $updatedUser = $request->all();
@@ -120,7 +126,6 @@ class AdminController extends Controller
             'last_name' => 'required',
             'title' => 'required',
             'email' => 'required',
-            'index' => 'required',
             'about' => 'present',
             'description' => 'present',
             'social-twitter' =>'present',
@@ -129,9 +134,14 @@ class AdminController extends Controller
             'token->hidden' => 'present'
         ]);
 
-        $validator->after(function($validator) use ($adminHelper, $token) {
+
+        $validator->after(function($validator) use ($adminHelper, $index, $token) {
             if (!$adminHelper->isTokenValid($token)) {
                 $validator->errors()->add('token', 'Authentication Token Has Expired');
+            }
+
+            if (empty($adminHelper->getPositionByIndex($index))) {
+                $validator->errors()->add('index', 'Invalid Request');
             }
         });
 
@@ -144,13 +154,12 @@ class AdminController extends Controller
                 ],400);
         }
 
-        $completed = $adminHelper->updatePositionViaFormUser($updatedUser);
-
+        $completed = $adminHelper->updatePositionViaFormUser($updatedUser, $index);
+        $position = $adminHelper->getPositionByIndex($index);
         if ($completed) {
             return response()
                 ->json([
-                    'success' => 'User Updated',
-                    'user' => $adminHelper->getPositionByIndex($updatedUser['index'])
+                    'success' => "Success! {$position['title']} Updated",
                 ], 200);
         }
 
@@ -158,6 +167,55 @@ class AdminController extends Controller
             ->json([
                 'message' => 'Input submission Errors',
                 'errors' => ['user' => 'Could Not Update User']
+            ], 400);
+    }
+
+    /**
+     * @param Request $request
+     * @param string  $index
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateAdminImg(Request $request, $index)
+    {
+        $adminHelper = $this->adminHelper;
+
+        $fileInfo = $request->all();
+        $validator = Validator::make($fileInfo, [
+            'uuid' => 'required',
+            'originalUrl' => 'required',
+            'crop' => 'present',
+        ]);
+
+        $validator->after(function($validator) use ($adminHelper, $index) {
+            if (empty($adminHelper->getPositionByIndex($index))) {
+                $validator->errors()->add('error', 'Invalid Request');
+            }
+        });
+
+        $errors = $validator->errors();
+        if ($errors && $errors->get('error')) {
+            return response()
+                ->json([
+                    'message' => 'Input submission Errors',
+                    'errors' => $errors->get('error')
+                ],400);
+        }
+
+        $completed = $adminHelper->updateImgPositionViaUCInfo($fileInfo, $index);
+        $position = $adminHelper->getPositionByIndex($index);
+        if ($completed) {
+            return response()
+                ->json([
+                    'success' => "Success! {$position['title']} Image Profile Updated",
+                    'imgMeta' => $position['img']['uc_meta']
+                ], 200);
+        }
+
+        return response()
+            ->json([
+                'message' => 'Input submission Errors',
+                'errors' => ['user' => 'Could Not Update Profile Image']
             ], 400);
     }
 }

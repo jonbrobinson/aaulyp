@@ -10,13 +10,22 @@ class AdminHelper
     const ADMIN_TOKEN_LENGTH = 6;
 
     protected $toolbox;
+    protected $uploadCareHleper;
 
-    public function __construct(Toolbox $toolbox)
+    /**
+     * AdminHelper constructor.
+     *
+     * @param Toolbox          $toolbox
+     * @param UploadCareHelper $uploadCareHelper
+     */
+    public function __construct(Toolbox $toolbox, UploadCareHelper $uploadCareHelper)
     {
         $this->toolbox = $toolbox;
+        $this->uploadCareHleper = $uploadCareHelper;
     }
 
     /**
+     *
      * @return array
      */
     public function getPositions()
@@ -113,6 +122,9 @@ class AdminHelper
         return false;
     }
 
+    /**
+     *
+     */
     public function deleteExpiredTokens()
     {
         $files = Storage::files('yp/tokens');
@@ -126,24 +138,51 @@ class AdminHelper
     }
 
     /**
-     * @param array $formUser
+     * @param array  $formUser
+     * @param string $posIndex
      *
-     * @return array
+     * @return bool
      */
-    public function updatePositionViaFormUser($formUser)
+    public function updatePositionViaFormUser($formUser, $posIndex)
     {
-        $position = $this->getPositionByIndex($formUser['index']);
+        $position = $this->getPositionByIndex($posIndex);
         $position['first_name'] = trim($formUser['first_name']);
         $position['last_name'] = trim($formUser['last_name']);
         $position['title'] = trim($formUser['title']);
         $position['email'] = trim($formUser['email']);
         $position['about'] = trim($formUser['about']);
         $position['description'] = trim($formUser['description']);
-        $position['meta']['index'] = trim($formUser['index']);
         $position['social']['twitter'] = trim($formUser['social-twitter']);
         $position['social']['facebook'] = trim($formUser['social-facebook']);
         $position['social']['linkedin'] = trim($formUser['social-linkedin']);
 
+
+        $positionFiles = Storage::files('yp/positions');
+        foreach ($positionFiles as $file) {
+            $data = json_decode(Storage::get($file), true);
+
+            if ($data['meta']['index'] == $position['meta']['index']) {
+                return Storage::put($file, json_encode($position));
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @param array  $fileInfo
+     * @param string $index
+     *
+     * @return bool
+     */
+    public function updateImgPositionViaUCInfo($fileInfo, $index)
+    {
+        $position = $this->getPositionByIndex($index);
+        $position['img']['uc_meta'] = json_decode(json_encode($fileInfo), true);
+
+        if (isset($position['img']['uc_meta'])) {
+            $position['img']['profile'] = $this->uploadCareHleper->createImgProfileUrl($position['img']['uc_meta']);
+        }
 
         $positionFiles = Storage::files('yp/positions');
         foreach ($positionFiles as $file) {

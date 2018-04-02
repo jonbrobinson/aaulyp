@@ -1,8 +1,18 @@
 <div class="{{ $divClass }}">
     <div class="team-member media">
-        <img src="{{ !empty($position->img->headshot) ? $position->img->headshot : asset('assets/img/aaulyp/logos/UL-logosolo-red_120x120.png') }}" class="media-object img-circle pull-left" alt="{{ $position->title }}" />
+        @if($position->meta->type == "officer")
+            <img src="{{ !empty($position->img->profile) ? $position->img->profile . "/-/preview/240x240/" : "https://ucarecdn.com/f1360972-9860-4a0c-8dd2-b2958e55ad75/-/preview/240x240/" }}" class="media-object img-circle pull-left" alt="{{ $position->title }}" />
+        @else
+            <img src="{{ !empty($position->img->profile) ? $position->img->profile . "/-/preview/120x120/" : "https://ucarecdn.com/f1360972-9860-4a0c-8dd2-b2958e55ad75/-/preview/120x120/" }}" class="media-object img-circle pull-left" alt="{{ $position->title }}" />
+        @endif
+        <form id="img_admin-{{ $position->meta->index }}" method="post">
+            <input type="hidden"  role="uploadcare-uploader" data-crop="1:1" data-images-only/>
+            <input type="hidden" name="position-index" value="{{ $position->meta->index }}">
+            <input type="hidden" name="token-hidden" value="{{ !empty(request()->get('token')) ? request()->get('token') : "" }}">
+        </form>
         <div class="media-body">
-            <h3 class="media-heading team-name">{{ !empty($position->first_name) && !empty($position->last_name) ? $position->first_name ." ". $position->last_name : "Update Name" }} <a href="#" data-toggle="modal" data-target="#modal-form-{{ $position->meta->index }}"><i class="fa  fa-2x fa-pencil-square"></i></a></h3>
+            <h3 class="media-heading team-name">{{ !empty($position->first_name) && !empty($position->last_name) ? $position->first_name ." ". $position->last_name : "Update Name" }} </h3>
+            <a href="#" data-toggle="modal" data-target="#modal-form-{{ $position->meta->index }}"><i class="fa  fa-2x fa-pencil-square"></i></a>
             <strong>{{ $position->title }} <a href="#" data-toggle="modal" data-target="#modal-form-{{ $position->meta->index }}"><i class="fa  fa-2x fa-pencil-square"></i></a></strong>
             <hr class="pull-left">
             <div class="clearfix"></div>

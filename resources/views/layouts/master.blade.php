@@ -8,7 +8,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="The Austin Area Urban League Young Professionals (AAULYP) is a National Urban League volunteer auxiliary that targets young professionals ages 21-40 to empower their communities and change lives through the Urban League Movement.">
+
         <meta name="author" content="Jonbrobinson.com">
+        @yield('head_meta')
         <!-- CSS -->
         @include('partials.mailchimp')
         <link href="{{ asset("assets/css/bootstrap.css")}}" rel="stylesheet" type="text/css">

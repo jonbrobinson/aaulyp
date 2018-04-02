@@ -25,11 +25,7 @@
                     @foreach(array_chunk($officers, 2) as $groupedOfficers)
                         <div class="row">
                             @foreach($groupedOfficers as $index => $position)
-                                @if($index % 2 == 0)
-                                    @include("partials.admin.position_partial", ['position' => $position, 'divClass' => "col-md-5 col-md-offset-1"])
-                                @else
-                                    @include("partials.admin.position_partial", ['position' => $position, 'divClass' => "col-md-5"])
-                                @endif
+                                @include("partials.admin.position_partial", ['position' => $position, 'divClass' => "col-md-10 col-md-offset-1"])
                             @endforeach
                         </div>
                     @endforeach
@@ -41,10 +37,14 @@
             <!-- CHAIRS -->
             <section class="team">
                 <div class="section-content">
-                    @foreach(array_chunk($chairs, 3) as $groupedPositions)
+                    @foreach(array_chunk($chairs, 2) as $groupedPositions)
                     <div class="row">
                         @foreach($groupedPositions as $index => $position)
-                            @include("partials.admin.position_partial", ['position' => $position, 'divClass' => "col-md-4"])
+                            @if($index % 2 == 0 && false)
+                                @include("partials.admin.position_partial", ['position' => $position, 'divClass' => "col-md-5 col-md-offset-1"])
+                            @else
+                                @include("partials.admin.position_partial", ['position' => $position, 'divClass' => "col-md-6"])
+                            @endif
                         @endforeach
                     </div>
                     @endforeach
