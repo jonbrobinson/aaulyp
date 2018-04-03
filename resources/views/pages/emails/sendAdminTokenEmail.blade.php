@@ -15,9 +15,14 @@
         <th>Link</th>
     </tr>
     <tr>
-        <td>Admin Edit &nbsp</td>
+        <td>Admin Dashboad &nbsp</td>
+        <td>{{ url('admin?token') . "?token=" . $token->token }} &nbsp</td>
+    </tr>
+    <tr>
+        <td>Officers Edit &nbsp</td>
         <td>{{ url('admin/edit') . "?token=" . $token->token }} &nbsp</td>
     </tr>
+
 </table>
 <p>--<br><em>Yours in the movement</em></p>
 <p>

@@ -162,6 +162,24 @@ class EventsBuilder
         Storage::delete($delete);
     }
 
+    /**
+     *
+     */
+    public function getCurrentEventTicketInfo()
+    {
+        $ebEvents = [];
+        $events = $this->getCurrentEvents();
+        foreach($events as $event) {
+            if($event['platform'] == "eventbrite") {
+                $ticketInfo = $this->eventbriteApi->getTicketsInfo($event['id']);
+                $event['ticketTypes'] = $ticketInfo['ticketTypes'];
+                $ebEvents[] = $event;
+            }
+        }
+
+        return array_reverse($ebEvents);
+    }
+
     protected function isLastTenMinutes($maxTimestamp, $checkTimestamp)
     {
         $min = strtotime(date('c', $maxTimestamp)." -10 minutes");

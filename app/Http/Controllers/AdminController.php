@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Aaulyp\Services\AdminHelper;
 use App\Aaulyp\Services\Emailer;
+use App\Aaulyp\Services\EventsBuilder;
 use App\Aaulyp\Services\UploadCareHelper;
 use App\Aaulyp\Tools\Toolbox;
 use Illuminate\Http\Request;
@@ -17,31 +18,68 @@ class AdminController extends Controller
 {
     protected $emailer;
     protected $adminHelper;
+    protected $eventsBuilder;
 
     /**
      * AdminController constructor.
      *
-     * @param Toolbox          $toolbox
-     * @param Emailer          $emailer
+     * @param AdminHelper $adminHelper
+     * @param Emailer     $emailer
      */
-    public function __construct(AdminHelper $adminHelper, Emailer $emailer)
+    public function __construct(AdminHelper $adminHelper, Emailer $emailer, EventsBuilder $eventsBuilder)
     {
         $this->middleware('auth', ['except' => ['fetchToken', 'generateToken', 'editAdmin', 'updateAdminPosition', 'updateAdminImg', 'resetAdminImg']]);
         parent::__construct();
 
         $this->adminHelper = $adminHelper;
         $this->emailer = $emailer;
+        $this->eventsBuilder = $eventsBuilder;
     }
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function generateToken()
+    public function generateToken(Request $request)
     {
-        return view('pages.admin.tokenRequest', ['successMessage' => null]);
+        $adminHelper = $this->adminHelper;
+
+        $validator = Validator::make($request->all(), [
+            'token' => 'required',
+        ]);
+
+        $token = $request->get('token');
+
+        $validator->after(function($validator) use ($adminHelper, $token) {
+            if (!$adminHelper->isTokenValid($token)) {
+                $validator->errors()->add('token', 'Authentication Token Has Expired');
+            }
+        });
+
+        if ($validator->fails() && $token) {
+            $tokenErrorMessage = $validator->errors()->first('token');
+
+            if ($request->route()->uri() == 'admin'){
+                return view("pages.admin.tokenRequest", ['errorMessage' => $tokenErrorMessage]);
+            }
+
+            return redirect('/admin')
+                ->withErrors($validator);
+        }
+
+        if($validator->fails()) {
+            return view('pages.admin.tokenRequest');
+        }
+
+        $events = $this->eventsBuilder->getCurrentEventTicketInfo();
+
+        $jsonEvents = json_decode(json_encode($events));
+
+        return view('pages.admin.dashboard', ["events" => $jsonEvents]);
     }
 
     /**
+     * @param Request $request
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function fetchToken(Request $request)
@@ -80,7 +118,7 @@ class AdminController extends Controller
             $this->emailer->sendAdminTokenEmail($email, $tokenMeta);
         }
 
-        return view('pages.admin.tokenRequest', ["successMessage" => "Success!. Please Check Your email for your token"]);
+        return redirect('/admin?token='.$tokenMeta->token)->with("successMessage", "Success!. Please Check Your email for your token");
     }
 
     public function editAdmin(Request $request)

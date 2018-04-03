@@ -269,6 +269,7 @@ class EventbriteApi extends EventFormatter
         return $ticketClasses;
     }
 
+
     /**
      * @param string $method
      * @param string $url
