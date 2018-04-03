@@ -16,7 +16,7 @@
     </tr>
     <tr>
         <td>Admin Dashboad &nbsp</td>
-        <td>{{ url('admin?token') . "?token=" . $token->token }} &nbsp</td>
+        <td>{{ url('admin') . "?token=" . $token->token }} &nbsp</td>
     </tr>
     <tr>
         <td>Officers Edit &nbsp</td>
