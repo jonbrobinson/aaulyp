@@ -74,7 +74,7 @@ class AdminController extends Controller
 
         $jsonEvents = json_decode(json_encode($events));
 
-        return view('pages.admin.dashboard', ["events" => $jsonEvents]);
+        return view('pages.admin.dashboard', ["tickets" => $jsonEvents]);
     }
 
     /**
@@ -280,7 +280,7 @@ class AdminController extends Controller
             }
 
             if (empty($position)) {
-                $validator->errors()->add('index', 'Invalid Request');
+                $validator->errors()->add('index', 'Invalid Request. Position No longer Exist');
             }
         });
 

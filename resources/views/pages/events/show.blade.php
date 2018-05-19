@@ -3,7 +3,7 @@
     <link href="{{ asset('assets/css/lightbox.css') }}" rel="stylesheet" type="text/css">
     <meta property="og:url"           content="{{ request()->fullUrl()}}" />
     <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="{{ "AAULYP | ".$event->title->text }}" />
+    <meta property="og:title"         content="{{ "AAULYP | ".$event->title }}" />
     <meta property="og:description"   content="{{ $event->description->text }}" />
     <meta property="og:image"         content="{{ asset("assets/img/800x550/800x550.jpg") }}" />
 @stop
@@ -24,7 +24,7 @@
             <ol class="breadcrumb">
                 <li><a href="#">News</a></li>
                 <li><a href="{{ url('/events') }}">Events</a></li>
-                <li class="active">{{ $event->title->text }}</li>
+                <li class="active">{{ $event->title }}</li>
             </ol>
         </div>
     </div>
@@ -38,7 +38,7 @@
                     </div>
                     <br>
                     <div class="col-sm-6 col-md-12">
-                        <h2>{{ $event->title->text }}</h2>
+                        <h2>{{ $event->title }}</h2>
                         <hr>
                         <div>{!! $event->description->html !!}</div>
                         <br>
@@ -56,10 +56,10 @@
                         </div>
                         <br><br>
                         <h4>Where</h4>
-                        @if ($event->venue->display && $event->venue->name)
-                            <p id="map-address"><i class="fa fa-map-marker"></i> {{ $event->venue->name }} <br> {{ $event->venue->display }}</p>
-                        @elseif($event->venue->display)
-                            <p id="map-address"><i class="fa fa-map-marker"></i> {{ $event->venue->display }}</p>
+                        @if ($event->venue->formatted_address && $event->venue)
+                            {{--<p id="map-address"><i class="fa fa-map-marker"></i> {{ $event->venue->name }} <br> {{ $event->venue->formatted_address }}</p>--}}
+                        @elseif($event->venue->formatted_address)
+                            <p id="map-address"><i class="fa fa-map-marker"></i> {{ $event->venue->formatted_address }}</p>
                         @else
                             <p><i class="fa fa-map-marker"></i></p>
                         @endif
@@ -81,37 +81,13 @@
                         <div class="widget">
                             <h2 class="widget-title"><i class="fa fa-calendar"></i> Upcoming Events</h2>
                             @foreach($events as $feature)
-                                <h4><a href="{{ url("/events/$feature->id".str_limit($event->platform, 2, "")) }}">{{ $feature->title->text }}</a></h4>
+                                <h4><a href="{{ url("/events/$feature->id".str_limit($event->platform, 2, "")) }}">{{ $feature->title }}</a></h4>
                                 <p><strong>{{ date("l, F j, Y g:iA", $feature->time_start) }}</strong></p>
                                 <br>
                             @endforeach
                         </div>
                     </div>
                 @endif
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-8 col-md-offset-2 gallery">
-                    <div class="row">
-                        {{--@foreach($event->photos as $photo)--}}
-                        {{--<div class="col-xs-4 col-md-2 gallery_image">--}}
-                        {{--<a href="{{ asset("$photo->path") }}" data-lightbox="event-show"><img src="{{ asset("$photo->thumbnail_path") }}" alt="" class="img-responsive"></a>--}}
-                        {{--</div>--}}
-                        {{--@endforeach--}}
-                    </div>
-                    {{--@if ($user && $user->owns($event))--}}
-                    {{--<hr>--}}
-                    {{--<div>--}}
-                    {{--<h2 class="section-heading">ADD PHOTOS</h2>--}}
-                    {{--<form id="addPhotoForm"--}}
-                    {{--action="{{ action('EventsController@addPhoto', [$event->zip, $event->slug]) }}"--}}
-                    {{--method="post"--}}
-                    {{--class="dropzone"--}}
-                    {{-->--}}
-                    {{--{{ csrf_field() }}--}}
-                    {{--</form>--}}
-                    {{--</div>--}}
-                    {{--@endif--}}
-                </div>
             </div>
         </div>
     </div>

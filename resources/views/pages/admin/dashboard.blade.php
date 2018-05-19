@@ -36,18 +36,23 @@
                         <th>Event</th>
                         <th>Tickets</th>
                         <th>Count</th>
+                        <th>Total Sold</th>
+                        <th>Total Revenue</th>
                     </tr>
                     @foreach($events as $index => $event)
                         <tr>
-                            <td rowspan="{{ count($event->ticketTypes) }}"> {{ date("D M j, Y", $event->time_start) }} &nbsp; &nbsp;</td>
-                            <td rowspan="{{ count($event->ticketTypes) }}">{{ $event->title->text }} &nbsp; &nbsp;</td>
-                        @foreach($event->ticketTypes as $ticket)
-                                <td>{{ $ticket->name }} &nbsp;</td>
-                                <td>{{ $ticket->sold }} &nbsp;</td>
+                            <td rowspan="{{ count($event->tickets->ticket_types) }}"> {{ date("D M j, Y", $event->time_start) }} &nbsp; &nbsp;</td>
+                            <td rowspan="{{ count($event->tickets->ticket_types) }}">{{ $event->title->text }} &nbsp; &nbsp;</td>
+                        @foreach($event->tickets->ticket_types as $ticket)
+                            <td>{{ $ticket->name }} &nbsp;</td>
+                            <td>{{ $ticket->quantity_sold }} &nbsp;</td>
                         </tr>
                         <tr>
                         @endforeach
+                            <td rowspan="{{ count($event->tickets->ticket_types) }}">{{ $ticket->tickets->total_sold }}</td>
+                            <td rowspan="{{ count($event->tickets->ticket_types) }}">{{ $ticket->tickets->total_revenue }}</td>
                         </tr>
+
                     @endforeach
                 </table>
             @endif

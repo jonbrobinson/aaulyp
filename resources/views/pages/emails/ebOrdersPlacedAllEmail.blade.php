@@ -2,17 +2,17 @@
 
 <p>A new order has been placed</p>
 
-<p>RSVP count: {{ $ticketsInfo['total'] }}</p>
+<p>RSVP count: {{ $ticketsInfo['total_sold'] }}</p>
 
 <table style="border: none">
     <tr>
         <th>Ticket Type</th>
         <th>Count</th>
     </tr>
-    @foreach( $ticketsInfo['ticketTypes'] as $ticketInfo)
+    @foreach( $ticketsInfo['ticket_types'] as $ticketInfo)
         <tr>
             <td>{{ $ticketInfo['name'] }} &nbsp</td>
-            <td>{{ $ticketInfo['sold'] }} &nbsp</td>
+            <td>{{ $ticketInfo['quantity_sold'] }} &nbsp</td>
         </tr>
     @endforeach
 </table>
