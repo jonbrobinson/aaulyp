@@ -21,7 +21,7 @@ class HealthChecker extends ApiBaseHelper
     }
 
     public function runGenSiteCheck() {
-        $urls = [url("/"), url("/events"), url("/join")];
+        $urls = ['//aaulyp.org', url('//aaulyp.org/events'), url('//aaulyp.org/join')];
         $sendErrorEmail = false;
         foreach($urls as $url) {
             $Status = $this->getUrlStatus($url);
