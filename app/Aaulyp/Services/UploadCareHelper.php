@@ -2,20 +2,17 @@
 
 namespace App\Aaulyp\Services;
 
+use app\Aaulyp\Constants\ApiConstants;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * Class UploadCareHelper
+ *
+ * @package App\Aaulyp\Services
+ * @link https://uploadcare.com/docs/processing/
+ */
 class UploadCareHelper
 {
-
-    /**
-     * @link https://uploadcare.com/docs/processing/
-     *
-     * @return string
-     */
-    public function getBaseUrl() {
-        return "https://ucarecdn.com/";
-    }
-
     /**
      * @link https://uploadcare.com/docs/processing/image/size_crop/#operation-crop
      * @param array $crop
@@ -39,7 +36,7 @@ class UploadCareHelper
      * @return string
      */
     public function createImgProfileUrl($ucMeta) {
-        $url = $this->getBaseUrl();
+        $url = ApiConstants::UPLOADCARE_BASE_URL;
 
         $url .= $ucMeta['uuid'];
         if (!$ucMeta['crop']) {

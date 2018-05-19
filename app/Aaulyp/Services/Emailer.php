@@ -68,4 +68,15 @@ class Emailer
 
         return $response;
     }
+
+    public function sendHealthCheckEmail($errors = [])
+    {
+        $response = Mail::send('pages.emails.sendHealthCheckEmailErrors', ['errors' => $errors], function ($m){
+            $m->from('pr.aaulyp@gmail.com', 'AAULYP Communications');
+            $m->to('jonrobinson.codes@gmail.com');
+            $m->subject('Health Check Errors: AAULYP.ORG');
+        });
+
+        return $response;
+    }
 }
