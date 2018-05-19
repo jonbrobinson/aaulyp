@@ -2,29 +2,17 @@
 
 namespace App\Aaulyp\Tools\Api;
 
-use App\Aaulyp\Services\EventFormatter;
-use GuzzleHttp\Client as Guzzle;
-use GuzzleHttp\Psr7\Request;
-use Psy\Exception\Exception;
-use App\Aaulyp\Tools\Api\GoogleMapsApi;
+use App\Aaulyp\Constants\ApiConstants;
+use App\Aaulyp\Hydrators\EventHydrator;
+use App\Aaulyp\Models\EventModel;
 
-class EventbriteApi extends EventFormatter
+class EventbriteApi extends ApiBaseHelper
 {
-    const EVENTBRITE_BASE_URL = "https://www.eventbriteapi.com/v3/";
     const EVENTBRITE_YP_ID = 1877578689;
-    const EB_MEMBERSHIP_EVENT_ID = 31015190269;
-
-    protected $guzzle;
-    protected $googleMapsApi;
-
-    public function __construct(GoogleMapsApi $googleMapsApi)
-    {
-        $this->guzzle = new Guzzle();
-        $this->googleMapsApi = $googleMapsApi;
-    }
+    const EB_MEMBERSHIP_EVENT_ID = 42592772128;
 
     /**
-     * Gets contents of a single folder
+     * Gets contents of a single order
      *
      * @param string $url
      *
@@ -34,9 +22,7 @@ class EventbriteApi extends EventFormatter
     {
         $content = $this->getContentFromRequest('GET', $url, $this->getBaseOptions());
 
-        $orderJson = json_decode($content);
-
-        $orderInfo = $this->getOrderInfoFromJson($orderJson);
+        $orderInfo = json_decode($content, true);
 
         return $orderInfo;
     }
@@ -48,48 +34,37 @@ class EventbriteApi extends EventFormatter
      */
     public function getTicketsInfo($eventId)
     {
-        $ticketClasses = $this->getTicketClassInfo($eventId);
+        $tickets = [];
+        $ticketResponse = $this->getTicketClassInfo($eventId);
+        $decoded = json_decode($ticketResponse);
+        $ticketClasses = $decoded->ticket_classes;
+        $tickets['total_sold'] = $this->getSoldTicketCount($ticketClasses);
+        $tickets['total_revenue'] = $this->getTicketGrossAmount($ticketClasses);
+        $tickets['ticket_types'] = $ticketClasses;
+        $tickets['event_id'] = $eventId;
 
-        $ticketsInfo = $this->convertTicketsInfo($ticketClasses);
+        $ticketsArray = json_decode(json_encode($tickets), true);
 
-        return $ticketsInfo;
+        return $ticketsArray;
     }
 
     /**
-     * @return mixed|object
+     * @return array
      */
     public function getYpEvents()
     {
-        $url = self::EVENTBRITE_BASE_URL . "/organizers/".self::EVENTBRITE_YP_ID."/events/";
+        $events = $this->getOrganizerEventsById(self::EVENTBRITE_YP_ID);
 
-        $events = $this->getContentFromRequest('GET', $url, $this->getBaseOptions());
+        $eventsArray = json_decode($events, true);
 
-        $events = json_decode($events, true);
+        $completedEvents = [];
 
-        $completedEvents = array();
-
-        foreach ($events['events'] as $event) {
-            $eventDetails = $this->addRelationalDetails($event);
-            $relations = $this->getEventbriteRelations();
-            $completeEvent = $this->convertEventToStandard('eventbrite', $relations, $eventDetails);
-            $completedEvents[] = $completeEvent;
+        foreach ($eventsArray['events'] as $event) {
+            $transformedEvent = $this->transformEvent($event);
+            $completedEvents[] = $transformedEvent;
         }
 
         return $completedEvents;
-    }
-
-    /**
-     * @param int $timestamp
-     *
-     * @return mixed
-     */
-    public function buildStorageFile($timestamp)
-    {
-        $path = storage_path()."/cache/eventbrite/tmp/events_{$timestamp}.json";
-
-        $file = $this->createFile($path);
-
-        return $file;
     }
 
     /**
@@ -101,98 +76,40 @@ class EventbriteApi extends EventFormatter
      */
     protected function addRelationalDetails($event)
     {
-        if (array_key_exists('start', $event) && array_key_exists('local', $event['start'])) {
-            $event['start_epoch'] = strtotime($event['start']['local']);
-        }
-
-        if (array_key_exists('end', $event) && array_key_exists('local', $event['end'])) {
-            $event['end_epoch'] = strtotime($event['end']['local']);
-        }
-
         if (isset($event['venue_id'])) {
-            $event['venue_details'] = json_decode($this->getVenueById($event['venue_id']), true);
+            $venueJson = $this->getVenueById($event['venue_id']);
+            $event['venue_details'] = json_decode($venueJson, true);
         }
 
         if (isset($event['logo_id'])) {
-            $event['image_details'] = json_decode($this->getMediaById($event['logo_id']), true);
+            $mediaJson = $this->getMediaById($event['logo_id']);
+            $event['image_details'] = json_decode($mediaJson, true);
         }
 
-        $venue = $this->getSimpleVenueDetails();
-
-        if (array_key_exists('venue_details', $event)) {
-            $venue = $this->transformVenueAddress($event['venue_details']);
-        }
-
-        $event['venue_address'] = $venue;
-
-
-        if (array_key_exists('image_details', $event)) {
-            $event['cover_image'] = $event['image_details']['original']['url'];
-        }
+        $ticketsInfo = $this->getTicketsInfo($event["id"]);
+        $event["tickets"] = $ticketsInfo;
 
         return $event;
     }
 
     /**
-     * Validates Venue information and returns a simple address and name for venue
+     * @param $event
      *
-     * @param $venueDetails
-     *
-     * @return array
+     * @return EventModel
      */
-    protected function transformVenueAddress($venueDetails)
+    protected function transformEvent($event)
     {
-        $ebKeys = array('address_1', 'address_2', 'city', 'postal_code', 'region');
-        $details = $this->getSimpleVenueDetails();
-        $missingEbKeys = array();
+        $updatedEvent = $this->addRelationalDetails($event);
 
-        foreach ($ebKeys as $ebKey) {
-            if (!array_key_exists($ebKey, $venueDetails['address']) ) {
-                $missingEbKeys[] = $ebKey;
-                continue;
-            }
+        $hydrator = new EventHydrator();
+        $Event = $hydrator->hydrateByType($updatedEvent, ApiConstants::EVENTBRITE);
 
-            if (!isset($venueDetails['address'][$ebKey])) {
-                $missingEbKeys[] = $ebKey;
-                continue;
-            }
-        }
-
-        if (in_array('address_2', $missingEbKeys) && (count($missingEbKeys) > 1)) {
-            if (!empty(floatval($venueDetails['latitude'])) && !empty(floatval($venueDetails['longitude']))) {
-                $address = $this->googleMapsApi->getAddressFromLatLong($venueDetails['latitude'], $venueDetails['longitude']);
-                $details['address'] = $address['street_number']." ".$address['street'];
-                $details['city'] = $address['city'];
-                $details['state'] = $address['state'];
-                $details['zip'] = $address['zip'];
-                $details['display'] = $address['formatted_address'];
-
-                return $details;
-            }
-        }
-
-        if (count($missingEbKeys) > 2) {
-            return $details;
-        }
-
-        $details['address'] = $venueDetails['address']['address_1'];
-        $details['city'] = $venueDetails['address']['city'];
-        $details['postal_code'] = $venueDetails['address']['postal_code'];
-        $details['state'] = $venueDetails['address']['region'];
-
-        if (isset($venueDetails['address']['address_2'])) {
-            $details['address'] .= " ".$venueDetails['address']['address_2'];
-        }
-
-
-        $details['display'] = $details['address'].", ".$details['city'].", ".$details['state'].$details['display'];
-
-        return $details;
+        return $Event;
     }
 
     public function getMediaResults($mediaId)
     {
-        $url = self::EVENTBRITE_BASE_URL."media/{$mediaId}";
+        $url = ApiConstants::EVENTBRITE_BASE_URL."media/{$mediaId}";
 
         $options = $this->getBaseOptions();
 
@@ -208,7 +125,7 @@ class EventbriteApi extends EventFormatter
      */
     public function getGetEventById($eventId)
     {
-        $url = self::EVENTBRITE_BASE_URL."events/{$eventId}";
+        $url = ApiConstants::EVENTBRITE_BASE_URL."events/{$eventId}";
 
         $options = $this->getBaseOptions();
 
@@ -224,7 +141,7 @@ class EventbriteApi extends EventFormatter
      */
     public function getVenueById($venueId)
     {
-        $url = self::EVENTBRITE_BASE_URL."venues/{$venueId}";
+        $url = ApiConstants::EVENTBRITE_BASE_URL."venues/{$venueId}";
 
         $options = $this->getBaseOptions();
 
@@ -240,7 +157,7 @@ class EventbriteApi extends EventFormatter
      */
     public function getMediaById($mediaId)
     {
-        $url = self::EVENTBRITE_BASE_URL."media/{$mediaId}";
+        $url = ApiConstants::EVENTBRITE_BASE_URL."media/{$mediaId}";
 
         $options = $this->getBaseOptions();
 
@@ -251,7 +168,7 @@ class EventbriteApi extends EventFormatter
 
     protected function getEventOrders($id)
     {
-        $url = self::EVENTBRITE_BASE_URL . "events/{$id}/orders";
+        $url = ApiConstants::EVENTBRITE_BASE_URL . "events/{$id}/orders";
 
         $content = $this->getContentFromRequest('GET', $url, $this->getBaseOptions());
 
@@ -262,31 +179,20 @@ class EventbriteApi extends EventFormatter
 
     protected function getTicketClassInfo($id)
     {
-        $url = self::EVENTBRITE_BASE_URL . "events/{$id}/ticket_classes";
+        $url = ApiConstants::EVENTBRITE_BASE_URL . "events/{$id}/ticket_classes";
 
         $ticketClasses = $this->getContentFromRequest('GET', $url, $this->getBaseOptions());
 
         return $ticketClasses;
     }
 
-    /**
-     * @param string $method
-     * @param string $url
-     * @param array  $options
-     *
-     * @return object
-     */
-    protected function getContentFromRequest($method, $url, $options = array())
+    protected function getOrganizerEventsById($id)
     {
-        try {
-            $response = $this->guzzle->request($method, $url, $options);
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
+        $url = ApiConstants::EVENTBRITE_BASE_URL . "/organizers/".$id."/events/";
 
-        $content = $response->getBody()->getContents();
+        $events = $this->getContentFromRequest('GET', $url, $this->getBaseOptions());
 
-        return $content;
+        return $events;
     }
 
     /**
@@ -306,61 +212,41 @@ class EventbriteApi extends EventFormatter
         return $options;
     }
 
-
     /**
+     * @param object $ticketClasses
      *
+     * @return int
      */
-    protected function getOrderInfoFromJson($json)
+    protected function getSoldTicketCount($ticketClasses)
     {
-        $orderInfo = [
-            'firstName' => $json->first_name,
-            'lastName'  => $json->last_name,
-            'email'     => $json->email,
-            'event_id'  => $json->event_id
-        ];
+        $total = 0;
+        $decodedClasses = json_decode(json_encode($ticketClasses),true);
 
-        return $orderInfo;
-    }
-
-    /**
-     * @return array
-     */
-    protected function convertTicketsInfo($tickets)
-    {
-        $json = json_decode($tickets);
-
-        $ticketsInfo= array();
-        $ticketsInfo['total'] = 0;
-
-        foreach ($json->ticket_classes as $key => $ticketClass) {
-            $ticketInfo = array();
-            $ticketInfo['name']  = $ticketClass->name;
-            $ticketInfo['sold']  = $ticketClass->quantity_sold;
-            $ticketsInfo['event_id'] = $ticketClass->event_id;
-            $ticketsInfo['total'] += $ticketInfo['sold'];
-            $ticketsInfo['ticketTypes'][] = $ticketInfo;
+        foreach ($decodedClasses as $ticketClass) {
+            $total += $ticketClass['quantity_sold'];
         }
 
-        return $ticketsInfo;
+        return $total;
     }
 
     /**
-     * @return array
+     * @param object $ticketClasses
+     *
+     * @return int
      */
-    protected function getEventbriteRelations()
+    protected function getTicketGrossAmount($ticketClasses)
     {
-        $relations = [
-            'id' => 'id',
-            'title' => 'name',
-            'description' => 'description',
-            'time_start' => 'start_epoch',
-            'time_end' => 'end_epoch',
-            'venue' => 'venue_address',
-            'cover_image' => 'cover_image',
-            'ticket_url' => 'url',
-            'platform_url' => 'url'
-        ];
+        $total = 0;
+        $decodedClasses = json_decode(json_encode($ticketClasses),true);
 
-        return $relations;
+        foreach ($decodedClasses as $ticketClass) {
+            if ($ticketClass['donation'] || !isset($ticketClass['actual_cost'])) {
+                continue;
+            }
+
+            $total += ($ticketClass['actual_cost']['value'] * $ticketClass['quantity_sold'] * 0.01);
+        }
+
+        return $total;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Aaulyp\Services;
 
+use App\Aaulyp\Constants\ApiConstants;
 use App\Aaulyp\Tools\Api\FacebookSdkHelper;
 use App\Aaulyp\Tools\Api\EventbriteApi;
 use Illuminate\Support\Facades\Storage;
@@ -162,6 +163,35 @@ class EventsBuilder
         Storage::delete($delete);
     }
 
+    /**
+     *
+     */
+    public function getCurrentEventTicketInfo()
+    {
+        $ebEvents = [];
+        $events = $this->getCurrentEvents();
+        foreach($events as $event) {
+            if($event['platform'] == "eventbrite") {
+                $ebEvents[] = $event;
+            }
+        }
+
+        return array_reverse($ebEvents);
+    }
+
+    public function getEventsByPlatform($platform)
+    {
+        $platformEvents = [];
+        $events = $this->getCurrentEvents();
+        foreach($events as $event) {
+            if($event['platform'] == $platform) {
+                $platformEventsEvents[] = $event;
+            }
+        }
+
+        return array_reverse($platformEvents);
+    }
+
     protected function isLastTenMinutes($maxTimestamp, $checkTimestamp)
     {
         $min = strtotime(date('c', $maxTimestamp)." -10 minutes");
@@ -226,8 +256,8 @@ class EventsBuilder
         $sorted = array();
 
         foreach ($events as $event) {
-            $time_start = $event['time_start'];
-            $sorted[$time_start] = array($event['platform'] => $event);
+            $time_start = $event->time_start;
+            $sorted[$time_start] = array($event->platform => $event);
         }
 
         krsort($sorted);
@@ -238,7 +268,6 @@ class EventsBuilder
     protected function requestEventsFromApis()
     {
         // $fbEvents = $this->facebookSdk->getEvents();
-
         $fbEvents = [];
 
         $ebEvents = $this->eventbriteApi->getYpEvents();
@@ -259,17 +288,17 @@ class EventsBuilder
 
         foreach ($events as $time => $platforms) {
             if (count($platforms) > 1) {
-                $validEvents[] = $events[$time]['eventbrite'];
+                $validEvents[] = $events[$time][ApiConstants::EVENTBRITE];
                 continue;
             }
 
-            if (array_key_exists('facebook', $events[$time])) {
-                $validEvents[] = $events[$time]['facebook'];
+            if (array_key_exists(ApiConstants::FACEBOOK, $events[$time])) {
+                $validEvents[] = $events[$time][ApiConstants::FACEBOOK];
                 continue;
             }
 
-            if (array_key_exists('eventbrite', $events[$time])) {
-                $validEvents[] = $events[$time]['eventbrite'];
+            if (array_key_exists(ApiConstants::EVENTBRITE, $events[$time])) {
+                $validEvents[] = $events[$time][ApiConstants::EVENTBRITE];
                 continue;
             }
         }

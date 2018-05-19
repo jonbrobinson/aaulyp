@@ -14,7 +14,9 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\Inspire::class,
-        Commands\BuildEventsFile::class
+        Commands\BuildEventsFile::class,
+        Commands\PurgeTokens::class,
+        Commands\HealthCheck::class
     ];
 
     /**
@@ -28,7 +30,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('inspire')
                  ->hourly();
 
-        $schedule->command('events:buildFile')
-            ->everyTenMinutes();
+        $schedule->command('token:purge')
+            ->everyMinute();
     }
 }

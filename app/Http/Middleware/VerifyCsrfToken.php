@@ -14,5 +14,6 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         '/contact',
         '/linkedin',
+//        '/admin/img/update/*'
     ];
 }

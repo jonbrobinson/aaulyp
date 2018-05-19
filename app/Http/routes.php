@@ -46,6 +46,10 @@ Route::get('/admin/create', 'AdminController@leadershipCreate');
 
 //Route::get('/test', 'PagesController@test');
 
+
+
+Route::get('/admin/edit', 'AdminController@editAdmin');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -69,7 +73,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/signin', 'PagesController@signinform');
     Route::post('/admin/store', 'AdminController@leadershipStore');
     Route::get('/admin/{id}/edit');
+    Route::get('/admin', 'AdminController@generateToken');
+    Route::post('/token', 'AdminController@fetchToken');
+    Route::post('/admin/update/{index}', 'AdminController@updateAdminPosition');
+    Route::post('/admin/img/update/{index}', 'AdminController@updateAdminImg');
+    Route::post('/admin/img/reset/{index}', 'AdminController@resetAdminImg');
 });
-Route::get('/admin', 'AdminController@login');
-Route::post('/admin', 'AdminController@dashboard');
+
 

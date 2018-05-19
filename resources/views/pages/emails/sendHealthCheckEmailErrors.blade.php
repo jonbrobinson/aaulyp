@@ -1,20 +1,21 @@
-<h2><strong>RSVP Confirmed</strong></h2>
+<h2><strong>Health Check Errors: Aaulyp.org</strong></h2>
 
-<p>A new order has been placed</p>
-
-<p>RSVP count: {{ $ticketsInfo['total_sold'] }}</p>
+<p>The following Pages are Down</p>
 
 <table style="border: none">
     <tr>
-        <th>Ticket Type</th>
-        <th>Count</th>
+        <th>Link</th>
+        <th>Code</th>
+        <th>Message</th>
     </tr>
-    @foreach( $ticketsInfo['ticket_types'] as $ticketInfo)
-        <tr>
-            <td>{{ $ticketInfo['name'] }} &nbsp</td>
-            <td>{{ $ticketInfo['quantity_sold'] }} &nbsp</td>
-        </tr>
-    @endforeach
+    @foreach($errors as $error)
+    <tr>
+        <td>{{ $error->getUrl() }}</td>
+        <td>{{ $error->getCode() }}</td>
+        <td>{{ $error->getMessage() }}</td>
+    </tr>
+    @endforeach()
+
 </table>
 <p>--<br><em>Yours in the movement</em></p>
 <p>

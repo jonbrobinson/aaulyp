@@ -2,123 +2,295 @@
 
 namespace App\Http\Controllers;
 
-use App\Team;
+use App\Aaulyp\Services\AdminHelper;
+use App\Aaulyp\Services\Emailer;
+use App\Aaulyp\Services\EventsBuilder;
+use App\Aaulyp\Services\UploadCareHelper;
+use App\Aaulyp\Tools\Toolbox;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use App\Aaulyp\Tools\Locations;
-use App\Aaulyp\Tools\DateHelper;
-use App\Aaulyp\Tools\Api\MailchimpApi;
-use App\Aaulyp\Tools\Api\FacebookSdkHelper;
-use GuzzleHttp\Client as Guzzle;
 
 
 class AdminController extends Controller
 {
+    protected $emailer;
+    protected $adminHelper;
+    protected $eventsBuilder;
 
-    public function __construct(Locations $locations, DateHelper $dateHelper, MailchimpApi $mailchimp, FacebookSdkHelper $facebookSdk)
+    /**
+     * AdminController constructor.
+     *
+     * @param AdminHelper $adminHelper
+     * @param Emailer     $emailer
+     */
+    public function __construct(AdminHelper $adminHelper, Emailer $emailer, EventsBuilder $eventsBuilder)
     {
-        $this->middleware('auth', ['except' => ['leadershipCreate','leadershipStore', 'dashboard', 'login']]);
+        $this->middleware('auth', ['except' => ['fetchToken', 'generateToken', 'editAdmin', 'updateAdminPosition', 'updateAdminImg', 'resetAdminImg']]);
         parent::__construct();
 
-        $loc = $locations;
-        $this->dateHelper = $dateHelper;
-        $this->mailchimp = $mailchimp;
-        $this->facebookSdk = $facebookSdk;
-
-        $this->states = $loc->getStates();
-        $this->calendarArrays = $this->dateHelper->getCalendarArrays();
+        $this->adminHelper = $adminHelper;
+        $this->emailer = $emailer;
+        $this->eventsBuilder = $eventsBuilder;
     }
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function login()
+    public function generateToken(Request $request)
     {
-        return view('pages.admin.adminGet');
-    }
+        $adminHelper = $this->adminHelper;
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function dashboard(Request $request)
-    {
         $validator = Validator::make($request->all(), [
-            'admin' => 'required|in:'.env('YP_ADMIN'),
+            'token' => 'required',
         ]);
+
+        $token = $request->get('token');
+
+        $validator->after(function($validator) use ($adminHelper, $token) {
+            if (!$adminHelper->isTokenValid($token)) {
+                $validator->errors()->add('token', 'Authentication Token Has Expired');
+            }
+        });
+
+        if ($validator->fails() && $token) {
+            $tokenErrorMessage = $validator->errors()->first('token');
+
+            if ($request->route()->uri() == 'admin'){
+                return view("pages.admin.tokenRequest", ['errorMessage' => $tokenErrorMessage]);
+            }
+
+            return redirect('/admin')
+                ->withErrors($validator);
+        }
+
+        if($validator->fails()) {
+            return view('pages.admin.tokenRequest');
+        }
+
+        $events = $this->eventsBuilder->getCurrentEventTicketInfo();
+
+        $jsonEvents = json_decode(json_encode($events));
+
+        return view('pages.admin.dashboard', ["tickets" => $jsonEvents]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function fetchToken(Request $request)
+    {
+        $adminHelper = $this->adminHelper;
+
+        $email = $request->input('email');
+        $validator = Validator::make(['email' => $email], [
+            'email' => 'required',
+        ]);
+
+        $validator->after(function($validator) use ($adminHelper, $email) {
+            if (!$adminHelper->isAdminEmail($email)) {
+                $validator->errors()->add('email', 'Access Denied: Unathorized');
+            }
+        });
+
+        if ($validator->fails()) {
+            $emailErrorMessage = $validator->errors()->first('email');
+
+            if ($request->route()->uri() == 'admin'){
+                return view("pages.admin.tokenRequest", ['errorMessage' => $emailErrorMessage]);
+            }
+
+            return redirect('/admin')
+                ->withErrors($validator);
+        }
+
+        $tokenMeta = $adminHelper->runAdminTokenProcess();
+
+        if (env('APP_ENV') == 'local') {
+            $email = 'pr.aaulyp+testTokenEmail@gmail.com';
+        }
+
+        if ($tokenMeta) {
+            $this->emailer->sendAdminTokenEmail($email, $tokenMeta);
+        }
+
+        return redirect('/admin?token='.$tokenMeta->token)->with("successMessage", "Success!. Please Check Your email for your token");
+    }
+
+    public function editAdmin(Request $request)
+    {
+        $adminHelper = $this->adminHelper;
+
+        $token = $request->input('token');
+        $validator = Validator::make(['token' => $token], [
+            'token' => 'required',
+        ]);
+
+        $validator->after(function($validator) use ($adminHelper, $token) {
+            if (!$adminHelper->isTokenValid($token)) {
+                $validator->errors()->add('token', 'Authentication Token Has Expired');
+            }
+        });
 
         if ($validator->fails()) {
             return redirect('/admin')
-                ->withErrors($validator)
-                ->withInput();
+                ->withErrors($validator);
         }
 
-        $team = json_decode(json_encode(Team::all()));
+        $officers = $adminHelper->getSortedPositionsByType('officer');
+        $chairs = $adminHelper->getSortedPositionsByType('chair');
 
-        return view('pages.admin.dashboard', ['success' => 'yes', 'team' => $team]);
+        return view('pages.update_positions', ["chairs" => $chairs, "officers" => $officers]);
     }
 
     /**
-     * Create an event
+     * @param Request $request
+     * @param string  $index
      *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function leadershipCreate()
+    public function updateAdminPosition(Request $request, $index)
     {
-        $data = $this->getEventFormData();
+        $adminHelper = $this->adminHelper;
 
-//        $uuid = uniqid(time()."-");
+        $token = $request->get('token-hidden');
+        $updatedUser = $request->all();
+        $validator = Validator::make($updatedUser, [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'title' => 'required',
+            'email' => 'required',
+            'about' => 'present',
+            'description' => 'present',
+            'social-twitter' =>'present',
+            'social-facebook' => 'present',
+            'social-linkedin' => 'present',
+            'token->hidden' => 'present'
+        ]);
 
-        return view('pages.admin.leadershipCreate',compact('data') );
+
+        $validator->after(function($validator) use ($adminHelper, $index, $token) {
+            if (!$adminHelper->isTokenValid($token)) {
+                $validator->errors()->add('token', 'Authentication Token Has Expired');
+            }
+
+            if (empty($adminHelper->getPositionByIndex($index))) {
+                $validator->errors()->add('index', 'Invalid Request');
+            }
+        });
+
+        $errors = $validator->errors();
+        if ($errors && $errors->get('token')) {
+            return response()
+                ->json([
+                    'message' => 'Input submission Errors',
+                    'errors' => $errors->get('token')
+                ],400);
+        }
+
+        $completed = $adminHelper->updatePositionViaFormUser($updatedUser, $index);
+        $position = $adminHelper->getPositionByIndex($index);
+        if ($completed) {
+            return response()
+                ->json([
+                    'success' => "Success! {$position['title']} Updated",
+                ], 200);
+        }
+
+        return response()
+            ->json([
+                'message' => 'Input submission Errors',
+                'errors' => ['user' => 'Could Not Update User']
+            ], 400);
     }
 
     /**
-     * Store newly created resource in storage
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param string  $index
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function leadershipStore(Request $request)
+    public function updateAdminImg(Request $request, $index)
     {
-        $teamMember = new Team($request->all());
+        $adminHelper = $this->adminHelper;
 
-        $teamMember->save();
+        $fileInfo = $request->all();
+        $validator = Validator::make($fileInfo, [
+            'uuid' => 'required',
+            'originalUrl' => 'required',
+            'crop' => 'present',
+        ]);
 
-        return redirect()->action('AdminController@dashboard')->withInput(['admin' => env('YP_ADMIN')]);
+        $validator->after(function($validator) use ($adminHelper, $index) {
+            if (empty($adminHelper->getPositionByIndex($index))) {
+                $validator->errors()->add('error', 'Invalid Request');
+            }
+        });
+
+        $errors = $validator->errors();
+        if ($errors && $errors->get('error')) {
+            return response()
+                ->json([
+                    'message' => 'Input submission Errors',
+                    'errors' => $errors->get('error')
+                ],400);
+        }
+
+        $completed = $adminHelper->updateImgPositionViaUCInfo($fileInfo, $index);
+        $position = $adminHelper->getPositionByIndex($index);
+        if ($completed) {
+            return response()
+                ->json([
+                    'success' => "Success! {$position['title']} Image Profile Updated",
+                    'imgMeta' => $position['img']['uc_meta']
+                ], 200);
+        }
+
+        return response()
+            ->json([
+                'message' => 'Input submission Errors',
+                'errors' => ['user' => 'Could Not Update Profile Image']
+            ], 400);
     }
 
     /**
-     * Store newly created resource in storage
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param string  $index
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function leadershipEdit($id)
+    public function resetAdminImg(Request $request, $index)
     {
-        $teamMember = Team::find($id);
+        $adminHelper = $this->adminHelper;
 
-        dd($teamMember);
-    }
+        $validator = Validator::make($request->all(), [
+            'token-hidden' => 'required',
+        ]);
 
-    /**
-     * Store newly created resource in storage
-     * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function leadershipUpdate(Request $request)
-    {
-        $teamMember = new Team($request->all());
+        $token = $request->get('token-hidden');
 
-        dd($teamMember);
-        $teamMember->save();
-    }
+        $position = $adminHelper->getPositionByIndex($index);
+        $validator->after(function($validator) use ($adminHelper, $position, $token) {
+            if (!$adminHelper->isTokenValid($token)) {
+                $validator->errors()->add('token', 'Authentication Token Has Expired');
+            }
 
+            if (empty($position)) {
+                $validator->errors()->add('index', 'Invalid Request. Position No longer Exist');
+            }
+        });
 
-    protected function getEventFormData()
-    {
-        $data = [
-            "states" => $this->states,
-            "calendar" => $this->calendarArrays
-        ];
+        if ($validator->fails()) {
+            return redirect('/admin')
+                ->withErrors($validator);
+        }
 
-        return $data;
+        $adminHelper->resetImgInfo($index);
+
+        return redirect("/admin/edit?token={$token}");
     }
 }

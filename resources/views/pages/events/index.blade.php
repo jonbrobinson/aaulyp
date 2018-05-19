@@ -84,7 +84,7 @@
                             <article class="entry-post">
                                 <header class="entry-header">
                                     <h2 class="entry-title">
-                                        <a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}">{{ $event->title->text }}</a>
+                                        <a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}">{{ $event->title }}</a>
                                     </h2>
                                     <div class="meta-line clearfix">
                                         <div class="meta-author-category pull-left">

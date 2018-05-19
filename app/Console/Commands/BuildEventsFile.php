@@ -29,7 +29,7 @@ class BuildEventsFile extends Command
     /**
      * Create a new command instance.
      *
-     *
+     * @param EventsBuilder $eventsBuilder
      */
     public function __construct(EventsBuilder $eventsBuilder)
     {
