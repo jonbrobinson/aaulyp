@@ -20,6 +20,7 @@ abstract class AddressBuilder implements AddressBuilderInterface
     abstract public function getAddressLongitude();
     abstract public function getAddressLatitude();
     abstract public function getAddressFormattedAddress();
+    abstract public function getAddressName();
 
     /**
      * AddressBuilder constructor.

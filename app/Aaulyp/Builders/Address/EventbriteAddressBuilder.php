@@ -93,6 +93,19 @@ class EventbriteAddressBuilder extends AddressBuilder
         return $formattedAddress;
     }
 
+    public function getAddressName()
+    {
+        $data = $this->getAddrData();
+
+        $name = "";
+
+        if (isset($data['name'])) {
+            $name = $data['name'];
+        }
+
+        return $name;
+    }
+
     protected function getDefaultFormattedAddress($data)
     {
         $formattedAddress = "";

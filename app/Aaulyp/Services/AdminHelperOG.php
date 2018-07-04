@@ -3,8 +3,6 @@
 namespace App\Aaulyp\Services;
 
 use App\Aaulyp\Tools\Toolbox;
-use App\Officer;
-use App\Position;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use PhpParser\Node\Expr\Cast\Object_;
@@ -28,42 +26,19 @@ class AdminHelper
         $this->uploadCareHleper = $uploadCareHelper;
     }
 
-    public function getOfficers()
-    {
-        $officers = Officer::with('positions')->get();
-
-        return $officers;
-    }
-
-
-    public function getActiveOfficers()
-    {
-        $officers = Officer::with(['positions' => function($query){
-            $query->where('positions.active', '=', 1);
-        }])->get();
-
-        return $officers;
-    }
-
     /**
      *
      * @return array
      */
     public function getPositions()
     {
-        $positions = Position::with('officers')->get();
+        $positions = [];
+        $positionFiles = Storage::files('yp/positions');
+        foreach ($positionFiles as $file) {
+            $positions[] = json_decode(Storage::get($file));
+        }
 
         return $positions;
-    }
-
-    /**
-     * @return Position
-     */
-    public function getActivePositions()
-    {
-        $activePositions = Position::with('officers')->where('active', 1)->get();
-
-        return $activePositions;
     }
 
     /**
