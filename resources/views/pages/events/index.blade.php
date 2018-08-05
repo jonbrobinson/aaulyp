@@ -26,7 +26,7 @@
                             <article class="entry-post">
                                 <header class="entry-header">
                                     <h2 class="entry-title">
-                                        <a href="{{ url("/events/$pastEvent->id".str_limit($pastEvent->platform, 2, "")) }}">{{ $pastEvent->title->text }}</a>
+                                        <a href="{{ url("/events/$pastEvent->id".str_limit($pastEvent->platform, 2, "")) }}">{{ $pastEvent->title }}</a>
                                     </h2>
                                     <div class="meta-line clearfix">
                                         <div class="meta-author-category pull-left">
@@ -60,10 +60,10 @@
                                                     <p><i class="fa fa-clock-o"></i>TBD</p>
                                                 @endif
 
-                                                @if ($pastEvent->venue->display && $pastEvent->venue->name)
-                                                    <p><i class="fa fa-map-marker"></i> {{ $pastEvent->venue->name }} <br> {{ $pastEvent->venue->display }}</p>
-                                                @elseif($pastEvent->venue->display)
-                                                    <p><i class="fa fa-map-marker"></i> {{ $pastEvent->venue->display }}</p>
+                                                @if ($pastEvent->venue->formatted_address && $pastEvent->venue->name)
+                                                    <p><i class="fa fa-map-marker"></i> {{ $pastEvent->venue->name }} <br> {{ $pastEvent->venue->formatted_address }}</p>
+                                                @elseif($pastEvent->venue->formatted_address)
+                                                    <p><i class="fa fa-map-marker"></i> {{ $pastEvent->venue->formatted_address }}</p>
                                                 @else
                                                     <p><i class="fa fa-map-marker"></i> More Details To Come</p>
                                                 @endif
@@ -118,10 +118,10 @@
                                                     <p><i class="fa fa-clock-o"></i>TBD</p>
                                                 @endif
 
-                                                @if (!empty($event->venue->display) && !empty($event->venue->name))
+                                                @if (!empty($event->venue->formatted_address) && !empty($event->venue->name))
                                                     <p><i class="fa fa-map-marker"></i> {{ $event->venue->display}} <br> {{ $event->venue->name }}</p>
-                                                @elseif(!empty($event->venue->display))
-                                                    <p><i class="fa fa-map-marker"></i> {{ $event->venue->display }}</p>
+                                                @elseif(!empty($event->venue->formatted_address))
+                                                    <p><i class="fa fa-map-marker"></i> {{ $event->venue->formatted_address }}</p>
                                                 @else
                                                     <p><i class="fa fa-map-marker"></i></p>
                                                 @endif
