@@ -34,13 +34,13 @@ class Emailer
      */
     public function sendEbOrdersPlacedAllEmail($ticketsInfo)
     {
-        $cc = array(
+        $cc = [
             'president.aaulyp@gmail.com',
             'vicepresident.aaulyp@gmail.com',
             'secretary.aaulyp@gmail.com',
             'treasurer.aaulyp@gmail.com',
             'membership.aaulyp@gmail.com'
-        );
+        ];
 
         $response = Mail::send('pages.emails.ebOrdersPlacedAllEmail', ['ticketsInfo' => $ticketsInfo], function ($m) use ($ticketsInfo, $cc) {
             $m->from('pr.aaulyp@gmail.com', 'AAULYP Communications');
