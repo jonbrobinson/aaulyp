@@ -24,6 +24,12 @@ class ApiConstants
      ********************/
     const GOOGLE = "google";
 
+    /**** Mailchimp *****
+     ********************/
+    const MAILCHIMP_BASE_URL = "https://us4.api.mailchimp.com/3.0";
+    const MC_GENERAL_BODY_LIST_ID = "17d8d9f32d";
+    const MC_TEST_LIST = "f8ae11f203";
+
     // UploadCare
     /**
      *
