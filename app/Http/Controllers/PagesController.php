@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Aaulyp\Constants\ApiConstants;
+use App\Aaulyp\Models\AttendeeModel;
 use App\Aaulyp\Services\AdminHelper;
 use App\Aaulyp\Services\EventsBuilder;
 use App\Aaulyp\Tools\Api\MailchimpApi;
+use App\Aaulyp\Tools\Toolbox;
 use Illuminate\Http\Request;
 use App\Aaulyp\Tools\Api\FacebookSdkHelper;
 
@@ -232,44 +235,46 @@ class PagesController extends Controller
                 ],400);
         }
 
-        $attendee = array();
-        $attendee['name'] = $request->input("name");
-        $attendee["email"] = strtolower($request->input("email"));
-        $attendee["event"] = $request->input("event");
-        $attendee["datepicker"] = $request->input("datepicker");
-        if ($request->input("ypFirst")) {
-            $attendee["ypFirst"] = $request->input("ypFirst");
-        } else {
-            $attendee["ypFirst"] = "false";
-        }
+        $trimmedName = $request->input("name");
+        $attendee = new AttendeeModel();
+        $attendee->email = strtolower($request->input("email"));
+        $attendee->eventName = $request->input("event");
+        $attendee->eventDate = $request->input("datepicker");
+        $attendee->firstEvent = filter_var($request->input("ypFirst"), FILTER_VALIDATE_BOOLEAN);
+        $attendee->addToMailList = filter_var($request->input("mailList"), FILTER_VALIDATE_BOOLEAN);
+        $timestampAdded = time();
+        $attendee->dateTimeAdded = date('m/d/Y h:i:sa', $timestampAdded);
+        $attendee->lastModifiedTimestamp = $timestampAdded;
 
-        if ($request->input("mailList")) {
-            $attendee["mailList"] = $request->input("mailList");
-        } else {
-            $attendee["mailList"] = "false";
-        }
-
-        $attendee['timestamp'] = date('m/d/Y h:i:sa', time());
-
-        Storage::disk('dropbox')->append('attendance.txt', implode(",", $attendee));
-
-        $names = explode(" ", $attendee['name']);
+        $names = explode(" ", $trimmedName);
         if (count($names) > 1) {
-            $attendee['first_name'] = $names[0];
-            $attendee['last_name'] = $names[1];
+            $attendee->firstName = $names[0];
+            $attendee->lastName = $names[1];
         } else {
-            $attendee['first_name'] = $names[0];
+            $attendee->firstName = $names[0];
         }
+
+        $attendanceDir = 'yp/attendance';
+        $filename = $timestampAdded.'_'.Toolbox::getCryptRandomText().'.json';
+        $attendanceFileLocation = $attendanceDir.'/'.$filename;
+        Storage::put($attendanceFileLocation, json_encode($attendee));
 
         $newSubscribe = "unsubscribed";
         $updateSubscribe = null;
 
-        if ("true" == $attendee['mailList']) {
+        if ($attendee->addToMailList) {
             $newSubscribe = "subscribed";
             $updateSubscribe = "subscribed";
         }
 
-        $this->mailchimpApi->addMemberToList(MailchimpApi::MC_GENERAL_BODY_LIST_ID, $attendee, $newSubscribe, $updateSubscribe);
+        $addedToMailChimp = true;
+        try {
+            $this->mailchimpApi->addAttendeeToList(ApiConstants::MC_GENERAL_BODY_LIST_ID, $attendee, $newSubscribe, $updateSubscribe);
+        } catch (\Exception $e) {
+            $errorMessage = $e->getMessage();
+            $errorCode = $e->getCode();
+            $addedToMailChimp = false;
+        }
 
         return response()->json([
             "message" => "Thank You. Glad you could make it"

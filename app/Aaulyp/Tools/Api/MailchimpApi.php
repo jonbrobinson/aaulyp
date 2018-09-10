@@ -2,6 +2,7 @@
 
 namespace App\Aaulyp\Tools\Api;
 
+use App\Aaulyp\Models\AttendeeModel;
 use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
@@ -112,11 +113,9 @@ class MailchimpApi
      */
     public function updateMemberGeneralMailingList($member, $updateStatus = "subscribed", $newStatus = "subscribed")
     {
-        $validMember = $this->sanitizeMemberInfo($member);
+        $url = self::MAILCHIMP_BASE_URL."/lists/".self::MC_GENERAL_BODY_LIST_ID."/members/".md5($member["email"]);
 
-        $url = self::MAILCHIMP_BASE_URL."/lists/".self::MC_GENERAL_BODY_LIST_ID."/members/".md5($validMember["email"]);
-
-        $options = $this->buildMemberOptions($validMember, $updateStatus, $newStatus);
+        $options = $this->buildMemberOptions($member, $updateStatus, $newStatus);
 
         $response = $this->guzzle->request('PUT', $url, $options);
 
@@ -141,11 +140,9 @@ class MailchimpApi
      */
     public function addMemberToList($listId, $member, $newStatus = "unsubscribed", $updateStatus = null)
     {
-        $validMember = $this->sanitizeMemberInfo($member);
+        $url = self::MAILCHIMP_BASE_URL."/lists/".$listId."/members/".md5($member["email"]);
 
-        $url = self::MAILCHIMP_BASE_URL."/lists/".$listId."/members/".md5($validMember["email"]);
-
-        $options = $this->buildMemberOptions($validMember,$newStatus, $updateStatus);
+        $options = $this->buildMemberOptions($member,$newStatus, $updateStatus);
 
         $response = $this->guzzle->request('PUT', $url, $options);
 
@@ -158,27 +155,40 @@ class MailchimpApi
     }
 
     /**
-     * @param array $member
+     * Add member to list based on ID
      *
+     * @param int            $listId
+     * @param AttendeeModel  $attendee
+     * @param string         $updateStatus
+     * @param string         $newStatus
+     *
+     * @return Response
      * @throws \Exception
+     */
+    public function addAttendeeToList($listId, $attendee, $newStatus = "unsubscribed", $updateStatus = null)
+    {
+        $url = self::MAILCHIMP_BASE_URL."/lists/".$listId."/members/".md5($attendee->email);
+
+        $options = $this->buildAttendeeOptions($attendee,$newStatus, $updateStatus);
+
+        $response = $this->guzzle->request('PUT', $url, $options);
+
+        if ($response->getStatusCode() != 200) {
+
+            return false;
+        }
+
+        return $response->getBody()->getContents();
+    }
+
+
+    /**
+     * @param array $member
+     * @param string        $newStatus
+     * @param null          $updateStatus
      *
      * @return array
      */
-    protected function sanitizeMemberInfo($member)
-    {
-        if (!array_key_exists("email" , $member)){
-            throw new \Exception("Member Must have a valid email. Please verify member input");
-        }
-
-        foreach ($this->validMemberKeys as $key) {
-            if (!array_key_exists($key, $member)) {
-                $member[$key] = "";
-            }
-        }
-
-        return $member;
-    }
-
     protected function buildMemberOptions($member, $newStatus = "unsubscribed", $updateStatus = null)
     {
         $headers = [
@@ -195,6 +205,40 @@ class MailchimpApi
                 "merge_fields" => [
                     'FNAME' => $member["first_name"],
                     'LNAME' => $member["last_name"],
+                ],
+            ]
+        ];
+
+        if ($updateStatus) {
+            $options["json"]["status"] = $updateStatus;
+        }
+
+        return $options;
+    }
+
+    /**
+     * @param AttendeeModel $attendee
+     * @param string        $newStatus
+     * @param null          $updateStatus
+     *
+     * @return array
+     */
+    protected function buildAttendeeOptions($attendee, $newStatus = "unsubscribed", $updateStatus = null)
+    {
+        $headers = [
+            'aaulyp',
+            env('MAILCHIMP_TOKEN'),
+        ];
+
+        $options = [
+            'auth' => $headers,
+            'handler' => $this->stack,
+            'json' => [
+                "email_address" => $attendee->email,
+                "status_if_new" => $newStatus,
+                "merge_fields" => [
+                    'FNAME' => $attendee->firstName,
+                    'LNAME' => $attendee->lastName,
                 ],
             ]
         ];
