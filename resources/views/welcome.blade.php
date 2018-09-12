@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('head_meta')
+    <meta name="google-site-verification" content="fNXIWaw6DYIFqXsrnnpvSjYc-oWSOaKAUPPpZfT5cac" />
+@stop
+
 @section('content')
         <!-- WRAPPER -->
 <div class="wrapper">
