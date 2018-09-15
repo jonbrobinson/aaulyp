@@ -31,7 +31,7 @@
                     <img class="img-responsive" src="{{ asset("assets/img/aaulyp/slider_1920x500/slider1-h500-new_v2.png") }}" alt="Slider Image">
                     <div class="carousel-caption">
                         <h2 class="hero-heading">SUPPORT YOUR COMMUNITY</h2>
-                        <p class="lead">Together we build stronger neighborheads</p>
+                        <p class="lead">Together we build stronger neighborhoods</p>
                         <a href="{{ url('join') }}" class="btn btn-lg hero-button">JOIN NOW</a>
                     </div>
                 </div>

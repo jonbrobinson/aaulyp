@@ -26,7 +26,6 @@ class EventsBuilder
     public function getEventById($id)
     {
         $events = $this->getLatestContents();
-
         foreach ($events as $event) {
             if ($id == $event['id']) {
 
@@ -34,7 +33,7 @@ class EventsBuilder
             }
         }
 
-        return array();
+        return [];
     }
 
     /**
