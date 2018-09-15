@@ -87,12 +87,16 @@ class EventsController extends Controller
      */
     public function show($eventId)
     {
-        $strCount = strlen($eventId);
-        $id = str_limit($eventId, $strCount - 2, "");
+        $idLength = strlen($eventId) - 2;
+        $id = str_limit($eventId, $idLength, "");
 
         $event = $this->eventBuilder->getEventById($id);
 
         $event = json_decode(json_encode($event));
+
+        if(empty($event)){
+            abort(404, 'Could Not Find Event');
+        }
 
         $events = $this->eventBuilder->getCurrentEvents();
 
