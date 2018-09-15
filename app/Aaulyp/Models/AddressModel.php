@@ -47,7 +47,7 @@ class AddressModel
     /**
      * @var float
      */
-    public $latitiude;
+    public $latitude;
 
     /**
      * @var string

@@ -21,7 +21,7 @@ class AddressManager
         $Address->city = $builder->getAddressCity();
         $Address->state = $builder->getAddressState();
         $Address->zip = $builder->getAddressZip();
-        $Address->latitiude = $builder->getAddressLatitude();
+        $Address->latititude = $builder->getAddressLatitude();
         $Address->longitude = $builder->getAddressLongitude();
         $Address->formatted_address = $builder->getAddressFormattedAddress();
         $Address->name = $builder->getAddressName();

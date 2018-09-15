@@ -7,7 +7,6 @@ use App\Officer;
 use App\Position;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
-use PhpParser\Node\Expr\Cast\Object_;
 
 class AdminHelper
 {
@@ -19,12 +18,10 @@ class AdminHelper
     /**
      * AdminHelper constructor.
      *
-     * @param Toolbox          $toolbox
      * @param UploadCareHelper $uploadCareHelper
      */
-    public function __construct(Toolbox $toolbox, UploadCareHelper $uploadCareHelper)
+    public function __construct(UploadCareHelper $uploadCareHelper)
     {
-        $this->toolbox = $toolbox;
         $this->uploadCareHleper = $uploadCareHelper;
     }
 
@@ -128,7 +125,6 @@ class AdminHelper
 
         return [];
     }
-
 
     /**
      * @param string $token
@@ -299,7 +295,6 @@ class AdminHelper
         return Storage::put("yp/tokens/{$meta->token}.json", json_encode($meta));
     }
 
-
     /**
      * @param string $token
      *
@@ -323,6 +318,6 @@ class AdminHelper
      */
     protected function createAdminToken()
     {
-        return strtolower($this->toolbox->generateToken(self::ADMIN_TOKEN_LENGTH));
+        return strtolower(Toolbox::generateToken(self::ADMIN_TOKEN_LENGTH));
     }
 }
