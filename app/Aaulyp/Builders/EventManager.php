@@ -27,7 +27,7 @@ class EventManager
         $Event->ticket_url = $builder->getEventTicketUrl();
         $Event->platform_url = $builder->getEventPlatformUrl();
         $Event->platform = $builder->getEventPlatform();
-        $Event->event_meta = $builder->getEventMeta();
+        $Event->meta = $builder->getEventMeta();
 
 
         return $Event;

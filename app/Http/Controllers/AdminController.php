@@ -66,7 +66,7 @@ class AdminController extends Controller
                 ->withErrors($validator);
         }
 
-        if($validator->fails()) {
+        if($validator->fails() && env('APP_ENV') != 'local') {
             return view('pages.admin.tokenRequest');
         }
 
@@ -74,7 +74,15 @@ class AdminController extends Controller
 
         $jsonEvents = json_decode(json_encode($events));
 
-        return view('pages.admin.dashboard', ["tickets" => $jsonEvents]);
+        $positions = $this->adminHelper->getActivePositions();
+
+        $officers = $this->adminHelper->getActiveOfficers();
+
+        return view('pages.admin.dashboard', [
+            "events" => $jsonEvents,
+            "positions" => $positions,
+            "officers" => $officers
+        ]);
     }
 
     /**
@@ -136,7 +144,7 @@ class AdminController extends Controller
             }
         });
 
-        if ($validator->fails()) {
+        if ($validator->fails() && env('APP_ENV') != 'local') {
             return redirect('/admin')
                 ->withErrors($validator);
         }
