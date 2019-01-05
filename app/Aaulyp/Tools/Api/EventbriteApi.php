@@ -8,7 +8,7 @@ use App\Aaulyp\Models\EventModel;
 
 class EventbriteApi extends ApiBaseHelper
 {
-    const EVENTBRITE_YP_ID = 1877578689;
+    const EVENTBRITE_YP_ID = 17796672734;
     const EB_MEMBERSHIP_EVENT_ID = 42592772128;
 
     /**
