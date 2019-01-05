@@ -88,6 +88,14 @@ class PagesController extends Controller
     }
 
     /**
+     * @return Response
+     */
+    public function membership()
+    {
+        return view('pages.membership_redirect');
+    }
+
+    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response

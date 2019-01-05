@@ -22,7 +22,7 @@
                 <div class="col-md-12 row">
                     <div class="col-md-12 row">
                         <h1>
-                            Redirecting to AAULYP Membership Portal in <span id="countdown">5</span> seconds
+                            Redirecting to AAULYP Membership Portal in <span id="countdown">3</span> seconds
                         </h1>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
 <script type="text/javascript">
 
     window.onload = function(){
-        const url = 'https://www.joinit.org/o/austin-area-urban-league-young-professionals';
+        const url = 'https://www.joinit.org/o/austin-area-urban-league-young-professionals/members';
 
         function countdown(secs, redirect_url) {
             secs = secs - 1;

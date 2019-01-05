@@ -119,7 +119,7 @@
                                                 @endif
 
                                                 @if (!empty($event->venue->formatted_address) && !empty($event->venue->name))
-                                                    <p><i class="fa fa-map-marker"></i> {{ $event->venue->display}} <br> {{ $event->venue->name }}</p>
+                                                    <p><i class="fa fa-map-marker"></i> {{ $event->venue->name }} <br> {{ $event->venue->formatted_address }}</p>
                                                 @elseif(!empty($event->venue->formatted_address))
                                                     <p><i class="fa fa-map-marker"></i> {{ $event->venue->formatted_address }}</p>
                                                 @else
