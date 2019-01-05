@@ -107,9 +107,9 @@
                                     <a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}"><img src="{{ $event->cover_image }}" alt="" class="img-responsive"></a>
                                 </div>
                                     <h4 class="post-title"><a href="{{ url("/events/$event->id".str_limit($event->platform, 2, "")) }}">{{ $event->title }}</a></h4>
-                                    @if(!empty($event->time_start) && !empty($event->time_end))
+                                    @if(!empty($event->time_start) && !empty($event->time_end) && ($event->time_start != $event->time_end))
                                     <h5 class="text-muted">{{ date('M j, Y', intval($event->time_start)) }} | {{  date('g:iA', intval($event->time_start)) }} - {{  date('g:iA', intval($event->time_end)) }}</h5>
-                                    @elseif(!empty($event->time_start) && empty($event->time_end))
+                                    @elseif(!empty($event->time_start))
                                     <h5 class="text-muted">{{ date('M j, Y', intval($event->time_start)) }} | {{  date('g:iA', intval($event->time_start)) }}</h5>
                                     @endif
                                     <h5>{{ $event->venue->formarred_address or "" }}</h5>
