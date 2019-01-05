@@ -69,7 +69,7 @@ class HomeController extends Controller
         $response = Mail::send('pages.emails.contact', ['data' => $contact], function ($m) use ($contact) {
             $m->from($contact['email'], $contact['name']);
 
-            $m->to('pr.aaulyp@gmail.com');
+            $m->to('president.aaulyp@gmail.com');
             $m->subject('AAULYP CONTACT FORM | ' . $contact['subject']);
         });
 
