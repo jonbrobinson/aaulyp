@@ -6,7 +6,7 @@
     <div class="container">
         <h1 class="page-title pull-left">CONTACT US</h1>
         <ol class="breadcrumb">
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="{{ url('contact') }}">Contact</a></li>
             <li class="active">Contact Us</li>
         </ol>
     </div>
