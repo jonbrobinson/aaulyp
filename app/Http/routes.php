@@ -45,8 +45,7 @@ Route::post('/webhooks/eb/orders/placed/all', 'WebhookController@ebOrdersPlacedA
 Route::get('/admin/create', 'AdminController@leadershipCreate');
 
 //Route::get('/test', 'PagesController@test');
-
-
+Route::get('/membership', 'PagesController@membership');
 
 Route::get('/admin/edit', 'AdminController@editAdmin');
 

@@ -24,6 +24,7 @@ class AddressManager
         $Address->latititude = $builder->getAddressLatitude();
         $Address->longitude = $builder->getAddressLongitude();
         $Address->formatted_address = $builder->getAddressFormattedAddress();
+        $Address->name = $builder->getAddressName();
 
         return $Address;
     }

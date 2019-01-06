@@ -170,7 +170,7 @@ class EventsBuilder
         $ebEvents = [];
         $events = $this->getCurrentEvents();
         foreach($events as $event) {
-            if($event['platform'] == "eventbrite") {
+            if($event['platform'] == ApiConstants::EVENTBRITE) {
                 $ebEvents[] = $event;
             }
         }

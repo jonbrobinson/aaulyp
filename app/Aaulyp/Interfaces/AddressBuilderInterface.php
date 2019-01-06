@@ -13,4 +13,5 @@ interface AddressBuilderInterface
     public function getAddressLongitude();
     public function getAddressLatitude();
     public function getAddressFormattedAddress();
+    public function getAddressName();
 }

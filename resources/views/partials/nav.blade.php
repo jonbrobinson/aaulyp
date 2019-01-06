@@ -59,10 +59,11 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">GET INVOLVED <i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ url('/join') }}">Become A Member</a></li>
-                        <li class="dropdown ">
-                            <a href="{{ url('/committee/communication') }}">Join A Committee
+                        <li><a href="{{ url('/membership') }}">Membership Portal</a></li>
+                        {{--<li class="dropdown ">--}}
+                            {{--<a href="{{ url('/committee/communication') }}">Join A Committee--}}
                                 {{--<i class="fa fa-angle-right"></i>--}}
-                            </a>
+                            {{--</a>--}}
                             {{--<ul class="dropdown-menu" role="menu">--}}
                                 {{--<li><a href="{{ url('/committee/advocacy') }}">Advocacy</a></li>--}}
                                 {{--<li><a href="{{ url('/committee/community') }}">Community Outreach</a></li>--}}
@@ -71,7 +72,7 @@
                                 {{--<li><a href="{{ url('/committee/membership') }}">Membership/Social</a></li>--}}
                                 {{--<li><a href="{{ url('/committee/development') }}">Professional Development</a></li>--}}
                             {{--</ul>--}}
-                        </li>
+                        {{--</li>--}}
                     </ul>
                 </li>
                 {{--<li class="dropdown ">--}}
