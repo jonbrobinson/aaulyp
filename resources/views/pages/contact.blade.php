@@ -77,12 +77,12 @@
                         <li><i class="fa fa-li fa-phone"></i> (512) 478 - 7176</li>
                     </ul>
                 </div>
-                <div class="widget">
-                    <h3 class="widget-title">GETTING THERE</h3>
-                    <div class="google-map sidebar-map">
-                        <div id="custom-map-canvas"></div>
-                    </div>
-                </div>
+                {{--<div class="widget">--}}
+                    {{--<h3 class="widget-title">GETTING THERE</h3>--}}
+                    {{--<div class="google-map sidebar-map">--}}
+                        {{--<div id="custom-map-canvas"></div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
                 <div class="widget">
                     <h3 class="widget-title">BUSINESS HOURS</h3>
                     <ul class="list-unstyled">
