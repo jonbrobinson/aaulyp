@@ -141,8 +141,7 @@
                 <!-- END BLOG ENTRIES -->
             </div>
             <div class="col-md-3">
-                <a class="twitter-timeline" href="https://twitter.com/AAULYP" data-widget-id="731769931243495424">Tweets by @AAULYP</a>
-                <!-- END SIDEBAR -->
+                @include('partials.socialMediaTabs')
             </div>
         </div>
     </div>
