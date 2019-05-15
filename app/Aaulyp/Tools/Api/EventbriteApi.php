@@ -57,6 +57,10 @@ class EventbriteApi extends ApiBaseHelper
 
         $eventsArray = json_decode($events, true);
 
+        if (empty($eventsArray) || !array_key_exists('events', $eventsArray)) {
+            return [];
+        }
+
         $completedEvents = [];
 
         foreach ($eventsArray['events'] as $event) {

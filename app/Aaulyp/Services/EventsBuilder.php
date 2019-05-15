@@ -61,6 +61,7 @@ class EventsBuilder
     public function buildEventsFile()
     {
         $events = $this->requestEventsFromApis();
+
         $sorted = $this->buildSortEventsByTime($events);
         $valid = $this->sanitizeSortedEvents($sorted);
         $file = $this->buildSortedFile($valid);
