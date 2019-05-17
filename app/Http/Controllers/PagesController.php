@@ -73,11 +73,26 @@ class PagesController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     *
+     * @return Response
      */
-    public function join()
+    public function join(Request $request)
     {
+        $redirect = filter_var($request->get('rd'), FILTER_VALIDATE_BOOLEAN);
+
+        if($redirect) {
+            return view('pages.join_redirect');
+        }
         return view('pages.join');
+    }
+
+    /**
+     * @return Response
+     */
+    public function membership()
+    {
+        return view('pages.membership_redirect');
     }
 
     /**

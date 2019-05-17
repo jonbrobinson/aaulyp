@@ -8,6 +8,11 @@
 
 namespace App\Aaulyp\Builders\Address;
 
+/**
+ * Class GoogleAddressBuilder
+ *
+ * @package App\Aaulyp\Builders\Address
+ */
 class GoogleAddressBuilder extends AddressBuilder
 {
     public function __construct(array $addrData)
@@ -85,6 +90,11 @@ class GoogleAddressBuilder extends AddressBuilder
         $formattedAddress = $data["formatted_address"];
 
         return $formattedAddress;
+    }
+
+    public function getAddressName()
+    {
+        $data = $this->getAddrData();
     }
 
     protected function prepareData()

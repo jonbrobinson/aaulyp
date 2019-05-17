@@ -23,6 +23,15 @@
                         <p class="lead">Join a community that is empowering Austin and connecting young professionals around the Austin Area with same values and commitment to helping others.</p>
                         <p class="lead">Please contact Brook Campbell at <a href="mailto:membership.aaulyp@gmail.com">membership.aaulyp@gmail.com</a> for additional information.</p>
                     </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-12">
+                        <div class="ce">
+                            <a href="{{ url('join?rd=1') }}" class="btn btn-primary btn-lg btn-block">Click To Join</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <br>
                     <div class="col-md-6 row">
                         <div>
                             <h2 class="section-heading">Membership Benefits</h2>
@@ -95,12 +104,17 @@
                 </div>
 
             </section>
-            <div style="width:100%; text-align:left;">
-                <iframe src="https://eventbrite.com/tickets-external?eid=42592772128&ref=etckt" frameborder="0" height="530" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe><div style="font-family:Helvetica, Arial; font-size:12px; padding:10px 0 5px; margin:2px; width:100%; text-align:left;" ><a class="powered-by-eb" style="color: #ADB0B6; text-decoration: none;" target="_blank" href="https://www.eventbrite.com/">Powered by Eventbrite</a></div>
-            </div>
+            <section>
+
+            </section>
+
         </div>
     </div>
     @include('partials.footer')
 </div>
 <!-- END WRAPPER -->
+@stop
+
+@section('javascript')
+
 @stop

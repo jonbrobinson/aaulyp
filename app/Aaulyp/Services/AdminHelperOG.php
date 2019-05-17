@@ -3,10 +3,9 @@
 namespace App\Aaulyp\Services;
 
 use App\Aaulyp\Tools\Toolbox;
-use App\Officer;
-use App\Position;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Expr\Cast\Object_;
 
 class AdminHelper
 {
@@ -18,28 +17,13 @@ class AdminHelper
     /**
      * AdminHelper constructor.
      *
+     * @param Toolbox          $toolbox
      * @param UploadCareHelper $uploadCareHelper
      */
-    public function __construct(UploadCareHelper $uploadCareHelper)
+    public function __construct(Toolbox $toolbox, UploadCareHelper $uploadCareHelper)
     {
+        $this->toolbox = $toolbox;
         $this->uploadCareHleper = $uploadCareHelper;
-    }
-
-    public function getOfficers()
-    {
-        $officers = Officer::with('positions')->get();
-
-        return $officers;
-    }
-
-
-    public function getActiveOfficers()
-    {
-        $officers = Officer::with(['positions' => function($query){
-            $query->where('positions.active', '=', 1);
-        }])->get();
-
-        return $officers;
     }
 
     /**
@@ -48,19 +32,13 @@ class AdminHelper
      */
     public function getPositions()
     {
-        $positions = Position::with('officers')->get();
+        $positions = [];
+        $positionFiles = Storage::files('yp/positions');
+        foreach ($positionFiles as $file) {
+            $positions[] = json_decode(Storage::get($file));
+        }
 
         return $positions;
-    }
-
-    /**
-     * @return Position
-     */
-    public function getActivePositions()
-    {
-        $activePositions = Position::with('officers')->where('active', 1)->get();
-
-        return $activePositions;
     }
 
     /**
@@ -125,6 +103,7 @@ class AdminHelper
 
         return [];
     }
+
 
     /**
      * @param string $token
@@ -295,6 +274,7 @@ class AdminHelper
         return Storage::put("yp/tokens/{$meta->token}.json", json_encode($meta));
     }
 
+
     /**
      * @param string $token
      *
@@ -318,6 +298,6 @@ class AdminHelper
      */
     protected function createAdminToken()
     {
-        return strtolower(Toolbox::generateToken(self::ADMIN_TOKEN_LENGTH));
+        return strtolower($this->toolbox->generateToken(self::ADMIN_TOKEN_LENGTH));
     }
 }

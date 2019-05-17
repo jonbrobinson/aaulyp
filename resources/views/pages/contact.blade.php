@@ -6,7 +6,7 @@
     <div class="container">
         <h1 class="page-title pull-left">CONTACT US</h1>
         <ol class="breadcrumb">
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="{{ url('contact') }}">Contact</a></li>
             <li class="active">Contact Us</li>
         </ol>
     </div>
@@ -77,12 +77,12 @@
                         <li><i class="fa fa-li fa-phone"></i> (512) 478 - 7176</li>
                     </ul>
                 </div>
-                <div class="widget">
-                    <h3 class="widget-title">GETTING THERE</h3>
-                    <div class="google-map sidebar-map">
-                        <div id="custom-map-canvas"></div>
-                    </div>
-                </div>
+                {{--<div class="widget">--}}
+                    {{--<h3 class="widget-title">GETTING THERE</h3>--}}
+                    {{--<div class="google-map sidebar-map">--}}
+                        {{--<div id="custom-map-canvas"></div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
                 <div class="widget">
                     <h3 class="widget-title">BUSINESS HOURS</h3>
                     <ul class="list-unstyled">
