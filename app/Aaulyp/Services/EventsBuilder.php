@@ -70,8 +70,6 @@ class EventsBuilder
     }
 
     /**
-     * @param array $events
-     *
      * @return array
      */
     public function getCurrentEvents()

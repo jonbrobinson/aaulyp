@@ -62,12 +62,12 @@
                                                     <p><i class="fa fa-clock-o"></i>TBD</p>
                                                 @endif
 
-                                                @if ($pastEvent->venue->formatted_address && $pastEvent->venue->name)
+                                                @if (!empty($pastEvent->venue->formatted_address) && !empty($pastEvent->venue->name))
                                                     <p><i class="fa fa-map-marker"></i> {{ $pastEvent->venue->name }} <br> {{ $pastEvent->venue->formatted_address }}</p>
-                                                @elseif($pastEvent->venue->formatted_address)
+                                                @elseif(!empty($pastEvent->venue->formatted_address))
                                                     <p><i class="fa fa-map-marker"></i> {{ $pastEvent->venue->formatted_address }}</p>
                                                 @else
-                                                    <p><i class="fa fa-map-marker"></i> More Details To Come</p>
+                                                    <p><i class="fa fa-map-marker"></i></p>
                                                 @endif
                                                 <p class="read-more">
                                                     <a href="{{ url("/events/$pastEvent->id".str_limit($pastEvent->platform, 2, "")) }}" class="btn btn-primary">Read More <i class="fa fa-long-arrow-right"></i></a>
