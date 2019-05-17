@@ -50,6 +50,7 @@ class EventsController extends Controller
         $pastEvents = $this->eventBuilder->getPastEvents(5);
         $pastEvents = json_decode(json_encode($pastEvents));
 
+
         return view('pages.events.index', compact('events', 'pastEvents'));
     }
 
