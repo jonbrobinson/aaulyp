@@ -19,7 +19,9 @@
             <div class="col-md-9">
                 <!-- BLOG ENTRIES -->
                 <div class="blog medium-thumbnail margin-bottom-30px">
-                    @if(count($events) < 1)
+                    @if(count($events) < 1 && empty($pastEvents))
+                        <h1>We are planning some great opportunities. Come back soon to see some of the upcoming events</h1>
+                    @elseif(count($events) < 1 && !empty($pastEvents))
                         <h1>We are planning some great opportunities. Check out some of our past events we hosted</h1>
                         <!-- blog post -->
                         @foreach($pastEvents as $pastEvent)
