@@ -56,9 +56,9 @@
                         </div>
                         <br><br>
                         <h4>Where</h4>
-                        @if ($event->venue && $event->venue->formatted_address )
+                        @if (!empty($event->venue) && $event->venue->formatted_address )
                             <p id="map-address"><i class="fa fa-map-marker"></i> {{ $event->venue->name }} <br> {{ $event->venue->formatted_address }}</p>
-                        @elseif($event->venue->formatted_address)
+                        @elseif(!empty($event->venue) && $event->venue->formatted_address)
                             <p id="map-address"><i class="fa fa-map-marker"></i> {{ $event->venue->formatted_address }}</p>
                         @else
                             <p><i class="fa fa-map-marker"></i></p>
